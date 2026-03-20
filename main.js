@@ -24,17 +24,17 @@
             ads_faq_q1: "Cine deține contul de reclame?",
             ads_faq_q2: "Includeți și bugetul de media în preț?",
             ads_faq_title: "ÎNTREBĂRI FRECVENTE",
-            ads_google_desc: "Captăm clienții care caută deja activ serviciile tale. Cea mai mare rată de conversie, dar necesită o structură impecabilă a cuvintelor cheie negative pentru a nu risipi bugetul.",
-            ads_google_title: "02. GOOGLE ADS (INTENT)",
-            ads_intro: "Nu aducem doar \"click-uri\". Aducem clienți plătitori. Campanii setate pe obiective de conversie (Lead, Sale), urmărite prin tracking server-side.",
-            ads_meta_desc: "Ideal pentru a genera cerere (Demand Generation). Nu așteptăm clienții să caute, mergem noi peste ei cu oferta ta.",
-            ads_meta_point_1: "Segmentare audiențe (Lookalike, Retargeting)",
-            ads_meta_point_2: "Testare A/B constantă pe creative-uri",
-            ads_meta_point_3: "Copywriting persuasiv (unghiuri de marketing generate cu AI)",
-            ads_meta_title: "01. META ADS (FB & INSTAGRAM)",
+            ads_google_desc: "Captăm clienții care caută activ exact ce oferi tu. Cea mai mare rată de conversie — pentru că omul e deja pregătit să cumpere. Gestionăm structura campaniei ca să nu se irosească bugetul pe cuvinte irelevante.",
+            ads_google_title: "02. GOOGLE ADS",
+            ads_intro: "Nu aducem \"click-uri\" fără valoare. Aducem oameni care cumpără sau lasă datele lor. Campanii pe Facebook, Instagram și Google, urmărite corect ca să știi exact ce funcționează.",
+            ads_meta_desc: "Ideal pentru a găsi clienți noi înainte ca ei să te caute. Mergem noi cu oferta ta în fața oamenilor potriviți pe Facebook și Instagram.",
+            ads_meta_point_1: "Construim audiențe similare cu clienții tăi actuali",
+            ads_meta_point_2: "Testăm mai multe variante de reclamă constant",
+            ads_meta_point_3: "Scriem texte persuasive adaptate publicului tău",
+            ads_meta_title: "01. META ADS (FACEBOOK & INSTAGRAM)",
             ads_process_title: "CUM LUCRĂM <span class='text-brand'>ÎMPREUNĂ?</span>",
             ads_stack_title: "STACK TEHNOLOGIC:",
-            ads_step_1_desc: "Săptămâna 1. Primim acces la conturi, analizăm istoricul și setăm obiectivele KPI.",
+            ads_step_1_desc: "Săptămâna 1. Primim acces la conturi, analizăm istoricul și setăm obiectivele de performanță.",
             ads_step_1_title: "AUDIT & ONBOARDING",
             ads_step_2_desc: "Săptămâna 2. Creăm structura campaniilor, scriem textele și pregătim tracking-ul.",
             ads_step_2_title: "STRATEGIE & SETUP",
@@ -42,8 +42,8 @@
             ads_step_3_title: "LANSARE (GO LIVE)",
             ads_step_4_desc: "Lunar. Oprim ce pierde bani, scalăm ce aduce profit. Raportare la fiecare 30 de zile.",
             ads_step_4_title: "OPTIMIZARE & SCALE",
-            ads_title: "PERFORMANCE <span class='text-outline'>MARKETING</span>",
-            ads_tracking_desc: "Fără date, doar ghicim. Implementăm Google Tag Manager și CAPI (Conversion API) pentru a ști exact cât te costă un client, nu doar un click.",
+            ads_title: "RECLAME CARE <span class='text-outline'>ADUC CLIENȚI</span>",
+            ads_tracking_desc: "Fără date, doar ghicim. Configurăm sistemul de urmărire astfel încât să știi exact cât te costă un client nou, nu doar un click fără valoare. Raport clar în fiecare lună.",
             ads_tracking_title: "03. TRACKING & RAPORTARE",
             case_challenge_title: "PROVOCAREA",
             case_services_title: "SERVICII LIVRATE",
@@ -54,13 +54,13 @@
             contact_desc: "Scrie-ne pe email sau WhatsApp pentru o evaluare inițială. Dacă ne potrivim, revenim în 24h cu un plan clar.",
             contact_email_label: "EMAIL",
             contact_phone_label: "PHONE / WHATSAPP",
-            contact_step_2: "Te contactăm (Email/Telefon) pentru a stabili o scurtă discuție de cunoaștere (Discovery Call).",
+            contact_step_2: "Te contactăm (Email/Telefon) pentru un scurt apel de cunoaștere — ca să înțelegem exact ce ai nevoie.",
             contact_step_3: "Dacă ne potrivim, primești o ofertă și un plan de acțiune personalizat.",
-            contact_title: "LET'S TALK <span class=\"text-highlight\">NUMBERS.</span>",
+            contact_title: "HAI SĂ <span class=\"text-highlight\">DISCUTĂM.</span>",
             cta_btn: "Programează o discuție",
             cta_subtitle: "Spune-mi unde vrei să ajungi și îți trimit un plan clar în 24h.",
             cta_title: "Hai să-ți construim creșterea.",
-            faq_1_a: "Depinde de industrie și obiectiv. Ca regulă, ai nevoie de suficient buget încât algoritmii să iasă din \"learning\" și să putem optimiza. Dacă bugetul e foarte mic, lucrăm mai întâi la ofertă, landing și tracking, apoi scalăm.",
+            faq_1_a: "Depinde de industrie și obiectiv. Ca regulă, ai nevoie de suficient buget încât algoritmii să iasă din faza de învățare și să putem optimiza. Dacă bugetul e foarte mic, lucrăm mai întâi la ofertă, site și tracking, apoi scalăm.",
             faq_1_q: "CARE ESTE BUGETUL MINIM RECOMANDAT?",
             faq_2_a: "Primele semnale apar în 48–72h de la lansare, dar optimizarea reală se vede de obicei în 2–4 săptămâni, după ce strângem date relevante și eliminăm risipa.",
             faq_2_q: "ÎN CÂT TIMP APAR REZULTATELE?",
@@ -77,10 +77,10 @@
             footer_studio: "Studio",
             hero_btn_1: "ÎNCEPE PROIECTUL",
             hero_btn_2: "VEZI STUDII DE CAZ ->",
-            hero_desc: "Nu vânăm trenduri. Construim sisteme digitale care convertesc: ads + landing + tracking + optimizare. Un mix controlat de date, creativitate și execuție rapidă — ca să ai creștere predictibilă, nu \"noroc\".",
-            hero_h1_1: "PRECIZIE",
-            hero_h1_2: "PERFORMANȚĂ",
-            hero_h1_3: "MARKETING.",
+            hero_desc: "Ajutăm afacerile să obțină mai mulți clienți prin reclame online și site-uri optimizate pentru vânzare. Fără jargon, fără noroc — doar rezultate măsurabile.",
+            hero_h1_1: "RECLAME CARE",
+            hero_h1_2: "ADUC CLIENȚI.",
+            hero_h1_3: "SITE-URI CARE VÂND.",
             hero_location: "LOC: BRAȘOV",
             hero_poster_a_cta: "CLICK TO START",
             hero_poster_b_cta: "CLICK FOR DETAILS",
@@ -88,13 +88,15 @@
             hero_stat_1: "ROAS CURENT",
             hero_stat_2: "CAMPANII ACTIVE",
             hero_system_online: "SISTEM ONLINE",
-            hero_ticker: "/// STRATEGIE /// AUDIT /// IMPLEMENTARE /// SCALARE /// TRACKING /// CRO /// CREATIVE /// AUTOMATIZARE ///",
+            hero_ticker: "/// STRATEGIE /// AUDIT /// IMPLEMENTARE /// SCALARE /// TRACKING /// CONVERSII /// RECLAME /// AUTOMATIZARE ///",
             hero_ver: "AGENȚIE_VER_2.5",
             nav_about: "Despre",
+            nav_ads: "Reclame Online",
             nav_contact: "Contact",
             nav_home: "Acasă",
             nav_portfolio: "Portofoliu",
             nav_services: "Servicii",
+            nav_web: "Site-uri Web",
             notfound_cta: "RESTART SYSTEM ->",
             notfound_desc: "Pagina pe care o cauți a fost ștearsă, mutată sau nu a existat niciodată. Coordonate invalide.",
             notfound_title: "SYSTEM_FAILURE",
@@ -116,7 +118,7 @@
             res_stat_3_label: "Suport real – înainte și în timpul cursei",
             res_title: "BPD TRANSPORT: DRUMURI BINE ORGANIZATE, FĂRĂ STRES.",
             service_1_big: "STRATEGIE",
-            service_1_desc: "Nu începem cu \"ce credem\". Începem cu ce spun datele. Analizăm funnel-ul, tracking-ul și oferta, apoi construim un plan clar: ce testăm, de ce și în ce ordine.",
+            service_1_desc: "Nu ghicim. Analizăm ce funcționează și ce risipește bani în afacerea ta online, apoi construim un plan clar: ce facem, de ce și în ce ordine.",
             service_1_link: "CERE UN AUDIT ->",
             service_1_title: "AUDIT & STRATEGIE",
             service_2_big: "DESIGN",
@@ -124,9 +126,9 @@
             service_2_link: "VEZI PROCESUL WEB ->",
             service_2_title: "WEBSITE-URI CARE VÂND",
             service_3_big: "CREȘTERE",
-            service_3_desc: "Motorul de scalare. Campanii Meta, Google și TikTok, cu tracking corect și testare constantă pe unghiuri + creative. Optimizăm zilnic pentru profit, nu pentru vanity metrics.",
+            service_3_desc: "Campanii pe Facebook, Instagram, Google și TikTok, urmărite zilnic. Oprim ce pierde bani, scalăm ce aduce profit. Tu știi mereu cât te costă un client nou.",
             service_3_link: "VEZI STRATEGIA ADS ->",
-            service_3_title: "PERFORMANCE ADS",
+            service_3_title: "RECLAME ONLINE",
             services_title: "/// CAPABILITĂȚI DE BAZĂ",
             social_proof_sentence: "NOI CONSTRUIM SISTEME PENTRU <span class=\"brand-slot\"><span class=\"brand-text\">BRANDURI</span></span>",
             social_proof_top: "Din România, pentru branduri care vor creștere reală.",
@@ -135,7 +137,7 @@
             web_faq_a2: "Da. Scriem textele în funcție de publicul țintă și obiectivele de conversie, apoi le validăm cu tine.",
             web_faq_q2: "Realizați și copywritingul?",
             web_faq_title: "ÎNTREBĂRI FRECVENTE",
-            web_intro: "Un site nu este un tablou. Este un instrument de vânzare. Construim pagini rapide, optimizate pentru mobil și gândite să convertească vizitatorii în lead-uri.",
+            web_intro: "Un site nu e un tablou. E un angajat care lucrează 24/7 să transforme vizitatorii în clienți. Construim pagini rapide, clare și optimizate pentru mobil.",
             web_landing_desc: "O singură pagină, un singur obiectiv: să transforme vizitatorul în lead. Eliminăm meniurile complexe și distragerile. Structură psihologică: Hero -> Problemă -> Soluție -> Dovadă -> CTA.",
             web_landing_title: "01. LANDING PAGE",
             web_process_section_title: "CUM LUCRĂM <span class='text-brand'>ÎMPREUNĂ?</span>",
@@ -149,7 +151,7 @@
             web_site_desc: "Pentru afaceri care au nevoie de validare și autoritate în piață. Include pagini esențiale (Despre, Servicii, Portofoliu) și optimizare SEO On-Page de bază.",
             web_site_title: "02. SITE DE PREZENTARE",
             web_stack_title: "STACK:",
-            web_step_1_desc: "Săptămâna 1. Primim acces la conturi, analizăm istoricul și setăm obiectivele KPI.",
+            web_step_1_desc: "Săptămâna 1. Primim acces la conturi, analizăm istoricul și setăm obiectivele de performanță.",
             web_step_1_title: "AUDIT & ONBOARDING",
             web_step_2_desc: "Săptămâna 2. Definim arhitectura site-ului, scriem copy-ul și pregătim designul.",
             web_step_2_title: "STRATEGIE & SETUP",
@@ -157,7 +159,7 @@
             web_step_3_title: "BUILD & QA",
             web_step_4_desc: "Lansare controlată, monitorizare heatmaps/analytics și iterații în primele 30 de zile.",
             web_step_4_title: "GO LIVE & ITERAȚIE",
-            web_title: "WEB <span class='text-outline'>ENGINEERING</span>",
+            web_title: "SITE-URI CARE <span class='text-outline'>VÂND</span>",
         },
         en: {
             // ... (Păstrează traducerile tale din engleză aici)
@@ -333,11 +335,60 @@
         elements.forEach((el) => observer.observe(el));
     };
 
+    // CONVERSION TRACKING — propriul site
+    const setupConversionTracking = () => {
+        const safeGtag = (...args) => { if (typeof gtag === 'function') gtag(...args); };
+        const safeFbq = (...args) => { if (typeof fbq === 'function') fbq(...args); };
+
+        // 1. Formular contact — submit
+        document.querySelectorAll('form').forEach((form) => {
+            form.addEventListener('submit', () => {
+                safeGtag('event', 'generate_lead', { event_category: 'contact_form', event_label: 'form_submit' });
+                safeFbq('track', 'Lead');
+            });
+        });
+
+        // 2. Click WhatsApp (orice link wa.me)
+        document.querySelectorAll('a[href*="wa.me"]').forEach((el) => {
+            el.addEventListener('click', () => {
+                safeGtag('event', 'click_whatsapp', { event_category: 'contact_whatsapp' });
+                safeFbq('track', 'Contact');
+            });
+        });
+
+        // 3. Click telefon
+        document.querySelectorAll('a[href^="tel:"]').forEach((el) => {
+            el.addEventListener('click', () => {
+                safeGtag('event', 'click_phone', { event_category: 'contact_phone' });
+                safeFbq('track', 'Contact');
+            });
+        });
+
+        // 4. Click email
+        document.querySelectorAll('a[href^="mailto:"]').forEach((el) => {
+            el.addEventListener('click', () => {
+                safeGtag('event', 'click_email', { event_category: 'contact_email' });
+            });
+        });
+
+        // 5. Scroll 75% pe pagini servicii — semnal de interes
+        let scroll75Fired = false;
+        window.addEventListener('scroll', () => {
+            if (scroll75Fired) return;
+            const scrollPct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+            if (scrollPct >= 75) {
+                scroll75Fired = true;
+                safeGtag('event', 'scroll_depth_75', { event_category: 'engagement', event_label: window.location.pathname });
+            }
+        }, { passive: true });
+    };
+
     document.addEventListener('DOMContentLoaded', () => {
         setupMenu();
         setupLangSwitcher();
         setupCookieBanner();
         setupCursor();
         setupReveal();
+        setupConversionTracking();
     });
 })();

@@ -1,31 +1,188 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
-import { getPageCopy } from '../../utils/content';
+import { type Locale } from '../../utils/i18n';
 
-const locale = 'en' as const;
-const c = getPageCopy(locale, 'contact');
+const locale: Locale = 'en';
+
+const meta = {
+  title: 'Contact — Green Pheonix Concept | Brașov',
+  description: 'Talk to the Green Pheonix team. Book a free audit, request a custom quote or write us on WhatsApp. Reply within 24 business hours.',
+};
+
+const businessTypes = [
+  { value: '', label: 'Select industry' },
+  { value: 'medical', label: 'Medical & dental' },
+  { value: 'fitness', label: 'Fitness & wellness' },
+  { value: 'beauty', label: 'Beauty & aesthetics' },
+  { value: 'retail', label: 'Retail & fashion' },
+  { value: 'food', label: 'Food & HoReCa' },
+  { value: 'services', label: 'Services' },
+  { value: 'b2b', label: 'B2B' },
+  { value: 'real-estate', label: 'Real estate' },
+  { value: 'other', label: 'Other' },
+];
+
+const budgetTiers = [
+  { value: '', label: 'Select budget' },
+  { value: '<1000', label: 'Under EUR 1,000 / month' },
+  { value: '1000-3000', label: 'EUR 1,000 – 3,000 / month' },
+  { value: '3000-5000', label: 'EUR 3,000 – 5,000 / month' },
+  { value: '5000+', label: 'EUR 5,000+ / month' },
+];
+
+const interests = [
+  { value: 'ads', label: 'Online Ads' },
+  { value: 'web', label: 'Site / Landing Page' },
+  { value: 'strategy', label: 'Strategy & Funnel' },
+  { value: 'audit', label: 'Free audit' },
+];
 ---
 
-<BaseLayout title={c.meta.title} description={c.meta.description} locale={locale}>
-  <Hero title={c.hero.title} subtitle={c.hero.subtitle} />
-  <section class="mx-auto max-w-2xl px-6 py-16">
-    <form class="space-y-5 font-mono text-sm">
-      <label class="block">
-        <span class="text-phoenix-light/80">Name</span>
-        <input type="text" name="name" required class="mt-1 w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 text-phoenix-light focus:border-phoenix-green focus:outline-none" />
-      </label>
-      <label class="block">
-        <span class="text-phoenix-light/80">Email</span>
-        <input type="email" name="email" required class="mt-1 w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 text-phoenix-light focus:border-phoenix-green focus:outline-none" />
-      </label>
-      <label class="block">
-        <span class="text-phoenix-light/80">Message</span>
-        <textarea name="message" rows="5" required class="mt-1 w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 text-phoenix-light focus:border-phoenix-green focus:outline-none"></textarea>
-      </label>
-      <button type="submit" class="border border-phoenix-green px-6 py-3 text-phoenix-green transition-colors hover:bg-phoenix-green hover:text-phoenix-black">
-        {c.hero.ctaLabel}
-      </button>
-    </form>
+<BaseLayout title={meta.title} description={meta.description} locale={locale}>
+  <Hero
+    locale={locale}
+    variant="compact"
+    title="Let's talk."
+    subtitle="Book a free audit, request a custom quote or write us on WhatsApp. We reply within 24 business hours."
+  />
+
+  <section class="border-t border-phoenix-gray bg-phoenix-black">
+    <div class="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-12">
+      <aside class="space-y-8 lg:col-span-4">
+        <div class="border border-phoenix-gray bg-phoenix-gray/30 p-6">
+          <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// DIRECT CONTACT</p>
+          <ul class="mt-5 space-y-4 font-mono text-sm">
+            <li>
+              <p class="text-phoenix-light/60">Phone</p>
+              <a href="tel:+40793650902" class="mt-1 block font-display text-xl text-phoenix-light hover:text-phoenix-green">+40 793 650 902</a>
+            </li>
+            <li>
+              <p class="text-phoenix-light/60">Email</p>
+              <a href="mailto:contact@greenpheonixconcept.com" class="mt-1 block font-display text-base text-phoenix-light hover:text-phoenix-green">contact@greenpheonixconcept.com</a>
+            </li>
+            <li>
+              <p class="text-phoenix-light/60">Office</p>
+              <p class="mt-1 font-display text-base text-phoenix-light">Brașov, Romania</p>
+              <p class="text-xs text-phoenix-light/60">45.6579° N, 25.6012° E</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="border border-phoenix-gray bg-phoenix-gray/30 p-6">
+          <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// HOURS</p>
+          <ul class="mt-5 space-y-2 font-mono text-sm text-phoenix-light/80">
+            <li class="flex justify-between"><span>Monday – Friday</span><span class="text-phoenix-green">09:00 – 18:00</span></li>
+            <li class="flex justify-between"><span>Saturday – Sunday</span><span class="text-phoenix-light/60">Closed</span></li>
+          </ul>
+          <p class="mt-4 font-mono text-xs text-phoenix-light/60">
+            Messages received outside business hours are answered the next business day, by 12:00.
+          </p>
+        </div>
+
+        <a
+          href="https://wa.me/40793650902?text=Hi!%20I%27d%20like%20to%20discuss%20a%20possible%20collaboration."
+          target="_blank"
+          rel="noopener"
+          class="flex items-center justify-between gap-3 border border-phoenix-green bg-phoenix-green/10 px-6 py-4 font-mono text-sm uppercase tracking-widest text-phoenix-green shadow-[0_0_18px_rgba(0,255,148,0.25)] transition-all hover:bg-phoenix-green hover:text-phoenix-black hover:shadow-[0_0_28px_rgba(0,255,148,0.55)]"
+        >
+          <span>Message us on WhatsApp</span>
+          <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor" aria-hidden="true">
+            <path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1l-.9 1.2c-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4-.1-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5 1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.4z"/>
+          </svg>
+        </a>
+      </aside>
+
+      <div class="lg:col-span-8">
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6 border border-phoenix-gray bg-phoenix-gray/20 p-6 md:p-8">
+          <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// QUOTE REQUEST</p>
+          <h2 class="font-display text-2xl text-phoenix-light md:text-3xl">Tell us about the project</h2>
+
+          <div class="grid gap-5 md:grid-cols-2">
+            <label class="block">
+              <span class="mb-1 block font-mono text-xs uppercase tracking-widest text-phoenix-light/70">
+                Name <span class="text-phoenix-green">*</span>
+              </span>
+              <input type="text" name="name" required autocomplete="name" class="w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 font-mono text-sm text-phoenix-light placeholder-phoenix-light/40 transition-colors focus:border-phoenix-green focus:outline-none" placeholder="e.g. John Smith" />
+            </label>
+
+            <label class="block">
+              <span class="mb-1 block font-mono text-xs uppercase tracking-widest text-phoenix-light/70">
+                Email <span class="text-phoenix-green">*</span>
+              </span>
+              <input type="email" name="email" required autocomplete="email" class="w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 font-mono text-sm text-phoenix-light placeholder-phoenix-light/40 transition-colors focus:border-phoenix-green focus:outline-none" placeholder="john@company.com" />
+            </label>
+
+            <label class="block">
+              <span class="mb-1 block font-mono text-xs uppercase tracking-widest text-phoenix-light/70">Phone</span>
+              <input type="tel" name="phone" autocomplete="tel" class="w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 font-mono text-sm text-phoenix-light placeholder-phoenix-light/40 transition-colors focus:border-phoenix-green focus:outline-none" placeholder="+40 7XX XXX XXX" />
+            </label>
+
+            <label class="block">
+              <span class="mb-1 block font-mono text-xs uppercase tracking-widest text-phoenix-light/70">Business type</span>
+              <select name="business_type" class="w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 font-mono text-sm text-phoenix-light transition-colors focus:border-phoenix-green focus:outline-none">
+                {businessTypes.map((b) => (<option value={b.value}>{b.label}</option>))}
+              </select>
+            </label>
+
+            <label class="block md:col-span-2">
+              <span class="mb-1 block font-mono text-xs uppercase tracking-widest text-phoenix-light/70">Estimated monthly budget</span>
+              <select name="budget" class="w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 font-mono text-sm text-phoenix-light transition-colors focus:border-phoenix-green focus:outline-none">
+                {budgetTiers.map((b) => (<option value={b.value}>{b.label}</option>))}
+              </select>
+            </label>
+          </div>
+
+          <fieldset class="border border-phoenix-gray bg-phoenix-black/40 p-5">
+            <legend class="px-2 font-mono text-xs uppercase tracking-widest text-phoenix-light/70">What you're interested in</legend>
+            <div class="grid gap-3 sm:grid-cols-2">
+              {interests.map((it) => (
+                <label class="flex cursor-pointer items-center gap-3 border border-phoenix-gray/60 bg-phoenix-gray/30 px-4 py-3 font-mono text-sm text-phoenix-light transition-colors hover:border-phoenix-green has-[:checked]:border-phoenix-green has-[:checked]:bg-phoenix-green/10">
+                  <input type="checkbox" name="interests" value={it.value} class="h-4 w-4 accent-phoenix-green" />
+                  <span>{it.label}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <label class="block">
+            <span class="mb-1 block font-mono text-xs uppercase tracking-widest text-phoenix-light/70">Message</span>
+            <textarea name="message" rows="5" class="w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 font-mono text-sm text-phoenix-light placeholder-phoenix-light/40 transition-colors focus:border-phoenix-green focus:outline-none" placeholder="Tell us about goals, current situation, or any useful context."></textarea>
+          </label>
+
+          <label class="flex cursor-pointer items-start gap-3 border border-phoenix-gray bg-phoenix-black/40 p-4 font-mono text-xs leading-relaxed text-phoenix-light/80">
+            <input type="checkbox" name="gdpr_consent" required class="mt-1 h-4 w-4 flex-none accent-phoenix-green" />
+            <span>
+              I agree with the processing of my personal data per the
+              <a href="/en/politica" class="text-phoenix-green underline-offset-2 hover:underline">privacy policy</a>.
+              Your data isn't shared with third parties and can be erased at any time.
+            </span>
+          </label>
+
+          <button type="submit" class="group inline-flex w-full items-center justify-center gap-3 border border-phoenix-green bg-phoenix-green/10 px-8 py-4 font-mono text-sm uppercase tracking-[0.25em] text-phoenix-green shadow-[0_0_22px_rgba(0,255,148,0.25)] transition-all hover:bg-phoenix-green hover:text-phoenix-black hover:shadow-[0_0_36px_rgba(0,255,148,0.55)] md:w-auto">
+            Send message
+            <span class="transition-transform group-hover:translate-x-1">→</span>
+          </button>
+
+          <p class="font-mono text-[11px] text-phoenix-light/50">* Required fields. We reply within 24 business hours.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-phoenix-gray bg-phoenix-gray/10">
+    <div class="mx-auto max-w-7xl px-6 py-16">
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// LOCATION</p>
+      <h2 class="mt-3 font-display text-3xl text-phoenix-light md:text-4xl">Brașov, Romania</h2>
+      <div class="mt-8 aspect-[16/7] w-full overflow-hidden border border-phoenix-gray">
+        <iframe
+          title="Brașov map"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=25.5712%2C45.6310%2C25.6313%2C45.6850&layer=mapnik&marker=45.6579%2C25.6012"
+          loading="lazy"
+          class="h-full w-full grayscale invert"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
   </section>
 </BaseLayout>

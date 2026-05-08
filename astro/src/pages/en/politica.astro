@@ -1,20 +1,146 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
-import { getPageCopy } from '../../utils/content';
+import { type Locale } from '../../utils/i18n';
 
-const locale = 'en' as const;
-const c = getPageCopy(locale, 'politica');
+const locale: Locale = 'en';
+
+const meta = {
+  title: 'Privacy Policy — Green Pheonix Concept',
+  description: 'Privacy policy of Green Pheonix Concept S.R.L. Data controller per GDPR. Details on collected data, cookies and your rights.',
+};
+
+const lastUpdated = '2026-05-08';
 ---
 
-<BaseLayout title={c.meta.title} description={c.meta.description} locale={locale}>
-  <Hero title={c.hero.title} subtitle={c.hero.subtitle} />
-  <article class="mx-auto max-w-3xl space-y-6 px-6 py-16 font-mono text-sm leading-relaxed text-phoenix-light/80">
-    <h2 class="font-display text-2xl text-phoenix-light">1. Data we collect</h2>
-    <p>We only collect what's needed to respond to your requests: name, email, message content.</p>
-    <h2 class="font-display text-2xl text-phoenix-light">2. Cookies</h2>
-    <p>We use analytics (GA4) and marketing cookies to improve experience. You can manage preferences anytime.</p>
-    <h2 class="font-display text-2xl text-phoenix-light">3. Your rights</h2>
-    <p>You have rights to access, rectification, deletion and portability under GDPR. Contact us for any request.</p>
+<BaseLayout title={meta.title} description={meta.description} locale={locale}>
+  <Hero
+    locale={locale}
+    variant="compact"
+    title="Privacy Policy"
+    subtitle="How we collect, use and protect your data, in accordance with Regulation (EU) 2016/679 (GDPR)."
+  />
+
+  <article class="mx-auto max-w-3xl px-6 py-16 font-mono text-sm leading-relaxed text-phoenix-light/85">
+    <p class="mb-10 border border-phoenix-gray bg-phoenix-gray/30 px-4 py-3 text-xs uppercase tracking-widest text-phoenix-light/60">
+      Last updated: <span class="text-phoenix-green">{lastUpdated}</span>
+    </p>
+
+    <h2 class="font-display text-2xl text-phoenix-light md:text-3xl">1. Data controller</h2>
+    <p class="mt-4">The controller of personal data collected through this site is:</p>
+    <ul class="mt-3 space-y-1">
+      <li><strong class="text-phoenix-light">Legal name:</strong> GREEN PHEONIX CONCEPT S.R.L.</li>
+      <li><strong class="text-phoenix-light">VAT:</strong> 45667331</li>
+      <li><strong class="text-phoenix-light">Office:</strong> Brașov, Romania</li>
+      <li><strong class="text-phoenix-light">Contact email:</strong> contact@greenpheonixconcept.com</li>
+      <li><strong class="text-phoenix-light">Phone:</strong> +40 793 650 902</li>
+    </ul>
+
+    <h2 class="mt-12 font-display text-2xl text-phoenix-light md:text-3xl">2. Data we collect</h2>
+    <p class="mt-4">We collect the following categories of personal data:</p>
+    <ul class="mt-3 list-inside list-disc space-y-1 text-phoenix-light/80">
+      <li>name and surname — when you fill the contact form;</li>
+      <li>email address — for communication and quoting;</li>
+      <li>phone number — optional, for direct contact;</li>
+      <li>business type, monthly budget and services of interest — for qualifying the request;</li>
+      <li>content of the message sent through the form;</li>
+      <li>IP address, user-agent, server logs — for security and debugging;</li>
+      <li>cookies and tracking identifiers — see section 6.</li>
+    </ul>
+
+    <h2 class="mt-12 font-display text-2xl text-phoenix-light md:text-3xl">3. Purposes of processing</h2>
+    <p class="mt-4">We process your data for the following purposes:</p>
+    <ul class="mt-3 list-inside list-disc space-y-1 text-phoenix-light/80">
+      <li>responding to requests and quoting services — basis: contract performance or pre-contractual steps (art. 6(1)(b) GDPR);</li>
+      <li>commercial communication and customer relationship — basis: legitimate interest or your consent (art. 6(1)(a) and (f) GDPR);</li>
+      <li>web analytics and site optimization — basis: explicit consent via cookie banner;</li>
+      <li>legal obligations (invoicing, accounting) — basis: legal obligation (art. 6(1)(c) GDPR).</li>
+    </ul>
+
+    <h2 class="mt-12 font-display text-2xl text-phoenix-light md:text-3xl">4. Retention</h2>
+    <p class="mt-4">
+      Contact data and messages are kept for a maximum of 36 months from the last interaction, unless the ongoing contract or legal obligations require a longer period (5-10 years for fiscal and contractual documents). Server logs are rotated at 90 days.
+    </p>
+
+    <h2 class="mt-12 font-display text-2xl text-phoenix-light md:text-3xl">5. Recipients</h2>
+    <p class="mt-4">
+      We don't sell or share personal data with third parties for marketing purposes. They may be accessed, under strict contractual confidentiality, by:
+    </p>
+    <ul class="mt-3 list-inside list-disc space-y-1 text-phoenix-light/80">
+      <li>hosting and CDN providers (Vercel / Cloudflare) — strictly for site delivery;</li>
+      <li>transactional email providers (Formspree / Resend) — for form delivery;</li>
+      <li>analytics services (Google Analytics 4, Meta Pixel) — only if you accept cookies;</li>
+      <li>accounting and authorities, when required by law.</li>
+    </ul>
+
+    <h2 class="mt-12 font-display text-2xl text-phoenix-light md:text-3xl">6. Cookies & tracking</h2>
+    <p class="mt-4">We use the following tracking technologies:</p>
+    <div class="mt-3 overflow-x-auto border border-phoenix-gray">
+      <table class="w-full text-left">
+        <thead class="bg-phoenix-gray/40">
+          <tr class="font-mono text-xs uppercase tracking-widest text-phoenix-cyan">
+            <th class="px-4 py-3">Cookie / service</th>
+            <th class="px-4 py-3">Purpose</th>
+            <th class="px-4 py-3">Duration</th>
+          </tr>
+        </thead>
+        <tbody class="text-phoenix-light/80">
+          <tr class="border-t border-phoenix-gray">
+            <td class="px-4 py-3"><strong class="text-phoenix-light">Google Analytics 4</strong></td>
+            <td class="px-4 py-3">Anonymized traffic statistics</td>
+            <td class="px-4 py-3">14 months</td>
+          </tr>
+          <tr class="border-t border-phoenix-gray">
+            <td class="px-4 py-3"><strong class="text-phoenix-light">Meta Pixel</strong></td>
+            <td class="px-4 py-3">Conversion attribution from Meta ads</td>
+            <td class="px-4 py-3">90 days</td>
+          </tr>
+          <tr class="border-t border-phoenix-gray">
+            <td class="px-4 py-3"><strong class="text-phoenix-light">consent</strong></td>
+            <td class="px-4 py-3">Storing cookie preferences</td>
+            <td class="px-4 py-3">12 months</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-4">
+      All analytics and marketing cookies require explicit consent through Consent Mode v2. You can revoke consent any time from your browser settings or from the cookie banner.
+    </p>
+
+    <h2 class="mt-12 font-display text-2xl text-phoenix-light md:text-3xl">7. Your GDPR rights</h2>
+    <p class="mt-4">Per GDPR you have the following rights:</p>
+    <ul class="mt-3 list-inside list-disc space-y-1 text-phoenix-light/80">
+      <li><strong class="text-phoenix-light">Access</strong> — a copy of the data we hold about you;</li>
+      <li><strong class="text-phoenix-light">Rectification</strong> — correction of inaccurate or incomplete data;</li>
+      <li><strong class="text-phoenix-light">Erasure</strong> ("right to be forgotten") — under applicable legal conditions;</li>
+      <li><strong class="text-phoenix-light">Restriction</strong> of processing;</li>
+      <li><strong class="text-phoenix-light">Portability</strong> — receiving your data in a structured format;</li>
+      <li><strong class="text-phoenix-light">Objection</strong> to processing based on legitimate interest;</li>
+      <li><strong class="text-phoenix-light">Withdrawal of consent</strong> — at any time, without retroactive effect.</li>
+    </ul>
+    <p class="mt-4">
+      To exercise any of these rights, write to
+      <a href="mailto:contact@greenpheonixconcept.com" class="text-phoenix-green hover:underline">contact@greenpheonixconcept.com</a>.
+      We respond within 30 calendar days max.
+    </p>
+
+    <h2 class="mt-12 font-display text-2xl text-phoenix-light md:text-3xl">8. Complaints</h2>
+    <p class="mt-4">
+      If you believe processing your data violates the law, you may file a complaint with the
+      <a href="https://www.dataprotection.ro/" target="_blank" rel="noopener" class="text-phoenix-green hover:underline">Romanian Data Protection Authority (ANSPDCP)</a>
+      or with
+      <a href="https://anpc.ro/" target="_blank" rel="noopener" class="text-phoenix-green hover:underline">ANPC</a>
+      for consumer protection issues.
+    </p>
+
+    <h2 class="mt-12 font-display text-2xl text-phoenix-light md:text-3xl">9. Security</h2>
+    <p class="mt-4">
+      We apply reasonable technical and organizational measures: HTTPS across the site, restricted access to client data, passwords managed through specialized managers, encrypted backups. No system is 100% impenetrable — any security incident will be notified per art. 33-34 GDPR.
+    </p>
+
+    <h2 class="mt-12 font-display text-2xl text-phoenix-light md:text-3xl">10. Changes</h2>
+    <p class="mt-4">
+      This policy may be updated periodically. The current version is always available at this address, with the last-updated date marked at the top of the page.
+    </p>
   </article>
 </BaseLayout>

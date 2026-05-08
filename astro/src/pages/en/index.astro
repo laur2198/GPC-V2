@@ -7,21 +7,28 @@ import HowWeWork from '../../components/HowWeWork.astro';
 import FAQ from '../../components/FAQ.astro';
 import CTA from '../../components/CTA.astro';
 import Testimonial from '../../components/Testimonial.astro';
+import CaseStudyCard from '../../components/CaseStudyCard.astro';
+import { getCollection } from 'astro:content';
 import { type Locale, t, localizedPath } from '../../utils/i18n';
 import { getPageCopy } from '../../utils/content';
 
 const locale: Locale = 'en';
 const meta = getPageCopy(locale, 'home').meta;
 
-interface ServiceItem {
+interface HomeServiceItem {
   number: string;
   title: string;
   description: string;
   ctaText: string;
   accentTag: string;
+  link: string;
 }
-const services = t<{ header: string; subheader: string; items: ServiceItem[] }>(locale, 'services');
+const homeServices = t<{ header: string; subheader: string; items: HomeServiceItem[] }>(locale, 'homeServices');
+
+const cs = t<{ header: string; subheader: string; viewAll: string }>(locale, 'caseStudies');
+
 const faq = t<{ header: string; items: { question: string; answer: string }[] }>(locale, 'faq');
+
 const finalCta = t<{ heading: string; subtext: string; buttonText: string }>(locale, 'finalCta');
 
 interface TestimonialItem {
@@ -32,6 +39,11 @@ interface TestimonialItem {
   rating: number;
 }
 const testimonials = t<{ header: string; items: TestimonialItem[] }>(locale, 'testimonials');
+
+const aboutTeaser = t<{ header: string; title: string; description: string; ctaText: string }>(locale, 'aboutTeaser');
+
+const allCs = await getCollection('caseStudies', ({ data }) => data.language === locale);
+const previewCs = allCs.slice(0, 3);
 ---
 
 <BaseLayout title={meta.title} description={meta.description} locale={locale} faqSchema={faq.items}>
@@ -40,15 +52,15 @@ const testimonials = t<{ header: string; items: TestimonialItem[] }>(locale, 'te
 
   <section class="border-t border-phoenix-gray bg-phoenix-black">
     <div class="mx-auto max-w-7xl px-6 py-20">
-      <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">{services.header}</p>
-      <h2 class="mt-3 max-w-2xl font-display text-3xl text-phoenix-light md:text-4xl">{services.subheader}</h2>
-      <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {services.items.map((s) => (
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">{homeServices.header}</p>
+      <h2 class="mt-3 max-w-2xl font-display text-3xl text-phoenix-light md:text-4xl">{homeServices.subheader}</h2>
+      <div class="mt-12 grid gap-6 md:grid-cols-3">
+        {homeServices.items.map((s) => (
           <ServiceCard
             number={s.number}
             title={s.title}
             description={s.description}
-            link={localizedPath(locale, '/servicii-ads')}
+            link={localizedPath(locale, s.link)}
             ctaText={s.ctaText}
             accentTag={s.accentTag}
           />
@@ -59,11 +71,59 @@ const testimonials = t<{ header: string; items: TestimonialItem[] }>(locale, 'te
 
   <HowWeWork locale={locale} />
 
+  {previewCs.length > 0 && (
+    <section class="border-t border-phoenix-gray bg-phoenix-black">
+      <div class="mx-auto max-w-7xl px-6 py-20">
+        <div class="flex items-end justify-between gap-6">
+          <div>
+            <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">{cs.header}</p>
+            <h2 class="mt-3 max-w-2xl font-display text-3xl text-phoenix-light md:text-4xl">{cs.subheader}</h2>
+          </div>
+          <a
+            href={localizedPath(locale, '/portofoliu')}
+            class="hidden font-mono text-xs uppercase tracking-widest text-phoenix-light/70 hover:text-phoenix-green md:inline-flex"
+          >
+            {cs.viewAll} →
+          </a>
+        </div>
+        <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {previewCs.map((entry) => {
+            const r = entry.data.results;
+            const kpis: [{ label: string; value: string }, { label: string; value: string }, { label: string; value: string }] = [
+              r[0] ? { label: r[0].metric, value: r[0].value } : { label: 'Duration', value: entry.data.duration },
+              r[1] ? { label: r[1].metric, value: r[1].value } : { label: 'Services', value: String(entry.data.services.length) },
+              r[2] ? { label: r[2].metric, value: r[2].value } : { label: 'Industry', value: entry.data.industry },
+            ];
+            const summary = entry.data.anonymized
+              ? `${entry.data.industry} · ${entry.data.duration}`
+              : `${entry.data.client} · ${entry.data.duration}`;
+            return (
+              <CaseStudyCard
+                title={entry.data.title}
+                industry={entry.data.industry}
+                image={entry.data.heroImage}
+                summary={summary}
+                link={localizedPath(locale, `/portofoliu/${entry.slug}`)}
+                kpis={kpis}
+              />
+            );
+          })}
+        </div>
+        <a
+          href={localizedPath(locale, '/portofoliu')}
+          class="mt-10 inline-flex font-mono text-xs uppercase tracking-widest text-phoenix-light/70 hover:text-phoenix-green md:hidden"
+        >
+          {cs.viewAll} →
+        </a>
+      </div>
+    </section>
+  )}
+
   {testimonials.items.length > 0 && (
     <section class="border-t border-phoenix-gray bg-phoenix-black">
       <div class="mx-auto max-w-4xl px-6 py-20">
         <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">{testimonials.header}</p>
-        <div class="mt-10 space-y-6">
+        <div class="mt-10 space-y-8">
           {testimonials.items.map((tm) => (
             <Testimonial quote={tm.quote} author={tm.author} role={tm.role} company={tm.company} rating={tm.rating} />
           ))}
@@ -71,6 +131,20 @@ const testimonials = t<{ header: string; items: TestimonialItem[] }>(locale, 'te
       </div>
     </section>
   )}
+
+  <section class="border-t border-phoenix-gray bg-phoenix-black">
+    <div class="mx-auto max-w-4xl px-6 py-16">
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">{aboutTeaser.header}</p>
+      <h2 class="mt-3 font-display text-3xl text-phoenix-light md:text-4xl">{aboutTeaser.title}</h2>
+      <p class="mt-5 max-w-2xl font-mono text-base leading-relaxed text-phoenix-light/80">{aboutTeaser.description}</p>
+      <a
+        href={localizedPath(locale, '/despre')}
+        class="mt-6 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-phoenix-green hover:underline"
+      >
+        {aboutTeaser.ctaText} →
+      </a>
+    </div>
+  </section>
 
   <FAQ items={faq.items} title={faq.header} schema={false} />
 

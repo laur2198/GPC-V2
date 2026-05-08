@@ -2,38 +2,219 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
+import HowWeWork from '../../components/HowWeWork.astro';
+import FAQ from '../../components/FAQ.astro';
 import CTA from '../../components/CTA.astro';
-import { getPageCopy } from '../../utils/content';
-import { localizedPath } from '../../utils/i18n';
+import { type Locale, localizedPath } from '../../utils/i18n';
 
-const locale = 'en' as const;
-const c = getPageCopy(locale, 'servicii-web');
+const locale: Locale = 'en';
 
-const services = [
-  { number: '01', title: 'Marketing websites', description: 'Astro/Next + CMS, 100/100 Lighthouse performance.', accentTag: 'CORPORATE', ctaText: 'See package' },
-  { number: '02', title: 'Landing pages', description: 'Conversion-focused pages for ad campaigns.', accentTag: 'CONVERSION', ctaText: 'See package' },
-  { number: '03', title: 'E-commerce', description: 'Shopify and WooCommerce, optimized.', accentTag: 'SHOP', ctaText: 'See package' },
-  { number: '04', title: 'Technical SEO', description: 'Core Web Vitals, schema, sitemap, indexation.', accentTag: 'SEO', ctaText: 'See package' },
-  { number: '05', title: 'CRO', description: 'A/B testing, heatmaps, funnel optimization.', accentTag: 'CRO', ctaText: 'See package' },
-  { number: '06', title: 'Maintenance', description: 'Ongoing updates, security and backups.', accentTag: 'OPS', ctaText: 'See package' },
+const meta = {
+  title: 'Web Services — Sites & Landing Pages that convert | Green Pheonix',
+  description:
+    'Sites and landing pages built on Astro, WordPress or Shopify. 95+ Lighthouse performance, technical SEO, CRO and server-side GA4 tracking. Free audit.',
+};
+
+const sections = [
+  { number: '01', title: 'Landing Pages', accentTag: 'CONVERSION', description: 'Conversion pages built around a single offer, optimized on Core Web Vitals and A/B testing.', ctaText: 'Landing details', link: '#landing-detail' },
+  { number: '02', title: 'Full websites', accentTag: 'CORPORATE', description: 'Marketing, blog and portfolio sites on Astro / Next or WordPress headless, with SEO-friendly structure.', ctaText: 'Site details', link: '#site-detail' },
+  { number: '03', title: 'CRO optimization', accentTag: 'CRO', description: 'A/B testing on existing pages, heatmaps, session replay, hypotheses and weekly funnel iterations.', ctaText: 'CRO details', link: '#cro-detail' },
+  { number: '04', title: 'Tracking & Analytics', accentTag: 'DATA', description: 'GA4, GTM, server-side conversions, Looker Studio dashboards and Consent Mode v2 done right.', ctaText: 'Tracking details', link: '#tracking-detail' },
+];
+
+const stack = ['Astro', 'Next.js', 'WordPress', 'Shopify', 'Tailwind CSS', 'Sanity / Storyblok', 'Vercel / Netlify', 'Cloudflare'];
+
+const pricing = [
+  { tag: 'LANDING', title: 'One page, one offer', price: 'from EUR 1,200', bullets: ['Design + dev', 'Mobile-first', 'GA4 + tag manager', 'Delivery in 2 weeks'] },
+  { tag: 'SITE', title: 'Marketing 5-10 pages', price: 'from EUR 3,500', bullets: ['Design + dev', 'CMS for editing', 'Technical SEO', 'Full tracking'] },
+  { tag: 'E-COMMERCE', title: 'Shop Shopify / Woo', price: 'from EUR 5,500', bullets: ['Custom theme', 'Payment integration', 'Email + retargeting', 'Server-side tracking'] },
+];
+
+const faqItems = [
+  { question: 'How long does building a site take?', answer: 'Landing page: 2 weeks. Marketing site 5-10 pages: 4-6 weeks. E-commerce: 6-10 weeks. The main variables are copy approval timelines and availability of photos / videos.' },
+  { question: 'Which platform do you recommend?', answer: 'Depends on the goal. For speed + SEO + landing: Astro or Next. For a blog edited by non-technical teams: WordPress headless. For DTC e-commerce: Shopify. Recommendation comes from the goals audit, not the other way around.' },
+  { question: 'Does the site include SEO?', answer: 'Technical SEO is included by default: schema, sitemap, canonical, robots, Core Web Vitals, URL structure. Content SEO (articles, on-page optimization) is a separate project and gets a separate quote.' },
+  { question: 'What is CRO optimization?', answer: 'Conversion Rate Optimization means increasing the percentage of visitors taking the desired action (buy, fill a form). We work with heatmaps, session replay (Hotjar / Microsoft Clarity), documented hypotheses and A/B testing.' },
+  { question: 'Do you offer maintenance after launch?', answer: 'Yes. Separate maintenance package: updates, security, backups, uptime monitoring, small monthly interventions. From EUR 200 / month.' },
 ];
 ---
 
-<BaseLayout title={c.meta.title} description={c.meta.description} locale={locale}>
-  <Hero locale={locale} variant="compact" title={c.hero.title} subtitle={c.hero.subtitle} ctaLabel={c.hero.ctaLabel} ctaHref={localizedPath(locale, '/contact')} />
-  <section class="mx-auto max-w-7xl px-6 py-20">
-    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {services.map((s) => (
-        <ServiceCard
-          number={s.number}
-          title={s.title}
-          description={s.description}
-          link={localizedPath(locale, '/contact')}
-          ctaText={s.ctaText}
-          accentTag={s.accentTag}
-        />
-      ))}
+<BaseLayout title={meta.title} description={meta.description} locale={locale} faqSchema={faqItems}>
+  <Hero
+    locale={locale}
+    variant="compact"
+    title="Fast websites, optimized to sell."
+    subtitle="Landing pages and full sites built for performance and conversion. Modern stack, technical SEO and proper tracking by default. Free audit on your existing site."
+    ctaLabel="Request a free web audit"
+    ctaHref={localizedPath(locale, '/contact')}
+  />
+
+  <section class="border-t border-phoenix-gray bg-phoenix-black">
+    <div class="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <p class="sticky top-28 font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// WHAT WE DO</p>
+      </div>
+      <div class="space-y-6 font-mono text-base leading-relaxed text-phoenix-light/85 lg:col-span-8">
+        <h2 class="font-display text-3xl text-phoenix-light md:text-4xl">
+          Sites for <span class="glow-green">business</span>, not for ego.
+        </h2>
+        <p>
+          We build sites that do one thing well: deliver business results. No animations for the showreel, no parallax effects taking 8 seconds to load, no 50MB hero videos. Performance, clarity, conversion.
+        </p>
+        <p>
+          The stack depends on the goal. For landing pages and marketing sites we choose Astro — it generates static HTML, zero JS by default, 95+ Lighthouse without effort. For blogs and content edited by teams, we recommend WordPress headless or a CMS (Sanity, Storyblok). For DTC e-commerce, Shopify is the default.
+        </p>
+        <p>
+          Whatever the stack, the fundamentals stay: semantic structure, clean technical SEO, server-side tracking from day 1, Core Web Vitals in the green, mobile-first design and a reusable design system. Everything we ship comes with documentation and full access — no dependency lock-in.
+        </p>
+        <p>
+          The process is clear: 1) audit & strategy (1 week), 2) wireframes & UX (1-2 weeks), 3) visual design (1-2 weeks), 4) dev & integration (2-6 weeks), 5) QA + launch (1 week), 6) post-launch optimization. Every stage delivers a tangible result you approve before we move on.
+        </p>
+        <p>
+          After launch we run tracking, dashboards and continuous CRO. A site isn't a "build & forget" project — it's an asset that needs to be maintained, measured and optimized.
+        </p>
+      </div>
     </div>
   </section>
-  <CTA title="Ready for a new website?" description="We'll discuss your goals and deliver a custom project." ctaLabel="Start a project" ctaHref={localizedPath(locale, '/contact')} />
+
+  <section class="border-t border-phoenix-gray bg-phoenix-gray/10">
+    <div class="mx-auto max-w-7xl px-6 py-20">
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// MODULES</p>
+      <h2 class="mt-3 max-w-2xl font-display text-3xl text-phoenix-light md:text-4xl">Four directions, one process</h2>
+      <div class="mt-12 grid gap-6 md:grid-cols-2">
+        {sections.map((s) => (
+          <ServiceCard number={s.number} title={s.title} description={s.description} link={localizedPath(locale, '/contact')} ctaText={s.ctaText} accentTag={s.accentTag} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="landing-detail" class="border-t border-phoenix-gray bg-phoenix-black">
+    <div class="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <span class="inline-block border border-phoenix-cyan/40 bg-phoenix-cyan/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-phoenix-cyan">LANDING PAGES</span>
+        <h3 class="mt-4 font-display text-2xl text-phoenix-light md:text-3xl">One offer, one page, one decision</h3>
+      </div>
+      <div class="space-y-4 font-mono text-sm leading-relaxed text-phoenix-light/80 lg:col-span-8">
+        <p>
+          Our landing pages are not mini-sites. They're built around a single offer and a single CTA. Every line of copy, image and module exists to push the visitor closer to conversion.
+        </p>
+        <p>
+          Default stack: Astro for static HTML + zero JavaScript on public pages, Tailwind for the design system, form connected to HubSpot / Mailchimp / a custom webhook, GA4 with custom events.
+        </p>
+        <p>
+          We work with copywriters when needed, but core copy we keep in-house — it's tied directly to the funnel strategy and isn't something to delegate without context.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="site-detail" class="border-t border-phoenix-gray bg-phoenix-gray/10">
+    <div class="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <span class="inline-block border border-phoenix-cyan/40 bg-phoenix-cyan/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-phoenix-cyan">FULL SITES</span>
+        <h3 class="mt-4 font-display text-2xl text-phoenix-light md:text-3xl">Marketing & corporate sites</h3>
+      </div>
+      <div class="space-y-4 font-mono text-sm leading-relaxed text-phoenix-light/80 lg:col-span-8">
+        <p>
+          For 5-15 page marketing sites, we choose a stack that balances speed with editing ease: Astro + headless Sanity, WordPress with an optimized custom theme, or Next + Storyblok for more complex cases.
+        </p>
+        <p>
+          Every site includes: SEO-friendly structure with schema markup, automatic sitemap, dynamic OG tags, correct robots.txt, 301 redirects from the old site, Looker Studio tracking dashboard.
+        </p>
+        <p>
+          For multilingual content (RO/EN/IT), we use a CMS with native support and automatic hreflang. Not poorly configured plugins that destroy SEO.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="cro-detail" class="border-t border-phoenix-gray bg-phoenix-black">
+    <div class="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <span class="inline-block border border-phoenix-cyan/40 bg-phoenix-cyan/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-phoenix-cyan">CRO</span>
+        <h3 class="mt-4 font-display text-2xl text-phoenix-light md:text-3xl">Conversion Rate Optimization</h3>
+      </div>
+      <div class="space-y-4 font-mono text-sm leading-relaxed text-phoenix-light/80 lg:col-span-8">
+        <p>
+          On existing sites with traffic, the first effective effort isn't more budget — it's CRO. A 1% lift in conversion rate translates directly into 10-30% more clients without an extra euro on ads.
+        </p>
+        <p>
+          The process: install heatmaps + session replay (Hotjar or free Microsoft Clarity), audit friction points, prioritize hypotheses (by estimated impact and effort), A/B testing with Convert or VWO, weekly reporting on statistical significance, not on vibe.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tracking-detail" class="border-t border-phoenix-gray bg-phoenix-gray/10">
+    <div class="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <span class="inline-block border border-phoenix-cyan/40 bg-phoenix-cyan/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-phoenix-cyan">TRACKING</span>
+        <h3 class="mt-4 font-display text-2xl text-phoenix-light md:text-3xl">GA4, GTM, server-side conversions</h3>
+      </div>
+      <div class="space-y-4 font-mono text-sm leading-relaxed text-phoenix-light/80 lg:col-span-8">
+        <p>
+          Correct tracking is the foundation of every marketing decision. We implement GA4 with custom events (not just pageview), GTM with a clean data layer, GDPR-compliant Consent Mode v2, server-side conversions through Meta CAPI and Google Enhanced Conversions.
+        </p>
+        <p>
+          For e-commerce, we integrate full Enhanced Ecommerce with the real funnel (view item → add to cart → begin checkout → purchase) and attribute channels with the data-driven model.
+        </p>
+        <p>
+          We deliver all dashboards in Looker Studio, with shareable access for your team and a clear KPI scheme.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-phoenix-gray bg-phoenix-black">
+    <div class="mx-auto max-w-7xl px-6 py-20">
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// STACK</p>
+      <h2 class="mt-3 max-w-2xl font-display text-3xl text-phoenix-light md:text-4xl">Tech we work with daily</h2>
+      <ul class="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {stack.map((s) => (
+          <li class="border border-phoenix-gray bg-phoenix-gray/30 px-4 py-3 font-mono text-sm uppercase tracking-wider text-phoenix-light/80 transition-colors hover:border-phoenix-green hover:text-phoenix-green">
+            <span class="mr-2 text-phoenix-green">›</span>{s}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="border-t border-phoenix-gray bg-phoenix-gray/10">
+    <div class="mx-auto max-w-7xl px-6 py-20">
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// PRICING</p>
+      <h2 class="mt-3 max-w-2xl font-display text-3xl text-phoenix-light md:text-4xl">Starting packages</h2>
+      <p class="mt-4 max-w-2xl font-mono text-sm leading-relaxed text-phoenix-light/70">
+        The prices below are the starting point. The final quote depends on the number of pages, integrations (CRM, payment, ERP) and the volume of content.
+      </p>
+      <div class="mt-12 grid gap-6 md:grid-cols-3">
+        {pricing.map((p, i) => (
+          <article class:list={['flex flex-col border bg-phoenix-gray/30 p-6', i === 1 ? 'border-phoenix-green shadow-[0_0_28px_rgba(0,255,148,0.18)]' : 'border-phoenix-gray']}>
+            <span class="inline-block self-start border border-phoenix-cyan/40 bg-phoenix-cyan/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-phoenix-cyan">{p.tag}</span>
+            <h3 class="mt-5 font-display text-xl text-phoenix-light">{p.title}</h3>
+            <p class="mt-3 font-display text-2xl glow-green">{p.price}</p>
+            <ul class="mt-6 flex-1 space-y-2 font-mono text-sm text-phoenix-light/80">
+              {p.bullets.map((b) => (
+                <li class="flex gap-2"><span class="text-phoenix-green">✓</span><span>{b}</span></li>
+              ))}
+            </ul>
+            <a href={localizedPath(locale, '/contact')} class="mt-8 inline-flex items-center justify-center border border-phoenix-green px-4 py-3 font-mono text-xs uppercase tracking-widest text-phoenix-green transition-colors hover:bg-phoenix-green hover:text-phoenix-black">
+              Get a quote
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork locale={locale} />
+
+  <FAQ items={faqItems} title="FREQUENTLY ASKED — WEB" schema={false} />
+
+  <CTA
+    heading="Want a free audit on your site?"
+    subtext="We check Core Web Vitals, technical SEO, tracking, UX and friction points. You leave with a concrete report and 3-5 priority actions."
+    buttonText="Book a free audit"
+    buttonLink={localizedPath(locale, '/contact')}
+  />
 </BaseLayout>

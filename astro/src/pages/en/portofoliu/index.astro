@@ -2,41 +2,96 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Hero from '../../../components/Hero.astro';
 import CaseStudyCard from '../../../components/CaseStudyCard.astro';
+import CTA from '../../../components/CTA.astro';
 import { getCollection } from 'astro:content';
-import { getPageCopy } from '../../../utils/content';
-import { localizedPath } from '../../../utils/i18n';
+import { type Locale, localizedPath } from '../../../utils/i18n';
 
-const locale = 'en' as const;
-const c = getPageCopy(locale, 'portofoliu');
-const all = await getCollection('caseStudies', ({ data }) => data.language === locale);
+const locale: Locale = 'en';
+
+const meta = {
+  title: 'Portfolio — Case Studies | Green Pheonix Concept',
+  description:
+    'Real projects, measured results. Case studies from transport, medical, e-commerce and B2B — performance marketing and websites built on data.',
+};
+
+const all = (await getCollection('caseStudies', ({ data }) => data.language === locale))
+  .sort((a, b) => (a.data.title > b.data.title ? 1 : -1));
+
+const industries = Array.from(new Set(all.map((cs) => cs.data.industry))).sort();
 ---
 
-<BaseLayout title={c.meta.title} description={c.meta.description} locale={locale}>
-  <Hero title={c.hero.title} subtitle={c.hero.subtitle} />
-  <section class="mx-auto max-w-6xl px-6 py-16">
-    {all.length === 0 ? (
-      <p class="text-center font-mono text-phoenix-light/60">Case studies coming soon.</p>
-    ) : (
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {all.map((cs) => {
-          const r = cs.data.results;
-          const kpis: [{ label: string; value: string }, { label: string; value: string }, { label: string; value: string }] = [
-            r[0] ? { label: r[0].metric, value: r[0].value } : { label: 'Duration', value: cs.data.duration },
-            r[1] ? { label: r[1].metric, value: r[1].value } : { label: 'Services', value: String(cs.data.services.length) },
-            r[2] ? { label: r[2].metric, value: r[2].value } : { label: 'Industry', value: cs.data.industry },
-          ];
-          return (
-            <CaseStudyCard
-              title={cs.data.title}
-              industry={cs.data.industry}
-              image={cs.data.heroImage}
-              summary={cs.data.client}
-              link={localizedPath(locale, `/portofoliu/${cs.slug}`)}
-              kpis={kpis}
-            />
-          );
-        })}
-      </div>
-    )}
+<BaseLayout title={meta.title} description={meta.description} locale={locale}>
+  <Hero
+    locale={locale}
+    variant="compact"
+    title="Our work."
+    subtitle="Real results for real clients. All numbers are measured with first-party data, not platform screenshots."
+  />
+
+  <section class="border-t border-phoenix-gray bg-phoenix-black">
+    <div class="mx-auto max-w-7xl px-6 py-16">
+      {industries.length > 1 && (
+        <div class="flex flex-wrap items-center gap-3" role="group" aria-label="Industry filter">
+          <span class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// FILTER</span>
+          <button type="button" data-filter="all" class="border border-phoenix-green bg-phoenix-green/10 px-3 py-1.5 font-mono text-xs uppercase tracking-widest text-phoenix-green" aria-pressed="true">All</button>
+          {industries.map((ind) => (
+            <button type="button" data-filter={ind} class="border border-phoenix-gray bg-phoenix-gray/30 px-3 py-1.5 font-mono text-xs uppercase tracking-widest text-phoenix-light/80 transition-colors hover:border-phoenix-green hover:text-phoenix-green" aria-pressed="false">{ind}</button>
+          ))}
+        </div>
+      )}
+
+      {all.length === 0 ? (
+        <p class="py-12 text-center font-mono text-phoenix-light/60">Case studies coming soon.</p>
+      ) : (
+        <div id="cs-grid" class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {all.map((cs) => {
+            const r = cs.data.results;
+            const kpis: [{ label: string; value: string }, { label: string; value: string }, { label: string; value: string }] = [
+              r[0] ? { label: r[0].metric, value: r[0].value } : { label: 'Duration', value: cs.data.duration },
+              r[1] ? { label: r[1].metric, value: r[1].value } : { label: 'Services', value: String(cs.data.services.length) },
+              r[2] ? { label: r[2].metric, value: r[2].value } : { label: 'Industry', value: cs.data.industry },
+            ];
+            const summary = cs.data.anonymized ? `${cs.data.industry} · ${cs.data.duration}` : `${cs.data.client} · ${cs.data.duration}`;
+            return (
+              <div data-industry={cs.data.industry}>
+                <CaseStudyCard title={cs.data.title} industry={cs.data.industry} image={cs.data.heroImage} summary={summary} link={localizedPath(locale, `/portofoliu/${cs.slug}`)} kpis={kpis} />
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
   </section>
+
+  <CTA
+    heading="Want to be the next case study?"
+    subtext="Book a free audit and let's see if we can deliver similar results in your industry."
+    buttonText="Book audit"
+    buttonLink={localizedPath(locale, '/contact')}
+  />
 </BaseLayout>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+  const cards = document.querySelectorAll<HTMLElement>('#cs-grid > [data-industry]');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.filter ?? 'all';
+      buttons.forEach((b) => {
+        const active = b === btn;
+        b.setAttribute('aria-pressed', String(active));
+        b.classList.toggle('border-phoenix-green', active);
+        b.classList.toggle('bg-phoenix-green/10', active);
+        b.classList.toggle('text-phoenix-green', active);
+        b.classList.toggle('border-phoenix-gray', !active);
+        b.classList.toggle('bg-phoenix-gray/30', !active);
+        b.classList.toggle('text-phoenix-light/80', !active);
+      });
+      cards.forEach((card) => {
+        const ind = card.dataset.industry ?? '';
+        card.style.display = target === 'all' || ind === target ? '' : 'none';
+      });
+    });
+  });
+</script>

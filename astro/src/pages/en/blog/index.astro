@@ -2,34 +2,93 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Hero from '../../../components/Hero.astro';
 import BlogCard from '../../../components/BlogCard.astro';
+import CTA from '../../../components/CTA.astro';
 import { getCollection } from 'astro:content';
-import { getPageCopy } from '../../../utils/content';
-import { localizedPath } from '../../../utils/i18n';
+import { type Locale, localizedPath } from '../../../utils/i18n';
 
-const locale = 'en' as const;
-const c = getPageCopy(locale, 'blog');
+const locale: Locale = 'en';
+
+const meta = {
+  title: 'Blog — Performance marketing & web | Green Pheonix',
+  description:
+    'Pragmatic articles on Google Ads, Meta, TikTok, GA4, Core Web Vitals and CRO. No jargon, no opinions — just what works.',
+};
+
 const posts = (await getCollection('blog', ({ data }) => data.language === locale))
   .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
+
+const categories = Array.from(new Set(posts.map((p) => p.data.category))).sort();
 ---
 
-<BaseLayout title={c.meta.title} description={c.meta.description} locale={locale}>
-  <Hero title={c.hero.title} subtitle={c.hero.subtitle} />
-  <section class="mx-auto max-w-6xl px-6 py-16">
-    {posts.length === 0 ? (
-      <p class="text-center font-mono text-phoenix-light/60">Articles coming soon.</p>
-    ) : (
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {posts.map((p) => (
-          <BlogCard
-            title={p.data.title}
-            description={p.data.description}
-            publishDate={p.data.publishDate}
-            category={p.data.category}
-            heroImage={p.data.heroImage}
-            href={localizedPath(locale, `/blog/${p.slug}`)}
-          />
-        ))}
-      </div>
-    )}
+<BaseLayout title={meta.title} description={meta.description} locale={locale}>
+  <Hero
+    locale={locale}
+    variant="compact"
+    title="Blog."
+    subtitle="Insights and guides on performance marketing, web and analytics. Everything we publish here is tested in market, not synthesized from other articles."
+  />
+
+  <section class="border-t border-phoenix-gray bg-phoenix-black">
+    <div class="mx-auto max-w-7xl px-6 py-16">
+      {categories.length > 1 && (
+        <div class="flex flex-wrap items-center gap-3" role="group" aria-label="Category filter">
+          <span class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// FILTER</span>
+          <button type="button" data-filter="all" class="border border-phoenix-green bg-phoenix-green/10 px-3 py-1.5 font-mono text-xs uppercase tracking-widest text-phoenix-green" aria-pressed="true">All</button>
+          {categories.map((cat) => (
+            <button type="button" data-filter={cat} class="border border-phoenix-gray bg-phoenix-gray/30 px-3 py-1.5 font-mono text-xs uppercase tracking-widest text-phoenix-light/80 transition-colors hover:border-phoenix-green hover:text-phoenix-green" aria-pressed="false">{cat}</button>
+          ))}
+        </div>
+      )}
+
+      {posts.length === 0 ? (
+        <p class="py-12 text-center font-mono text-phoenix-light/60">Articles coming soon.</p>
+      ) : (
+        <div id="blog-grid" class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {posts.map((p) => (
+            <div data-category={p.data.category}>
+              <BlogCard
+                title={p.data.title}
+                description={p.data.description}
+                publishDate={p.data.publishDate}
+                category={p.data.category}
+                heroImage={p.data.heroImage}
+                href={localizedPath(locale, `/blog/${p.slug}`)}
+              />
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
   </section>
+
+  <CTA
+    heading="Want to discuss your project?"
+    subtext="We apply the same principles from these articles on real projects. Book a free audit."
+    buttonText="Book audit"
+    buttonLink={localizedPath(locale, '/contact')}
+  />
 </BaseLayout>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+  const cards = document.querySelectorAll<HTMLElement>('#blog-grid > [data-category]');
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.filter ?? 'all';
+      buttons.forEach((b) => {
+        const active = b === btn;
+        b.setAttribute('aria-pressed', String(active));
+        b.classList.toggle('border-phoenix-green', active);
+        b.classList.toggle('bg-phoenix-green/10', active);
+        b.classList.toggle('text-phoenix-green', active);
+        b.classList.toggle('border-phoenix-gray', !active);
+        b.classList.toggle('bg-phoenix-gray/30', !active);
+        b.classList.toggle('text-phoenix-light/80', !active);
+      });
+      cards.forEach((card) => {
+        const cat = card.dataset.category ?? '';
+        card.style.display = target === 'all' || cat === target ? '' : 'none';
+      });
+    });
+  });
+</script>

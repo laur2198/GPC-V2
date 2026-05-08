@@ -51,7 +51,7 @@ const description = entry.data.anonymized
 
         {entry.data.heroImage && (
           <div class="mt-10 overflow-hidden border border-phoenix-gray">
-            <img src={entry.data.heroImage} alt={entry.data.title} loading="lazy" class="aspect-[16/8] w-full object-cover" />
+            <img src={entry.data.heroImage} alt={entry.data.title} loading="eager" fetchpriority="high" class="aspect-[16/8] w-full object-cover" />
           </div>
         )}
       </div>

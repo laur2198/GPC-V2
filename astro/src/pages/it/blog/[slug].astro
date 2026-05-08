@@ -70,6 +70,7 @@ const shareTargets = [
   description={entry.data.description}
   locale="it"
   image={entry.data.heroImage}
+  ogType="article"
 >
   <article>
     <header class="relative overflow-hidden border-b border-phoenix-gray bg-phoenix-black">
@@ -105,7 +106,7 @@ const shareTargets = [
     {entry.data.heroImage && (
       <div class="border-b border-phoenix-gray bg-phoenix-black">
         <div class="mx-auto max-w-4xl px-6 py-10">
-          <img src={entry.data.heroImage} alt={entry.data.title} class="aspect-[16/8] w-full border border-phoenix-gray object-cover" loading="eager" />
+          <img src={entry.data.heroImage} alt={entry.data.title} class="aspect-[16/8] w-full border border-phoenix-gray object-cover" loading="eager" fetchpriority="high" />
         </div>
       </div>
     )}

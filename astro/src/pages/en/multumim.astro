@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { localizedPath } from '../../utils/i18n';
+
+const meta = {
+  title: 'Thank you! | Green Pheonix Concept',
+  description: 'Your message has been sent. We will contact you within 24 business hours.',
+};
+---
+
+<BaseLayout title={meta.title} description={meta.description} locale="en" noindex hideCookieBanner>
+  <section class="relative min-h-[60vh] border-b border-phoenix-gray bg-phoenix-black">
+    <div class="scanline pointer-events-none absolute inset-0" aria-hidden="true"></div>
+    <div class="relative mx-auto max-w-3xl px-6 py-24 text-center">
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// TRANSMISSION_OK</p>
+      <h1 class="mt-4 font-display text-4xl leading-tight md:text-6xl">
+        <span class="glow-green">Thank you!</span>
+      </h1>
+      <p class="mx-auto mt-6 max-w-xl font-mono text-base leading-relaxed text-phoenix-light/85 md:text-lg">
+        Your message has been sent. We'll get back to you within <span class="text-phoenix-green">24 business hours</span>, usually much faster.
+      </p>
+      <p class="mx-auto mt-3 max-w-xl font-mono text-sm text-phoenix-light/60">
+        If you'd like to chat right now, we're also on WhatsApp.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <a
+          href={localizedPath('en', '/')}
+          class="border border-phoenix-green bg-phoenix-green/10 px-6 py-3 font-mono text-sm uppercase tracking-widest text-phoenix-green transition-colors hover:bg-phoenix-green hover:text-phoenix-black"
+        >
+          Back to home →
+        </a>
+        <a
+          href="https://wa.me/40793650902"
+          target="_blank"
+          rel="noopener"
+          class="border border-phoenix-light/40 px-6 py-3 font-mono text-sm uppercase tracking-widest text-phoenix-light transition-colors hover:border-phoenix-cyan hover:text-phoenix-cyan"
+        >
+          Message us on WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

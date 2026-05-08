@@ -90,6 +90,7 @@ const shareTargets = [
   description={entry.data.description}
   locale="ro"
   image={entry.data.heroImage}
+  ogType="article"
 >
   <article>
     <!-- Hero -->
@@ -133,6 +134,7 @@ const shareTargets = [
             alt={entry.data.title}
             class="aspect-[16/8] w-full border border-phoenix-gray object-cover"
             loading="eager"
+            fetchpriority="high"
           />
         </div>
       </div>

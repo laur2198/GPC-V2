@@ -186,5 +186,19 @@
     "viewCase": "Vedi case study",
     "contactUs": "Contattaci",
     "whatsapp": "Scrivici su WhatsApp"
+  },
+  "cookies": {
+    "title": "// COOKIE & CONSENSO",
+    "body": "Usiamo cookie per analytics e per migliorare la tua esperienza. Quelli essenziali sono attivi di default; quelli analitici e di marketing richiedono il tuo consenso.",
+    "policyLink": "Leggi l'informativa sulla privacy",
+    "acceptAll": "Accetta tutto",
+    "essentialOnly": "Solo essenziali",
+    "customize": "Personalizza",
+    "save": "Salva",
+    "categories": {
+      "essential": "Essenziali (sempre attivi)",
+      "analytics": "Analytics (GA4, Clarity)",
+      "marketing": "Marketing (Meta Pixel)"
+    }
   }
 }

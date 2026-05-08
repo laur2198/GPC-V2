@@ -38,6 +38,7 @@ const { title, industry, image, summary, link, kpis } = Astro.props;
         src={image}
         alt={title}
         loading="lazy"
+        decoding="async"
         class="h-full w-full object-cover opacity-90 transition-transform duration-500 group-hover:scale-105"
       />
     ) : (

@@ -186,5 +186,19 @@
     "viewCase": "Vezi studiul de caz",
     "contactUs": "Contactează-ne",
     "whatsapp": "Scrie-ne pe WhatsApp"
+  },
+  "cookies": {
+    "title": "// COOKIES & CONSIMȚĂMÂNT",
+    "body": "Folosim cookies pentru analiză și optimizarea experienței. Cele esențiale rulează by default; cele analitice și de marketing necesită acordul tău.",
+    "policyLink": "Detalii în politica de confidențialitate",
+    "acceptAll": "Acceptă tot",
+    "essentialOnly": "Doar necesare",
+    "customize": "Personalizează",
+    "save": "Salvează",
+    "categories": {
+      "essential": "Esențiale (mereu active)",
+      "analytics": "Analitice (GA4, Clarity)",
+      "marketing": "Marketing (Meta Pixel)"
+    }
   }
 }

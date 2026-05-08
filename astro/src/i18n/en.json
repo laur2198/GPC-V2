@@ -186,5 +186,19 @@
     "viewCase": "View case study",
     "contactUs": "Contact us",
     "whatsapp": "Message us on WhatsApp"
+  },
+  "cookies": {
+    "title": "// COOKIES & CONSENT",
+    "body": "We use cookies for analytics and to improve your experience. Essentials run by default; analytics and marketing cookies need your consent.",
+    "policyLink": "Read the privacy policy",
+    "acceptAll": "Accept all",
+    "essentialOnly": "Essentials only",
+    "customize": "Customize",
+    "save": "Save",
+    "categories": {
+      "essential": "Essential (always on)",
+      "analytics": "Analytics (GA4, Clarity)",
+      "marketing": "Marketing (Meta Pixel)"
+    }
   }
 }

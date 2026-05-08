@@ -101,11 +101,22 @@ const interests = [
 
       <!-- Form -->
       <div class="lg:col-span-8">
+        {/*
+          INSTRUCTIONS — Formspree:
+          Înlocuiește [FORM_ID_PLACEHOLDER] din `action` cu ID-ul real generat
+          pe https://formspree.io după ce Laurențiu creează formularul. Restul
+          (honeypot _gotcha, _next, _subject, _language) este deja configurat.
+        */}
         <form
-          action="https://formspree.io/f/YOUR_FORM_ID"
+          action="https://formspree.io/f/[FORM_ID_PLACEHOLDER]"
           method="POST"
+          novalidate
           class="space-y-6 border border-phoenix-gray bg-phoenix-gray/20 p-6 md:p-8"
         >
+          <input type="hidden" name="_subject" value="[GPC] Cerere ofertă nouă" />
+          <input type="hidden" name="_next" value="https://greenpheonixconcept.com/multumim" />
+          <input type="hidden" name="_language" value="ro" />
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
           <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// CERERE OFERTĂ</p>
           <h2 class="font-display text-2xl text-phoenix-light md:text-3xl">
             Spune-ne despre proiect
@@ -118,7 +129,7 @@ const interests = [
               </span>
               <input
                 type="text"
-                name="name"
+                name="nume"
                 required
                 autocomplete="name"
                 class="w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 font-mono text-sm text-phoenix-light placeholder-phoenix-light/40 transition-colors focus:border-phoenix-green focus:outline-none"
@@ -146,7 +157,7 @@ const interests = [
               </span>
               <input
                 type="tel"
-                name="phone"
+                name="telefon"
                 autocomplete="tel"
                 class="w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 font-mono text-sm text-phoenix-light placeholder-phoenix-light/40 transition-colors focus:border-phoenix-green focus:outline-none"
                 placeholder="+40 7XX XXX XXX"
@@ -158,7 +169,7 @@ const interests = [
                 Tip business
               </span>
               <select
-                name="business_type"
+                name="tip_business"
                 class="w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 font-mono text-sm text-phoenix-light transition-colors focus:border-phoenix-green focus:outline-none"
               >
                 {businessTypes.map((b) => (
@@ -172,7 +183,7 @@ const interests = [
                 Buget lunar estimat
               </span>
               <select
-                name="budget"
+                name="buget_lunar"
                 class="w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 font-mono text-sm text-phoenix-light transition-colors focus:border-phoenix-green focus:outline-none"
               >
                 {budgetTiers.map((b) => (
@@ -191,7 +202,7 @@ const interests = [
                 <label class="flex cursor-pointer items-center gap-3 border border-phoenix-gray/60 bg-phoenix-gray/30 px-4 py-3 font-mono text-sm text-phoenix-light transition-colors hover:border-phoenix-green has-[:checked]:border-phoenix-green has-[:checked]:bg-phoenix-green/10">
                   <input
                     type="checkbox"
-                    name="interests"
+                    name="servicii"
                     value={it.value}
                     class="h-4 w-4 accent-phoenix-green"
                   />
@@ -206,7 +217,7 @@ const interests = [
               Mesaj
             </span>
             <textarea
-              name="message"
+              name="mesaj"
               rows="5"
               class="w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 font-mono text-sm text-phoenix-light placeholder-phoenix-light/40 transition-colors focus:border-phoenix-green focus:outline-none"
               placeholder="Spune-ne despre obiective, situația actuală sau orice context util."

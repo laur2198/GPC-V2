@@ -1,0 +1,195 @@
+---
+/**
+ * CookieConsent
+ *
+ * Props:
+ *   locale — 'ro' | 'en' | 'it' (default 'ro')
+ *
+ * GDPR cookie banner — sticky bottom, 3 buttons (Accept all /
+ * Essentials only / Customize), preference stored in localStorage
+ * under "gpc_cookie_consent" with shape:
+ *   { version: 1, granted: { analytics: bool, marketing: bool }, ts: number }
+ *
+ * On accept-all, adds `consent-given` class to <html> so any future
+ * analytics scripts gated on `html.consent-given` can fire.
+ *
+ * Hides itself once a choice is recorded. Cyberpunk dark + neon green.
+ */
+import { type Locale, t, localizedPath } from '../utils/i18n';
+
+interface Props {
+  locale?: Locale;
+}
+const { locale = 'ro' } = Astro.props;
+
+interface Strings {
+  title: string;
+  body: string;
+  policyLink: string;
+  acceptAll: string;
+  essentialOnly: string;
+  customize: string;
+  save: string;
+  categories: { essential: string; analytics: string; marketing: string };
+}
+const c = t<Strings>(locale, 'cookies');
+const policyHref = localizedPath(locale, '/politica');
+---
+
+<aside
+  id="cookie-consent"
+  data-locale={locale}
+  hidden
+  aria-label="Cookie consent"
+  class="fixed inset-x-0 bottom-0 z-[60] border-t border-phoenix-green/40 bg-phoenix-black/95 shadow-[0_-12px_32px_rgba(0,255,148,0.18)] backdrop-blur"
+>
+  <div class="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-5 lg:flex-row lg:items-start lg:gap-8">
+    <div class="flex-1">
+      <p class="font-mono text-[11px] uppercase tracking-[0.3em] text-phoenix-cyan">
+        {c.title}
+      </p>
+      <p class="mt-2 max-w-3xl font-mono text-sm leading-relaxed text-phoenix-light/85">
+        {c.body}{' '}
+        <a href={policyHref} class="text-phoenix-green underline-offset-2 hover:underline">
+          {c.policyLink}
+        </a>.
+      </p>
+
+      <div id="cookie-customize" hidden class="mt-4 grid gap-2 font-mono text-xs">
+        <label class="flex cursor-not-allowed items-center justify-between border border-phoenix-gray bg-phoenix-gray/30 px-3 py-2 text-phoenix-light/70 opacity-80">
+          <span>{c.categories.essential}</span>
+          <input type="checkbox" checked disabled class="h-4 w-4 accent-phoenix-green" />
+        </label>
+        <label class="flex cursor-pointer items-center justify-between border border-phoenix-gray bg-phoenix-gray/30 px-3 py-2 text-phoenix-light/85 transition-colors hover:border-phoenix-green has-[:checked]:border-phoenix-green has-[:checked]:bg-phoenix-green/10">
+          <span>{c.categories.analytics}</span>
+          <input type="checkbox" data-cookie-cat="analytics" class="h-4 w-4 accent-phoenix-green" />
+        </label>
+        <label class="flex cursor-pointer items-center justify-between border border-phoenix-gray bg-phoenix-gray/30 px-3 py-2 text-phoenix-light/85 transition-colors hover:border-phoenix-green has-[:checked]:border-phoenix-green has-[:checked]:bg-phoenix-green/10">
+          <span>{c.categories.marketing}</span>
+          <input type="checkbox" data-cookie-cat="marketing" class="h-4 w-4 accent-phoenix-green" />
+        </label>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap items-start gap-2 lg:flex-col lg:flex-nowrap">
+      <button
+        type="button"
+        data-cookie-action="accept-all"
+        class="border border-phoenix-green bg-phoenix-green/10 px-4 py-2 font-mono text-xs uppercase tracking-widest text-phoenix-green shadow-[0_0_18px_rgba(0,255,148,0.25)] transition-all hover:bg-phoenix-green hover:text-phoenix-black hover:shadow-[0_0_28px_rgba(0,255,148,0.55)]"
+      >
+        {c.acceptAll}
+      </button>
+      <button
+        type="button"
+        data-cookie-action="essential-only"
+        class="border border-phoenix-light/40 px-4 py-2 font-mono text-xs uppercase tracking-widest text-phoenix-light transition-colors hover:border-phoenix-cyan hover:text-phoenix-cyan"
+      >
+        {c.essentialOnly}
+      </button>
+      <button
+        type="button"
+        data-cookie-action="customize"
+        class="border border-phoenix-gray bg-phoenix-gray/30 px-4 py-2 font-mono text-xs uppercase tracking-widest text-phoenix-light/80 transition-colors hover:border-phoenix-green hover:text-phoenix-green"
+      >
+        {c.customize}
+      </button>
+      <button
+        type="button"
+        data-cookie-action="save"
+        hidden
+        class="border border-phoenix-green bg-phoenix-green/10 px-4 py-2 font-mono text-xs uppercase tracking-widest text-phoenix-green transition-colors hover:bg-phoenix-green hover:text-phoenix-black"
+      >
+        {c.save}
+      </button>
+    </div>
+  </div>
+</aside>
+
+<script>
+  const STORAGE_KEY = 'gpc_cookie_consent';
+  const CURRENT_VERSION = 1;
+  const banner = document.getElementById('cookie-consent');
+  if (banner) {
+    const customize = banner.querySelector<HTMLDivElement>('#cookie-customize');
+    const saveBtn = banner.querySelector<HTMLButtonElement>('[data-cookie-action="save"]');
+    const cats = banner.querySelectorAll<HTMLInputElement>('[data-cookie-cat]');
+
+    type Granted = { analytics: boolean; marketing: boolean };
+    interface Consent {
+      version: number;
+      granted: Granted;
+      ts: number;
+    }
+
+    function readConsent(): Consent | null {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return null;
+        const parsed = JSON.parse(raw) as Consent;
+        if (parsed?.version !== CURRENT_VERSION) return null;
+        return parsed;
+      } catch {
+        return null;
+      }
+    }
+
+    function applyConsent(granted: Granted) {
+      const html = document.documentElement;
+      html.classList.toggle('consent-given', granted.analytics || granted.marketing);
+      html.classList.toggle('consent-analytics', granted.analytics);
+      html.classList.toggle('consent-marketing', granted.marketing);
+      // Custom event so analytics loaders can react.
+      document.dispatchEvent(
+        new CustomEvent('gpc:cookie-consent', { detail: granted })
+      );
+    }
+
+    function persist(granted: Granted) {
+      const value: Consent = { version: CURRENT_VERSION, granted, ts: Date.now() };
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(value));
+      } catch {
+        /* storage might be disabled — banner just won't persist */
+      }
+      applyConsent(granted);
+      hide();
+    }
+
+    function show() {
+      banner?.removeAttribute('hidden');
+    }
+    function hide() {
+      banner?.setAttribute('hidden', '');
+    }
+
+    const existing = readConsent();
+    if (existing) {
+      applyConsent(existing.granted);
+    } else {
+      show();
+    }
+
+    banner.addEventListener('click', (event) => {
+      const target = event.target as HTMLElement;
+      const btn = target.closest<HTMLButtonElement>('[data-cookie-action]');
+      if (!btn) return;
+      const action = btn.dataset.cookieAction;
+      if (action === 'accept-all') {
+        persist({ analytics: true, marketing: true });
+      } else if (action === 'essential-only') {
+        persist({ analytics: false, marketing: false });
+      } else if (action === 'customize') {
+        customize?.removeAttribute('hidden');
+        saveBtn?.removeAttribute('hidden');
+        btn.setAttribute('hidden', '');
+      } else if (action === 'save') {
+        const granted: Granted = { analytics: false, marketing: false };
+        cats.forEach((c) => {
+          const key = c.dataset.cookieCat as keyof Granted;
+          if (key in granted) granted[key] = c.checked;
+        });
+        persist(granted);
+      }
+    });
+  }
+</script>

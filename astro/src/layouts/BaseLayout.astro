@@ -17,6 +17,7 @@
 import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
 import { type Locale, locales, switchLocalePath } from '../utils/i18n';
 
 interface FaqEntry {
@@ -31,6 +32,10 @@ interface Props {
   locale?: Locale;
   noindex?: boolean;
   faqSchema?: FaqEntry[];
+  /** suppress the cookie banner (e.g. on /politica or /multumim) */
+  hideCookieBanner?: boolean;
+  /** override OG type, e.g. 'article' on blog detail */
+  ogType?: 'website' | 'article';
 }
 
 const {
@@ -40,6 +45,8 @@ const {
   locale = 'ro',
   noindex = false,
   faqSchema,
+  hideCookieBanner = false,
+  ogType = 'website',
 } = Astro.props;
 
 const site = Astro.site ?? new URL('https://greenpheonixconcept.com');
@@ -119,7 +126,8 @@ const faqJsonLd = faqSchema && faqSchema.length
     ))}
     <link rel="alternate" hreflang="x-default" href={new URL(switchLocalePath(Astro.url, 'ro'), site).toString()} />
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="Green Pheonix Concept" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
@@ -135,6 +143,21 @@ const faqJsonLd = faqSchema && faqSchema.length
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!--
+      Preload critical font weights so first paint isn't blocked by the
+      Google Fonts CSS round-trip. URLs come from the woff2 references
+      inside the css2 endpoint and are stable for the requested family.
+    -->
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="https://fonts.gstatic.com/s/spacemono/v13/i7dPIFZifjKcF5UAWdDRYEF8RXi4EwQ.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="https://fonts.gstatic.com/s/spacemono/v13/i7dMIFZifjKcF5UAWdDRYER8QHi4EwSrUMw.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7.woff2" />
+
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
@@ -144,6 +167,62 @@ const faqJsonLd = faqSchema && faqSchema.length
     {faqJsonLd && (
       <script is:inline type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
     )}
+
+    {/*
+      INSTRUCTIONS — Analytics: înlocuiește `G-XXXXXXXXXX`, `XXXXXXXXXXXXXXXX`
+      și `cccccccccc` cu ID-urile reale și apoi *uncomment* secțiunea de mai
+      jos. Scripturile se vor încărca doar după ce userul acceptă consimțământul
+      (CookieConsent setează `html.consent-given`). Până atunci sunt complet
+      inerte.
+    */}
+    {/*
+      <!-- Google Analytics 4 -->
+      <script is:inline>
+        document.addEventListener('gpc:cookie-consent', function (e) {
+          if (!e.detail || !e.detail.analytics) return;
+          if (window.__ga4Loaded) return;
+          window.__ga4Loaded = true;
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+          document.head.appendChild(s);
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
+        });
+      </script>
+
+      <!-- Meta Pixel -->
+      <script is:inline>
+        document.addEventListener('gpc:cookie-consent', function (e) {
+          if (!e.detail || !e.detail.marketing) return;
+          if (window.__metaPixelLoaded) return;
+          window.__metaPixelLoaded = true;
+          !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+          n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+          document,'script','https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init', 'XXXXXXXXXXXXXXXX');
+          fbq('track', 'PageView');
+        });
+      </script>
+
+      <!-- Microsoft Clarity -->
+      <script is:inline>
+        document.addEventListener('gpc:cookie-consent', function (e) {
+          if (!e.detail || !e.detail.analytics) return;
+          if (window.__clarityLoaded) return;
+          window.__clarityLoaded = true;
+          (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, 'clarity', 'script', 'cccccccccc');
+        });
+      </script>
+    */}
   </head>
   <body class="min-h-screen bg-phoenix-black text-phoenix-light antialiased">
     <Navbar locale={locale} />
@@ -151,6 +230,8 @@ const faqJsonLd = faqSchema && faqSchema.length
       <slot />
     </main>
     <Footer locale={locale} />
+
+    {!hideCookieBanner && <CookieConsent locale={locale} />}
 
     <a
       href="https://wa.me/40793650902"

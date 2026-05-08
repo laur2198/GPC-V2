@@ -1,6 +1,8 @@
-﻿User-agent: *
+User-agent: *
 Allow: /
-Disallow: /admin.html
-Disallow: /calculator.html
+Disallow: /api/
+Disallow: /multumim
+Disallow: /en/multumim
+Disallow: /it/multumim
 
-Sitemap: https://greenpheonixconcept.com/sitemap.xml
+Sitemap: https://greenpheonixconcept.com/sitemap-index.xml

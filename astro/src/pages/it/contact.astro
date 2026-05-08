@@ -94,7 +94,16 @@ const interests = [
       </aside>
 
       <div class="lg:col-span-8">
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6 border border-phoenix-gray bg-phoenix-gray/20 p-6 md:p-8">
+        {/*
+          INSTRUCTIONS — Formspree:
+          Sostituisci [FORM_ID_PLACEHOLDER] in `action` con l'ID reale da
+          formspree.io. Honeypot, _next, _subject e _language sono già pronti.
+        */}
+        <form action="https://formspree.io/f/[FORM_ID_PLACEHOLDER]" method="POST" novalidate class="space-y-6 border border-phoenix-gray bg-phoenix-gray/20 p-6 md:p-8">
+          <input type="hidden" name="_subject" value="[GPC] Nuova richiesta progetto" />
+          <input type="hidden" name="_next" value="https://greenpheonixconcept.com/it/multumim" />
+          <input type="hidden" name="_language" value="it" />
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
           <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// RICHIESTA PREVENTIVO</p>
           <h2 class="font-display text-2xl text-phoenix-light md:text-3xl">Raccontaci del progetto</h2>
 
@@ -103,7 +112,7 @@ const interests = [
               <span class="mb-1 block font-mono text-xs uppercase tracking-widest text-phoenix-light/70">
                 Nome <span class="text-phoenix-green">*</span>
               </span>
-              <input type="text" name="name" required autocomplete="name" class="w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 font-mono text-sm text-phoenix-light placeholder-phoenix-light/40 transition-colors focus:border-phoenix-green focus:outline-none" placeholder="es. Marco Rossi" />
+              <input type="text" name="nume" required autocomplete="name" class="w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 font-mono text-sm text-phoenix-light placeholder-phoenix-light/40 transition-colors focus:border-phoenix-green focus:outline-none" placeholder="es. Marco Rossi" />
             </label>
 
             <label class="block">
@@ -115,19 +124,19 @@ const interests = [
 
             <label class="block">
               <span class="mb-1 block font-mono text-xs uppercase tracking-widest text-phoenix-light/70">Telefono</span>
-              <input type="tel" name="phone" autocomplete="tel" class="w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 font-mono text-sm text-phoenix-light placeholder-phoenix-light/40 transition-colors focus:border-phoenix-green focus:outline-none" placeholder="+39 3XX XXX XXXX" />
+              <input type="tel" name="telefon" autocomplete="tel" class="w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 font-mono text-sm text-phoenix-light placeholder-phoenix-light/40 transition-colors focus:border-phoenix-green focus:outline-none" placeholder="+39 3XX XXX XXXX" />
             </label>
 
             <label class="block">
               <span class="mb-1 block font-mono text-xs uppercase tracking-widest text-phoenix-light/70">Tipo di business</span>
-              <select name="business_type" class="w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 font-mono text-sm text-phoenix-light transition-colors focus:border-phoenix-green focus:outline-none">
+              <select name="tip_business" class="w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 font-mono text-sm text-phoenix-light transition-colors focus:border-phoenix-green focus:outline-none">
                 {businessTypes.map((b) => (<option value={b.value}>{b.label}</option>))}
               </select>
             </label>
 
             <label class="block md:col-span-2">
               <span class="mb-1 block font-mono text-xs uppercase tracking-widest text-phoenix-light/70">Budget mensile stimato</span>
-              <select name="budget" class="w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 font-mono text-sm text-phoenix-light transition-colors focus:border-phoenix-green focus:outline-none">
+              <select name="buget_lunar" class="w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 font-mono text-sm text-phoenix-light transition-colors focus:border-phoenix-green focus:outline-none">
                 {budgetTiers.map((b) => (<option value={b.value}>{b.label}</option>))}
               </select>
             </label>
@@ -138,7 +147,7 @@ const interests = [
             <div class="grid gap-3 sm:grid-cols-2">
               {interests.map((it) => (
                 <label class="flex cursor-pointer items-center gap-3 border border-phoenix-gray/60 bg-phoenix-gray/30 px-4 py-3 font-mono text-sm text-phoenix-light transition-colors hover:border-phoenix-green has-[:checked]:border-phoenix-green has-[:checked]:bg-phoenix-green/10">
-                  <input type="checkbox" name="interests" value={it.value} class="h-4 w-4 accent-phoenix-green" />
+                  <input type="checkbox" name="servicii" value={it.value} class="h-4 w-4 accent-phoenix-green" />
                   <span>{it.label}</span>
                 </label>
               ))}
@@ -147,7 +156,7 @@ const interests = [
 
           <label class="block">
             <span class="mb-1 block font-mono text-xs uppercase tracking-widest text-phoenix-light/70">Messaggio</span>
-            <textarea name="message" rows="5" class="w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 font-mono text-sm text-phoenix-light placeholder-phoenix-light/40 transition-colors focus:border-phoenix-green focus:outline-none" placeholder="Raccontaci di obiettivi, situazione attuale o qualsiasi contesto utile."></textarea>
+            <textarea name="mesaj" rows="5" class="w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 font-mono text-sm text-phoenix-light placeholder-phoenix-light/40 transition-colors focus:border-phoenix-green focus:outline-none" placeholder="Raccontaci di obiettivi, situazione attuale o qualsiasi contesto utile."></textarea>
           </label>
 
           <label class="flex cursor-pointer items-start gap-3 border border-phoenix-gray bg-phoenix-black/40 p-4 font-mono text-xs leading-relaxed text-phoenix-light/80">

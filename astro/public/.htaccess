@@ -27,7 +27,7 @@ Redirect 301 /blog-site-conversii.html             /blog/landing-page-care-conve
 Redirect 301 /landing-ecommerce.html               /servicii-web
 Redirect 301 /landing-horeca.html                  /servicii-web
 Redirect 301 /landing-transportatori.html          /servicii-ads
-Redirect 301 /studiu-caz-bpd.html                  /portofoliu/bpd-trans
+Redirect 301 /studiu-caz-bpd.html                  /portofoliu
 Redirect 301 /proiect-detaliu.html                 /portofoliu
 
 # Gzip Compression

@@ -1,25 +1,96 @@
 ---
-import type { Locale } from '../utils/i18n';
-import { locales } from '../utils/i18n';
+/**
+ * LanguageSwitcher
+ *
+ * Props:
+ *   locale — 'ro' | 'en' | 'it' (current locale)
+ *
+ * Detects the current locale from props, computes the equivalent path
+ * for each target locale (preserving the rest of the route), and
+ * renders an accessible dropdown. Each option points to the same
+ * page in the chosen language, and `hreflang` is set on each link
+ * for crawlers.
+ */
+import { type Locale, locales, localeLabels, switchLocalePath } from '../utils/i18n';
 
 interface Props {
   locale: Locale;
 }
 const { locale } = Astro.props;
+const targets = locales.map((l) => ({
+  locale: l,
+  label: localeLabels[l],
+  href: switchLocalePath(Astro.url, l),
+}));
 ---
 
-<div class="flex items-center gap-2 font-mono text-xs">
-  {locales.map((l) => (
-    <a
-      href={l === 'ro' ? '/' : `/${l}/`}
-      class:list={[
-        'rounded border border-phoenix-gray px-2 py-1 uppercase transition-colors',
-        l === locale
-          ? 'border-phoenix-green text-phoenix-green'
-          : 'text-phoenix-light/70 hover:text-phoenix-green',
-      ]}
-    >
-      {l}
-    </a>
-  ))}
+<div class="relative" data-lang-switcher>
+  <button
+    type="button"
+    aria-haspopup="listbox"
+    aria-expanded="false"
+    data-lang-trigger
+    class="flex items-center gap-2 border border-phoenix-gray px-3 py-1.5 font-mono text-xs uppercase tracking-widest text-phoenix-light transition-colors hover:border-phoenix-green hover:text-phoenix-green"
+  >
+    <span class="glow-green">{localeLabels[locale]}</span>
+    <svg viewBox="0 0 12 8" class="h-2 w-3" fill="currentColor" aria-hidden="true">
+      <path d="M0 0h12L6 8 0 0Z" />
+    </svg>
+  </button>
+
+  <ul
+    role="listbox"
+    data-lang-menu
+    class="invisible absolute right-0 top-full z-50 mt-2 hidden min-w-[8rem] border border-phoenix-gray bg-phoenix-black/95 py-1 opacity-0 shadow-[0_0_24px_rgba(0,255,148,0.2)] backdrop-blur transition-all"
+  >
+    {targets.map((t) => (
+      <li role="option" aria-selected={t.locale === locale}>
+        <a
+          href={t.href}
+          hreflang={t.locale}
+          lang={t.locale}
+          class:list={[
+            'flex items-center justify-between gap-4 px-4 py-2 font-mono text-xs uppercase tracking-widest transition-colors',
+            t.locale === locale
+              ? 'text-phoenix-green'
+              : 'text-phoenix-light/80 hover:bg-phoenix-gray/40 hover:text-phoenix-green',
+          ]}
+        >
+          <span>{t.label}</span>
+          {t.locale === locale && <span aria-hidden="true">●</span>}
+        </a>
+      </li>
+    ))}
+  </ul>
 </div>
+
+<script>
+  document.querySelectorAll('[data-lang-switcher]').forEach((root) => {
+    const trigger = root.querySelector<HTMLButtonElement>('[data-lang-trigger]');
+    const menu = root.querySelector<HTMLElement>('[data-lang-menu]');
+    if (!trigger || !menu) return;
+
+    const close = () => {
+      trigger.setAttribute('aria-expanded', 'false');
+      menu.classList.add('invisible', 'hidden', 'opacity-0');
+    };
+    const open = () => {
+      trigger.setAttribute('aria-expanded', 'true');
+      menu.classList.remove('invisible', 'hidden', 'opacity-0');
+    };
+
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const expanded = trigger.getAttribute('aria-expanded') === 'true';
+      expanded ? close() : open();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!root.contains(e.target as Node)) close();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close();
+    });
+  });
+</script>

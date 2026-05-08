@@ -1,24 +1,73 @@
 ---
+/**
+ * CTA
+ *
+ * Props:
+ *   heading    — main h2 (required)
+ *   subtext    — supporting paragraph (optional)
+ *   buttonText — CTA label (required)
+ *   buttonLink — CTA href (required)
+ *
+ * Large centered call-to-action with a subtle "data flow" background
+ * (animated diagonal stripes + glow accents).
+ */
 interface Props {
-  title: string;
+  heading?: string;
+  subtext?: string;
+  buttonText?: string;
+  buttonLink?: string;
+  /** legacy aliases — accepted but `heading`/`buttonText`/`buttonLink` are preferred */
+  title?: string;
   description?: string;
-  ctaLabel: string;
-  ctaHref: string;
+  ctaLabel?: string;
+  ctaHref?: string;
 }
-const { title, description, ctaLabel, ctaHref } = Astro.props;
+const {
+  heading,
+  subtext,
+  buttonText,
+  buttonLink,
+  title,
+  description,
+  ctaLabel,
+  ctaHref,
+} = Astro.props;
+const finalHeading = heading ?? title ?? '';
+const finalSub = subtext ?? description;
+const finalLabel = buttonText ?? ctaLabel ?? '';
+const finalLink = buttonLink ?? ctaHref ?? '#';
 ---
 
-<section class="scanline border-y border-phoenix-gray bg-phoenix-gray/40 py-16">
-  <div class="mx-auto max-w-3xl px-6 text-center">
-    <h2 class="font-display text-3xl glow-cyan md:text-4xl">{title}</h2>
-    {description && (
-      <p class="mt-4 font-mono text-base text-phoenix-light/80">{description}</p>
+<section class="relative overflow-hidden border-y border-phoenix-gray bg-phoenix-black">
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-0 opacity-40"
+    style="background-image: repeating-linear-gradient(45deg, rgba(0,255,148,0.06) 0 2px, transparent 2px 24px), repeating-linear-gradient(-45deg, rgba(0,229,255,0.04) 0 2px, transparent 2px 24px); animation: marquee 18s linear infinite;"
+  ></div>
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -left-20 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-phoenix-green/20 blur-3xl"
+  ></div>
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -right-20 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-phoenix-cyan/15 blur-3xl"
+  ></div>
+
+  <div class="relative mx-auto max-w-4xl px-6 py-24 text-center">
+    <h2 class="font-display text-4xl leading-tight md:text-5xl">
+      <span class="glow-green">{finalHeading}</span>
+    </h2>
+    {finalSub && (
+      <p class="mx-auto mt-6 max-w-2xl font-mono text-base leading-relaxed text-phoenix-light/80 md:text-lg">
+        {finalSub}
+      </p>
     )}
     <a
-      href={ctaHref}
-      class="mt-8 inline-block border border-phoenix-green px-6 py-3 font-mono text-sm text-phoenix-green transition-colors hover:bg-phoenix-green hover:text-phoenix-black"
+      href={finalLink}
+      class="group mt-10 inline-flex items-center gap-3 border border-phoenix-green bg-phoenix-green/10 px-8 py-4 font-mono text-sm uppercase tracking-[0.25em] text-phoenix-green shadow-[0_0_24px_rgba(0,255,148,0.3)] transition-all hover:bg-phoenix-green hover:text-phoenix-black hover:shadow-[0_0_42px_rgba(0,255,148,0.6)]"
     >
-      {ctaLabel}
+      {finalLabel}
+      <span class="transition-transform group-hover:translate-x-1">→</span>
     </a>
   </div>
 </section>

@@ -14,8 +14,10 @@ const meta = {
     'Progetti reali, risultati misurati. Case study da trasporto, medico, e-commerce e B2B — performance marketing e siti costruiti sui dati.',
 };
 
-const all = (await getCollection('caseStudies', ({ data }) => data.language === locale))
-  .sort((a, b) => (a.data.title > b.data.title ? 1 : -1));
+const showDrafts = import.meta.env.DEV;
+const all = (await getCollection('caseStudies', ({ data }) =>
+  data.language === locale && (showDrafts || !data.draft)
+)).sort((a, b) => (a.data.title > b.data.title ? 1 : -1));
 
 const industries = Array.from(new Set(all.map((cs) => cs.data.industry))).sort();
 ---

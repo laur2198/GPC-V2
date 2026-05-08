@@ -14,8 +14,10 @@ const meta = {
     'Proiecte reale, rezultate cuantificate. Studii de caz din transport, medical, e-commerce și B2B — performance marketing și site-uri construite pe date.',
 };
 
-const all = (await getCollection('caseStudies', ({ data }) => data.language === locale))
-  .sort((a, b) => (a.data.title > b.data.title ? 1 : -1));
+const showDrafts = import.meta.env.DEV;
+const all = (await getCollection('caseStudies', ({ data }) =>
+  data.language === locale && (showDrafts || !data.draft)
+)).sort((a, b) => (a.data.title > b.data.title ? 1 : -1));
 
 const industries = Array.from(new Set(all.map((cs) => cs.data.industry))).sort();
 ---

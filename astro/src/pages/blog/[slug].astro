@@ -6,7 +6,10 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { localizedPath } from '../../utils/i18n';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog', ({ data }) => data.language === 'ro');
+  const showDrafts = import.meta.env.DEV;
+  const posts = await getCollection('blog', ({ data }) =>
+    data.language === 'ro' && (showDrafts || !data.draft)
+  );
   return posts.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
@@ -19,7 +22,10 @@ interface Props {
 const { entry } = Astro.props;
 const { Content, remarkPluginFrontmatter } = await entry.render();
 
-const all = await getCollection('blog', ({ data }) => data.language === 'ro');
+const showDraftsRelated = import.meta.env.DEV;
+const all = await getCollection('blog', ({ data }) =>
+  data.language === 'ro' && (showDraftsRelated || !data.draft)
+);
 const related = all
   .filter((p) => p.slug !== entry.slug && p.data.category === entry.data.category)
   .slice(0, 3);

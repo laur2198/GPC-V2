@@ -13,6 +13,7 @@ const blog = defineCollection({
     tags: z.array(z.string()).default([]),
     heroImage: z.string().optional(),
     language,
+    draft: z.boolean().default(false),
   }),
 });
 
@@ -20,6 +21,7 @@ const caseStudies = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
+    description: z.string().optional(),
     client: z.string(),
     industry: z.string(),
     services: z.array(z.string()).default([]),
@@ -35,6 +37,8 @@ const caseStudies = defineCollection({
       .default([]),
     language,
     anonymized: z.boolean().default(false),
+    draft: z.boolean().default(false),
+    publishDate: z.coerce.date().optional(),
   }),
 });
 

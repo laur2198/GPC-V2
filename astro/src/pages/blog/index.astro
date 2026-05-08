@@ -14,8 +14,10 @@ const meta = {
     'Articole pragmatice despre Google Ads, Meta, TikTok, GA4, Core Web Vitals și CRO. Fără jargon, fără păreri — doar ce funcționează.',
 };
 
-const posts = (await getCollection('blog', ({ data }) => data.language === locale))
-  .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
+const showDrafts = import.meta.env.DEV;
+const posts = (await getCollection('blog', ({ data }) =>
+  data.language === locale && (showDrafts || !data.draft)
+)).sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
 
 const categories = Array.from(new Set(posts.map((p) => p.data.category))).sort();
 ---

@@ -5,7 +5,10 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { localizedPath } from '../../../utils/i18n';
 
 export async function getStaticPaths() {
-  const items = await getCollection('caseStudies', ({ data }) => data.language === 'en');
+  const showDrafts = import.meta.env.DEV;
+  const items = await getCollection('caseStudies', ({ data }) =>
+    data.language === 'en' && (showDrafts || !data.draft)
+  );
   return items.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },

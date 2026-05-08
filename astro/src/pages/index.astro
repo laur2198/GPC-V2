@@ -42,7 +42,10 @@ const testimonials = t<{ header: string; items: TestimonialItem[] }>(locale, 'te
 
 const aboutTeaser = t<{ header: string; title: string; description: string; ctaText: string }>(locale, 'aboutTeaser');
 
-const allCs = await getCollection('caseStudies', ({ data }) => data.language === locale);
+const showDrafts = import.meta.env.DEV;
+const allCs = await getCollection('caseStudies', ({ data }) =>
+  data.language === locale && (showDrafts || !data.draft)
+);
 const previewCs = allCs.slice(0, 3);
 ---
 

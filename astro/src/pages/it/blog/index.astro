@@ -14,8 +14,10 @@ const meta = {
     'Articoli pragmatici su Google Ads, Meta, TikTok, GA4, Core Web Vitals e CRO. Senza fronzoli, senza opinioni — solo ciò che funziona.',
 };
 
-const posts = (await getCollection('blog', ({ data }) => data.language === locale))
-  .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
+const showDrafts = import.meta.env.DEV;
+const posts = (await getCollection('blog', ({ data }) =>
+  data.language === locale && (showDrafts || !data.draft)
+)).sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
 
 const categories = Array.from(new Set(posts.map((p) => p.data.category))).sort();
 ---

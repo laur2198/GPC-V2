@@ -1,4 +1,4 @@
-# Deploy Green Pheonix Concept pe Namecheap cPanel
+# Deploy Green Phoenix pe Namecheap cPanel
 
 Build static din `astro/` → upload în `public_html/` pe cPanel. Nu există Node runtime pe shared hosting; tot ce ajunge online este HTML/CSS/JS pre-renderat.
 

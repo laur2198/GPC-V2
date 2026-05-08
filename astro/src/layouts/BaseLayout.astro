@@ -61,7 +61,7 @@ const alternates = locales.map((l) => ({
 const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
-  name: 'Green Pheonix Concept',
+  name: 'Green Phoenix',
   legalName: 'GREEN PHEONIX CONCEPT S.R.L.',
   image: new URL('/logo_gpc.svg', site).toString(),
   '@id': site.origin,
@@ -127,7 +127,7 @@ const faqJsonLd = faqSchema && faqSchema.length
     <link rel="alternate" hreflang="x-default" href={new URL(switchLocalePath(Astro.url, 'ro'), site).toString()} />
 
     <meta property="og:type" content={ogType} />
-    <meta property="og:site_name" content="Green Pheonix Concept" />
+    <meta property="og:site_name" content="Green Phoenix" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />

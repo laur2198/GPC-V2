@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Green Pheonix placeholder">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Green Phoenix placeholder">
   <defs>
     <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
       <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#00FF94" stroke-opacity="0.08" stroke-width="1"/>
@@ -24,7 +24,7 @@
 
   <g transform="translate(800 420)" text-anchor="middle">
     <text x="0" y="-90" font-family="'JetBrains Mono', monospace" font-size="14" letter-spacing="6" fill="#00E5FF" opacity="0.7">// CASE STUDY</text>
-    <text x="0" y="0" font-family="'Space Mono', monospace" font-size="80" font-weight="700" fill="#00FF94" filter="url(#glow)">GREEN PHEONIX</text>
+    <text x="0" y="0" font-family="'Space Mono', monospace" font-size="80" font-weight="700" fill="#00FF94" filter="url(#glow)">GREEN PHOENIX</text>
     <text x="0" y="56" font-family="'JetBrains Mono', monospace" font-size="16" letter-spacing="4" fill="#E5E5E5" opacity="0.5">[ HERO IMAGE PLACEHOLDER ]</text>
   </g>
 

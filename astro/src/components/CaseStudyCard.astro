@@ -1,23 +1,72 @@
 ---
+/**
+ * CaseStudyCard
+ *
+ * Props:
+ *   title    — string
+ *   industry — short tag, e.g. "E-COMMERCE"
+ *   image    — hero image URL (optional)
+ *   summary  — short paragraph
+ *   link     — href to the case study detail page
+ *   kpis     — exactly 3 objects [{ label, value }]
+ *
+ * Hover: scale 1.02 + neon green glow. Layout: image top, industry
+ * tag mono, bold title, summary, KPI strip pinned at the bottom.
+ */
+interface Kpi {
+  label: string;
+  value: string;
+}
 interface Props {
   title: string;
-  client: string;
   industry: string;
-  href: string;
-  heroImage?: string;
+  image?: string;
+  summary: string;
+  link: string;
+  kpis: [Kpi, Kpi, Kpi];
 }
-const { title, client, industry, href, heroImage } = Astro.props;
+const { title, industry, image, summary, link, kpis } = Astro.props;
 ---
 
-<a href={href} class="group block overflow-hidden border border-phoenix-gray bg-phoenix-gray/40 transition-colors hover:border-phoenix-green">
-  {heroImage && (
-    <div class="aspect-video overflow-hidden bg-phoenix-black">
-      <img src={heroImage} alt={title} class="h-full w-full object-cover transition-transform group-hover:scale-105" />
+<a
+  href={link}
+  class="group flex h-full flex-col overflow-hidden border border-phoenix-gray bg-phoenix-gray/30 transition-all duration-300 hover:scale-[1.02] hover:border-phoenix-green hover:shadow-[0_0_36px_rgba(0,255,148,0.25)]"
+>
+  <div class="relative aspect-video overflow-hidden bg-phoenix-black">
+    {image ? (
+      <img
+        src={image}
+        alt={title}
+        loading="lazy"
+        class="h-full w-full object-cover opacity-90 transition-transform duration-500 group-hover:scale-105"
+      />
+    ) : (
+      <div class="absolute inset-0 grid place-items-center bg-[radial-gradient(circle_at_30%_30%,rgba(0,255,148,0.18),transparent_60%)]">
+        <span class="font-display text-4xl text-phoenix-light/20">{industry.slice(0, 2)}</span>
+      </div>
+    )}
+    <span class="absolute left-4 top-4 border border-phoenix-cyan/60 bg-phoenix-black/70 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-phoenix-cyan">
+      {industry}
+    </span>
+  </div>
+
+  <div class="flex flex-1 flex-col p-6">
+    <h3 class="font-display text-2xl font-bold text-phoenix-light transition-colors group-hover:text-phoenix-green">
+      {title}
+    </h3>
+    <p class="mt-3 font-mono text-sm leading-relaxed text-phoenix-light/70">
+      {summary}
+    </p>
+
+    <div class="mt-auto grid grid-cols-3 gap-2 border-t border-phoenix-gray pt-4 transition-colors group-hover:border-phoenix-green/40">
+      {kpis.map((k) => (
+        <div class="text-center">
+          <div class="font-display text-xl text-phoenix-green">{k.value}</div>
+          <div class="mt-1 font-mono text-[10px] uppercase tracking-wider text-phoenix-light/60">
+            {k.label}
+          </div>
+        </div>
+      ))}
     </div>
-  )}
-  <div class="p-6">
-    <p class="font-mono text-xs uppercase tracking-wider text-phoenix-cyan">{industry}</p>
-    <h3 class="mt-2 font-display text-xl text-phoenix-light">{title}</h3>
-    <p class="mt-1 font-mono text-sm text-phoenix-light/60">{client}</p>
   </div>
 </a>

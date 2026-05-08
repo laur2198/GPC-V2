@@ -1,17 +1,55 @@
 ---
+/**
+ * TrustBar
+ *
+ * Props:
+ *   locale — 'ro' | 'en' | 'it'  (optional, defaults to 'ro')
+ *   logos  — string[] override; otherwise pulled from i18n trustBar.logos
+ *   header — string override; otherwise i18n trustBar.header
+ *
+ * Renders a "WORKED WITH US" header and a 6-cell logo grid
+ * (placeholder SVG glyphs). Logos are grayscale by default and gain
+ * neon green glow on hover. Mobile collapses to 2 columns.
+ */
+import { type Locale, t } from '../utils/i18n';
+
 interface Props {
-  items?: string[];
+  locale?: Locale;
+  logos?: string[];
+  header?: string;
 }
-const { items = ['Google Ads', 'Meta Ads', 'TikTok Ads', 'GA4', 'Tag Manager', 'Astro', 'WordPress', 'Shopify'] } = Astro.props;
-const doubled = [...items, ...items];
+const { locale = 'ro', logos, header } = Astro.props;
+
+const dict = t<{ header: string; logos: string[] }>(locale, 'trustBar');
+const trustHeader = header ?? dict.header;
+const trustLogos = logos ?? dict.logos;
 ---
 
-<section class="border-y border-phoenix-gray bg-phoenix-gray/30 py-6 overflow-hidden">
-  <div class="marquee-track">
-    {doubled.map((item) => (
-      <span class="mx-8 font-mono text-sm uppercase tracking-widest text-phoenix-light/70 whitespace-nowrap">
-        {item}
-      </span>
-    ))}
+<section class="border-y border-phoenix-gray bg-phoenix-gray/20">
+  <div class="mx-auto max-w-7xl px-6 py-14">
+    <div class="flex items-center gap-4">
+      <span class="h-px flex-1 bg-phoenix-gray"></span>
+      <h2 class="font-mono text-xs uppercase tracking-[0.4em] text-phoenix-light/70">
+        {trustHeader}
+      </h2>
+      <span class="h-px flex-1 bg-phoenix-gray"></span>
+    </div>
+
+    <ul class="mt-10 grid grid-cols-2 items-center gap-8 sm:grid-cols-3 lg:grid-cols-6">
+      {trustLogos.map((name, i) => (
+        <li class="group flex items-center justify-center">
+          <div class="flex h-14 w-full items-center justify-center gap-2 border border-phoenix-gray/60 bg-phoenix-black/40 px-4 grayscale opacity-60 transition-all duration-300 group-hover:border-phoenix-green group-hover:opacity-100 group-hover:grayscale-0 group-hover:shadow-[0_0_20px_rgba(0,255,148,0.18)]">
+            <svg viewBox="0 0 24 24" class="h-6 w-6 text-phoenix-light group-hover:text-phoenix-green" fill="currentColor" aria-hidden="true">
+              {i % 3 === 0 && <path d="M12 2 2 8v8l10 6 10-6V8L12 2Zm0 2.3 7.5 4.4v6.6L12 19.7 4.5 15.3V8.7L12 4.3Z"/>}
+              {i % 3 === 1 && <path d="M3 4h18v4H3V4Zm0 6h12v4H3v-4Zm0 6h18v4H3v-4Z"/>}
+              {i % 3 === 2 && <path d="M12 2 1 21h22L12 2Zm0 5 7.5 12.5h-15L12 7Z"/>}
+            </svg>
+            <span class="font-mono text-xs uppercase tracking-widest text-phoenix-light group-hover:text-phoenix-green">
+              {name}
+            </span>
+          </div>
+        </li>
+      ))}
+    </ul>
   </div>
 </section>

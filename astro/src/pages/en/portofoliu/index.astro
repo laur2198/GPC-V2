@@ -18,15 +18,24 @@ const all = await getCollection('caseStudies', ({ data }) => data.language === l
       <p class="text-center font-mono text-phoenix-light/60">Case studies coming soon.</p>
     ) : (
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {all.map((cs) => (
-          <CaseStudyCard
-            title={cs.data.title}
-            client={cs.data.client}
-            industry={cs.data.industry}
-            heroImage={cs.data.heroImage}
-            href={localizedPath(locale, `/portofoliu/${cs.slug}`)}
-          />
-        ))}
+        {all.map((cs) => {
+          const r = cs.data.results;
+          const kpis: [{ label: string; value: string }, { label: string; value: string }, { label: string; value: string }] = [
+            r[0] ? { label: r[0].metric, value: r[0].value } : { label: 'Duration', value: cs.data.duration },
+            r[1] ? { label: r[1].metric, value: r[1].value } : { label: 'Services', value: String(cs.data.services.length) },
+            r[2] ? { label: r[2].metric, value: r[2].value } : { label: 'Industry', value: cs.data.industry },
+          ];
+          return (
+            <CaseStudyCard
+              title={cs.data.title}
+              industry={cs.data.industry}
+              image={cs.data.heroImage}
+              summary={cs.data.client}
+              link={localizedPath(locale, `/portofoliu/${cs.slug}`)}
+              kpis={kpis}
+            />
+          );
+        })}
       </div>
     )}
   </section>

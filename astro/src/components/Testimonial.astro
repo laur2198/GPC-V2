@@ -1,18 +1,77 @@
 ---
+/**
+ * Testimonial
+ *
+ * Props:
+ *   quote   — string (required)
+ *   author  — name (required)
+ *   role    — short role/title (e.g. "CEO")
+ *   company — company name
+ *   rating  — integer 0..5 (default 5); cyberpunk-styled stars
+ *
+ * Layout: large neon green quotation marks framing the quote, then
+ * star rating, then author block with role + company in monospace.
+ */
 interface Props {
   quote: string;
   author: string;
   role?: string;
+  company?: string;
+  rating?: number;
 }
-const { quote, author, role } = Astro.props;
+const { quote, author, role, company, rating = 5 } = Astro.props;
+const stars = Math.max(0, Math.min(5, Math.round(rating)));
 ---
 
-<figure class="border border-phoenix-gray bg-phoenix-gray/40 p-8">
-  <blockquote class="font-display text-xl text-phoenix-light">
-    <span class="glow-cyan">"</span>{quote}<span class="glow-cyan">"</span>
+<figure class="relative border border-phoenix-gray bg-phoenix-gray/30 p-8 md:p-10">
+  <span
+    aria-hidden="true"
+    class="absolute -top-2 left-6 font-display text-7xl leading-none text-phoenix-green/80"
+    style="text-shadow: 0 0 12px rgba(0,255,148,0.6);"
+  >
+    "
+  </span>
+
+  <blockquote class="relative font-display text-xl leading-relaxed text-phoenix-light md:text-2xl">
+    {quote}
   </blockquote>
+
+  <span
+    aria-hidden="true"
+    class="absolute -bottom-8 right-6 font-display text-7xl leading-none text-phoenix-green/80"
+    style="text-shadow: 0 0 12px rgba(0,255,148,0.6);"
+  >
+    "
+  </span>
+
+  <div class="mt-8 flex items-center gap-1" aria-label={`Rating: ${stars} of 5`}>
+    {Array.from({ length: 5 }).map((_, i) => (
+      <svg
+        viewBox="0 0 24 24"
+        class:list={[
+          'h-5 w-5 transition-all',
+          i < stars ? 'text-phoenix-green drop-shadow-[0_0_6px_rgba(0,255,148,0.6)]' : 'text-phoenix-gray',
+        ]}
+        fill={i < stars ? 'currentColor' : 'none'}
+        stroke="currentColor"
+        stroke-width="1.5"
+        aria-hidden="true"
+      >
+        <path
+          stroke-linejoin="round"
+          d="M12 3.5 14.6 9l6 .9-4.4 4.2 1 6L12 17.3 6.7 20.1l1-6L3.4 9.9l6-.9L12 3.5Z"
+        />
+      </svg>
+    ))}
+  </div>
+
   <figcaption class="mt-6 font-mono text-sm">
     <span class="text-phoenix-green">{author}</span>
-    {role && <span class="text-phoenix-light/60">— {role}</span>}
+    {(role || company) && (
+      <span class="text-phoenix-light/60">
+        {' — '}
+        {role}{role && company ? ', ' : ''}{company}
+      </span>
+    )}
   </figcaption>
 </figure>

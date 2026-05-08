@@ -112,3 +112,42 @@ img, svg, video {
   width: max-content;
   animation: marquee 30s linear infinite;
 }
+
+/* WCAG 2.4.7 — visible focus for keyboard users */
+*:focus-visible {
+  outline: 2px solid var(--phoenix-green, #00FF94);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  box-shadow: 0 0 0 3px rgba(0, 255, 148, 0.3);
+}
+
+/* Form inputs already swap border on focus — keep their tighter ring */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline-offset: 0;
+  box-shadow: 0 0 0 2px rgba(0, 255, 148, 0.45);
+}
+
+/* WCAG 2.3.3 — respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .scanline,
+  .scanline::after,
+  .marquee-track,
+  .glow-green {
+    animation: none !important;
+  }
+}

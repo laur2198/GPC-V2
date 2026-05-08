@@ -1,20 +1,149 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
-import { getPageCopy } from '../utils/content';
+import { type Locale } from '../utils/i18n';
 
-const locale = 'ro' as const;
-const c = getPageCopy(locale, 'politica');
+const locale: Locale = 'ro';
+
+const meta = {
+  title: 'Politica de Confidențialitate — Green Pheonix Concept',
+  description:
+    'Politica de confidențialitate Green Pheonix Concept S.R.L. Operator de date conform GDPR. Detalii despre datele colectate, cookies și drepturile tale.',
+};
+
+const lastUpdated = '2026-05-08';
 ---
 
-<BaseLayout title={c.meta.title} description={c.meta.description} locale={locale}>
-  <Hero title={c.hero.title} subtitle={c.hero.subtitle} />
-  <article class="mx-auto max-w-3xl space-y-6 px-6 py-16 font-mono text-sm leading-relaxed text-phoenix-light/80">
-    <h2 class="font-display text-2xl text-phoenix-light">1. Date colectate</h2>
-    <p>Colectăm doar datele necesare pentru a răspunde solicitărilor tale: nume, email, conținutul mesajului.</p>
-    <h2 class="font-display text-2xl text-phoenix-light">2. Cookies</h2>
-    <p>Folosim cookies analitice (GA4) și de marketing pentru a îmbunătăți experiența. Poți gestiona preferințele oricând.</p>
-    <h2 class="font-display text-2xl text-phoenix-light">3. Drepturile tale</h2>
-    <p>Ai dreptul la acces, rectificare, ștergere și portabilitate conform GDPR. Contactează-ne pentru orice solicitare.</p>
+<BaseLayout title={meta.title} description={meta.description} locale={locale} noindex={false}>
+  <Hero
+    locale={locale}
+    variant="compact"
+    title="Politica de Confidențialitate"
+    subtitle="Cum colectăm, folosim și protejăm datele tale, în conformitate cu Regulamentul (UE) 2016/679 (GDPR)."
+  />
+
+  <article class="mx-auto max-w-3xl px-6 py-16 font-mono text-sm leading-relaxed text-phoenix-light/85">
+    <p class="mb-10 border border-phoenix-gray bg-phoenix-gray/30 px-4 py-3 text-xs uppercase tracking-widest text-phoenix-light/60">
+      Ultima actualizare: <span class="text-phoenix-green">{lastUpdated}</span>
+    </p>
+
+    <h2 class="font-display text-2xl text-phoenix-light md:text-3xl">1. Operator de date</h2>
+    <p class="mt-4">
+      Operatorul datelor cu caracter personal colectate prin acest site este:
+    </p>
+    <ul class="mt-3 space-y-1">
+      <li><strong class="text-phoenix-light">Denumire:</strong> GREEN PHEONIX CONCEPT S.R.L.</li>
+      <li><strong class="text-phoenix-light">CUI:</strong> 45667331</li>
+      <li><strong class="text-phoenix-light">Sediu:</strong> Brașov, România</li>
+      <li><strong class="text-phoenix-light">Email contact:</strong> contact@greenpheonixconcept.com</li>
+      <li><strong class="text-phoenix-light">Telefon:</strong> +40 793 650 902</li>
+    </ul>
+
+    <h2 class="mt-12 font-display text-2xl text-phoenix-light md:text-3xl">2. Date colectate</h2>
+    <p class="mt-4">Colectăm următoarele categorii de date personale:</p>
+    <ul class="mt-3 list-inside list-disc space-y-1 text-phoenix-light/80">
+      <li>nume și prenume — la completarea formularului de contact;</li>
+      <li>adresă de email — pentru comunicare și ofertare;</li>
+      <li>număr de telefon — opțional, pentru contact direct;</li>
+      <li>tip business, buget lunar și servicii de interes — pentru calificarea cererii;</li>
+      <li>conținutul mesajului trimis prin formular;</li>
+      <li>adresa IP, user-agent, log-uri de server — pentru securitate și debugging;</li>
+      <li>cookies și identificatori de tracking — vezi secțiunea 6.</li>
+    </ul>
+
+    <h2 class="mt-12 font-display text-2xl text-phoenix-light md:text-3xl">3. Scopul prelucrării</h2>
+    <p class="mt-4">Prelucrăm datele tale în următoarele scopuri:</p>
+    <ul class="mt-3 list-inside list-disc space-y-1 text-phoenix-light/80">
+      <li>răspuns la solicitări și ofertare servicii — temei: executarea unui contract sau pașii pre-contractuali (art. 6(1)(b) GDPR);</li>
+      <li>comunicare comercială și relația cu clienții — temei: interes legitim sau consimțământul tău (art. 6(1)(a) și (f) GDPR);</li>
+      <li>analiză web și optimizarea site-ului — temei: consimțământ explicit prin banner de cookies;</li>
+      <li>obligații legale (facturare, contabilitate) — temei: obligație legală (art. 6(1)(c) GDPR).</li>
+    </ul>
+
+    <h2 class="mt-12 font-display text-2xl text-phoenix-light md:text-3xl">4. Durata stocării</h2>
+    <p class="mt-4">
+      Datele de contact și mesajele sunt păstrate maxim 36 de luni de la ultima interacțiune, cu excepția cazului în care contractul în curs sau obligațiile legale impun o perioadă mai lungă (5-10 ani pentru documente fiscale și contractuale). Log-urile de server sunt rotite la 90 de zile.
+    </p>
+
+    <h2 class="mt-12 font-display text-2xl text-phoenix-light md:text-3xl">5. Destinatari</h2>
+    <p class="mt-4">
+      Nu vindem și nu partajăm date personale cu terți în scopuri de marketing. Ele pot fi accesate, cu obligații contractuale stricte de confidențialitate, de către:
+    </p>
+    <ul class="mt-3 list-inside list-disc space-y-1 text-phoenix-light/80">
+      <li>furnizori de hosting și CDN (Vercel / Cloudflare) — strict pentru livrarea site-ului;</li>
+      <li>furnizori de email tranzacțional (Formspree / Resend) — pentru livrarea formularelor;</li>
+      <li>servicii analytics (Google Analytics 4, Meta Pixel) — doar dacă ai acceptat cookies;</li>
+      <li>contabilitate și autorități, când legea impune.</li>
+    </ul>
+
+    <h2 class="mt-12 font-display text-2xl text-phoenix-light md:text-3xl">6. Cookies & tracking</h2>
+    <p class="mt-4">Folosim următoarele tehnologii de tracking:</p>
+    <div class="mt-3 overflow-x-auto border border-phoenix-gray">
+      <table class="w-full text-left">
+        <thead class="bg-phoenix-gray/40">
+          <tr class="font-mono text-xs uppercase tracking-widest text-phoenix-cyan">
+            <th class="px-4 py-3">Cookie / serviciu</th>
+            <th class="px-4 py-3">Scop</th>
+            <th class="px-4 py-3">Durată</th>
+          </tr>
+        </thead>
+        <tbody class="text-phoenix-light/80">
+          <tr class="border-t border-phoenix-gray">
+            <td class="px-4 py-3"><strong class="text-phoenix-light">Google Analytics 4</strong></td>
+            <td class="px-4 py-3">Statistici de trafic anonimizate</td>
+            <td class="px-4 py-3">14 luni</td>
+          </tr>
+          <tr class="border-t border-phoenix-gray">
+            <td class="px-4 py-3"><strong class="text-phoenix-light">Meta Pixel</strong></td>
+            <td class="px-4 py-3">Atribuire conversii din reclame Meta</td>
+            <td class="px-4 py-3">90 zile</td>
+          </tr>
+          <tr class="border-t border-phoenix-gray">
+            <td class="px-4 py-3"><strong class="text-phoenix-light">consent</strong></td>
+            <td class="px-4 py-3">Memorarea preferințelor de cookies</td>
+            <td class="px-4 py-3">12 luni</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-4">
+      Toate cookies analitice și de marketing necesită consimțământ explicit prin Consent Mode v2. Le poți revoca oricând din setările browser-ului sau din banner-ul de cookies de pe site.
+    </p>
+
+    <h2 class="mt-12 font-display text-2xl text-phoenix-light md:text-3xl">7. Drepturile tale GDPR</h2>
+    <p class="mt-4">Conform GDPR ai următoarele drepturi:</p>
+    <ul class="mt-3 list-inside list-disc space-y-1 text-phoenix-light/80">
+      <li><strong class="text-phoenix-light">Acces</strong> — copia datelor pe care le deținem despre tine;</li>
+      <li><strong class="text-phoenix-light">Rectificare</strong> — corectarea datelor incorecte sau incomplete;</li>
+      <li><strong class="text-phoenix-light">Ștergere</strong> ("dreptul de a fi uitat") — în condițiile legale aplicabile;</li>
+      <li><strong class="text-phoenix-light">Restricționare</strong> a prelucrării;</li>
+      <li><strong class="text-phoenix-light">Portabilitate</strong> — primirea datelor într-un format structurat;</li>
+      <li><strong class="text-phoenix-light">Opoziție</strong> la prelucrarea bazată pe interes legitim;</li>
+      <li><strong class="text-phoenix-light">Retragerea consimțământului</strong> — oricând, fără efecte retroactive.</li>
+    </ul>
+    <p class="mt-4">
+      Pentru exercitarea oricăruia dintre aceste drepturi, scrie-ne la
+      <a href="mailto:contact@greenpheonixconcept.com" class="text-phoenix-green hover:underline">contact@greenpheonixconcept.com</a>.
+      Răspundem în maxim 30 de zile calendaristice.
+    </p>
+
+    <h2 class="mt-12 font-display text-2xl text-phoenix-light md:text-3xl">8. Reclamații</h2>
+    <p class="mt-4">
+      Dacă apreciezi că prelucrarea datelor tale încalcă legea, poți depune o reclamație la
+      <a href="https://www.dataprotection.ro/" target="_blank" rel="noopener" class="text-phoenix-green hover:underline">Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal (ANSPDCP)</a>
+      sau la
+      <a href="https://anpc.ro/" target="_blank" rel="noopener" class="text-phoenix-green hover:underline">ANPC</a>
+      pentru aspecte de protecția consumatorilor.
+    </p>
+
+    <h2 class="mt-12 font-display text-2xl text-phoenix-light md:text-3xl">9. Securitate</h2>
+    <p class="mt-4">
+      Aplicăm măsuri tehnice și organizatorice rezonabile: HTTPS pe tot site-ul, acces restricționat la datele clienților, parole gestionate prin manageri specializați, backup-uri criptate. Niciun sistem nu e 100% inviolabil — orice incident de securitate va fi notificat conform art. 33-34 GDPR.
+    </p>
+
+    <h2 class="mt-12 font-display text-2xl text-phoenix-light md:text-3xl">10. Modificări</h2>
+    <p class="mt-4">
+      Această politică poate fi actualizată periodic. Versiunea curentă e mereu disponibilă la această adresă, cu data ultimei actualizări marcată în partea de sus a paginii.
+    </p>
   </article>
 </BaseLayout>

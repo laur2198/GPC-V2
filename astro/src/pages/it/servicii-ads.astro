@@ -2,38 +2,228 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
+import HowWeWork from '../../components/HowWeWork.astro';
+import FAQ from '../../components/FAQ.astro';
 import CTA from '../../components/CTA.astro';
-import { getPageCopy } from '../../utils/content';
-import { localizedPath } from '../../utils/i18n';
+import { type Locale, localizedPath } from '../../utils/i18n';
 
-const locale = 'it' as const;
-const c = getPageCopy(locale, 'servicii-ads');
+const locale: Locale = 'it';
 
-const services = [
-  { number: '01', title: 'Google Search Ads', description: 'Campagne su parole chiave ad alto intento commerciale.', accentTag: 'PAID SEARCH', ctaText: 'Vedi pacchetto' },
-  { number: '02', title: 'Performance Max', description: 'Automazione AI su tutto l’inventario Google.', accentTag: 'PMAX', ctaText: 'Vedi pacchetto' },
-  { number: '03', title: 'Meta Ads', description: 'Facebook & Instagram per lead ed e-commerce.', accentTag: 'SOCIAL', ctaText: 'Vedi pacchetto' },
-  { number: '04', title: 'TikTok Ads', description: 'Contenuti nativi per audience Gen Z e Millennial.', accentTag: 'VIDEO', ctaText: 'Vedi pacchetto' },
-  { number: '05', title: 'Tracking & GA4', description: 'Implementazione corretta degli eventi e conversioni server-side.', accentTag: 'DATA', ctaText: 'Vedi pacchetto' },
-  { number: '06', title: 'Ottimizzazione ROAS', description: 'A/B test su creativi, audience e landing page.', accentTag: 'CRO', ctaText: 'Vedi pacchetto' },
+const meta = {
+  title: 'Servizi Ads Online — Meta, Google, TikTok | Green Pheonix',
+  description:
+    "Agenzia di performance marketing da Brașov. Campagne Meta Ads, Google Ads e TikTok Ads ottimizzate sul ROAS, con setup tecnico pulito e report trasparenti. Audit gratuito.",
+};
+
+const platforms = [
+  { number: '01', title: 'Meta Ads (Facebook & Instagram)', accentTag: 'SOCIAL', description: "Strategie di Awareness, Lead-gen e e-commerce, con test settimanali su creativi e audience usando dati proprietari.", ctaText: 'Vedi come lavoriamo su Meta', link: '#meta-detail' },
+  { number: '02', title: 'Google Ads (Search, PMax, Shopping)', accentTag: 'PAID SEARCH', description: 'Campagne su intent commerciale, strutturate brand vs non-brand, con PMax per e-commerce e Demand Gen dove serve.', ctaText: 'Vedi come lavoriamo su Google', link: '#google-detail' },
+  { number: '03', title: 'TikTok Ads', accentTag: 'VIDEO', description: 'Contenuti nativi girati settimanalmente, hook A/B-testati e scaling Spark Ads per audience Gen Z e Millennial.', ctaText: 'Vedi come lavoriamo su TikTok', link: '#tiktok-detail' },
+  { number: '04', title: 'Strategia integrata', accentTag: 'STRATEGY', description: 'Il giusto mix tra piattaforme, conversioni server-side e un funnel con retargeting su ogni touchpoint.', ctaText: 'Vedi la nostra strategia', link: '#strategy-detail' },
+];
+
+const industries = [
+  'Medico & dentistico',
+  'Fitness & wellness',
+  'Beauty & estetica',
+  'Retail & fashion',
+  'Food & HoReCa',
+  'Servizi B2B',
+  'Real estate',
+  'Automotive',
+  'E-commerce DTC',
+];
+
+const pricing = [
+  { tag: 'STARTER', title: 'Set-up + gestione 1 piattaforma', price: 'da 600 EUR / mese', bullets: ['Audit iniziale', '1 piattaforma (Meta o Google)', 'Budget media min. 1.000 EUR', 'Report mensile'] },
+  { tag: 'GROWTH', title: 'Mix Meta + Google + creativi', price: 'da 1.200 EUR / mese', bullets: ['2 piattaforme integrate', 'Iterazione creativi settimanale', 'Conversioni server-side', 'Report bi-settimanale + call'] },
+  { tag: 'SCALE', title: 'Strategia completa + TikTok', price: 'da 2.000 EUR / mese', bullets: ['3 piattaforme + retargeting', 'Studio creativo + UGC', 'Dashboard Looker Studio', 'Call settimanale + Slack'] },
+];
+
+const faqItems = [
+  { question: 'Qual è il budget minimo consigliato per le ads?', answer: "Consigliamo almeno 1.000 EUR/mese di budget media + fee agenzia. Sotto questa soglia gli algoritmi rimangono bloccati nella fase di learning ed è più sensato lavorare prima su offerta, sito e tracking." },
+  { question: 'In quanto tempo si vedono i risultati?', answer: "Primi segnali entro 48–72h dal lancio. L'ottimizzazione reale si vede in 2–4 settimane, dopo aver raccolto dati sufficienti per decisioni su creativi, audience e landing." },
+  { question: 'Come misuriamo il ROAS in modo corretto?', answer: 'Conversioni server-side (Meta CAPI, Google Enhanced Conversions), GA4 con eventi custom e una dashboard Looker Studio con ROAS blended — mai solo i numeri delle piattaforme.' },
+  { question: 'Con quali settori lavorate meglio?', answer: 'Medico e dentistico, fitness, beauty, retail, food, servizi B2B, real estate e automotive. Abbiamo playbook collaudati per ognuno, ma tutto viene adattato alle specificità del brand.' },
+  { question: "C'è una durata contrattuale minima?", answer: 'Consigliamo 3 mesi per risultati stabili, ma non blocchiamo il cliente. Contratti con preavviso di 30 giorni e senza penali di uscita.' },
 ];
 ---
 
-<BaseLayout title={c.meta.title} description={c.meta.description} locale={locale}>
-  <Hero locale={locale} variant="compact" title={c.hero.title} subtitle={c.hero.subtitle} ctaLabel={c.hero.ctaLabel} ctaHref={localizedPath(locale, '/contact')} />
-  <section class="mx-auto max-w-7xl px-6 py-20">
-    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {services.map((s) => (
-        <ServiceCard
-          number={s.number}
-          title={s.title}
-          description={s.description}
-          link={localizedPath(locale, '/contact')}
-          ctaText={s.ctaText}
-          accentTag={s.accentTag}
-        />
-      ))}
+<BaseLayout title={meta.title} description={meta.description} locale={locale} faqSchema={faqItems}>
+  <Hero
+    locale={locale}
+    variant="compact"
+    title="Annunci online che portano clienti, non solo impression."
+    subtitle="Meta Ads, Google Ads e TikTok Ads gestiti da un team ossessionato dal ROAS, con setup tecnico pulito e report trasparenti. Audit gratuito sugli account esistenti."
+    ctaLabel="Prenota un audit gratuito"
+    ctaHref={localizedPath(locale, '/contact')}
+  />
+
+  <section class="border-t border-phoenix-gray bg-phoenix-black">
+    <div class="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <p class="sticky top-28 font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// COSA FACCIAMO</p>
+      </div>
+      <div class="space-y-6 font-mono text-base leading-relaxed text-phoenix-light/85 lg:col-span-8">
+        <h2 class="font-display text-3xl text-phoenix-light md:text-4xl">
+          Performance marketing senza fronzoli, calibrato sul <span class="glow-green">ROAS reale</span>.
+        </h2>
+        <p>
+          In Green Pheonix Concept costruiamo sistemi di acquisizione clienti che funzionano in modo prevedibile, non campagne isolate che fanno bella figura negli screenshot. Lavoriamo su tre piattaforme principali — Meta, Google e TikTok — e le combiniamo in un funnel coerente, con messaggi e offerte che parlano tra loro.
+        </p>
+        <p>
+          La differenza principale rispetto a un'agenzia classica è che guardiamo l'intera catena: offerta, landing page, tracking, creativi, audience, bid strategy, post-click experience. Se uno qualsiasi di questi è rotto, il resto non conta. Per questo ogni collaborazione inizia con un audit completo, non con una proposta di budget media.
+        </p>
+        <p>
+          Nei primi 7 giorni ricevi un piano concreto: cosa va bene, cosa è rotto, cosa va sistemato prima di spendere un euro, e quali KPI seguiamo. Poi entriamo in esecuzione settimanale: lancio, ottimizzazione, scaling controllato e report trasparente — dati dalle piattaforme + GA4 + blended view, non solo quello che fa comodo mostrare.
+        </p>
+        <p>
+          Non promettiamo ROAS 10x nel primo mese. Promettiamo che a 90 giorni saprai esattamente cosa funziona, cosa no, cosa abbiamo testato e qual è il prossimo passo. Se siamo i partner giusti, resterai; se no, l'audit è tuo e puoi usarlo con chiunque.
+        </p>
+      </div>
     </div>
   </section>
-  <CTA title="Vuoi un audit gratuito sulle tue campagne?" description="In un’ora individuiamo cosa può essere ottimizzato." ctaLabel="Prenota audit" ctaHref={localizedPath(locale, '/contact')} />
+
+  <section class="border-t border-phoenix-gray bg-phoenix-gray/10">
+    <div class="mx-auto max-w-7xl px-6 py-20">
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// PIATTAFORME</p>
+      <h2 class="mt-3 max-w-2xl font-display text-3xl text-phoenix-light md:text-4xl">
+        Cosa configuriamo, ottimizziamo e rendicontiamo
+      </h2>
+      <div class="mt-12 grid gap-6 md:grid-cols-2">
+        {platforms.map((p) => (
+          <ServiceCard number={p.number} title={p.title} description={p.description} link={localizedPath(locale, '/contact')} ctaText={p.ctaText} accentTag={p.accentTag} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="meta-detail" class="border-t border-phoenix-gray bg-phoenix-black">
+    <div class="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <span class="inline-block border border-phoenix-cyan/40 bg-phoenix-cyan/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-phoenix-cyan">META ADS</span>
+        <h3 class="mt-4 font-display text-2xl text-phoenix-light md:text-3xl">Facebook & Instagram, calibrati sull'azione</h3>
+      </div>
+      <div class="space-y-4 font-mono text-sm leading-relaxed text-phoenix-light/80 lg:col-span-8">
+        <p>
+          Su Meta lavoriamo con una struttura account pulita: una campagna di Awareness con interessi ampi per reach e segnale di qualità, una campagna di Conversion con Advantage+ Audiences per acquisizione, e retargeting separato sugli eventi pixel — view content, add to cart, checkout, post-purchase per cross-sell.
+        </p>
+        <p>
+          Le conversioni passano attraverso Meta Conversions API server-side (Stape o implementazione custom), non solo dal pixel. Così perdiamo meno segnale su iOS 14+, ottimizziamo meglio e abbiamo dati di attribuzione corretti.
+        </p>
+        <p>
+          Sui creativi iteriamo settimanalmente: 4-6 nuovi angoli, hook diversi, formati vari (single image, carousel, reel, UGC). Tutto passa da una fase di test a budget controllato prima dello scaling sui top performer.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="google-detail" class="border-t border-phoenix-gray bg-phoenix-gray/10">
+    <div class="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <span class="inline-block border border-phoenix-cyan/40 bg-phoenix-cyan/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-phoenix-cyan">GOOGLE ADS</span>
+        <h3 class="mt-4 font-display text-2xl text-phoenix-light md:text-3xl">Search, PMax, Shopping — sull'intent reale</h3>
+      </div>
+      <div class="space-y-4 font-mono text-sm leading-relaxed text-phoenix-light/80 lg:col-span-8">
+        <p>
+          Le Search Ads partono da una ricerca reale di intent: Keyword Planner, Search Terms da account esistenti, suggerimenti SERP, più tool esterni (Ahrefs / Semrush). Separiamo nettamente brand e non-brand e abbiamo campagne dedicate per tipo di corrispondenza.
+        </p>
+        <p>
+          Performance Max funziona per e-commerce e lead-gen ad alto volume, ma lo usiamo con Asset Group segmentati (non un singolo "all-in-one"), audience seed ed esclusioni brand. Aggiungiamo Search Themes per controllo più stretto sull'intent.
+        </p>
+        <p>
+          Su Shopping ottimizziamo il feed (titoli, attributi, GTIN, immagini), non solo il bid. Un feed pulito batte sempre un bid aggressivo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tiktok-detail" class="border-t border-phoenix-gray bg-phoenix-black">
+    <div class="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <span class="inline-block border border-phoenix-cyan/40 bg-phoenix-cyan/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-phoenix-cyan">TIKTOK ADS</span>
+        <h3 class="mt-4 font-display text-2xl text-phoenix-light md:text-3xl">Contenuti nativi che non sembrano ads</h3>
+      </div>
+      <div class="space-y-4 font-mono text-sm leading-relaxed text-phoenix-light/80 lg:col-span-8">
+        <p>
+          Su TikTok il formato batte la bid strategy. Produciamo 4-8 variazioni settimanali con hook distinti (problem-agitate, demo, comparison, social proof) e testiamo Spark Ads da account brand reali o creator partner.
+        </p>
+        <p>
+          Il setup tecnico include TikTok Pixel, Events API server-side e Advanced Matching per attribuzione migliore. Per l'e-commerce integriamo anche TikTok Shop dove la categoria lo permette.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="strategy-detail" class="border-t border-phoenix-gray bg-phoenix-gray/10">
+    <div class="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <span class="inline-block border border-phoenix-cyan/40 bg-phoenix-cyan/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-phoenix-cyan">STRATEGIA INTEGRATA</span>
+        <h3 class="mt-4 font-display text-2xl text-phoenix-light md:text-3xl">Funnel coerente, non silos</h3>
+      </div>
+      <div class="space-y-4 font-mono text-sm leading-relaxed text-phoenix-light/80 lg:col-span-8">
+        <p>
+          Le tre piattaforme non vivono separate. Le audience si alimentano a vicenda: TikTok produce contenuti top-of-funnel e segnale, Meta converte mid-funnel con retargeting calibrato, Google cattura l'intent diretto e il brand search generato dagli altri canali.
+        </p>
+        <p>
+          Il tracking è unificato: GA4 come fonte di verità per attribuzione blended, conversioni server-side su ogni piattaforma, dashboard Looker Studio con KPI giornalieri. Così non vedi solo il ROAS per piattaforma, ma l'efficienza reale di ogni euro investito.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-phoenix-gray bg-phoenix-black">
+    <div class="mx-auto max-w-7xl px-6 py-20">
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// SETTORI</p>
+      <h2 class="mt-3 max-w-2xl font-display text-3xl text-phoenix-light md:text-4xl">Con chi lavoriamo meglio</h2>
+      <p class="mt-4 max-w-2xl font-mono text-sm leading-relaxed text-phoenix-light/70">
+        Abbiamo playbook collaudati nei settori qui sotto. Tutto viene adattato alle specificità del brand — mai copia-incolla.
+      </p>
+      <ul class="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-3">
+        {industries.map((i) => (
+          <li class="border border-phoenix-gray bg-phoenix-gray/30 px-4 py-3 font-mono text-sm uppercase tracking-wider text-phoenix-light/80 transition-colors hover:border-phoenix-green hover:text-phoenix-green">
+            <span class="mr-2 text-phoenix-green">›</span>{i}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="border-t border-phoenix-gray bg-phoenix-gray/10">
+    <div class="mx-auto max-w-7xl px-6 py-20">
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// PREZZI</p>
+      <h2 class="mt-3 max-w-2xl font-display text-3xl text-phoenix-light md:text-4xl">Pacchetti trasparenti e scalabili</h2>
+      <p class="mt-4 max-w-2xl font-mono text-sm leading-relaxed text-phoenix-light/70">
+        I prezzi qui sotto sono il fee agenzia; il budget media è separato e si imposta in base agli obiettivi. Ogni pacchetto include accesso diretto alla dashboard e reportistica mensile.
+      </p>
+      <div class="mt-12 grid gap-6 md:grid-cols-3">
+        {pricing.map((p, i) => (
+          <article class:list={['flex flex-col border bg-phoenix-gray/30 p-6', i === 1 ? 'border-phoenix-green shadow-[0_0_28px_rgba(0,255,148,0.18)]' : 'border-phoenix-gray']}>
+            <span class="inline-block self-start border border-phoenix-cyan/40 bg-phoenix-cyan/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-phoenix-cyan">{p.tag}</span>
+            <h3 class="mt-5 font-display text-xl text-phoenix-light">{p.title}</h3>
+            <p class="mt-3 font-display text-2xl glow-green">{p.price}</p>
+            <ul class="mt-6 flex-1 space-y-2 font-mono text-sm text-phoenix-light/80">
+              {p.bullets.map((b) => (
+                <li class="flex gap-2"><span class="text-phoenix-green">✓</span><span>{b}</span></li>
+              ))}
+            </ul>
+            <a href={localizedPath(locale, '/contact')} class="mt-8 inline-flex items-center justify-center border border-phoenix-green px-4 py-3 font-mono text-xs uppercase tracking-widest text-phoenix-green transition-colors hover:bg-phoenix-green hover:text-phoenix-black">
+              Richiedi preventivo
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork locale={locale} />
+
+  <FAQ items={faqItems} title="DOMANDE FREQUENTI — ADS" schema={false} />
+
+  <CTA
+    heading="Vuoi un audit gratuito sulle tue campagne?"
+    subtext="In 60 minuti individuiamo le perdite principali e cosa può essere ottimizzato subito. Esci con un piano, anche se non lavoriamo insieme."
+    buttonText="Prenota audit gratuito"
+    buttonLink={localizedPath(locale, '/contact')}
+  />
 </BaseLayout>

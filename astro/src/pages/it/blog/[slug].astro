@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BlogCard from '../../../components/BlogCard.astro';
+import CTA from '../../../components/CTA.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { localizedPath } from '../../../utils/i18n';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => data.language === 'it');
@@ -14,18 +17,166 @@ interface Props {
   entry: CollectionEntry<'blog'>;
 }
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content, remarkPluginFrontmatter } = await entry.render();
+
+const all = await getCollection('blog', ({ data }) => data.language === 'it');
+const related = all
+  .filter((p) => p.slug !== entry.slug && p.data.category === entry.data.category)
+  .slice(0, 3);
+
 const formatted = entry.data.publishDate.toISOString().slice(0, 10);
+const site = Astro.site ?? new URL('https://greenpheonixconcept.com');
+const fullUrl = new URL(Astro.url.pathname, site).toString();
+const ogImage = entry.data.heroImage
+  ? new URL(entry.data.heroImage, site).toString()
+  : new URL('/og-image.jpg', site).toString();
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  inLanguage: 'it',
+  headline: entry.data.title,
+  description: entry.data.description,
+  image: ogImage,
+  datePublished: entry.data.publishDate.toISOString(),
+  dateModified: remarkPluginFrontmatter?.lastModified ?? entry.data.publishDate.toISOString(),
+  author: { '@type': 'Person', name: entry.data.author },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Green Pheonix Concept',
+    logo: { '@type': 'ImageObject', url: new URL('/logo_gpc.svg', site).toString() },
+  },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': fullUrl },
+  articleSection: entry.data.category,
+  keywords: entry.data.tags.join(', '),
+};
+
+const shareTargets = [
+  { name: 'Facebook', href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(fullUrl)}` },
+  { name: 'LinkedIn', href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(fullUrl)}` },
+  { name: 'X / Twitter', href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(entry.data.title)}&url=${encodeURIComponent(fullUrl)}` },
+  { name: 'WhatsApp', href: `https://wa.me/?text=${encodeURIComponent(`${entry.data.title} ${fullUrl}`)}` },
+];
 ---
 
-<BaseLayout title={entry.data.title} description={entry.data.description} locale="it" image={entry.data.heroImage}>
-  <article class="mx-auto max-w-3xl px-6 py-16">
-    <p class="font-mono text-xs uppercase tracking-widest text-phoenix-cyan">{entry.data.category}</p>
-    <h1 class="mt-3 font-display text-4xl glow-green">{entry.data.title}</h1>
-    <p class="mt-2 font-mono text-sm text-phoenix-light/60">{entry.data.author} · <time>{formatted}</time></p>
-    {entry.data.heroImage && <img src={entry.data.heroImage} alt={entry.data.title} class="mt-8 border border-phoenix-gray" />}
-    <div class="prose prose-invert mt-10 font-mono text-sm leading-relaxed text-phoenix-light/80">
-      <Content />
-    </div>
+<BaseLayout
+  title={`${entry.data.title} | Blog Green Pheonix`}
+  description={entry.data.description}
+  locale="it"
+  image={entry.data.heroImage}
+>
+  <article>
+    <header class="relative overflow-hidden border-b border-phoenix-gray bg-phoenix-black">
+      <div class="scanline pointer-events-none absolute inset-0" aria-hidden="true"></div>
+      <div class="relative mx-auto max-w-3xl px-6 py-16 lg:py-20">
+        <a href={localizedPath('it', '/blog')} class="font-mono text-xs uppercase tracking-widest text-phoenix-light/60 hover:text-phoenix-green">
+          ← Torna al blog
+        </a>
+        <p class="mt-8 inline-block border border-phoenix-cyan/40 bg-phoenix-cyan/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-phoenix-cyan">
+          {entry.data.category}
+        </p>
+        <h1 class="mt-5 font-display text-3xl leading-tight md:text-5xl">
+          <span class="glow-green">{entry.data.title}</span>
+        </h1>
+        <div class="mt-6 flex flex-wrap items-center gap-4 font-mono text-sm text-phoenix-light/70">
+          <span>{entry.data.author}</span>
+          <span aria-hidden="true">·</span>
+          <time datetime={entry.data.publishDate.toISOString()}>{formatted}</time>
+          {entry.data.tags.length > 0 && (
+            <>
+              <span aria-hidden="true">·</span>
+              <span class="flex flex-wrap gap-2">
+                {entry.data.tags.map((tg) => (
+                  <span class="border border-phoenix-gray px-2 py-0.5 text-[11px] uppercase tracking-widest text-phoenix-light/60">#{tg}</span>
+                ))}
+              </span>
+            </>
+          )}
+        </div>
+      </div>
+    </header>
+
+    {entry.data.heroImage && (
+      <div class="border-b border-phoenix-gray bg-phoenix-black">
+        <div class="mx-auto max-w-4xl px-6 py-10">
+          <img src={entry.data.heroImage} alt={entry.data.title} class="aspect-[16/8] w-full border border-phoenix-gray object-cover" loading="eager" />
+        </div>
+      </div>
+    )}
+
+    <section class="border-b border-phoenix-gray bg-phoenix-black">
+      <div class="mx-auto grid max-w-5xl gap-12 px-6 py-16 lg:grid-cols-12">
+        <aside class="lg:col-span-3">
+          <div class="sticky top-28 space-y-3">
+            <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// CONDIVIDI</p>
+            <ul class="space-y-2 font-mono text-sm">
+              {shareTargets.map((s) => (
+                <li>
+                  <a href={s.href} target="_blank" rel="noopener" class="block border border-phoenix-gray bg-phoenix-gray/30 px-3 py-2 text-phoenix-light/80 transition-colors hover:border-phoenix-green hover:text-phoenix-green">{s.name}</a>
+                </li>
+              ))}
+              <li>
+                <button type="button" data-copy-url data-url={fullUrl} class="block w-full border border-phoenix-gray bg-phoenix-gray/30 px-3 py-2 text-left text-phoenix-light/80 transition-colors hover:border-phoenix-green hover:text-phoenix-green">
+                  <span data-copy-label>Copia link</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </aside>
+
+        <div class="prose prose-invert max-w-none font-mono text-base leading-relaxed text-phoenix-light/85 lg:col-span-9 prose-headings:font-display prose-headings:text-phoenix-light prose-h2:mt-10 prose-h2:text-2xl prose-h2:text-phoenix-green prose-h3:text-xl prose-strong:text-phoenix-light prose-a:text-phoenix-cyan prose-li:my-1 prose-code:rounded prose-code:bg-phoenix-gray/40 prose-code:px-1 prose-code:py-0.5 prose-pre:border prose-pre:border-phoenix-gray prose-pre:bg-phoenix-gray/30">
+          <Content />
+        </div>
+      </div>
+    </section>
+
+    {related.length > 0 && (
+      <section class="border-b border-phoenix-gray bg-phoenix-gray/10">
+        <div class="mx-auto max-w-7xl px-6 py-16">
+          <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// CONTINUA A LEGGERE</p>
+          <h2 class="mt-3 font-display text-2xl text-phoenix-light md:text-3xl">Altri articoli nella stessa categoria</h2>
+          <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {related.map((p) => (
+              <BlogCard
+                title={p.data.title}
+                description={p.data.description}
+                publishDate={p.data.publishDate}
+                category={p.data.category}
+                heroImage={p.data.heroImage}
+                href={localizedPath('it', `/blog/${p.slug}`)}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <CTA
+      heading="Metti in pratica quello che hai letto."
+      subtext="Prenota un audit gratuito e applichiamo insieme i principi dell'articolo sul tuo business."
+      buttonText="Prenota audit"
+      buttonLink={localizedPath('it', '/contact')}
+    />
   </article>
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
 </BaseLayout>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-copy-url]').forEach((btn) => {
+    const label = btn.querySelector<HTMLElement>('[data-copy-label]');
+    btn.addEventListener('click', async () => {
+      const url = btn.dataset.url ?? window.location.href;
+      try {
+        await navigator.clipboard.writeText(url);
+        if (label) {
+          const prev = label.textContent;
+          label.textContent = '✓ Copiato';
+          setTimeout(() => (label.textContent = prev), 1800);
+        }
+      } catch {
+        /* noop */
+      }
+    });
+  });
+</script>

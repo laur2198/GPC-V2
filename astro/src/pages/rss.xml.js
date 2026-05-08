@@ -19,6 +19,5 @@ export async function GET(context) {
       author: post.data.author,
     })),
     customData: '<language>ro-RO</language>',
-    stylesheet: '/rss-styles.xsl',
   });
 }

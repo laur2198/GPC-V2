@@ -11,5 +11,18 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
-  integrations: [tailwind(), sitemap()],
+  integrations: [
+    tailwind(),
+    sitemap({
+      i18n: {
+        defaultLocale: 'ro',
+        locales: { ro: 'ro-RO', en: 'en-US', it: 'it-IT' },
+      },
+      filter: (page) =>
+        !page.includes('/multumim') &&
+        !page.endsWith('/404') &&
+        !page.endsWith('/404/'),
+    }),
+  ],
+  compressHTML: true,
 });

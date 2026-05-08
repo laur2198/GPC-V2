@@ -2,50 +2,333 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import ServiceCard from '../components/ServiceCard.astro';
+import HowWeWork from '../components/HowWeWork.astro';
+import FAQ from '../components/FAQ.astro';
 import CTA from '../components/CTA.astro';
-import { getPageCopy } from '../utils/content';
-import { localizedPath } from '../utils/i18n';
+import { type Locale, localizedPath } from '../utils/i18n';
 
-const locale = 'ro' as const;
-const c = getPageCopy(locale, 'servicii-ads');
+const locale: Locale = 'ro';
 
-const services = [
-  { number: '01', title: 'Google Search Ads', description: 'Campanii pe cuvinte cheie cu intent comercial ridicat.', accentTag: 'PAID SEARCH', ctaText: 'Vezi pachet' },
-  { number: '02', title: 'Performance Max', description: 'Automatizare AI pe toate inventarele Google.', accentTag: 'PMAX', ctaText: 'Vezi pachet' },
-  { number: '03', title: 'Meta Ads', description: 'Facebook & Instagram pentru lead-uri și e-commerce.', accentTag: 'SOCIAL', ctaText: 'Vezi pachet' },
-  { number: '04', title: 'TikTok Ads', description: 'Conținut nativ pentru audiențe Gen Z & Millennial.', accentTag: 'VIDEO', ctaText: 'Vezi pachet' },
-  { number: '05', title: 'Tracking & GA4', description: 'Implementare corectă a evenimentelor și conversii server-side.', accentTag: 'DATA', ctaText: 'Vezi pachet' },
-  { number: '06', title: 'Optimizare ROAS', description: 'A/B testing creative, audiences și landing pages.', accentTag: 'CRO', ctaText: 'Vezi pachet' },
+const meta = {
+  title: 'Servicii Reclame Online — Meta, Google, TikTok | Green Pheonix',
+  description:
+    'Agenție de performance marketing din Brașov. Campanii Meta Ads, Google Ads și TikTok Ads optimizate pe ROAS, cu setup tehnic curat și rapoarte clare. Audit gratuit.',
+};
+
+const platforms = [
+  {
+    number: '01',
+    title: 'Meta Ads (Facebook & Instagram)',
+    accentTag: 'SOCIAL',
+    description:
+      'Strategii de Awareness, Lead-uri și e-commerce, cu testing săptămânal pe creative și audiences pe baza datelor proprii.',
+    ctaText: 'Vezi cum lucrăm pe Meta',
+    link: '#meta-detail',
+  },
+  {
+    number: '02',
+    title: 'Google Ads (Search, PMax, Shopping)',
+    accentTag: 'PAID SEARCH',
+    description:
+      'Campanii pe intent comercial, structurate pe brand vs non-brand, cu PMax pentru e-commerce și Demand Gen unde e cazul.',
+    ctaText: 'Vezi cum lucrăm pe Google',
+    link: '#google-detail',
+  },
+  {
+    number: '03',
+    title: 'TikTok Ads',
+    accentTag: 'VIDEO',
+    description:
+      'Conținut nativ filmat săptămânal, hook-uri testate cu A/B și scaling pe Spark Ads pentru audiențe Gen Z & Millennial.',
+    ctaText: 'Vezi cum lucrăm pe TikTok',
+    link: '#tiktok-detail',
+  },
+  {
+    number: '04',
+    title: 'Strategie integrată',
+    accentTag: 'STRATEGY',
+    description:
+      'Mixul corect între platforme, conversii server-side și un funnel cu retargeting pe toate touchpoint-urile.',
+    ctaText: 'Vezi strategia noastră',
+    link: '#strategy-detail',
+  },
+];
+
+const industries = [
+  'Medical & dentar',
+  'Fitness & wellness',
+  'Beauty & estetică',
+  'Retail & fashion',
+  'Food & HoReCa',
+  'B2B services',
+  'Real estate',
+  'Automotive',
+  'E-commerce DTC',
+];
+
+const pricing = [
+  {
+    tag: 'STARTER',
+    title: 'Set-up + management 1 platformă',
+    price: 'de la 600 EUR / lună',
+    bullets: ['Audit inițial', '1 platformă (Meta sau Google)', 'Buget media min. 1.000 EUR', 'Raport lunar'],
+  },
+  {
+    tag: 'GROWTH',
+    title: 'Mix Meta + Google + creative',
+    price: 'de la 1.200 EUR / lună',
+    bullets: ['2 platforme integrate', 'Creative iterate săptămânal', 'Conversii server-side', 'Raport bi-săptămânal + call'],
+  },
+  {
+    tag: 'SCALE',
+    title: 'Strategie completă + TikTok',
+    price: 'de la 2.000 EUR / lună',
+    bullets: ['3 platforme + retargeting', 'Studio creative + UGC', 'Dashboard Looker Studio', 'Call săptămânal + Slack'],
+  },
+];
+
+const faqItems = [
+  {
+    question: 'Care e bugetul minim recomandat pentru reclame?',
+    answer:
+      'Recomandăm minim 1.000 EUR / lună budget media + fee agenție. Sub acest prag, algoritmii rămân blocați în faza de învățare și e mai eficient să lucrăm întâi pe ofertă, site și tracking.',
+  },
+  {
+    question: 'În cât timp se văd rezultatele?',
+    answer:
+      'Primele semnale apar în 48–72h de la lansare. Optimizarea reală se vede în 2–4 săptămâni, după ce strângem suficiente date pentru decizii pe creative, audiences și landing.',
+  },
+  {
+    question: 'Cum măsurăm ROAS-ul corect?',
+    answer:
+      'Folosim conversii server-side (CAPI Meta, Enhanced Conversions Google), GA4 cu evenimente customizate și un dashboard Looker Studio cu blended ROAS — nu doar datele din platforme.',
+  },
+  {
+    question: 'Cu ce industrii lucrați cel mai bine?',
+    answer:
+      'Medical & dentar, fitness, beauty, retail, food, B2B services, real estate și automotive. Avem playbook-uri verificate pentru fiecare, dar adaptăm tot la specificul brandului.',
+  },
+  {
+    question: 'Există perioadă contractuală minimă?',
+    answer:
+      'Recomandăm 3 luni pentru rezultate stabile, dar nu blocăm clientul. Contractele sunt cu preaviz de 30 de zile și fără penalizări de exit.',
+  },
 ];
 ---
 
-<BaseLayout title={c.meta.title} description={c.meta.description} locale={locale}>
+<BaseLayout title={meta.title} description={meta.description} locale={locale} faqSchema={faqItems}>
   <Hero
     locale={locale}
     variant="compact"
-    title={c.hero.title}
-    subtitle={c.hero.subtitle}
-    ctaLabel={c.hero.ctaLabel}
+    title="Reclame online care aduc clienți, nu doar impresii."
+    subtitle="Meta Ads, Google Ads și TikTok Ads gestionate de o echipă obsedată de ROAS, cu setup tehnic curat și rapoarte transparente. Audit gratuit pentru conturile existente."
+    ctaLabel="Programează audit gratuit"
     ctaHref={localizedPath(locale, '/contact')}
   />
-  <section class="mx-auto max-w-7xl px-6 py-20">
-    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {services.map((s) => (
-        <ServiceCard
-          number={s.number}
-          title={s.title}
-          description={s.description}
-          link={localizedPath(locale, '/contact')}
-          ctaText={s.ctaText}
-          accentTag={s.accentTag}
-        />
-      ))}
+
+  <!-- Intro long-form copy -->
+  <section class="border-t border-phoenix-gray bg-phoenix-black">
+    <div class="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <p class="sticky top-28 font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">
+          // CE FACEM
+        </p>
+      </div>
+      <div class="space-y-6 font-mono text-base leading-relaxed text-phoenix-light/85 lg:col-span-8">
+        <h2 class="font-display text-3xl text-phoenix-light md:text-4xl">
+          Performance marketing fără bullshit, calibrat pe <span class="glow-green">ROAS real</span>.
+        </h2>
+        <p>
+          La Green Pheonix Concept construim sisteme de achiziție clienți care funcționează predictibil, nu campanii izolate care arată bine în screenshot-uri. Lucrăm pe trei platforme principale — Meta, Google și TikTok — și le combinăm într-un funnel coerent, cu mesaje și oferte care comunică între ele.
+        </p>
+        <p>
+          Diferența majoră față de o agenție clasică e că ne uităm la întregul lanț: ofertă, landing page, tracking, creative, audiences, bid strategy, post-click experience. Dacă oricare dintre ele e rupt, restul nu mai contează. De aceea fiecare colaborare începe cu un audit complet, nu cu o propunere de buget media.
+        </p>
+        <p>
+          În primele 7 zile primești un plan concret: ce e în regulă, ce e rupt, ce trebuie reparat înainte să dăm drumul la cheltuit, și care sunt KPI-urile pe care le urmărim. După aceea intrăm în execuție săptămânală: lansare, optimizare, scaling controlat și raport transparent — date din platforme + din GA4 + blended view, nu doar ce ne convine să arătăm.
+        </p>
+        <p>
+          Nu promitem ROAS 10x în prima lună. Promitem că la 90 de zile știi exact ce funcționează, ce nu, ce am testat și care e următorul pas. Dacă suntem cei potriviți, vei rămâne; dacă nu, audit-ul rămâne al tău și-l poți folosi cu oricine.
+        </p>
+      </div>
     </div>
   </section>
+
+  <!-- Platforms -->
+  <section class="border-t border-phoenix-gray bg-phoenix-gray/10">
+    <div class="mx-auto max-w-7xl px-6 py-20">
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// PLATFORME</p>
+      <h2 class="mt-3 max-w-2xl font-display text-3xl text-phoenix-light md:text-4xl">
+        Ce setăm, ce optimizăm, ce raportăm
+      </h2>
+      <div class="mt-12 grid gap-6 md:grid-cols-2">
+        {platforms.map((p) => (
+          <ServiceCard
+            number={p.number}
+            title={p.title}
+            description={p.description}
+            link={localizedPath(locale, '/contact')}
+            ctaText={p.ctaText}
+            accentTag={p.accentTag}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Detail blocks -->
+  <section id="meta-detail" class="border-t border-phoenix-gray bg-phoenix-black">
+    <div class="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <span class="inline-block border border-phoenix-cyan/40 bg-phoenix-cyan/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-phoenix-cyan">
+          META ADS
+        </span>
+        <h3 class="mt-4 font-display text-2xl text-phoenix-light md:text-3xl">Facebook & Instagram, calibrate pe acțiune</h3>
+      </div>
+      <div class="space-y-4 font-mono text-sm leading-relaxed text-phoenix-light/80 lg:col-span-8">
+        <p>
+          Pe Meta lucrăm cu o structură clară de cont: o campanie de Awareness cu interese largi pentru reach și signal de calitate, o campanie de Conversion cu Advantage+ Audiences pentru achiziție, și retargeting separat pe pixel evenimente — view content, add to cart, checkout, post-purchase pentru cross-sell.
+        </p>
+        <p>
+          Conversiile le trimitem prin Conversions API server-side (Stape sau implementare custom), nu doar prin pixel. Așa pierdem mai puțin signal pe iOS 14+, optimizăm mai bine și avem date corecte pentru atribuire.
+        </p>
+        <p>
+          Pe creative, iterăm săptămânal: 4-6 unghiuri noi, hook-uri diferite, formate variate (single image, carousel, reel, UGC). Tot ce intră trece printr-o etapă de testing budget-controlled, apoi scaling pe ce performează.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="google-detail" class="border-t border-phoenix-gray bg-phoenix-gray/10">
+    <div class="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <span class="inline-block border border-phoenix-cyan/40 bg-phoenix-cyan/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-phoenix-cyan">
+          GOOGLE ADS
+        </span>
+        <h3 class="mt-4 font-display text-2xl text-phoenix-light md:text-3xl">Search, PMax, Shopping — pe intent real</h3>
+      </div>
+      <div class="space-y-4 font-mono text-sm leading-relaxed text-phoenix-light/80 lg:col-span-8">
+        <p>
+          Search Ads pornesc de la o cercetare reală de intent: Keyword Planner, Search Terms din conturi existente, sugestii din SERP, plus tool-uri externe (Ahrefs / Semrush). Separăm strict brand de non-brand și avem campanii dedicate pe modificator de potrivire.
+        </p>
+        <p>
+          Performance Max e util pe e-commerce și lead-gen cu volum mare, dar îl folosim cu Asset Group-uri segmentate (nu un singur "all-in-one"), audiențe seed și exclusion-uri pe brand. Adăugăm Search Themes pentru control mai bun pe intent.
+        </p>
+        <p>
+          Pe Shopping, optimizăm feed-ul (titluri, atribute, GTIN-uri, imagini), nu doar bidul. Un feed bun valorează mai mult decât o licitație agresivă.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tiktok-detail" class="border-t border-phoenix-gray bg-phoenix-black">
+    <div class="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <span class="inline-block border border-phoenix-cyan/40 bg-phoenix-cyan/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-phoenix-cyan">
+          TIKTOK ADS
+        </span>
+        <h3 class="mt-4 font-display text-2xl text-phoenix-light md:text-3xl">Conținut nativ care nu pare reclamă</h3>
+      </div>
+      <div class="space-y-4 font-mono text-sm leading-relaxed text-phoenix-light/80 lg:col-span-8">
+        <p>
+          Pe TikTok, formatul bate strategia de bid. Producem 4-8 variații săptămânal cu hook-uri distincte (problem-agitate, demo, comparison, social proof) și testăm Spark Ads cu conturi reale ale brandului sau ale creator-ilor parteneri.
+        </p>
+        <p>
+          Setup-ul tehnic include TikTok Pixel, Events API server-side și Advanced Matching pentru atribuire mai bună. Pentru e-commerce, integrăm și TikTok Shop unde categoria o permite.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="strategy-detail" class="border-t border-phoenix-gray bg-phoenix-gray/10">
+    <div class="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <span class="inline-block border border-phoenix-cyan/40 bg-phoenix-cyan/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-phoenix-cyan">
+          STRATEGIE INTEGRATĂ
+        </span>
+        <h3 class="mt-4 font-display text-2xl text-phoenix-light md:text-3xl">Funnel coerent, nu silos</h3>
+      </div>
+      <div class="space-y-4 font-mono text-sm leading-relaxed text-phoenix-light/80 lg:col-span-8">
+        <p>
+          Cele trei platforme nu trăiesc separat. Audiențele se hrănesc reciproc: TikTok produce conținut pentru top-of-funnel și signal, Meta convertește mid-funnel cu retargeting calibrat, Google captează intent-ul direct și brand search-ul generat de celelalte canale.
+        </p>
+        <p>
+          Tracking-ul e unificat: GA4 ca sursă de adevăr pentru atribuire blended, conversii server-side pe fiecare platformă, dashboard Looker Studio cu KPI-uri urmărite zilnic. Așa vezi nu doar ROAS pe platformă, ci eficiența reală a fiecărui euro investit.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries -->
+  <section class="border-t border-phoenix-gray bg-phoenix-black">
+    <div class="mx-auto max-w-7xl px-6 py-20">
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// INDUSTRII</p>
+      <h2 class="mt-3 max-w-2xl font-display text-3xl text-phoenix-light md:text-4xl">
+        Cu cine lucrăm cel mai bine
+      </h2>
+      <p class="mt-4 max-w-2xl font-mono text-sm leading-relaxed text-phoenix-light/70">
+        Avem playbook-uri verificate pe industriile de mai jos. Adaptăm tot la specificul brandului — niciodată copy-paste.
+      </p>
+      <ul class="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-3">
+        {industries.map((i) => (
+          <li class="border border-phoenix-gray bg-phoenix-gray/30 px-4 py-3 font-mono text-sm uppercase tracking-wider text-phoenix-light/80 transition-colors hover:border-phoenix-green hover:text-phoenix-green">
+            <span class="mr-2 text-phoenix-green">›</span>{i}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="border-t border-phoenix-gray bg-phoenix-gray/10">
+    <div class="mx-auto max-w-7xl px-6 py-20">
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// PREȚURI</p>
+      <h2 class="mt-3 max-w-2xl font-display text-3xl text-phoenix-light md:text-4xl">
+        Pachete transparente, scalabile
+      </h2>
+      <p class="mt-4 max-w-2xl font-mono text-sm leading-relaxed text-phoenix-light/70">
+        Prețurile de mai jos sunt pentru fee-ul de agenție; bugetul media e separat și se setează în funcție de obiective. Toate pachetele includ acces direct la dashboard și raportare lunară.
+      </p>
+
+      <div class="mt-12 grid gap-6 md:grid-cols-3">
+        {pricing.map((p, i) => (
+          <article class:list={[
+            'flex flex-col border bg-phoenix-gray/30 p-6',
+            i === 1 ? 'border-phoenix-green shadow-[0_0_28px_rgba(0,255,148,0.18)]' : 'border-phoenix-gray',
+          ]}>
+            <span class="inline-block self-start border border-phoenix-cyan/40 bg-phoenix-cyan/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-phoenix-cyan">
+              {p.tag}
+            </span>
+            <h3 class="mt-5 font-display text-xl text-phoenix-light">{p.title}</h3>
+            <p class="mt-3 font-display text-2xl glow-green">{p.price}</p>
+            <ul class="mt-6 flex-1 space-y-2 font-mono text-sm text-phoenix-light/80">
+              {p.bullets.map((b) => (
+                <li class="flex gap-2">
+                  <span class="text-phoenix-green">✓</span>
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+            <a
+              href={localizedPath(locale, '/contact')}
+              class="mt-8 inline-flex items-center justify-center border border-phoenix-green px-4 py-3 font-mono text-xs uppercase tracking-widest text-phoenix-green transition-colors hover:bg-phoenix-green hover:text-phoenix-black"
+            >
+              Cere ofertă
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <HowWeWork locale={locale} />
+
+  <FAQ items={faqItems} title="ÎNTREBĂRI FRECVENTE — ADS" schema={false} />
+
   <CTA
-    title="Vrei un audit gratuit pe campaniile tale?"
-    description="Identificăm într-o oră ce poate fi optimizat."
-    ctaLabel="Programează audit"
-    ctaHref={localizedPath(locale, '/contact')}
+    heading="Vrei un audit gratuit pe campaniile tale?"
+    subtext="În 60 de minute identificăm leak-urile principale și ce poate fi optimizat imediat. Pleci cu un plan, indiferent dacă lucrăm împreună sau nu."
+    buttonText="Programează audit gratuit"
+    buttonLink={localizedPath(locale, '/contact')}
   />
 </BaseLayout>

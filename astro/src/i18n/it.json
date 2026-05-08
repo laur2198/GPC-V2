@@ -87,6 +87,36 @@
     "header": "HANNO LAVORATO CON NOI",
     "logos": ["BPD Trans", "Horeca Co", "Ecom Pro", "Local Biz", "Fit Studio", "Auto Hub"]
   },
+  "homeServices": {
+    "header": "COSA FACCIAMO",
+    "subheader": "Tre direzioni, un obiettivo: risultati misurabili",
+    "items": [
+      {
+        "number": "01",
+        "title": "Audit & Strategia",
+        "description": "Analisi a 360° su ads, sito, tracking e competitor. Piano d'azione in 7 giorni con KPI e budget realistico.",
+        "ctaText": "Vedi dettagli",
+        "accentTag": "STRATEGY",
+        "link": "/servicii-ads"
+      },
+      {
+        "number": "02",
+        "title": "Siti che vendono",
+        "description": "Landing page e siti completi su Astro, WordPress o Shopify. 95+ Lighthouse e UX costruita sui dati.",
+        "ctaText": "Vedi servizi web",
+        "accentTag": "WEB",
+        "link": "/servicii-web"
+      },
+      {
+        "number": "03",
+        "title": "Annunci Online",
+        "description": "Google Ads, Meta e TikTok con setup pulito, conversioni server-side e ottimizzazione settimanale sul ROAS.",
+        "ctaText": "Vedi servizi ads",
+        "accentTag": "ADS",
+        "link": "/servicii-ads"
+      }
+    ]
+  },
   "howWeWork": {
     "header": "COME LAVORIAMO",
     "subheader": "Un processo in 5 step, senza sorprese",
@@ -101,7 +131,8 @@
   },
   "caseStudies": {
     "header": "CASE STUDY",
-    "subheader": "Risultati reali, misurati con dati proprietari"
+    "subheader": "Risultati reali, misurati con dati proprietari",
+    "viewAll": "Vedi tutti i progetti"
   },
   "testimonials": {
     "header": "DICONO DI NOI",
@@ -148,7 +179,7 @@
     "policy": "Informativa sulla privacy",
     "terms": "Termini e condizioni",
     "anpc": "ANPC",
-    "disclaimer": "GREEN PHEONIX CONCEPT S.R.L. · P.IVA 51298734 · J08/1234/2024 · Brașov, Romania"
+    "disclaimer": "GREEN PHEONIX CONCEPT S.R.L. · P.IVA 45667331 · Brașov, Romania"
   },
   "common": {
     "readMore": "Leggi di più",

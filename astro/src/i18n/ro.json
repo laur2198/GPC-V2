@@ -87,6 +87,36 @@
     "header": "AU LUCRAT CU NOI",
     "logos": ["BPD Trans", "Horeca Co", "Ecom Pro", "Local Biz", "Fit Studio", "Auto Hub"]
   },
+  "homeServices": {
+    "header": "CE FACEM",
+    "subheader": "Trei direcții, un singur obiectiv: rezultate măsurabile",
+    "items": [
+      {
+        "number": "01",
+        "title": "Audit & Strategie",
+        "description": "Analiză 360° pe ads, site, tracking și competiție. Plan concret de acțiune în 7 zile, cu KPI și buget realist.",
+        "ctaText": "Vezi detalii",
+        "accentTag": "STRATEGY",
+        "link": "/servicii-ads"
+      },
+      {
+        "number": "02",
+        "title": "Website-uri care vând",
+        "description": "Landing pages și site-uri complete pe Astro, WordPress sau Shopify. Performanță 95+ Lighthouse și UX construit pe date.",
+        "ctaText": "Vezi servicii web",
+        "accentTag": "WEB",
+        "link": "/servicii-web"
+      },
+      {
+        "number": "03",
+        "title": "Reclame Online",
+        "description": "Google Ads, Meta și TikTok cu setup curat, conversii server-side și optimizare săptămânală pe ROAS.",
+        "ctaText": "Vezi servicii ads",
+        "accentTag": "ADS",
+        "link": "/servicii-ads"
+      }
+    ]
+  },
   "howWeWork": {
     "header": "CUM LUCRĂM",
     "subheader": "Un proces în 5 pași, fără surprize",
@@ -101,7 +131,8 @@
   },
   "caseStudies": {
     "header": "STUDII DE CAZ",
-    "subheader": "Rezultate reale, măsurate cu date proprii"
+    "subheader": "Rezultate reale, măsurate cu date proprii",
+    "viewAll": "Vezi toate proiectele"
   },
   "testimonials": {
     "header": "CE SPUN CLIENȚII",
@@ -148,7 +179,7 @@
     "policy": "Politică de confidențialitate",
     "terms": "Termeni și condiții",
     "anpc": "ANPC",
-    "disclaimer": "GREEN PHEONIX CONCEPT S.R.L. · CUI 51298734 · J08/1234/2024 · Brașov, România"
+    "disclaimer": "GREEN PHEONIX CONCEPT S.R.L. · CUI 45667331 · Brașov, România"
   },
   "common": {
     "readMore": "Citește mai mult",

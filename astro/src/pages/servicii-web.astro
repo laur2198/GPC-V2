@@ -10,25 +10,36 @@ const locale = 'ro' as const;
 const c = getPageCopy(locale, 'servicii-web');
 
 const services = [
-  { title: 'Site-uri de prezentare', description: 'Astro/Next + CMS, performanță 100/100 Lighthouse.' },
-  { title: 'Landing pages', description: 'Pagini de conversie pentru campanii ads.' },
-  { title: 'E-commerce', description: 'Shopify și WooCommerce optimizate.' },
-  { title: 'SEO Tehnic', description: 'Core Web Vitals, schema, sitemap, indexare.' },
-  { title: 'CRO', description: 'A/B testing, heatmaps, optimizare funnel.' },
-  { title: 'Mentenanță', description: 'Update-uri, securitate și backup-uri continue.' },
+  { number: '01', title: 'Site-uri de prezentare', description: 'Astro/Next + CMS, performanță 100/100 Lighthouse.', accentTag: 'CORPORATE', ctaText: 'Vezi pachet' },
+  { number: '02', title: 'Landing pages', description: 'Pagini de conversie pentru campanii ads.', accentTag: 'CONVERSION', ctaText: 'Vezi pachet' },
+  { number: '03', title: 'E-commerce', description: 'Shopify și WooCommerce optimizate.', accentTag: 'SHOP', ctaText: 'Vezi pachet' },
+  { number: '04', title: 'SEO Tehnic', description: 'Core Web Vitals, schema, sitemap, indexare.', accentTag: 'SEO', ctaText: 'Vezi pachet' },
+  { number: '05', title: 'CRO', description: 'A/B testing, heatmaps, optimizare funnel.', accentTag: 'CRO', ctaText: 'Vezi pachet' },
+  { number: '06', title: 'Mentenanță', description: 'Update-uri, securitate și backup-uri continue.', accentTag: 'OPS', ctaText: 'Vezi pachet' },
 ];
 ---
 
 <BaseLayout title={c.meta.title} description={c.meta.description} locale={locale}>
   <Hero
+    locale={locale}
+    variant="compact"
     title={c.hero.title}
     subtitle={c.hero.subtitle}
     ctaLabel={c.hero.ctaLabel}
     ctaHref={localizedPath(locale, '/contact')}
   />
-  <section class="mx-auto max-w-6xl px-6 py-16">
+  <section class="mx-auto max-w-7xl px-6 py-20">
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {services.map((s) => <ServiceCard title={s.title} description={s.description} />)}
+      {services.map((s) => (
+        <ServiceCard
+          number={s.number}
+          title={s.title}
+          description={s.description}
+          link={localizedPath(locale, '/contact')}
+          ctaText={s.ctaText}
+          accentTag={s.accentTag}
+        />
+      ))}
     </div>
   </section>
   <CTA

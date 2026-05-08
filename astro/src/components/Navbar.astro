@@ -1,38 +1,170 @@
 ---
-import type { Locale } from '../utils/i18n';
-import { localizedPath, t } from '../utils/i18n';
+/**
+ * Navbar
+ *
+ * Props:
+ *   locale — 'ro' | 'en' | 'it' (required)
+ *
+ * Features: locale-aware nav links from i18n JSON, sticky on scroll,
+ * GREEN PHEONIX wordmark with glyph icon, mobile hamburger off-canvas
+ * panel, language switcher dropdown.
+ */
+import { type Locale, t, localizedPath } from '../utils/i18n';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 
 interface Props {
   locale: Locale;
 }
-
 const { locale } = Astro.props;
+
+interface NavStrings {
+  home: string;
+  ads: string;
+  web: string;
+  portfolio: string;
+  blog: string;
+  about: string;
+  contact: string;
+}
+const nav = t<NavStrings>(locale, 'nav');
+
 const links = [
-  { href: localizedPath(locale, '/'), label: t(locale, 'nav.home') },
-  { href: localizedPath(locale, '/servicii-ads'), label: t(locale, 'nav.ads') },
-  { href: localizedPath(locale, '/servicii-web'), label: t(locale, 'nav.web') },
-  { href: localizedPath(locale, '/portofoliu'), label: t(locale, 'nav.portfolio') },
-  { href: localizedPath(locale, '/blog'), label: t(locale, 'nav.blog') },
-  { href: localizedPath(locale, '/despre'), label: t(locale, 'nav.about') },
-  { href: localizedPath(locale, '/contact'), label: t(locale, 'nav.contact') },
+  { href: localizedPath(locale, '/'), label: nav.home },
+  { href: localizedPath(locale, '/servicii-ads'), label: nav.ads },
+  { href: localizedPath(locale, '/servicii-web'), label: nav.web },
+  { href: localizedPath(locale, '/portofoliu'), label: nav.portfolio },
+  { href: localizedPath(locale, '/blog'), label: nav.blog },
+  { href: localizedPath(locale, '/despre'), label: nav.about },
+  { href: localizedPath(locale, '/contact'), label: nav.contact },
 ];
+
+const current = Astro.url.pathname.replace(/\/$/, '') || '/';
 ---
 
-<header class="sticky top-0 z-50 border-b border-phoenix-gray bg-phoenix-black/80 backdrop-blur">
+<header
+  id="site-nav"
+  class="sticky top-0 z-40 border-b border-phoenix-gray bg-phoenix-black/85 backdrop-blur-md transition-shadow"
+>
   <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-    <a href={localizedPath(locale, '/')} class="font-display text-xl glow-green">
-      GPC
+    <a href={localizedPath(locale, '/')} class="group flex items-center gap-2">
+      <svg viewBox="0 0 32 32" class="h-7 w-7 text-phoenix-green transition-transform group-hover:rotate-12" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M16 2 4 9v14l12 7 12-7V9L16 2Zm0 3.3 9.2 5.3v10.8L16 26.7 6.8 21.4V10.6L16 5.3Zm0 4.2-5.5 3.2v6.4l5.5 3.2 5.5-3.2v-6.4L16 9.5Zm0 2.4 3.5 2v4l-3.5 2-3.5-2v-4L16 11.9Z"
+        />
+      </svg>
+      <span class="font-display text-base tracking-[0.18em] text-phoenix-light">
+        GREEN <span class="glow-green">PHEONIX</span>
+      </span>
     </a>
-    <ul class="hidden items-center gap-6 md:flex">
+
+    <ul class="hidden items-center gap-7 md:flex">
+      {links.map((l) => {
+        const target = l.href.replace(/\/$/, '') || '/';
+        const isActive = current === target;
+        return (
+          <li>
+            <a
+              href={l.href}
+              class:list={[
+                'font-mono text-xs uppercase tracking-widest transition-colors',
+                isActive ? 'text-phoenix-green' : 'text-phoenix-light/80 hover:text-phoenix-green',
+              ]}
+            >
+              {l.label}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+
+    <div class="flex items-center gap-3">
+      <LanguageSwitcher locale={locale} />
+      <button
+        id="nav-toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-controls="mobile-panel"
+        aria-expanded="false"
+        class="grid h-10 w-10 place-items-center border border-phoenix-gray text-phoenix-light hover:border-phoenix-green hover:text-phoenix-green md:hidden"
+      >
+        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div
+    id="mobile-panel"
+    class="fixed inset-0 z-50 hidden translate-x-full bg-phoenix-black/95 backdrop-blur transition-transform duration-300 md:hidden"
+    aria-hidden="true"
+  >
+    <div class="flex items-center justify-between border-b border-phoenix-gray px-6 py-4">
+      <span class="font-display text-base tracking-[0.18em] text-phoenix-light">
+        GREEN <span class="glow-green">PHEONIX</span>
+      </span>
+      <button
+        id="nav-close"
+        type="button"
+        aria-label="Close menu"
+        class="grid h-10 w-10 place-items-center border border-phoenix-gray text-phoenix-light hover:border-phoenix-green hover:text-phoenix-green"
+      >
+        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M6 6l12 12M6 18L18 6" />
+        </svg>
+      </button>
+    </div>
+    <ul class="flex flex-col gap-1 px-6 py-8">
       {links.map((l) => (
         <li>
-          <a href={l.href} class="font-mono text-sm text-phoenix-light hover:text-phoenix-green">
+          <a
+            href={l.href}
+            class="block border-b border-phoenix-gray/50 py-4 font-display text-2xl text-phoenix-light hover:text-phoenix-green"
+          >
             {l.label}
           </a>
         </li>
       ))}
     </ul>
-    <LanguageSwitcher locale={locale} />
-  </nav>
+  </div>
 </header>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const close = document.getElementById('nav-close');
+  const panel = document.getElementById('mobile-panel');
+  const header = document.getElementById('site-nav');
+
+  function open() {
+    if (!panel) return;
+    panel.classList.remove('hidden');
+    requestAnimationFrame(() => panel.classList.remove('translate-x-full'));
+    panel.setAttribute('aria-hidden', 'false');
+    toggle?.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function shut() {
+    if (!panel) return;
+    panel.classList.add('translate-x-full');
+    panel.setAttribute('aria-hidden', 'true');
+    toggle?.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    setTimeout(() => panel.classList.add('hidden'), 300);
+  }
+
+  toggle?.addEventListener('click', open);
+  close?.addEventListener('click', shut);
+  panel?.querySelectorAll('a').forEach((a) => a.addEventListener('click', shut));
+
+  window.addEventListener(
+    'scroll',
+    () => {
+      const y = window.scrollY;
+      if (header) {
+        header.classList.toggle('shadow-[0_0_24px_rgba(0,255,148,0.08)]', y > 8);
+      }
+    },
+    { passive: true }
+  );
+</script>

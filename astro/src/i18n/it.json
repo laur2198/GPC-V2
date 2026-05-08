@@ -9,17 +9,151 @@
     "contact": "Contatti"
   },
   "hero": {
-    "title": "Performance digitale per aziende ambiziose",
-    "subtitle": "Campagne ads e siti che convertono.",
-    "cta": "Parla con noi"
+    "eyebrow": {
+      "system": "ONLINE SYSTEM",
+      "loc": "LOC: BRAȘOV [45.6579° N, 25.6012° E]",
+      "version": "AGENCY_VER_2.5"
+    },
+    "h1": "Ads che portano clienti. Siti che convertono.",
+    "sub": "Strategia chiara, esecuzione misurabile e crescita reale per aziende ambiziose. Lavoriamo con Google Ads, Meta, TikTok e siti ottimizzati per le performance.",
+    "ctaPrimary": "Prenota un audit",
+    "ctaSecondary": "Vedi servizi",
+    "stats": {
+      "roasLabel": "ROAS medio clienti",
+      "roasValue": "4.5x",
+      "campaignsLabel": "Campagne attive",
+      "campaignsValue": "32+"
+    }
+  },
+  "marquee": [
+    "STRATEGIA",
+    "AUDIT",
+    "IMPLEMENTAZIONE",
+    "OTTIMIZZAZIONE",
+    "CREATIVE",
+    "TRACKING",
+    "SCALING",
+    "PERFORMANCE"
+  ],
+  "services": {
+    "header": "COSA FACCIAMO",
+    "subheader": "Servizi integrati di performance marketing",
+    "items": [
+      {
+        "number": "01",
+        "title": "Google Ads",
+        "description": "Campagne Search, Shopping e Performance Max calibrate sul ROAS, non sulle vanity metrics.",
+        "ctaText": "Dettagli Google Ads",
+        "accentTag": "PAID SEARCH"
+      },
+      {
+        "number": "02",
+        "title": "Meta Ads",
+        "description": "Facebook & Instagram per lead, e-commerce e retargeting con dati proprietari.",
+        "ctaText": "Dettagli Meta Ads",
+        "accentTag": "SOCIAL"
+      },
+      {
+        "number": "03",
+        "title": "TikTok Ads",
+        "description": "Contenuti nativi e creativi iterati ogni settimana per audience Gen Z e Millennial.",
+        "ctaText": "Dettagli TikTok",
+        "accentTag": "VIDEO"
+      },
+      {
+        "number": "04",
+        "title": "Siti & Landing",
+        "description": "Astro, WordPress e Shopify — 95+ Lighthouse e UX orientata alla conversione.",
+        "ctaText": "Dettagli Web",
+        "accentTag": "DEV"
+      },
+      {
+        "number": "05",
+        "title": "Tracking & Analytics",
+        "description": "GA4, GTM, conversioni server-side e dashboard Looker Studio.",
+        "ctaText": "Dettagli tracking",
+        "accentTag": "DATA"
+      },
+      {
+        "number": "06",
+        "title": "Audit & Strategia",
+        "description": "Analisi a 360° su ads, sito e funnel — piano d'azione concreto in 7 giorni.",
+        "ctaText": "Richiedi audit",
+        "accentTag": "CONSULTING"
+      }
+    ]
+  },
+  "trustBar": {
+    "header": "HANNO LAVORATO CON NOI",
+    "logos": ["BPD Trans", "Horeca Co", "Ecom Pro", "Local Biz", "Fit Studio", "Auto Hub"]
+  },
+  "howWeWork": {
+    "header": "COME LAVORIAMO",
+    "subheader": "Un processo in 5 step, senza sorprese",
+    "steps": [
+      { "title": "Discovery", "description": "Audit dettagliato: business, account ads, sito, tracking, competitor." },
+      { "title": "Strategia", "description": "Piano personalizzato con ICP, messaggi, canali, KPI e budget." },
+      { "title": "Implementazione", "description": "Setup account, pixel, conversioni server-side, nuovi creativi." },
+      { "title": "Ottimizzazione", "description": "Iteriamo settimanalmente sui dati: bid, audience, creative." },
+      { "title": "Scaling", "description": "Aumentiamo i budget in modo controllato e apriamo nuovi canali." }
+    ],
+    "cta": "INIZIA CON UN AUDIT GRATUITO"
+  },
+  "caseStudies": {
+    "header": "CASE STUDY",
+    "subheader": "Risultati reali, misurati con dati proprietari"
+  },
+  "testimonials": {
+    "header": "DICONO DI NOI",
+    "items": [
+      {
+        "quote": "In 4 mesi hanno triplicato i lead qualificati. ROAS da 2.1 a 5.8.",
+        "author": "Andrei P.",
+        "role": "CEO",
+        "company": "DTC Brand",
+        "rating": 5
+      }
+    ]
+  },
+  "faq": {
+    "header": "DOMANDE FREQUENTI",
+    "items": [
+      {
+        "question": "Qual è il budget minimo consigliato per le ads?",
+        "answer": "Dipende dal settore e dagli obiettivi. In generale consigliamo almeno 1.500€/mese di media + fee agenzia, perché gli algoritmi escano dalla fase di learning. Sotto questa soglia lavoriamo prima su offerta, sito e tracking."
+      },
+      {
+        "question": "In quanto tempo arrivano i risultati?",
+        "answer": "Primi segnali entro 48–72h dal lancio. L'ottimizzazione reale si vede in 2–4 settimane, dopo aver raccolto dati sufficienti."
+      }
+    ]
+  },
+  "aboutTeaser": {
+    "header": "CHI SIAMO",
+    "title": "Un piccolo team, focalizzato sui risultati",
+    "description": "Lavoriamo con imprenditori e aziende che vogliono crescere digitalmente, senza fronzoli. La nostra filosofia: dati, non opinioni.",
+    "ctaText": "Scopri di più"
+  },
+  "finalCta": {
+    "heading": "Pronto a crescere insieme?",
+    "subtext": "Prenota un audit gratuito di 30 minuti. Esci con un piano concreto, anche se non lavoriamo insieme.",
+    "buttonText": "Prenota audit"
   },
   "footer": {
+    "tagline": "Performance marketing senza fronzoli.",
+    "quickLinksHeader": "NAVIGAZIONE",
+    "legalHeader": "LEGALE",
+    "contactHeader": "CONTATTI",
     "rights": "Tutti i diritti riservati.",
-    "policy": "Informativa sulla privacy"
+    "policy": "Informativa sulla privacy",
+    "terms": "Termini e condizioni",
+    "anpc": "ANPC",
+    "disclaimer": "GREEN PHEONIX CONCEPT S.R.L. · P.IVA 51298734 · J08/1234/2024 · Brașov, Romania"
   },
   "common": {
     "readMore": "Leggi di più",
     "viewCase": "Vedi case study",
-    "contactUs": "Contattaci"
+    "contactUs": "Contattaci",
+    "whatsapp": "Scrivici su WhatsApp"
   }
 }

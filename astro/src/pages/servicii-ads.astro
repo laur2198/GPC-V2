@@ -10,25 +10,36 @@ const locale = 'ro' as const;
 const c = getPageCopy(locale, 'servicii-ads');
 
 const services = [
-  { title: 'Google Search Ads', description: 'Campanii pe cuvinte cheie cu intent comercial ridicat.' },
-  { title: 'Performance Max', description: 'Automatizare AI pe toate inventarele Google.' },
-  { title: 'Meta Ads', description: 'Facebook & Instagram pentru lead-uri și e-commerce.' },
-  { title: 'TikTok Ads', description: 'Conținut nativ pentru audiențe Gen Z & Millennial.' },
-  { title: 'Tracking & GA4', description: 'Implementare corectă a evenimentelor și conversii server-side.' },
-  { title: 'Optimizare ROAS', description: 'A/B testing creative, audiences și landing pages.' },
+  { number: '01', title: 'Google Search Ads', description: 'Campanii pe cuvinte cheie cu intent comercial ridicat.', accentTag: 'PAID SEARCH', ctaText: 'Vezi pachet' },
+  { number: '02', title: 'Performance Max', description: 'Automatizare AI pe toate inventarele Google.', accentTag: 'PMAX', ctaText: 'Vezi pachet' },
+  { number: '03', title: 'Meta Ads', description: 'Facebook & Instagram pentru lead-uri și e-commerce.', accentTag: 'SOCIAL', ctaText: 'Vezi pachet' },
+  { number: '04', title: 'TikTok Ads', description: 'Conținut nativ pentru audiențe Gen Z & Millennial.', accentTag: 'VIDEO', ctaText: 'Vezi pachet' },
+  { number: '05', title: 'Tracking & GA4', description: 'Implementare corectă a evenimentelor și conversii server-side.', accentTag: 'DATA', ctaText: 'Vezi pachet' },
+  { number: '06', title: 'Optimizare ROAS', description: 'A/B testing creative, audiences și landing pages.', accentTag: 'CRO', ctaText: 'Vezi pachet' },
 ];
 ---
 
 <BaseLayout title={c.meta.title} description={c.meta.description} locale={locale}>
   <Hero
+    locale={locale}
+    variant="compact"
     title={c.hero.title}
     subtitle={c.hero.subtitle}
     ctaLabel={c.hero.ctaLabel}
     ctaHref={localizedPath(locale, '/contact')}
   />
-  <section class="mx-auto max-w-6xl px-6 py-16">
+  <section class="mx-auto max-w-7xl px-6 py-20">
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {services.map((s) => <ServiceCard title={s.title} description={s.description} />)}
+      {services.map((s) => (
+        <ServiceCard
+          number={s.number}
+          title={s.title}
+          description={s.description}
+          link={localizedPath(locale, '/contact')}
+          ctaText={s.ctaText}
+          accentTag={s.accentTag}
+        />
+      ))}
     </div>
   </section>
   <CTA

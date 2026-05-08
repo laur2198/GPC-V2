@@ -7,6 +7,12 @@ export type Locale = 'ro' | 'en' | 'it';
 export const defaultLocale: Locale = 'ro';
 export const locales: Locale[] = ['ro', 'en', 'it'];
 
+export const localeLabels: Record<Locale, string> = {
+  ro: 'RO',
+  en: 'EN',
+  it: 'IT',
+};
+
 const dictionaries = { ro, en, it } as const;
 
 export type Dictionary = typeof ro;
@@ -22,13 +28,24 @@ export function getLocaleFromUrl(url: URL | string): Locale {
   return defaultLocale;
 }
 
+export function stripLocaleFromPath(pathname: string): string {
+  const parts = pathname.split('/').filter(Boolean);
+  if (parts[0] === 'en' || parts[0] === 'it') parts.shift();
+  return '/' + parts.join('/') + (pathname.endsWith('/') && parts.length ? '/' : '');
+}
+
 export function localizedPath(locale: Locale, path: string): string {
   const clean = path.startsWith('/') ? path : `/${path}`;
   if (locale === defaultLocale) return clean === '/' ? '/' : clean;
   return clean === '/' ? `/${locale}/` : `/${locale}${clean}`;
 }
 
-export function t(locale: Locale, key: string): string {
+export function switchLocalePath(currentUrl: URL, target: Locale): string {
+  const base = stripLocaleFromPath(currentUrl.pathname);
+  return localizedPath(target, base === '/' ? '/' : base);
+}
+
+export function t<T = unknown>(locale: Locale, key: string): T {
   const dict = getDictionary(locale) as unknown as Record<string, unknown>;
   const parts = key.split('.');
   let cur: unknown = dict;
@@ -36,8 +53,8 @@ export function t(locale: Locale, key: string): string {
     if (cur && typeof cur === 'object' && p in (cur as Record<string, unknown>)) {
       cur = (cur as Record<string, unknown>)[p];
     } else {
-      return key;
+      return key as unknown as T;
     }
   }
-  return typeof cur === 'string' ? cur : key;
+  return cur as T;
 }

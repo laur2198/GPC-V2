@@ -10,20 +10,29 @@ const locale = 'it' as const;
 const c = getPageCopy(locale, 'servicii-ads');
 
 const services = [
-  { title: 'Google Search Ads', description: 'Campagne su parole chiave ad alto intento commerciale.' },
-  { title: 'Performance Max', description: 'Automazione AI su tutto l’inventario Google.' },
-  { title: 'Meta Ads', description: 'Facebook & Instagram per lead ed e-commerce.' },
-  { title: 'TikTok Ads', description: 'Contenuti nativi per audience Gen Z e Millennial.' },
-  { title: 'Tracking & GA4', description: 'Implementazione corretta degli eventi e conversioni server-side.' },
-  { title: 'Ottimizzazione ROAS', description: 'A/B test su creativi, audience e landing page.' },
+  { number: '01', title: 'Google Search Ads', description: 'Campagne su parole chiave ad alto intento commerciale.', accentTag: 'PAID SEARCH', ctaText: 'Vedi pacchetto' },
+  { number: '02', title: 'Performance Max', description: 'Automazione AI su tutto l’inventario Google.', accentTag: 'PMAX', ctaText: 'Vedi pacchetto' },
+  { number: '03', title: 'Meta Ads', description: 'Facebook & Instagram per lead ed e-commerce.', accentTag: 'SOCIAL', ctaText: 'Vedi pacchetto' },
+  { number: '04', title: 'TikTok Ads', description: 'Contenuti nativi per audience Gen Z e Millennial.', accentTag: 'VIDEO', ctaText: 'Vedi pacchetto' },
+  { number: '05', title: 'Tracking & GA4', description: 'Implementazione corretta degli eventi e conversioni server-side.', accentTag: 'DATA', ctaText: 'Vedi pacchetto' },
+  { number: '06', title: 'Ottimizzazione ROAS', description: 'A/B test su creativi, audience e landing page.', accentTag: 'CRO', ctaText: 'Vedi pacchetto' },
 ];
 ---
 
 <BaseLayout title={c.meta.title} description={c.meta.description} locale={locale}>
-  <Hero title={c.hero.title} subtitle={c.hero.subtitle} ctaLabel={c.hero.ctaLabel} ctaHref={localizedPath(locale, '/contact')} />
-  <section class="mx-auto max-w-6xl px-6 py-16">
+  <Hero locale={locale} variant="compact" title={c.hero.title} subtitle={c.hero.subtitle} ctaLabel={c.hero.ctaLabel} ctaHref={localizedPath(locale, '/contact')} />
+  <section class="mx-auto max-w-7xl px-6 py-20">
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {services.map((s) => <ServiceCard title={s.title} description={s.description} />)}
+      {services.map((s) => (
+        <ServiceCard
+          number={s.number}
+          title={s.title}
+          description={s.description}
+          link={localizedPath(locale, '/contact')}
+          ctaText={s.ctaText}
+          accentTag={s.accentTag}
+        />
+      ))}
     </div>
   </section>
   <CTA title="Vuoi un audit gratuito sulle tue campagne?" description="In un’ora individuiamo cosa può essere ottimizzato." ctaLabel="Prenota audit" ctaHref={localizedPath(locale, '/contact')} />

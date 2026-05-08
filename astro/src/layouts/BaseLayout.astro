@@ -1,35 +1,149 @@
 ---
+/**
+ * BaseLayout
+ *
+ * Props:
+ *   title       — page <title> (required)
+ *   description — meta description
+ *   image       — absolute or root-relative OG image URL
+ *   locale      — 'ro' | 'en' | 'it'  (default 'ro')
+ *   noindex     — set true to emit robots noindex
+ *   faqSchema   — optional array of {question, answer} to emit FAQPage JSON-LD
+ *
+ * Provides: HTML5 boilerplate, dynamic meta + OG/Twitter, LocalBusiness
+ * JSON-LD, hreflang alternates for ro/en/it, Google Fonts (Space Mono,
+ * Inter, JetBrains Mono), Navbar + Footer + WhatsApp floater + slot.
+ */
 import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import type { Locale } from '../utils/i18n';
+import { type Locale, locales, switchLocalePath } from '../utils/i18n';
+
+interface FaqEntry {
+  question: string;
+  answer: string;
+}
 
 interface Props {
   title: string;
   description?: string;
+  image?: string;
   locale?: Locale;
-  ogImage?: string;
+  noindex?: boolean;
+  faqSchema?: FaqEntry[];
 }
 
-const { title, description = '', locale = 'ro', ogImage } = Astro.props;
-const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const {
+  title,
+  description = '',
+  image = '/og-image.jpg',
+  locale = 'ro',
+  noindex = false,
+  faqSchema,
+} = Astro.props;
+
+const site = Astro.site ?? new URL('https://greenpheonixconcept.com');
+const canonical = new URL(Astro.url.pathname, site).toString();
+const ogImage = image.startsWith('http') ? image : new URL(image, site).toString();
+
+const alternates = locales.map((l) => ({
+  hreflang: l,
+  href: new URL(switchLocalePath(Astro.url, l), site).toString(),
+}));
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Green Pheonix Concept',
+  legalName: 'GREEN PHEONIX CONCEPT S.R.L.',
+  image: new URL('/logo_gpc.svg', site).toString(),
+  '@id': site.origin,
+  url: site.origin,
+  telephone: '+40793650902',
+  priceRange: '€€',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Brașov',
+    postalCode: '500000',
+    addressCountry: 'RO',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 45.6579,
+    longitude: 25.6012,
+  },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '09:00',
+    closes: '18:00',
+  },
+  sameAs: [
+    'https://www.facebook.com/profile.php?id=100079698837895',
+    'https://www.instagram.com/green_pheonix_/',
+    'https://www.tiktok.com/@green.pheonix.concept',
+  ],
+};
+
+const faqJsonLd = faqSchema && faqSchema.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqSchema.map((f) => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: f.answer,
+        },
+      })),
+    }
+  : null;
 ---
 
 <!doctype html>
-<html lang={locale} class="bg-phoenix-black">
+<html lang={locale} class="bg-phoenix-black scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
     <link rel="canonical" href={canonical} />
+    {alternates.map((a) => (
+      <link rel="alternate" hreflang={a.hreflang} href={a.href} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={new URL(switchLocalePath(Astro.url, 'ro'), site).toString()} />
+
+    <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:type" content="website" />
-    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content={locale === 'ro' ? 'ro_RO' : locale === 'it' ? 'it_IT' : 'en_US'} />
+
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <meta name="theme-color" content="#0A0A0A" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    />
+
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+    {faqJsonLd && (
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+    )}
   </head>
   <body class="min-h-screen bg-phoenix-black text-phoenix-light antialiased">
     <Navbar locale={locale} />
@@ -37,5 +151,17 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
       <slot />
     </main>
     <Footer locale={locale} />
+
+    <a
+      href="https://wa.me/40793650902"
+      target="_blank"
+      rel="noopener"
+      aria-label="WhatsApp"
+      class="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full border border-phoenix-green bg-phoenix-black text-phoenix-green shadow-[0_0_20px_rgba(0,255,148,0.4)] transition-transform hover:scale-110"
+    >
+      <svg viewBox="0 0 24 24" class="h-7 w-7" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.296-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.464 3.488"/>
+      </svg>
+    </a>
   </body>
 </html>

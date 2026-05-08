@@ -10,20 +10,29 @@ const locale = 'it' as const;
 const c = getPageCopy(locale, 'servicii-web');
 
 const services = [
-  { title: 'Siti vetrina', description: 'Astro/Next + CMS, performance 100/100 Lighthouse.' },
-  { title: 'Landing page', description: 'Pagine di conversione per campagne ads.' },
-  { title: 'E-commerce', description: 'Shopify e WooCommerce ottimizzati.' },
-  { title: 'SEO tecnica', description: 'Core Web Vitals, schema, sitemap, indicizzazione.' },
-  { title: 'CRO', description: 'A/B test, heatmap, ottimizzazione del funnel.' },
-  { title: 'Manutenzione', description: 'Aggiornamenti, sicurezza e backup continui.' },
+  { number: '01', title: 'Siti vetrina', description: 'Astro/Next + CMS, performance 100/100 Lighthouse.', accentTag: 'CORPORATE', ctaText: 'Vedi pacchetto' },
+  { number: '02', title: 'Landing page', description: 'Pagine di conversione per campagne ads.', accentTag: 'CONVERSION', ctaText: 'Vedi pacchetto' },
+  { number: '03', title: 'E-commerce', description: 'Shopify e WooCommerce ottimizzati.', accentTag: 'SHOP', ctaText: 'Vedi pacchetto' },
+  { number: '04', title: 'SEO tecnica', description: 'Core Web Vitals, schema, sitemap, indicizzazione.', accentTag: 'SEO', ctaText: 'Vedi pacchetto' },
+  { number: '05', title: 'CRO', description: 'A/B test, heatmap, ottimizzazione del funnel.', accentTag: 'CRO', ctaText: 'Vedi pacchetto' },
+  { number: '06', title: 'Manutenzione', description: 'Aggiornamenti, sicurezza e backup continui.', accentTag: 'OPS', ctaText: 'Vedi pacchetto' },
 ];
 ---
 
 <BaseLayout title={c.meta.title} description={c.meta.description} locale={locale}>
-  <Hero title={c.hero.title} subtitle={c.hero.subtitle} ctaLabel={c.hero.ctaLabel} ctaHref={localizedPath(locale, '/contact')} />
-  <section class="mx-auto max-w-6xl px-6 py-16">
+  <Hero locale={locale} variant="compact" title={c.hero.title} subtitle={c.hero.subtitle} ctaLabel={c.hero.ctaLabel} ctaHref={localizedPath(locale, '/contact')} />
+  <section class="mx-auto max-w-7xl px-6 py-20">
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {services.map((s) => <ServiceCard title={s.title} description={s.description} />)}
+      {services.map((s) => (
+        <ServiceCard
+          number={s.number}
+          title={s.title}
+          description={s.description}
+          link={localizedPath(locale, '/contact')}
+          ctaText={s.ctaText}
+          accentTag={s.accentTag}
+        />
+      ))}
     </div>
   </section>
   <CTA title="Pronto per un nuovo sito?" description="Discutiamo gli obiettivi e realizziamo un progetto su misura." ctaLabel="Avvia un progetto" ctaHref={localizedPath(locale, '/contact')} />

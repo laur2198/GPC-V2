@@ -1,19 +1,58 @@
 ---
+/**
+ * ServiceCard
+ *
+ * Props:
+ *   number      — string, e.g. "01" (rendered large in the corner)
+ *   title       — string
+ *   description — string
+ *   link        — href for the CTA
+ *   ctaText     — CTA label (e.g. "Detalii Google Ads")
+ *   accentTag   — short tag, e.g. "PAID SEARCH"
+ *
+ * Cyberpunk dark card with neon green hover glow. Layout: number top-right,
+ * accent tag → title → description → CTA arrow at the bottom.
+ */
 interface Props {
+  number: string;
   title: string;
   description: string;
-  icon?: string;
-  href?: string;
+  link: string;
+  ctaText: string;
+  accentTag: string;
 }
-const { title, description, icon, href } = Astro.props;
-const Tag = href ? 'a' : 'div';
+const { number, title, description, link, ctaText, accentTag } = Astro.props;
 ---
 
-<Tag
-  href={href}
-  class="block border border-phoenix-gray bg-phoenix-gray/40 p-6 transition-colors hover:border-phoenix-green"
+<a
+  href={link}
+  class="group relative flex h-full flex-col justify-between overflow-hidden border border-phoenix-gray bg-phoenix-gray/30 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-phoenix-green hover:bg-phoenix-gray/60 hover:shadow-[0_0_28px_rgba(0,255,148,0.25)]"
 >
-  {icon && <div class="mb-4 text-3xl glow-cyan">{icon}</div>}
-  <h3 class="font-display text-xl text-phoenix-light">{title}</h3>
-  <p class="mt-3 font-mono text-sm text-phoenix-light/70">{description}</p>
-</Tag>
+  <span
+    aria-hidden="true"
+    class="pointer-events-none absolute right-4 top-2 font-display text-7xl leading-none text-phoenix-light/5 transition-colors group-hover:text-phoenix-green/20"
+  >
+    {number}
+  </span>
+
+  <div class="relative">
+    <span class="inline-block border border-phoenix-cyan/40 bg-phoenix-cyan/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-phoenix-cyan">
+      {accentTag}
+    </span>
+    <h3 class="mt-5 font-display text-2xl text-phoenix-light transition-colors group-hover:text-phoenix-green">
+      {title}
+    </h3>
+    <p class="mt-3 font-mono text-sm leading-relaxed text-phoenix-light/70">
+      {description}
+    </p>
+  </div>
+
+  <div class="relative mt-8 flex items-center justify-between border-t border-phoenix-gray pt-4 transition-colors group-hover:border-phoenix-green/40">
+    <span class="font-mono text-xs uppercase tracking-widest text-phoenix-light/80 group-hover:text-phoenix-green">
+      {ctaText}
+    </span>
+    <span class="font-mono text-xl text-phoenix-green transition-transform group-hover:translate-x-1">
+      →
+    </span>
+  </div>
+</a>

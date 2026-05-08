@@ -9,17 +9,151 @@
     "contact": "Contact"
   },
   "hero": {
-    "title": "Performanță digitală pentru afaceri ambițioase",
-    "subtitle": "Campanii ads și site-uri care convertesc.",
-    "cta": "Discută cu noi"
+    "eyebrow": {
+      "system": "ONLINE SYSTEM",
+      "loc": "LOC: BRAȘOV [45.6579° N, 25.6012° E]",
+      "version": "AGENCY_VER_2.5"
+    },
+    "h1": "Reclame care aduc clienți. Site-uri care convertesc.",
+    "sub": "Strategie clară, execuție măsurabilă și creșteri reale pentru afaceri ambițioase. Lucrăm cu Google Ads, Meta, TikTok și site-uri optimizate pentru performanță.",
+    "ctaPrimary": "Programează un audit",
+    "ctaSecondary": "Vezi servicii",
+    "stats": {
+      "roasLabel": "ROAS mediu clienți",
+      "roasValue": "4.5x",
+      "campaignsLabel": "Campanii active",
+      "campaignsValue": "32+"
+    }
+  },
+  "marquee": [
+    "STRATEGIE",
+    "AUDIT",
+    "IMPLEMENTARE",
+    "OPTIMIZARE",
+    "CREATIVE",
+    "TRACKING",
+    "SCALING",
+    "PERFORMANCE"
+  ],
+  "services": {
+    "header": "CE FACEM",
+    "subheader": "Servicii integrate de performance marketing",
+    "items": [
+      {
+        "number": "01",
+        "title": "Google Ads",
+        "description": "Campanii Search, Shopping și Performance Max calibrate pe ROAS, nu pe vanity metrics.",
+        "ctaText": "Detalii Google Ads",
+        "accentTag": "PAID SEARCH"
+      },
+      {
+        "number": "02",
+        "title": "Meta Ads",
+        "description": "Facebook & Instagram pentru lead-uri, e-commerce și retargeting bazat pe date proprii.",
+        "ctaText": "Detalii Meta Ads",
+        "accentTag": "SOCIAL"
+      },
+      {
+        "number": "03",
+        "title": "TikTok Ads",
+        "description": "Conținut nativ și creative iterate săptămânal pentru audiențe Gen Z & Millennial.",
+        "ctaText": "Detalii TikTok",
+        "accentTag": "VIDEO"
+      },
+      {
+        "number": "04",
+        "title": "Site-uri & Landing",
+        "description": "Astro, WordPress și Shopify — performanță 95+ Lighthouse și UX orientat spre conversie.",
+        "ctaText": "Detalii Web",
+        "accentTag": "DEV"
+      },
+      {
+        "number": "05",
+        "title": "Tracking & Analytics",
+        "description": "GA4, GTM, conversii server-side și dashboard-uri Looker Studio.",
+        "ctaText": "Detalii tracking",
+        "accentTag": "DATA"
+      },
+      {
+        "number": "06",
+        "title": "Audit & Strategie",
+        "description": "Analiză 360° pe ads, site și funnel — cu plan concret de acțiune în 7 zile.",
+        "ctaText": "Cere audit",
+        "accentTag": "CONSULTING"
+      }
+    ]
+  },
+  "trustBar": {
+    "header": "AU LUCRAT CU NOI",
+    "logos": ["BPD Trans", "Horeca Co", "Ecom Pro", "Local Biz", "Fit Studio", "Auto Hub"]
+  },
+  "howWeWork": {
+    "header": "CUM LUCRĂM",
+    "subheader": "Un proces în 5 pași, fără surprize",
+    "steps": [
+      { "title": "Discovery", "description": "Audit detaliat: business, conturi ads, site, tracking, competiție." },
+      { "title": "Strategie", "description": "Plan personalizat cu ICP, mesaje, canale, KPI și buget." },
+      { "title": "Implementare", "description": "Setup conturi, pixeli, conversii server-side, creative noi." },
+      { "title": "Optimizare", "description": "Iterăm săptămânal pe baza datelor: bid, audience, creative." },
+      { "title": "Scalare", "description": "Creștem bugetul controlat și lansăm canale noi când e momentul." }
+    ],
+    "cta": "ÎNCEPE CU UN AUDIT GRATUIT"
+  },
+  "caseStudies": {
+    "header": "STUDII DE CAZ",
+    "subheader": "Rezultate reale, măsurate cu date proprii"
+  },
+  "testimonials": {
+    "header": "CE SPUN CLIENȚII",
+    "items": [
+      {
+        "quote": "În 4 luni au triplat numărul de lead-uri calificate. ROAS-ul a urcat de la 2.1 la 5.8.",
+        "author": "Andrei P.",
+        "role": "CEO",
+        "company": "DTC Brand",
+        "rating": 5
+      }
+    ]
+  },
+  "faq": {
+    "header": "ÎNTREBĂRI FRECVENTE",
+    "items": [
+      {
+        "question": "Care este bugetul minim recomandat pentru reclame?",
+        "answer": "Depinde de industrie și obiectiv. Ca regulă, recomandăm minim 1.500€/lună budget media + fee agenție, ca algoritmii să iasă din faza de învățare. Sub acest prag lucrăm întâi la ofertă, site și tracking."
+      },
+      {
+        "question": "În cât timp apar rezultatele?",
+        "answer": "Primele semnale apar în 48–72h de la lansare. Optimizarea reală se vede în 2–4 săptămâni, după ce strângem suficiente date pentru decizii."
+      }
+    ]
+  },
+  "aboutTeaser": {
+    "header": "DESPRE NOI",
+    "title": "O echipă mică, focusată pe rezultate",
+    "description": "Lucrăm cu antreprenori și companii care vor să crească digital fără bullshit. Filosofia noastră: date, nu păreri.",
+    "ctaText": "Mai multe despre noi"
+  },
+  "finalCta": {
+    "heading": "Pregătit să creștem împreună?",
+    "subtext": "Programează un audit gratuit de 30 de minute. Iei un plan concret, indiferent dacă lucrăm sau nu împreună.",
+    "buttonText": "Programează audit"
   },
   "footer": {
+    "tagline": "Performance marketing fără bullshit.",
+    "quickLinksHeader": "NAVIGARE",
+    "legalHeader": "LEGAL",
+    "contactHeader": "CONTACT",
     "rights": "Toate drepturile rezervate.",
-    "policy": "Politică de confidențialitate"
+    "policy": "Politică de confidențialitate",
+    "terms": "Termeni și condiții",
+    "anpc": "ANPC",
+    "disclaimer": "GREEN PHEONIX CONCEPT S.R.L. · CUI 51298734 · J08/1234/2024 · Brașov, România"
   },
   "common": {
     "readMore": "Citește mai mult",
     "viewCase": "Vezi studiul de caz",
-    "contactUs": "Contactează-ne"
+    "contactUs": "Contactează-ne",
+    "whatsapp": "Scrie-ne pe WhatsApp"
   }
 }

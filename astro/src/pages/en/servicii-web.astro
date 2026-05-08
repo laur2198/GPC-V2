@@ -10,20 +10,29 @@ const locale = 'en' as const;
 const c = getPageCopy(locale, 'servicii-web');
 
 const services = [
-  { title: 'Marketing websites', description: 'Astro/Next + CMS, 100/100 Lighthouse performance.' },
-  { title: 'Landing pages', description: 'Conversion-focused pages for ad campaigns.' },
-  { title: 'E-commerce', description: 'Shopify and WooCommerce, optimized.' },
-  { title: 'Technical SEO', description: 'Core Web Vitals, schema, sitemap, indexation.' },
-  { title: 'CRO', description: 'A/B testing, heatmaps, funnel optimization.' },
-  { title: 'Maintenance', description: 'Ongoing updates, security and backups.' },
+  { number: '01', title: 'Marketing websites', description: 'Astro/Next + CMS, 100/100 Lighthouse performance.', accentTag: 'CORPORATE', ctaText: 'See package' },
+  { number: '02', title: 'Landing pages', description: 'Conversion-focused pages for ad campaigns.', accentTag: 'CONVERSION', ctaText: 'See package' },
+  { number: '03', title: 'E-commerce', description: 'Shopify and WooCommerce, optimized.', accentTag: 'SHOP', ctaText: 'See package' },
+  { number: '04', title: 'Technical SEO', description: 'Core Web Vitals, schema, sitemap, indexation.', accentTag: 'SEO', ctaText: 'See package' },
+  { number: '05', title: 'CRO', description: 'A/B testing, heatmaps, funnel optimization.', accentTag: 'CRO', ctaText: 'See package' },
+  { number: '06', title: 'Maintenance', description: 'Ongoing updates, security and backups.', accentTag: 'OPS', ctaText: 'See package' },
 ];
 ---
 
 <BaseLayout title={c.meta.title} description={c.meta.description} locale={locale}>
-  <Hero title={c.hero.title} subtitle={c.hero.subtitle} ctaLabel={c.hero.ctaLabel} ctaHref={localizedPath(locale, '/contact')} />
-  <section class="mx-auto max-w-6xl px-6 py-16">
+  <Hero locale={locale} variant="compact" title={c.hero.title} subtitle={c.hero.subtitle} ctaLabel={c.hero.ctaLabel} ctaHref={localizedPath(locale, '/contact')} />
+  <section class="mx-auto max-w-7xl px-6 py-20">
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {services.map((s) => <ServiceCard title={s.title} description={s.description} />)}
+      {services.map((s) => (
+        <ServiceCard
+          number={s.number}
+          title={s.title}
+          description={s.description}
+          link={localizedPath(locale, '/contact')}
+          ctaText={s.ctaText}
+          accentTag={s.accentTag}
+        />
+      ))}
     </div>
   </section>
   <CTA title="Ready for a new website?" description="We'll discuss your goals and deliver a custom project." ctaLabel="Start a project" ctaHref={localizedPath(locale, '/contact')} />

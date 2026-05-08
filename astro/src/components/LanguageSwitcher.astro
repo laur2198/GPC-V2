@@ -30,7 +30,7 @@ const targets = locales.map((l) => ({
     aria-haspopup="listbox"
     aria-expanded="false"
     data-lang-trigger
-    class="flex items-center gap-2 border border-phoenix-gray px-3 py-1.5 font-mono text-xs uppercase tracking-widest text-phoenix-light transition-colors hover:border-phoenix-green hover:text-phoenix-green"
+    class="flex min-h-[44px] items-center gap-2 border border-phoenix-gray px-3 py-2 font-mono text-xs uppercase tracking-widest text-phoenix-light transition-colors hover:border-phoenix-green hover:text-phoenix-green"
   >
     <span class="glow-green">{localeLabels[locale]}</span>
     <svg viewBox="0 0 12 8" class="h-2 w-3" fill="currentColor" aria-hidden="true">
@@ -50,7 +50,7 @@ const targets = locales.map((l) => ({
           hreflang={t.locale}
           lang={t.locale}
           class:list={[
-            'flex items-center justify-between gap-4 px-4 py-2 font-mono text-xs uppercase tracking-widest transition-colors',
+            'flex min-h-[44px] items-center justify-between gap-4 px-4 py-3 font-mono text-xs uppercase tracking-widest transition-colors',
             t.locale === locale
               ? 'text-phoenix-green'
               : 'text-phoenix-light/80 hover:bg-phoenix-gray/40 hover:text-phoenix-green',

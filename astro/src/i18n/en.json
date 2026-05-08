@@ -85,7 +85,7 @@
   },
   "trustBar": {
     "header": "THEY WORKED WITH US",
-    "logos": ["BPD Trans", "Horeca Co", "Ecom Pro", "Local Biz", "Fit Studio", "Auto Hub"]
+    "logos": []
   },
   "homeServices": {
     "header": "WHAT WE DO",
@@ -136,15 +136,7 @@
   },
   "testimonials": {
     "header": "WHAT CLIENTS SAY",
-    "items": [
-      {
-        "quote": "In 4 months they tripled qualified leads. ROAS jumped from 2.1 to 5.8.",
-        "author": "Andrei P.",
-        "role": "CEO",
-        "company": "DTC Brand",
-        "rating": 5
-      }
-    ]
+    "items": []
   },
   "faq": {
     "header": "FREQUENTLY ASKED",

@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import CTA from '../components/CTA.astro';
-import Testimonial from '../components/Testimonial.astro';
 import { type Locale, localizedPath } from '../utils/i18n';
 
 const locale: Locale = 'ro';
@@ -131,19 +130,6 @@ const values = [
           </article>
         ))}
       </div>
-    </div>
-  </section>
-
-  <!-- Testimonial -->
-  <section class="border-t border-phoenix-gray bg-phoenix-gray/10">
-    <div class="mx-auto max-w-4xl px-6 py-20">
-      <Testimonial
-        quote="În 4 luni au triplat numărul de lead-uri calificate și ROAS-ul a urcat de la 2.1 la 5.8. Dar lucrul cel mai valoros e că, în sfârșit, înțeleg ce funcționează și de ce."
-        author="Andrei P."
-        role="CEO"
-        company="DTC Brand"
-        rating={5}
-      />
     </div>
   </section>
 

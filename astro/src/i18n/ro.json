@@ -85,7 +85,7 @@
   },
   "trustBar": {
     "header": "AU LUCRAT CU NOI",
-    "logos": ["BPD Trans", "Horeca Co", "Ecom Pro", "Local Biz", "Fit Studio", "Auto Hub"]
+    "logos": []
   },
   "homeServices": {
     "header": "CE FACEM",
@@ -136,15 +136,7 @@
   },
   "testimonials": {
     "header": "CE SPUN CLIENȚII",
-    "items": [
-      {
-        "quote": "În 4 luni au triplat numărul de lead-uri calificate. ROAS-ul a urcat de la 2.1 la 5.8.",
-        "author": "Andrei P.",
-        "role": "CEO",
-        "company": "DTC Brand",
-        "rating": 5
-      }
-    ]
+    "items": []
   },
   "faq": {
     "header": "ÎNTREBĂRI FRECVENTE",

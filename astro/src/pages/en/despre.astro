@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import CTA from '../../components/CTA.astro';
-import Testimonial from '../../components/Testimonial.astro';
 import { type Locale, localizedPath } from '../../utils/i18n';
 
 const locale: Locale = 'en';
@@ -100,18 +99,6 @@ const values = [
           </article>
         ))}
       </div>
-    </div>
-  </section>
-
-  <section class="border-t border-phoenix-gray bg-phoenix-gray/10">
-    <div class="mx-auto max-w-4xl px-6 py-20">
-      <Testimonial
-        quote="In 4 months they tripled qualified leads and ROAS jumped from 2.1 to 5.8. But the most valuable thing is that, finally, I understand what works and why."
-        author="Andrei P."
-        role="CEO"
-        company="DTC Brand"
-        rating={5}
-      />
     </div>
   </section>
 

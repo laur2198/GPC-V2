@@ -23,8 +23,14 @@ const { locale = 'ro', logos, header } = Astro.props;
 const dict = t<{ header: string; logos: string[] }>(locale, 'trustBar');
 const trustHeader = header ?? dict.header;
 const trustLogos = logos ?? dict.logos;
+
+// Don't render the bar with too few logos — looks unprofessional and
+// shouts "we don't have clients yet". Threshold of 4 chosen so the
+// 6-column grid still feels dense.
+const visible = trustLogos.length >= 4;
 ---
 
+{visible && (
 <section class="border-y border-phoenix-gray bg-phoenix-gray/20">
   <div class="mx-auto max-w-7xl px-6 py-14">
     <div class="flex items-center gap-4">
@@ -53,3 +59,4 @@ const trustLogos = logos ?? dict.logos;
     </ul>
   </div>
 </section>
+)}

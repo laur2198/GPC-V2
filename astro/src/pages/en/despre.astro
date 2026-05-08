@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Testimonial from '../../components/Testimonial.astro';
+import CTA from '../../components/CTA.astro';
+import { getPageCopy } from '../../utils/content';
+import { localizedPath } from '../../utils/i18n';
+
+const locale = 'en' as const;
+const c = getPageCopy(locale, 'despre');
+---
+
+<BaseLayout title={c.meta.title} description={c.meta.description} locale={locale}>
+  <Hero title={c.hero.title} subtitle={c.hero.subtitle} ctaLabel={c.hero.ctaLabel} ctaHref={localizedPath(locale, '/contact')} />
+  <section class="mx-auto max-w-3xl px-6 py-16 font-mono text-base text-phoenix-light/80 leading-relaxed space-y-6">
+    <p>We're a small team obsessed with results. We work with founders and companies that want to grow digitally, no fluff.</p>
+    <p>Our philosophy: <span class="glow-green">data, not opinions</span>. Every decision is backed by clear metrics and goals defined together.</p>
+  </section>
+  <section class="mx-auto max-w-4xl px-6 pb-16">
+    <Testimonial quote="They transformed how we think about performance marketing. ROAS up 180% in 4 months." author="Andrei P." role="CEO, DTC e-commerce" />
+  </section>
+  <CTA title="Let's get acquainted" description="A 30-minute conversation, no obligations." ctaLabel="Book a call" ctaHref={localizedPath(locale, '/contact')} />
+</BaseLayout>

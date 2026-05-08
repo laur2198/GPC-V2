@@ -1,0 +1,23 @@
+---
+interface Props {
+  title: string;
+  client: string;
+  industry: string;
+  href: string;
+  heroImage?: string;
+}
+const { title, client, industry, href, heroImage } = Astro.props;
+---
+
+<a href={href} class="group block overflow-hidden border border-phoenix-gray bg-phoenix-gray/40 transition-colors hover:border-phoenix-green">
+  {heroImage && (
+    <div class="aspect-video overflow-hidden bg-phoenix-black">
+      <img src={heroImage} alt={title} class="h-full w-full object-cover transition-transform group-hover:scale-105" />
+    </div>
+  )}
+  <div class="p-6">
+    <p class="font-mono text-xs uppercase tracking-wider text-phoenix-cyan">{industry}</p>
+    <h3 class="mt-2 font-display text-xl text-phoenix-light">{title}</h3>
+    <p class="mt-1 font-mono text-sm text-phoenix-light/60">{client}</p>
+  </div>
+</a>

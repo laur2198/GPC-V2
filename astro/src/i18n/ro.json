@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "home": "Acasă",
+    "ads": "Servicii Ads",
+    "web": "Servicii Web",
+    "portfolio": "Portofoliu",
+    "blog": "Blog",
+    "about": "Despre",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Performanță digitală pentru afaceri ambițioase",
+    "subtitle": "Campanii ads și site-uri care convertesc.",
+    "cta": "Discută cu noi"
+  },
+  "footer": {
+    "rights": "Toate drepturile rezervate.",
+    "policy": "Politică de confidențialitate"
+  },
+  "common": {
+    "readMore": "Citește mai mult",
+    "viewCase": "Vezi studiul de caz",
+    "contactUs": "Contactează-ne"
+  }
+}

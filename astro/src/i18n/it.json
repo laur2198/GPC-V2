@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "home": "Home",
+    "ads": "Servizi Ads",
+    "web": "Servizi Web",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "about": "Chi siamo",
+    "contact": "Contatti"
+  },
+  "hero": {
+    "title": "Performance digitale per aziende ambiziose",
+    "subtitle": "Campagne ads e siti che convertono.",
+    "cta": "Parla con noi"
+  },
+  "footer": {
+    "rights": "Tutti i diritti riservati.",
+    "policy": "Informativa sulla privacy"
+  },
+  "common": {
+    "readMore": "Leggi di più",
+    "viewCase": "Vedi case study",
+    "contactUs": "Contattaci"
+  }
+}

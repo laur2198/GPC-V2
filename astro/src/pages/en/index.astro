@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import HowWeWork from '../../components/HowWeWork.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTA from '../../components/CTA.astro';
+import { getPageCopy } from '../../utils/content';
+import { localizedPath } from '../../utils/i18n';
+
+const locale = 'en' as const;
+const c = getPageCopy(locale, 'home');
+---
+
+<BaseLayout title={c.meta.title} description={c.meta.description} locale={locale}>
+  <Hero
+    title={c.hero.title}
+    subtitle={c.hero.subtitle}
+    ctaLabel={c.hero.ctaLabel}
+    ctaHref={localizedPath(locale, '/contact')}
+  />
+  <TrustBar />
+  <section class="mx-auto max-w-6xl px-6 py-16">
+    <div class="grid gap-6 md:grid-cols-3">
+      {c.services?.map((s) => (
+        <ServiceCard title={s.title} description={s.description} />
+      ))}
+    </div>
+  </section>
+  {c.steps && <HowWeWork title="How we work" steps={c.steps} />}
+  {c.faq && <FAQ title="Frequently asked questions" items={c.faq} />}
+  {c.cta && (
+    <CTA
+      title={c.cta.title}
+      description={c.cta.description}
+      ctaLabel={c.cta.ctaLabel}
+      ctaHref={localizedPath(locale, '/contact')}
+    />
+  )}
+</BaseLayout>

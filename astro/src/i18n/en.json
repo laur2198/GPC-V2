@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "home": "Home",
+    "ads": "Ads Services",
+    "web": "Web Services",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Digital performance for ambitious businesses",
+    "subtitle": "Ad campaigns and websites that convert.",
+    "cta": "Talk to us"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "policy": "Privacy policy"
+  },
+  "common": {
+    "readMore": "Read more",
+    "viewCase": "View case study",
+    "contactUs": "Contact us"
+  }
+}

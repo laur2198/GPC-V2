@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import CTA from '../components/CTA.astro';
+import { getPageCopy } from '../utils/content';
+import { localizedPath } from '../utils/i18n';
+
+const locale = 'ro' as const;
+const c = getPageCopy(locale, 'servicii-ads');
+
+const services = [
+  { title: 'Google Search Ads', description: 'Campanii pe cuvinte cheie cu intent comercial ridicat.' },
+  { title: 'Performance Max', description: 'Automatizare AI pe toate inventarele Google.' },
+  { title: 'Meta Ads', description: 'Facebook & Instagram pentru lead-uri și e-commerce.' },
+  { title: 'TikTok Ads', description: 'Conținut nativ pentru audiențe Gen Z & Millennial.' },
+  { title: 'Tracking & GA4', description: 'Implementare corectă a evenimentelor și conversii server-side.' },
+  { title: 'Optimizare ROAS', description: 'A/B testing creative, audiences și landing pages.' },
+];
+---
+
+<BaseLayout title={c.meta.title} description={c.meta.description} locale={locale}>
+  <Hero
+    title={c.hero.title}
+    subtitle={c.hero.subtitle}
+    ctaLabel={c.hero.ctaLabel}
+    ctaHref={localizedPath(locale, '/contact')}
+  />
+  <section class="mx-auto max-w-6xl px-6 py-16">
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {services.map((s) => <ServiceCard title={s.title} description={s.description} />)}
+    </div>
+  </section>
+  <CTA
+    title="Vrei un audit gratuit pe campaniile tale?"
+    description="Identificăm într-o oră ce poate fi optimizat."
+    ctaLabel="Programează audit"
+    ctaHref={localizedPath(locale, '/contact')}
+  />
+</BaseLayout>

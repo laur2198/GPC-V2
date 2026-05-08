@@ -1,0 +1,25 @@
+---
+import type { Locale } from '../utils/i18n';
+import { locales } from '../utils/i18n';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+<div class="flex items-center gap-2 font-mono text-xs">
+  {locales.map((l) => (
+    <a
+      href={l === 'ro' ? '/' : `/${l}/`}
+      class:list={[
+        'rounded border border-phoenix-gray px-2 py-1 uppercase transition-colors',
+        l === locale
+          ? 'border-phoenix-green text-phoenix-green'
+          : 'text-phoenix-light/70 hover:text-phoenix-green',
+      ]}
+    >
+      {l}
+    </a>
+  ))}
+</div>

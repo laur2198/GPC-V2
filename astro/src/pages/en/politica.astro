@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import { getPageCopy } from '../../utils/content';
+
+const locale = 'en' as const;
+const c = getPageCopy(locale, 'politica');
+---
+
+<BaseLayout title={c.meta.title} description={c.meta.description} locale={locale}>
+  <Hero title={c.hero.title} subtitle={c.hero.subtitle} />
+  <article class="mx-auto max-w-3xl space-y-6 px-6 py-16 font-mono text-sm leading-relaxed text-phoenix-light/80">
+    <h2 class="font-display text-2xl text-phoenix-light">1. Data we collect</h2>
+    <p>We only collect what's needed to respond to your requests: name, email, message content.</p>
+    <h2 class="font-display text-2xl text-phoenix-light">2. Cookies</h2>
+    <p>We use analytics (GA4) and marketing cookies to improve experience. You can manage preferences anytime.</p>
+    <h2 class="font-display text-2xl text-phoenix-light">3. Your rights</h2>
+    <p>You have rights to access, rectification, deletion and portability under GDPR. Contact us for any request.</p>
+  </article>
+</BaseLayout>

@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Hero from '../../../components/Hero.astro';
+import BlogCard from '../../../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+import { getPageCopy } from '../../../utils/content';
+import { localizedPath } from '../../../utils/i18n';
+
+const locale = 'it' as const;
+const c = getPageCopy(locale, 'blog');
+const posts = (await getCollection('blog', ({ data }) => data.language === locale))
+  .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
+---
+
+<BaseLayout title={c.meta.title} description={c.meta.description} locale={locale}>
+  <Hero title={c.hero.title} subtitle={c.hero.subtitle} />
+  <section class="mx-auto max-w-6xl px-6 py-16">
+    {posts.length === 0 ? (
+      <p class="text-center font-mono text-phoenix-light/60">Articoli in arrivo.</p>
+    ) : (
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {posts.map((p) => (
+          <BlogCard
+            title={p.data.title}
+            description={p.data.description}
+            publishDate={p.data.publishDate}
+            category={p.data.category}
+            heroImage={p.data.heroImage}
+            href={localizedPath(locale, `/blog/${p.slug}`)}
+          />
+        ))}
+      </div>
+    )}
+  </section>
+</BaseLayout>

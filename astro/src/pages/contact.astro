@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import { getPageCopy } from '../utils/content';
+
+const locale = 'ro' as const;
+const c = getPageCopy(locale, 'contact');
+---
+
+<BaseLayout title={c.meta.title} description={c.meta.description} locale={locale}>
+  <Hero title={c.hero.title} subtitle={c.hero.subtitle} />
+  <section class="mx-auto max-w-2xl px-6 py-16">
+    <form class="space-y-5 font-mono text-sm">
+      <label class="block">
+        <span class="text-phoenix-light/80">Nume</span>
+        <input
+          type="text"
+          name="name"
+          required
+          class="mt-1 w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 text-phoenix-light focus:border-phoenix-green focus:outline-none"
+        />
+      </label>
+      <label class="block">
+        <span class="text-phoenix-light/80">Email</span>
+        <input
+          type="email"
+          name="email"
+          required
+          class="mt-1 w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 text-phoenix-light focus:border-phoenix-green focus:outline-none"
+        />
+      </label>
+      <label class="block">
+        <span class="text-phoenix-light/80">Mesaj</span>
+        <textarea
+          name="message"
+          rows="5"
+          required
+          class="mt-1 w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 text-phoenix-light focus:border-phoenix-green focus:outline-none"
+        ></textarea>
+      </label>
+      <button
+        type="submit"
+        class="border border-phoenix-green px-6 py-3 text-phoenix-green transition-colors hover:bg-phoenix-green hover:text-phoenix-black"
+      >
+        {c.hero.ctaLabel}
+      </button>
+    </form>
+  </section>
+</BaseLayout>

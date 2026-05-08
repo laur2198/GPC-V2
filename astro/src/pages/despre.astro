@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Testimonial from '../components/Testimonial.astro';
+import CTA from '../components/CTA.astro';
+import { getPageCopy } from '../utils/content';
+import { localizedPath } from '../utils/i18n';
+
+const locale = 'ro' as const;
+const c = getPageCopy(locale, 'despre');
+---
+
+<BaseLayout title={c.meta.title} description={c.meta.description} locale={locale}>
+  <Hero title={c.hero.title} subtitle={c.hero.subtitle} ctaLabel={c.hero.ctaLabel} ctaHref={localizedPath(locale, '/contact')} />
+  <section class="mx-auto max-w-3xl px-6 py-16 font-mono text-base text-phoenix-light/80 leading-relaxed space-y-6">
+    <p>Suntem o echipă mică, focusată pe rezultate. Lucrăm cu antreprenori și companii care vor să crească digital fără bullshit.</p>
+    <p>Filosofia noastră: <span class="glow-green">date, nu păreri</span>. Fiecare decizie e susținută de metrici clare și obiective stabilite împreună cu clientul.</p>
+  </section>
+  <section class="mx-auto max-w-4xl px-6 pb-16">
+    <Testimonial
+      quote="Au transformat felul în care înțelegem performance marketing. ROAS-ul a crescut cu 180% în 4 luni."
+      author="Andrei P."
+      role="CEO, e-commerce DTC"
+    />
+  </section>
+  <CTA title="Hai să ne cunoaștem" description="O conversație de 30 de minute, fără obligații." ctaLabel="Programează call" ctaHref={localizedPath(locale, '/contact')} />
+</BaseLayout>

@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Testimonial from '../../components/Testimonial.astro';
+import CTA from '../../components/CTA.astro';
+import { getPageCopy } from '../../utils/content';
+import { localizedPath } from '../../utils/i18n';
+
+const locale = 'it' as const;
+const c = getPageCopy(locale, 'despre');
+---
+
+<BaseLayout title={c.meta.title} description={c.meta.description} locale={locale}>
+  <Hero title={c.hero.title} subtitle={c.hero.subtitle} ctaLabel={c.hero.ctaLabel} ctaHref={localizedPath(locale, '/contact')} />
+  <section class="mx-auto max-w-3xl px-6 py-16 font-mono text-base text-phoenix-light/80 leading-relaxed space-y-6">
+    <p>Siamo un piccolo team focalizzato sui risultati. Lavoriamo con imprenditori e aziende che vogliono crescere digitalmente, senza fronzoli.</p>
+    <p>La nostra filosofia: <span class="glow-green">dati, non opinioni</span>. Ogni decisione si basa su metriche chiare e obiettivi definiti insieme al cliente.</p>
+  </section>
+  <section class="mx-auto max-w-4xl px-6 pb-16">
+    <Testimonial quote="Hanno trasformato il nostro modo di intendere il performance marketing. ROAS +180% in 4 mesi." author="Andrei P." role="CEO, e-commerce DTC" />
+  </section>
+  <CTA title="Conosciamoci" description="Una conversazione di 30 minuti, senza impegno." ctaLabel="Prenota una call" ctaHref={localizedPath(locale, '/contact')} />
+</BaseLayout>

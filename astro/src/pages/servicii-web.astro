@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import CTA from '../components/CTA.astro';
+import { getPageCopy } from '../utils/content';
+import { localizedPath } from '../utils/i18n';
+
+const locale = 'ro' as const;
+const c = getPageCopy(locale, 'servicii-web');
+
+const services = [
+  { title: 'Site-uri de prezentare', description: 'Astro/Next + CMS, performanță 100/100 Lighthouse.' },
+  { title: 'Landing pages', description: 'Pagini de conversie pentru campanii ads.' },
+  { title: 'E-commerce', description: 'Shopify și WooCommerce optimizate.' },
+  { title: 'SEO Tehnic', description: 'Core Web Vitals, schema, sitemap, indexare.' },
+  { title: 'CRO', description: 'A/B testing, heatmaps, optimizare funnel.' },
+  { title: 'Mentenanță', description: 'Update-uri, securitate și backup-uri continue.' },
+];
+---
+
+<BaseLayout title={c.meta.title} description={c.meta.description} locale={locale}>
+  <Hero
+    title={c.hero.title}
+    subtitle={c.hero.subtitle}
+    ctaLabel={c.hero.ctaLabel}
+    ctaHref={localizedPath(locale, '/contact')}
+  />
+  <section class="mx-auto max-w-6xl px-6 py-16">
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {services.map((s) => <ServiceCard title={s.title} description={s.description} />)}
+    </div>
+  </section>
+  <CTA
+    title="Pregătit pentru un site nou?"
+    description="Discutăm despre obiective și livrăm un proiect personalizat."
+    ctaLabel="Solicită proiect"
+    ctaHref={localizedPath(locale, '/contact')}
+  />
+</BaseLayout>

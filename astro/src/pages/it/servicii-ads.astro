@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import CTA from '../../components/CTA.astro';
+import { getPageCopy } from '../../utils/content';
+import { localizedPath } from '../../utils/i18n';
+
+const locale = 'it' as const;
+const c = getPageCopy(locale, 'servicii-ads');
+
+const services = [
+  { title: 'Google Search Ads', description: 'Campagne su parole chiave ad alto intento commerciale.' },
+  { title: 'Performance Max', description: 'Automazione AI su tutto l’inventario Google.' },
+  { title: 'Meta Ads', description: 'Facebook & Instagram per lead ed e-commerce.' },
+  { title: 'TikTok Ads', description: 'Contenuti nativi per audience Gen Z e Millennial.' },
+  { title: 'Tracking & GA4', description: 'Implementazione corretta degli eventi e conversioni server-side.' },
+  { title: 'Ottimizzazione ROAS', description: 'A/B test su creativi, audience e landing page.' },
+];
+---
+
+<BaseLayout title={c.meta.title} description={c.meta.description} locale={locale}>
+  <Hero title={c.hero.title} subtitle={c.hero.subtitle} ctaLabel={c.hero.ctaLabel} ctaHref={localizedPath(locale, '/contact')} />
+  <section class="mx-auto max-w-6xl px-6 py-16">
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {services.map((s) => <ServiceCard title={s.title} description={s.description} />)}
+    </div>
+  </section>
+  <CTA title="Vuoi un audit gratuito sulle tue campagne?" description="In un’ora individuiamo cosa può essere ottimizzato." ctaLabel="Prenota audit" ctaHref={localizedPath(locale, '/contact')} />
+</BaseLayout>

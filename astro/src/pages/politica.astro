@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import { getPageCopy } from '../utils/content';
+
+const locale = 'ro' as const;
+const c = getPageCopy(locale, 'politica');
+---
+
+<BaseLayout title={c.meta.title} description={c.meta.description} locale={locale}>
+  <Hero title={c.hero.title} subtitle={c.hero.subtitle} />
+  <article class="mx-auto max-w-3xl space-y-6 px-6 py-16 font-mono text-sm leading-relaxed text-phoenix-light/80">
+    <h2 class="font-display text-2xl text-phoenix-light">1. Date colectate</h2>
+    <p>Colectăm doar datele necesare pentru a răspunde solicitărilor tale: nume, email, conținutul mesajului.</p>
+    <h2 class="font-display text-2xl text-phoenix-light">2. Cookies</h2>
+    <p>Folosim cookies analitice (GA4) și de marketing pentru a îmbunătăți experiența. Poți gestiona preferințele oricând.</p>
+    <h2 class="font-display text-2xl text-phoenix-light">3. Drepturile tale</h2>
+    <p>Ai dreptul la acces, rectificare, ștergere și portabilitate conform GDPR. Contactează-ne pentru orice solicitare.</p>
+  </article>
+</BaseLayout>

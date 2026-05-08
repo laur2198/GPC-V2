@@ -1,0 +1,17 @@
+---
+interface Props {
+  items?: string[];
+}
+const { items = ['Google Ads', 'Meta Ads', 'TikTok Ads', 'GA4', 'Tag Manager', 'Astro', 'WordPress', 'Shopify'] } = Astro.props;
+const doubled = [...items, ...items];
+---
+
+<section class="border-y border-phoenix-gray bg-phoenix-gray/30 py-6 overflow-hidden">
+  <div class="marquee-track">
+    {doubled.map((item) => (
+      <span class="mx-8 font-mono text-sm uppercase tracking-widest text-phoenix-light/70 whitespace-nowrap">
+        {item}
+      </span>
+    ))}
+  </div>
+</section>

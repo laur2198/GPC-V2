@@ -1,0 +1,24 @@
+---
+import type { Locale } from '../utils/i18n';
+import { localizedPath, t } from '../utils/i18n';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-phoenix-gray bg-phoenix-black">
+  <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-8 md:flex-row">
+    <p class="font-mono text-xs text-phoenix-light/70">
+      © {year} Green Phoenix Concept. {t(locale, 'footer.rights')}
+    </p>
+    <a
+      href={localizedPath(locale, '/politica')}
+      class="font-mono text-xs text-phoenix-light/70 hover:text-phoenix-green"
+    >
+      {t(locale, 'footer.policy')}
+    </a>
+  </div>
+</footer>

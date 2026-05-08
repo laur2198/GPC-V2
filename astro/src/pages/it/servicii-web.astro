@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import CTA from '../../components/CTA.astro';
+import { getPageCopy } from '../../utils/content';
+import { localizedPath } from '../../utils/i18n';
+
+const locale = 'it' as const;
+const c = getPageCopy(locale, 'servicii-web');
+
+const services = [
+  { title: 'Siti vetrina', description: 'Astro/Next + CMS, performance 100/100 Lighthouse.' },
+  { title: 'Landing page', description: 'Pagine di conversione per campagne ads.' },
+  { title: 'E-commerce', description: 'Shopify e WooCommerce ottimizzati.' },
+  { title: 'SEO tecnica', description: 'Core Web Vitals, schema, sitemap, indicizzazione.' },
+  { title: 'CRO', description: 'A/B test, heatmap, ottimizzazione del funnel.' },
+  { title: 'Manutenzione', description: 'Aggiornamenti, sicurezza e backup continui.' },
+];
+---
+
+<BaseLayout title={c.meta.title} description={c.meta.description} locale={locale}>
+  <Hero title={c.hero.title} subtitle={c.hero.subtitle} ctaLabel={c.hero.ctaLabel} ctaHref={localizedPath(locale, '/contact')} />
+  <section class="mx-auto max-w-6xl px-6 py-16">
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {services.map((s) => <ServiceCard title={s.title} description={s.description} />)}
+    </div>
+  </section>
+  <CTA title="Pronto per un nuovo sito?" description="Discutiamo gli obiettivi e realizziamo un progetto su misura." ctaLabel="Avvia un progetto" ctaHref={localizedPath(locale, '/contact')} />
+</BaseLayout>

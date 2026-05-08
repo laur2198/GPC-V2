@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Hero from '../../../components/Hero.astro';
+import CaseStudyCard from '../../../components/CaseStudyCard.astro';
+import { getCollection } from 'astro:content';
+import { getPageCopy } from '../../../utils/content';
+import { localizedPath } from '../../../utils/i18n';
+
+const locale = 'it' as const;
+const c = getPageCopy(locale, 'portofoliu');
+const all = await getCollection('caseStudies', ({ data }) => data.language === locale);
+---
+
+<BaseLayout title={c.meta.title} description={c.meta.description} locale={locale}>
+  <Hero title={c.hero.title} subtitle={c.hero.subtitle} />
+  <section class="mx-auto max-w-6xl px-6 py-16">
+    {all.length === 0 ? (
+      <p class="text-center font-mono text-phoenix-light/60">Case study in arrivo.</p>
+    ) : (
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {all.map((cs) => (
+          <CaseStudyCard
+            title={cs.data.title}
+            client={cs.data.client}
+            industry={cs.data.industry}
+            heroImage={cs.data.heroImage}
+            href={localizedPath(locale, `/portofoliu/${cs.slug}`)}
+          />
+        ))}
+      </div>
+    )}
+  </section>
+</BaseLayout>

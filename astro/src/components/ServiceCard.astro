@@ -1,0 +1,19 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  icon?: string;
+  href?: string;
+}
+const { title, description, icon, href } = Astro.props;
+const Tag = href ? 'a' : 'div';
+---
+
+<Tag
+  href={href}
+  class="block border border-phoenix-gray bg-phoenix-gray/40 p-6 transition-colors hover:border-phoenix-green"
+>
+  {icon && <div class="mb-4 text-3xl glow-cyan">{icon}</div>}
+  <h3 class="font-display text-xl text-phoenix-light">{title}</h3>
+  <p class="mt-3 font-mono text-sm text-phoenix-light/70">{description}</p>
+</Tag>

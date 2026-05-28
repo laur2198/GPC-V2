@@ -2,20 +2,25 @@
 /**
  * Hero
  *
+ * Faithful port of the live HTML `.hero-sophisticated` layout:
+ *  - asymmetric 1.2fr / 0.8fr grid (text 60% / visual 40%)
+ *  - min-height 100vh ("first impression full-screen")
+ *  - .sophisticated-headline with clamp(3.5rem, 7vw, 7rem),
+ *    line-height 0.85, line-2 indented 40px + brand green,
+ *    .text-outline on the final accent word
+ *  - tech eyebrow row with a pulsing green dot on ONLINE SYSTEM
+ *  - marquee ticker bottom-aligned (30s linear infinite)
+ *  - right column: large green phoenix mark on a soft radial halo
+ *
  * Props:
  *   locale       — 'ro' | 'en' | 'it' (required for full hero)
  *   ctaPrimary   — { label, href } override; defaults to i18n + /contact
  *   ctaSecondary — { label, href } override; defaults to i18n + /servicii-ads
  *   variant      — 'full' (default) | 'compact'
- *   title        — overrides h1 (any variant)
- *   subtitle     — overrides paragraph (any variant)
+ *   title        — overrides h1 (compact only)
+ *   subtitle     — overrides paragraph
  *
- * 'full' renders eyebrow tags, h1, subtitle, dual CTAs, capability rail
- * and a marquee. 'compact' renders just title + subtitle — used by
- * inner pages.
- *
- * No fabricated performance numbers are rendered here. Real client
- * results live inside individual case studies once validated.
+ * No fabricated performance numbers anywhere.
  */
 import { type Locale, t, localizedPath } from '../utils/i18n';
 
@@ -30,7 +35,6 @@ interface Props {
   variant?: 'full' | 'compact';
   title?: string;
   subtitle?: string;
-  /** legacy: rendered only when variant='compact' */
   ctaLabel?: string;
   ctaHref?: string;
 }
@@ -48,7 +52,10 @@ const variant = variantProp ?? (title ? 'compact' : 'full');
 
 interface HeroStrings {
   eyebrow: { system: string; loc: string; version: string };
-  h1: string;
+  h1Line1: string;
+  h1Line2: string;
+  h1Line3Prefix: string;
+  h1Line3Accent: string;
   sub: string;
   ctaPrimary: string;
   ctaSecondary: string;
@@ -60,10 +67,6 @@ const cta1 = ctaPrimary ?? { label: hero.ctaPrimary, href: localizedPath(locale,
 const cta2 = ctaSecondary ?? { label: hero.ctaSecondary, href: localizedPath(locale, '/servicii-ads') };
 
 const marqueeRow = [...marquee, ...marquee];
-const headline = title ?? hero.h1;
-const blurb = subtitle ?? hero.sub;
-
-const capabilities = ['META', 'GOOGLE', 'TIKTOK', 'WEB'];
 ---
 
 {variant === 'compact' && (
@@ -74,11 +77,11 @@ const capabilities = ['META', 'GOOGLE', 'TIKTOK', 'WEB'];
       aria-hidden="true"
     ></div>
     <div class="relative mx-auto max-w-4xl px-6 text-center">
-      <h1 class="font-display text-4xl leading-tight text-gpc-ink md:text-6xl">
-        {headline}
+      <h1 class="font-display text-4xl leading-tight text-gpc-ink md:text-6xl" style="letter-spacing:-0.5px;">
+        {title ?? hero.h1Line1}
       </h1>
-      {blurb && (
-        <p class="mt-6 font-sans text-base text-gpc-text-secondary md:text-lg">{blurb}</p>
+      {subtitle && (
+        <p class="mt-6 font-sans text-base text-gpc-text-secondary md:text-lg">{subtitle}</p>
       )}
       {ctaLabel && ctaHref && (
         <a
@@ -93,67 +96,85 @@ const capabilities = ['META', 'GOOGLE', 'TIKTOK', 'WEB'];
 )}
 
 {variant === 'full' && (
-<section class="relative overflow-hidden border-b border-gpc-border bg-gpc-white">
+<section class="relative flex min-h-screen flex-col overflow-hidden bg-gpc-white pt-20">
+  {/* Blueprint grid background */}
   <div
     class="pointer-events-none absolute inset-0 opacity-40"
     style="background-image: linear-gradient(rgba(5,5,5,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(5,5,5,0.04) 1px, transparent 1px); background-size: 48px 48px;"
     aria-hidden="true"
   ></div>
 
-  <div class="relative mx-auto max-w-5xl px-6 py-24 lg:py-32">
-    <div class="flex flex-wrap gap-2 font-mono text-[10px] uppercase tracking-[0.2em]">
-      <span class="border border-gpc-green/40 bg-gpc-green/5 px-2 py-1 text-gpc-green">
-        ◉ {hero.eyebrow.system}
-      </span>
-      <span class="border border-gpc-green/40 bg-gpc-green/5 px-2 py-1 text-gpc-green">
-        {hero.eyebrow.loc}
-      </span>
-      <span class="border border-gpc-border bg-gpc-card/40 px-2 py-1 text-gpc-ink/70">
-        {hero.eyebrow.version}
-      </span>
-    </div>
+  {/* Tech eyebrow row, full-width */}
+  <div class="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-gpc-border px-6 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-gpc-text-muted md:px-10">
+    <span class="inline-flex items-center gap-2">
+      <span class="pulsing-dot" aria-hidden="true"></span>
+      {hero.eyebrow.system}
+    </span>
+    <span class="hidden md:inline">{hero.eyebrow.loc}</span>
+    <span>{hero.eyebrow.version}</span>
+  </div>
 
-    <h1 class="mt-10 max-w-4xl font-display text-5xl leading-[1.02] text-gpc-ink md:text-7xl lg:text-[5.5rem]">
-      {hero.h1.split(' ').map((word, i, arr) => (
-        <>
-          {i === arr.length - 2 || i === arr.length - 1 ? (
-            <span class="text-gpc-green">{word}{i < arr.length - 1 ? ' ' : ''}</span>
-          ) : (
-            <span>{word}{i < arr.length - 1 ? ' ' : ''}</span>
-          )}
-        </>
-      ))}
-    </h1>
+  {/* Main grid — asymmetric 1.2fr / 0.8fr like the live HTML */}
+  <div
+    class="relative z-10 mx-auto grid w-full flex-1 grid-cols-1 items-center gap-10 px-6 py-12 md:px-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-12 lg:py-16"
+    style="max-width: 1440px;"
+  >
+    {/* Text column */}
+      <div class="order-2 lg:order-1">
+        <h1 class="sophisticated-headline">
+          <span class="line-1">{hero.h1Line1}</span>
+          <span class="line-2">{hero.h1Line2}</span>
+          <span class="line-3">
+            {hero.h1Line3Prefix}{' '}<span class="text-outline">{hero.h1Line3Accent}</span>
+          </span>
+        </h1>
 
-    <p class="mt-8 max-w-2xl font-sans text-base leading-relaxed text-gpc-text-secondary md:text-lg">
-      {hero.sub}
-    </p>
+        <p class="mt-10 max-w-xl font-sans text-base leading-relaxed text-gpc-text-secondary md:text-lg lg:ml-10">
+          {hero.sub}
+        </p>
 
-    <div class="mt-10 flex flex-wrap gap-4">
-      <a
-        href={cta1.href}
-        class="group inline-flex items-center gap-2 bg-gpc-red px-8 py-4 font-display text-sm uppercase tracking-widest text-white transition-colors hover:bg-gpc-red-dark"
-      >
-        {cta1.label}
-        <span class="transition-transform group-hover:translate-x-1">→</span>
-      </a>
-      <a
-        href={cta2.href}
-        class="inline-flex items-center gap-2 border border-gpc-ink px-8 py-4 font-display text-sm uppercase tracking-widest text-gpc-ink transition-colors hover:bg-gpc-ink hover:text-white"
-      >
-        {cta2.label}
-      </a>
-    </div>
+        <div class="mt-10 flex flex-wrap gap-4 lg:ml-10">
+          <a
+            href={cta1.href}
+            class="group inline-flex items-center gap-2 bg-gpc-red px-8 py-4 font-display text-sm uppercase tracking-widest text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-gpc-red-dark"
+          >
+            {cta1.label}
+            <span class="transition-transform group-hover:translate-x-1">→</span>
+          </a>
+          <a
+            href={cta2.href}
+            class="inline-flex items-center gap-2 border border-gpc-ink px-8 py-4 font-display text-sm uppercase tracking-widest text-gpc-ink transition-colors hover:bg-gpc-ink hover:text-white"
+          >
+            {cta2.label}
+          </a>
+        </div>
+      </div>
 
-    <div class="mt-16 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-gpc-border pt-6 font-mono text-[11px] uppercase tracking-[0.3em] text-gpc-text-muted">
-      <span>///</span>
-      {capabilities.map((c) => (
-        <span class="text-gpc-ink">{c}</span>
-      ))}
+    {/* Visual column — phoenix logo */}
+    <div class="order-1 flex items-center justify-center lg:order-2">
+      <div class="relative flex h-full w-full items-center justify-center">
+        {/* Soft radial halo behind the bird */}
+        <div
+          class="pointer-events-none absolute inset-0"
+          style="background: radial-gradient(circle at 50% 50%, rgba(67,160,71,0.14), transparent 65%);"
+          aria-hidden="true"
+        ></div>
+        <img
+          src="/logo_gpc.svg"
+          alt="Green Pheonix"
+          width="640"
+          height="640"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+          class="relative w-full max-w-[260px] drop-shadow-sm sm:max-w-xs lg:max-w-md xl:max-w-lg"
+        />
+      </div>
     </div>
   </div>
 
-  <div class="relative overflow-hidden border-y border-gpc-border bg-gpc-card py-3">
+  {/* Marquee ticker bottom */}
+  <div class="relative z-10 overflow-hidden border-t border-gpc-border bg-gpc-card py-3">
     <div class="marquee-track">
       {marqueeRow.map((item) => (
         <span class="mx-6 inline-flex items-center gap-6 font-mono text-xs uppercase tracking-[0.3em] text-gpc-text-secondary">

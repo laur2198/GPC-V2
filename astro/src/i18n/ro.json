@@ -14,8 +14,11 @@
       "loc": "LOC: BRAȘOV [45.6579° N, 25.6012° E]",
       "version": "AGENCY_VER_2.5"
     },
-    "h1": "Reclame care aduc clienți. Site-uri care convertesc.",
-    "sub": "Strategie clară, execuție măsurabilă și creșteri reale pentru afaceri ambițioase. Lucrăm cu Google Ads, Meta, TikTok și site-uri optimizate pentru performanță.",
+    "h1Line1": "RECLAME CARE",
+    "h1Line2": "ADUC CLIENȚI.",
+    "h1Line3Prefix": "SITE-URI CARE",
+    "h1Line3Accent": "VÂND",
+    "sub": "Ajutăm afacerile să obțină mai mulți clienți prin reclame online și site-uri optimizate pentru vânzare. Fără jargon, fără noroc — doar rezultate măsurabile.",
     "ctaPrimary": "Programează un audit",
     "ctaSecondary": "Vezi servicii"
   },

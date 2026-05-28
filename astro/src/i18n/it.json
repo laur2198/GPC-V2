@@ -14,8 +14,11 @@
       "loc": "LOC: BRAȘOV [45.6579° N, 25.6012° E]",
       "version": "AGENCY_VER_2.5"
     },
-    "h1": "Ads che portano clienti. Siti che convertono.",
-    "sub": "Strategia chiara, esecuzione misurabile e crescita reale per aziende ambiziose. Lavoriamo con Google Ads, Meta, TikTok e siti ottimizzati per le performance.",
+    "h1Line1": "ADS CHE PORTANO",
+    "h1Line2": "CLIENTI VERI.",
+    "h1Line3Prefix": "SITI CHE",
+    "h1Line3Accent": "VENDONO",
+    "sub": "Aiutiamo le aziende ad acquisire più clienti tramite ads online e siti ottimizzati per la conversione. Niente gergo, niente fortuna — solo risultati misurabili.",
     "ctaPrimary": "Prenota un audit",
     "ctaSecondary": "Vedi servizi"
   },

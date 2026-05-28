@@ -10,9 +10,12 @@
  *   title        — overrides h1 (any variant)
  *   subtitle     — overrides paragraph (any variant)
  *
- * 'full' renders eyebrow tags, h1, subtitle, dual CTAs, live-metrics
- * panel and a marquee. 'compact' renders just title + subtitle on a
- * scanline background — used by inner pages.
+ * 'full' renders eyebrow tags, h1, subtitle, dual CTAs, capability rail
+ * and a marquee. 'compact' renders just title + subtitle — used by
+ * inner pages.
+ *
+ * No fabricated performance numbers are rendered here. Real client
+ * results live inside individual case studies once validated.
  */
 import { type Locale, t, localizedPath } from '../utils/i18n';
 
@@ -49,12 +52,6 @@ interface HeroStrings {
   sub: string;
   ctaPrimary: string;
   ctaSecondary: string;
-  stats: {
-    roasLabel: string;
-    roasValue: string;
-    campaignsLabel: string;
-    campaignsValue: string;
-  };
 }
 const hero = t<HeroStrings>(locale, 'hero');
 const marquee = t<string[]>(locale, 'marquee');
@@ -65,6 +62,8 @@ const cta2 = ctaSecondary ?? { label: hero.ctaSecondary, href: localizedPath(loc
 const marqueeRow = [...marquee, ...marquee];
 const headline = title ?? hero.h1;
 const blurb = subtitle ?? hero.sub;
+
+const capabilities = ['META', 'GOOGLE', 'TIKTOK', 'WEB'];
 ---
 
 {variant === 'compact' && (
@@ -76,7 +75,7 @@ const blurb = subtitle ?? hero.sub;
     ></div>
     <div class="relative mx-auto max-w-4xl px-6 text-center">
       <h1 class="font-display text-4xl leading-tight text-gpc-ink md:text-6xl">
-        <span class="glow-green">{headline}</span>
+        {headline}
       </h1>
       {blurb && (
         <p class="mt-6 font-sans text-base text-gpc-text-secondary md:text-lg">{blurb}</p>
@@ -101,96 +100,57 @@ const blurb = subtitle ?? hero.sub;
     aria-hidden="true"
   ></div>
 
-  <div class="relative mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-12 lg:gap-12 lg:py-28">
-    <div class="lg:col-span-8">
-      <div class="flex flex-wrap gap-2 font-mono text-[10px] uppercase tracking-[0.2em]">
-        <span class="border border-gpc-green/40 bg-gpc-green/5 px-2 py-1 text-gpc-green">
-          ◉ {hero.eyebrow.system}
-        </span>
-        <span class="border border-gpc-green/40 bg-gpc-green/5 px-2 py-1 text-gpc-green">
-          {hero.eyebrow.loc}
-        </span>
-        <span class="border border-gpc-border bg-gpc-card/40 px-2 py-1 text-gpc-ink/70">
-          {hero.eyebrow.version}
-        </span>
-      </div>
-
-      <h1 class="mt-8 font-display text-4xl leading-[1.05] text-gpc-ink md:text-6xl lg:text-7xl">
-        {hero.h1.split(' ').map((word, i, arr) => (
-          <>
-            {i === arr.length - 2 || i === arr.length - 1 ? (
-              <span class="glow-green">{word}{i < arr.length - 1 ? ' ' : ''}</span>
-            ) : (
-              <span>{word}{i < arr.length - 1 ? ' ' : ''}</span>
-            )}
-          </>
-        ))}
-      </h1>
-
-      <p class="mt-6 max-w-2xl font-mono text-base leading-relaxed text-gpc-ink/80 md:text-lg">
-        {hero.sub}
-      </p>
-
-      <div class="mt-10 flex flex-wrap gap-4">
-        <a
-          href={cta1.href}
-          class="group inline-flex items-center gap-2 bg-gpc-red px-8 py-4 font-display text-sm uppercase tracking-widest text-white transition-colors hover:bg-gpc-red-dark"
-        >
-          {cta1.label}
-          <span class="transition-transform group-hover:translate-x-1">→</span>
-        </a>
-        <a
-          href={cta2.href}
-          class="inline-flex items-center gap-2 border border-gpc-ink px-8 py-4 font-display text-sm uppercase tracking-widest text-gpc-ink transition-colors hover:bg-gpc-ink hover:text-white"
-        >
-          {cta2.label}
-        </a>
-      </div>
+  <div class="relative mx-auto max-w-5xl px-6 py-24 lg:py-32">
+    <div class="flex flex-wrap gap-2 font-mono text-[10px] uppercase tracking-[0.2em]">
+      <span class="border border-gpc-green/40 bg-gpc-green/5 px-2 py-1 text-gpc-green">
+        ◉ {hero.eyebrow.system}
+      </span>
+      <span class="border border-gpc-green/40 bg-gpc-green/5 px-2 py-1 text-gpc-green">
+        {hero.eyebrow.loc}
+      </span>
+      <span class="border border-gpc-border bg-gpc-card/40 px-2 py-1 text-gpc-ink/70">
+        {hero.eyebrow.version}
+      </span>
     </div>
 
-    <aside class="relative lg:col-span-4">
-      <div class="border border-gpc-border bg-gpc-card p-6 shadow-sm">
-        <div class="flex items-center justify-between border-b border-gpc-border pb-3 font-mono text-[10px] uppercase tracking-widest text-gpc-text-muted">
-          <span>// LIVE_METRICS</span>
-          <span class="flex items-center gap-1 text-gpc-green">
-            <span class="h-1.5 w-1.5 rounded-full bg-gpc-green"></span>
-            REC
-          </span>
-        </div>
+    <h1 class="mt-10 max-w-4xl font-display text-5xl leading-[1.02] text-gpc-ink md:text-7xl lg:text-[5.5rem]">
+      {hero.h1.split(' ').map((word, i, arr) => (
+        <>
+          {i === arr.length - 2 || i === arr.length - 1 ? (
+            <span class="text-gpc-green">{word}{i < arr.length - 1 ? ' ' : ''}</span>
+          ) : (
+            <span>{word}{i < arr.length - 1 ? ' ' : ''}</span>
+          )}
+        </>
+      ))}
+    </h1>
 
-        <div class="mt-5">
-          <p class="font-mono text-[10px] uppercase tracking-widest text-gpc-text-muted">
-            {hero.stats.roasLabel}
-          </p>
-          <p class="mt-1 font-display text-5xl leading-none text-gpc-green">
-            {hero.stats.roasValue}
-          </p>
-          <div class="mt-3 h-1 overflow-hidden bg-gpc-surface">
-            <div class="h-full w-[78%] bg-gradient-to-r from-gpc-green to-gpc-green-light"></div>
-          </div>
-        </div>
+    <p class="mt-8 max-w-2xl font-sans text-base leading-relaxed text-gpc-text-secondary md:text-lg">
+      {hero.sub}
+    </p>
 
-        <div class="mt-6">
-          <p class="font-mono text-[10px] uppercase tracking-widest text-gpc-text-muted">
-            {hero.stats.campaignsLabel}
-          </p>
-          <p class="mt-1 font-display text-3xl text-gpc-ink">
-            {hero.stats.campaignsValue}
-          </p>
-        </div>
+    <div class="mt-10 flex flex-wrap gap-4">
+      <a
+        href={cta1.href}
+        class="group inline-flex items-center gap-2 bg-gpc-red px-8 py-4 font-display text-sm uppercase tracking-widest text-white transition-colors hover:bg-gpc-red-dark"
+      >
+        {cta1.label}
+        <span class="transition-transform group-hover:translate-x-1">→</span>
+      </a>
+      <a
+        href={cta2.href}
+        class="inline-flex items-center gap-2 border border-gpc-ink px-8 py-4 font-display text-sm uppercase tracking-widest text-gpc-ink transition-colors hover:bg-gpc-ink hover:text-white"
+      >
+        {cta2.label}
+      </a>
+    </div>
 
-        <div class="mt-6 grid grid-cols-3 gap-1">
-          {Array.from({ length: 12 }).map((_, i) => (
-            <div
-              class:list={[
-                'h-8 border border-gpc-border',
-                i % 3 === 0 ? 'bg-gpc-green/20' : i % 4 === 0 ? 'bg-gpc-green/10' : 'bg-gpc-white',
-              ]}
-            ></div>
-          ))}
-        </div>
-      </div>
-    </aside>
+    <div class="mt-16 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-gpc-border pt-6 font-mono text-[11px] uppercase tracking-[0.3em] text-gpc-text-muted">
+      <span>///</span>
+      {capabilities.map((c) => (
+        <span class="text-gpc-ink">{c}</span>
+      ))}
+    </div>
   </div>
 
   <div class="relative overflow-hidden border-y border-gpc-border bg-gpc-card py-3">

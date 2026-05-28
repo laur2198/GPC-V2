@@ -38,19 +38,19 @@ const finalLabel = buttonText ?? ctaLabel ?? '';
 const finalLink = buttonLink ?? ctaHref ?? '#';
 ---
 
-<section class="relative overflow-hidden border-y border-phoenix-gray bg-phoenix-black">
+<section class="relative overflow-hidden border-y border-gpc-border bg-gpc-white">
   <div
     aria-hidden="true"
     class="pointer-events-none absolute inset-0 opacity-40"
-    style="background-image: repeating-linear-gradient(45deg, rgba(0,255,148,0.06) 0 2px, transparent 2px 24px), repeating-linear-gradient(-45deg, rgba(0,229,255,0.04) 0 2px, transparent 2px 24px); animation: marquee 18s linear infinite;"
+    style="background-image: repeating-linear-gradient(45deg, rgba(5,5,5,0.04) 0 2px, transparent 2px 24px), repeating-linear-gradient(-45deg, rgba(67,160,71,0.04) 0 2px, transparent 2px 24px); animation: marquee 18s linear infinite;"
   ></div>
   <div
     aria-hidden="true"
-    class="pointer-events-none absolute -left-20 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-phoenix-green/20 blur-3xl"
+    class="pointer-events-none absolute -left-20 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-gpc-green/20 blur-3xl"
   ></div>
   <div
     aria-hidden="true"
-    class="pointer-events-none absolute -right-20 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-phoenix-cyan/15 blur-3xl"
+    class="pointer-events-none absolute -right-20 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-gpc-green/15 blur-3xl"
   ></div>
 
   <div class="relative mx-auto max-w-4xl px-6 py-24 text-center">
@@ -58,13 +58,13 @@ const finalLink = buttonLink ?? ctaHref ?? '#';
       <span class="glow-green">{finalHeading}</span>
     </h2>
     {finalSub && (
-      <p class="mx-auto mt-6 max-w-2xl font-mono text-base leading-relaxed text-phoenix-light/80 md:text-lg">
+      <p class="mx-auto mt-6 max-w-2xl font-mono text-base leading-relaxed text-gpc-ink/80 md:text-lg">
         {finalSub}
       </p>
     )}
     <a
       href={finalLink}
-      class="group mt-10 inline-flex items-center gap-3 border border-phoenix-green bg-phoenix-green/10 px-8 py-4 font-mono text-sm uppercase tracking-[0.25em] text-phoenix-green shadow-[0_0_24px_rgba(0,255,148,0.3)] transition-all hover:bg-phoenix-green hover:text-phoenix-black hover:shadow-[0_0_42px_rgba(0,255,148,0.6)]"
+      class="group mt-10 inline-flex items-center gap-3 border border-gpc-green bg-gpc-green/10 px-8 py-4 font-mono text-sm uppercase tracking-[0.25em] text-gpc-green shadow-sm transition-all hover:bg-gpc-green hover:text-gpc-ink hover:shadow-sm"
     >
       {finalLabel}
       <span class="transition-transform group-hover:translate-x-1">→</span>

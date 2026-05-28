@@ -30,9 +30,9 @@ const { title, industry, image, summary, link, kpis } = Astro.props;
 
 <a
   href={link}
-  class="group flex h-full flex-col overflow-hidden border border-phoenix-gray bg-phoenix-gray/30 transition-all duration-300 hover:scale-[1.02] hover:border-phoenix-green hover:shadow-[0_0_36px_rgba(0,255,148,0.25)]"
+  class="group flex h-full flex-col overflow-hidden border border-gpc-border bg-gpc-card/30 transition-all duration-300 hover:scale-[1.02] hover:border-gpc-green hover:shadow-sm"
 >
-  <div class="relative aspect-video overflow-hidden bg-phoenix-black">
+  <div class="relative aspect-video overflow-hidden bg-gpc-white">
     {image ? (
       <img
         src={image}
@@ -42,28 +42,28 @@ const { title, industry, image, summary, link, kpis } = Astro.props;
         class="h-full w-full object-cover opacity-90 transition-transform duration-500 group-hover:scale-105"
       />
     ) : (
-      <div class="absolute inset-0 grid place-items-center bg-[radial-gradient(circle_at_30%_30%,rgba(0,255,148,0.18),transparent_60%)]">
-        <span class="font-display text-4xl text-phoenix-light/20">{industry.slice(0, 2)}</span>
+      <div class="absolute inset-0 grid place-items-center bg-[radial-gradient(circle_at_30%_30%,rgba(67,160,71,0.12),transparent_60%)]">
+        <span class="font-display text-4xl text-gpc-ink/20">{industry.slice(0, 2)}</span>
       </div>
     )}
-    <span class="absolute left-4 top-4 border border-phoenix-cyan/60 bg-phoenix-black/70 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-phoenix-cyan">
+    <span class="absolute left-4 top-4 border border-gpc-green/60 bg-gpc-white/70 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gpc-green">
       {industry}
     </span>
   </div>
 
   <div class="flex flex-1 flex-col p-6">
-    <h3 class="font-display text-2xl font-bold text-phoenix-light transition-colors group-hover:text-phoenix-green">
+    <h3 class="font-display text-2xl font-bold text-gpc-ink transition-colors group-hover:text-gpc-green">
       {title}
     </h3>
-    <p class="mt-3 font-mono text-sm leading-relaxed text-phoenix-light/70">
+    <p class="mt-3 font-mono text-sm leading-relaxed text-gpc-ink/70">
       {summary}
     </p>
 
-    <div class="mt-auto grid grid-cols-3 gap-2 border-t border-phoenix-gray pt-4 transition-colors group-hover:border-phoenix-green/40">
+    <div class="mt-auto grid grid-cols-3 gap-2 border-t border-gpc-border pt-4 transition-colors group-hover:border-gpc-green/40">
       {kpis.map((k) => (
         <div class="text-center">
-          <div class="font-display text-xl text-phoenix-green">{k.value}</div>
-          <div class="mt-1 font-mono text-[10px] uppercase tracking-wider text-phoenix-light/60">
+          <div class="font-display text-xl text-gpc-green">{k.value}</div>
+          <div class="mt-1 font-mono text-[10px] uppercase tracking-wider text-gpc-ink/60">
             {k.label}
           </div>
         </div>

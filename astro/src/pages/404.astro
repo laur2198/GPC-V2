@@ -22,38 +22,38 @@ const knownRoutes = [
 ---
 
 <BaseLayout title={meta.title} description={meta.description} locale="ro" noindex>
-  <section class="relative min-h-[70vh] overflow-hidden border-b border-phoenix-gray bg-phoenix-black">
+  <section class="relative min-h-[70vh] overflow-hidden border-b border-gpc-border bg-gpc-white">
     <div
       class="pointer-events-none absolute inset-0 opacity-30"
-      style="background-image: linear-gradient(rgba(0,255,148,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,229,255,0.06) 1px, transparent 1px); background-size: 48px 48px;"
+      style="background-image: linear-gradient(rgba(5,5,5,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(5,5,5,0.04) 1px, transparent 1px); background-size: 48px 48px;"
       aria-hidden="true"
     ></div>
     <div class="scanline pointer-events-none absolute inset-0" aria-hidden="true"></div>
 
     <div class="relative mx-auto grid max-w-6xl gap-10 px-6 py-24 lg:grid-cols-12 lg:py-32">
       <div class="lg:col-span-7">
-        <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// SYSTEM_ERROR</p>
+        <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// SYSTEM_ERROR</p>
         <h1 class="mt-4 font-display text-7xl leading-none md:text-8xl lg:text-9xl">
           <span class="glow-green">404</span>
         </h1>
-        <p class="mt-6 font-display text-xl text-phoenix-light md:text-2xl">
+        <p class="mt-6 font-display text-xl text-gpc-ink md:text-2xl">
           PAGE NOT FOUND
         </p>
-        <p class="mt-3 max-w-xl font-mono text-sm leading-relaxed text-phoenix-light/70">
+        <p class="mt-3 max-w-xl font-mono text-sm leading-relaxed text-gpc-ink/70">
           Această resursă nu există în sistem. Probabil a fost mutată, redenumită sau nu a existat niciodată.
         </p>
 
         <div class="mt-10 flex flex-wrap gap-4">
           <a
             href={localizedPath('ro', '/')}
-            class="group inline-flex items-center gap-2 border border-phoenix-green bg-phoenix-green/10 px-6 py-3 font-mono text-sm uppercase tracking-widest text-phoenix-green shadow-[0_0_18px_rgba(0,255,148,0.25)] transition-all hover:bg-phoenix-green hover:text-phoenix-black hover:shadow-[0_0_28px_rgba(0,255,148,0.55)]"
+            class="group inline-flex items-center gap-2 border border-gpc-green bg-gpc-green/10 px-6 py-3 font-mono text-sm uppercase tracking-widest text-gpc-green shadow-sm transition-all hover:bg-gpc-green hover:text-gpc-ink hover:shadow-sm"
           >
             Înapoi acasă
             <span class="transition-transform group-hover:translate-x-1">→</span>
           </a>
           <a
             href={localizedPath('ro', '/contact')}
-            class="inline-flex items-center gap-2 border border-phoenix-light/40 px-6 py-3 font-mono text-sm uppercase tracking-widest text-phoenix-light transition-colors hover:border-phoenix-cyan hover:text-phoenix-cyan"
+            class="inline-flex items-center gap-2 border border-gpc-border/40 px-6 py-3 font-mono text-sm uppercase tracking-widest text-gpc-ink transition-colors hover:border-gpc-green hover:text-gpc-green"
           >
             Contactează-ne →
           </a>
@@ -61,19 +61,19 @@ const knownRoutes = [
       </div>
 
       <aside class="lg:col-span-5">
-        <div class="border border-phoenix-gray bg-phoenix-gray/30 p-5 font-mono text-xs leading-relaxed">
-          <div class="flex items-center gap-2 border-b border-phoenix-gray pb-2 text-phoenix-light/60">
-            <span class="h-1.5 w-1.5 rounded-full bg-phoenix-green shadow-[0_0_8px_#00FF94]"></span>
+        <div class="border border-gpc-border bg-gpc-card/30 p-5 font-mono text-xs leading-relaxed">
+          <div class="flex items-center gap-2 border-b border-gpc-border pb-2 text-gpc-ink/60">
+            <span class="h-1.5 w-1.5 rounded-full bg-gpc-green "></span>
             <span>greenpheonix@terminal:~$</span>
           </div>
-          <pre class="mt-3 whitespace-pre-wrap text-phoenix-light/80"><span class="text-phoenix-cyan">$</span> ls /pages
+          <pre class="mt-3 whitespace-pre-wrap text-gpc-ink/80"><span class="text-gpc-green">$</span> ls /pages
 {knownRoutes.map((r) => `\n${r}`).join('')}
 
-<span class="text-phoenix-cyan">$</span> cat /var/log/error.log
+<span class="text-gpc-green">$</span> cat /var/log/error.log
 [ERR] route resolution failed
 [INFO] suggested action: pick one of the
        directories listed above
-<span class="text-phoenix-green animate-pulse">_</span></pre>
+<span class="text-gpc-green animate-pulse">_</span></pre>
         </div>
       </aside>
     </div>

@@ -33,24 +33,24 @@ const description = entry.data.anonymized
   image={entry.data.heroImage}
 >
   <article>
-    <header class="relative overflow-hidden border-b border-phoenix-gray bg-phoenix-black">
+    <header class="relative overflow-hidden border-b border-gpc-border bg-gpc-white">
       <div class="scanline pointer-events-none absolute inset-0" aria-hidden="true"></div>
       <div class="relative mx-auto max-w-5xl px-6 py-16 lg:py-24">
-        <a href={localizedPath('it', '/portofoliu')} class="font-mono text-xs uppercase tracking-widest text-phoenix-light/60 hover:text-phoenix-green">
+        <a href={localizedPath('it', '/portofoliu')} class="font-mono text-xs uppercase tracking-widest text-gpc-ink/60 hover:text-gpc-green">
           ← Torna al portfolio
         </a>
-        <p class="mt-8 inline-block border border-phoenix-cyan/40 bg-phoenix-cyan/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-phoenix-cyan">
+        <p class="mt-8 inline-block border border-gpc-green/40 bg-gpc-green/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gpc-green">
           {entry.data.industry}
         </p>
         <h1 class="mt-5 max-w-4xl font-display text-4xl leading-tight md:text-5xl lg:text-6xl">
           <span class="glow-green">{entry.data.title}</span>
         </h1>
-        <p class="mt-6 font-mono text-sm uppercase tracking-widest text-phoenix-light/70">
+        <p class="mt-6 font-mono text-sm uppercase tracking-widest text-gpc-ink/70">
           {entry.data.anonymized ? 'Cliente anonimizzato' : entry.data.client} · Durata: {entry.data.duration}
         </p>
 
         {entry.data.heroImage && (
-          <div class="mt-10 overflow-hidden border border-phoenix-gray">
+          <div class="mt-10 overflow-hidden border border-gpc-border">
             <img src={entry.data.heroImage} alt={entry.data.title} loading="eager" fetchpriority="high" class="aspect-[16/8] w-full object-cover" />
           </div>
         )}
@@ -58,14 +58,14 @@ const description = entry.data.anonymized
     </header>
 
     {entry.data.results.length > 0 && (
-      <section class="border-b border-phoenix-gray bg-phoenix-gray/10">
+      <section class="border-b border-gpc-border bg-gpc-card/10">
         <div class="mx-auto max-w-5xl px-6 py-14">
-          <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// RISULTATI</p>
+          <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// RISULTATI</p>
           <div class="mt-6 grid gap-4 md:grid-cols-3">
             {entry.data.results.map((r) => (
-              <div class="border border-phoenix-gray bg-phoenix-gray/40 p-6">
+              <div class="border border-gpc-border bg-gpc-card/40 p-6">
                 <div class="font-display text-4xl glow-green">{r.value}</div>
-                <div class="mt-2 font-mono text-xs uppercase tracking-widest text-phoenix-light/70">{r.metric}</div>
+                <div class="mt-2 font-mono text-xs uppercase tracking-widest text-gpc-ink/70">{r.metric}</div>
               </div>
             ))}
           </div>
@@ -73,30 +73,30 @@ const description = entry.data.anonymized
       </section>
     )}
 
-    <section class="border-b border-phoenix-gray bg-phoenix-black">
+    <section class="border-b border-gpc-border bg-gpc-white">
       <div class="mx-auto grid max-w-5xl gap-12 px-6 py-16 lg:grid-cols-12">
         <aside class="lg:col-span-4">
           <div class="sticky top-28 space-y-6">
-            <div class="border border-phoenix-gray bg-phoenix-gray/30 p-5">
-              <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// SERVIZI</p>
+            <div class="border border-gpc-border bg-gpc-card/30 p-5">
+              <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// SERVIZI</p>
               <ul class="mt-4 space-y-2 font-mono text-sm">
                 {entry.data.services.map((s) => (
-                  <li class="flex gap-2 text-phoenix-light/80"><span class="text-phoenix-green">✓</span><span>{s}</span></li>
+                  <li class="flex gap-2 text-gpc-ink/80"><span class="text-gpc-green">✓</span><span>{s}</span></li>
                 ))}
               </ul>
             </div>
-            <div class="border border-phoenix-gray bg-phoenix-gray/30 p-5">
-              <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// DETTAGLI</p>
+            <div class="border border-gpc-border bg-gpc-card/30 p-5">
+              <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// DETTAGLI</p>
               <dl class="mt-4 space-y-3 font-mono text-sm">
-                <div><dt class="text-phoenix-light/60">Settore</dt><dd class="text-phoenix-light">{entry.data.industry}</dd></div>
-                <div><dt class="text-phoenix-light/60">Durata</dt><dd class="text-phoenix-light">{entry.data.duration}</dd></div>
-                <div><dt class="text-phoenix-light/60">Cliente</dt><dd class="text-phoenix-light">{entry.data.anonymized ? 'Anonimizzato' : entry.data.client}</dd></div>
+                <div><dt class="text-gpc-ink/60">Settore</dt><dd class="text-gpc-ink">{entry.data.industry}</dd></div>
+                <div><dt class="text-gpc-ink/60">Durata</dt><dd class="text-gpc-ink">{entry.data.duration}</dd></div>
+                <div><dt class="text-gpc-ink/60">Cliente</dt><dd class="text-gpc-ink">{entry.data.anonymized ? 'Anonimizzato' : entry.data.client}</dd></div>
               </dl>
             </div>
           </div>
         </aside>
 
-        <div class="prose prose-invert max-w-none font-mono text-base leading-relaxed text-phoenix-light/85 lg:col-span-8 prose-headings:font-display prose-headings:text-phoenix-light prose-h2:mt-10 prose-h2:text-2xl prose-h2:text-phoenix-green prose-h3:text-xl prose-strong:text-phoenix-light prose-a:text-phoenix-cyan prose-li:my-1">
+        <div class="prose prose-invert max-w-none font-mono text-base leading-relaxed text-gpc-ink/85 lg:col-span-8 prose-headings:font-display prose-headings:text-gpc-ink prose-h2:mt-10 prose-h2:text-2xl prose-h2:text-gpc-green prose-h3:text-xl prose-strong:text-gpc-ink prose-a:text-gpc-green prose-li:my-1">
           <Content />
         </div>
       </div>

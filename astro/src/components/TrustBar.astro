@@ -31,26 +31,26 @@ const visible = trustLogos.length >= 4;
 ---
 
 {visible && (
-<section class="border-y border-phoenix-gray bg-phoenix-gray/20">
+<section class="border-y border-gpc-border bg-gpc-card/20">
   <div class="mx-auto max-w-7xl px-6 py-14">
     <div class="flex items-center gap-4">
-      <span class="h-px flex-1 bg-phoenix-gray"></span>
-      <h2 class="font-mono text-xs uppercase tracking-[0.4em] text-phoenix-light/70">
+      <span class="h-px flex-1 bg-gpc-card"></span>
+      <h2 class="font-mono text-xs uppercase tracking-[0.4em] text-gpc-ink/70">
         {trustHeader}
       </h2>
-      <span class="h-px flex-1 bg-phoenix-gray"></span>
+      <span class="h-px flex-1 bg-gpc-card"></span>
     </div>
 
     <ul class="mt-10 grid grid-cols-2 items-center gap-8 sm:grid-cols-3 lg:grid-cols-6">
       {trustLogos.map((name, i) => (
         <li class="group flex items-center justify-center">
-          <div class="flex h-14 w-full items-center justify-center gap-2 border border-phoenix-gray/60 bg-phoenix-black/40 px-4 grayscale opacity-60 transition-all duration-300 group-hover:border-phoenix-green group-hover:opacity-100 group-hover:grayscale-0 group-hover:shadow-[0_0_20px_rgba(0,255,148,0.18)]">
-            <svg viewBox="0 0 24 24" class="h-6 w-6 text-phoenix-light group-hover:text-phoenix-green" fill="currentColor" aria-hidden="true">
+          <div class="flex h-14 w-full items-center justify-center gap-2 border border-gpc-border/60 bg-gpc-white/40 px-4 grayscale opacity-60 transition-all duration-300 group-hover:border-gpc-green group-hover:opacity-100 group-hover:grayscale-0 group-hover:shadow-sm">
+            <svg viewBox="0 0 24 24" class="h-6 w-6 text-gpc-ink group-hover:text-gpc-green" fill="currentColor" aria-hidden="true">
               {i % 3 === 0 && <path d="M12 2 2 8v8l10 6 10-6V8L12 2Zm0 2.3 7.5 4.4v6.6L12 19.7 4.5 15.3V8.7L12 4.3Z"/>}
               {i % 3 === 1 && <path d="M3 4h18v4H3V4Zm0 6h12v4H3v-4Zm0 6h18v4H3v-4Z"/>}
               {i % 3 === 2 && <path d="M12 2 1 21h22L12 2Zm0 5 7.5 12.5h-15L12 7Z"/>}
             </svg>
-            <span class="font-mono text-xs uppercase tracking-widest text-phoenix-light group-hover:text-phoenix-green">
+            <span class="font-mono text-xs uppercase tracking-widest text-gpc-ink group-hover:text-gpc-green">
               {name}
             </span>
           </div>

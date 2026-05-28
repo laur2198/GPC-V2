@@ -30,15 +30,15 @@ const industries = Array.from(new Set(all.map((cs) => cs.data.industry))).sort()
     subtitle="Selecție de proiecte recente cu cifre validate de clienți. Mai multe case studies vin pe măsură ce primim acordul de publicare."
   />
 
-  <section class="border-t border-phoenix-gray bg-phoenix-black">
+  <section class="border-t border-gpc-border bg-gpc-white">
     <div class="mx-auto max-w-7xl px-6 py-16">
       {industries.length > 1 && (
         <div class="flex flex-wrap items-center gap-3" role="group" aria-label="Filtru industrie">
-          <span class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// FILTRU</span>
+          <span class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// FILTRU</span>
           <button
             type="button"
             data-filter="all"
-            class="border border-phoenix-green bg-phoenix-green/10 px-3 py-1.5 font-mono text-xs uppercase tracking-widest text-phoenix-green"
+            class="border border-gpc-green bg-gpc-green/10 px-3 py-1.5 font-mono text-xs uppercase tracking-widest text-gpc-green"
             aria-pressed="true"
           >
             Toate
@@ -47,7 +47,7 @@ const industries = Array.from(new Set(all.map((cs) => cs.data.industry))).sort()
             <button
               type="button"
               data-filter={ind}
-              class="border border-phoenix-gray bg-phoenix-gray/30 px-3 py-1.5 font-mono text-xs uppercase tracking-widest text-phoenix-light/80 transition-colors hover:border-phoenix-green hover:text-phoenix-green"
+              class="border border-gpc-border bg-gpc-card/30 px-3 py-1.5 font-mono text-xs uppercase tracking-widest text-gpc-ink/80 transition-colors hover:border-gpc-green hover:text-gpc-green"
               aria-pressed="false"
             >
               {ind}
@@ -57,7 +57,7 @@ const industries = Array.from(new Set(all.map((cs) => cs.data.industry))).sort()
       )}
 
       {all.length === 0 ? (
-        <p class="py-12 text-center font-mono text-phoenix-light/60">Studii de caz în curând.</p>
+        <p class="py-12 text-center font-mono text-gpc-ink/60">Studii de caz în curând.</p>
       ) : (
         <div id="cs-grid" class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {all.map((cs) => {
@@ -107,12 +107,12 @@ const industries = Array.from(new Set(all.map((cs) => cs.data.industry))).sort()
       buttons.forEach((b) => {
         const active = b === btn;
         b.setAttribute('aria-pressed', String(active));
-        b.classList.toggle('border-phoenix-green', active);
-        b.classList.toggle('bg-phoenix-green/10', active);
-        b.classList.toggle('text-phoenix-green', active);
-        b.classList.toggle('border-phoenix-gray', !active);
-        b.classList.toggle('bg-phoenix-gray/30', !active);
-        b.classList.toggle('text-phoenix-light/80', !active);
+        b.classList.toggle('border-gpc-green', active);
+        b.classList.toggle('bg-gpc-green/10', active);
+        b.classList.toggle('text-gpc-green', active);
+        b.classList.toggle('border-gpc-border', !active);
+        b.classList.toggle('bg-gpc-card/30', !active);
+        b.classList.toggle('text-gpc-ink/80', !active);
       });
 
       cards.forEach((card) => {

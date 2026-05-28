@@ -68,23 +68,23 @@ const blurb = subtitle ?? hero.sub;
 ---
 
 {variant === 'compact' && (
-  <section class="scanline relative overflow-hidden border-b border-phoenix-gray bg-phoenix-black py-20">
+  <section class="relative overflow-hidden border-b border-gpc-border bg-gpc-white py-20">
     <div
-      class="pointer-events-none absolute inset-0 opacity-30"
-      style="background-image: linear-gradient(rgba(0,255,148,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,229,255,0.06) 1px, transparent 1px); background-size: 48px 48px;"
+      class="pointer-events-none absolute inset-0 opacity-40"
+      style="background-image: linear-gradient(rgba(5,5,5,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(5,5,5,0.04) 1px, transparent 1px); background-size: 48px 48px;"
       aria-hidden="true"
     ></div>
     <div class="relative mx-auto max-w-4xl px-6 text-center">
-      <h1 class="font-display text-4xl leading-tight md:text-6xl">
+      <h1 class="font-display text-4xl leading-tight text-gpc-ink md:text-6xl">
         <span class="glow-green">{headline}</span>
       </h1>
       {blurb && (
-        <p class="mt-6 font-mono text-base text-phoenix-light/80 md:text-lg">{blurb}</p>
+        <p class="mt-6 font-sans text-base text-gpc-text-secondary md:text-lg">{blurb}</p>
       )}
       {ctaLabel && ctaHref && (
         <a
           href={ctaHref}
-          class="mt-10 inline-block border border-phoenix-green bg-phoenix-green/10 px-6 py-3 font-mono text-sm uppercase tracking-widest text-phoenix-green transition-colors hover:bg-phoenix-green hover:text-phoenix-black"
+          class="mt-10 inline-block bg-gpc-red px-8 py-4 font-display text-sm uppercase tracking-widest text-white transition-colors hover:bg-gpc-red-dark"
         >
           {ctaLabel}
         </a>
@@ -94,29 +94,28 @@ const blurb = subtitle ?? hero.sub;
 )}
 
 {variant === 'full' && (
-<section class="relative overflow-hidden border-b border-phoenix-gray bg-phoenix-black">
+<section class="relative overflow-hidden border-b border-gpc-border bg-gpc-white">
   <div
-    class="pointer-events-none absolute inset-0 opacity-30"
-    style="background-image: linear-gradient(rgba(0,255,148,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,229,255,0.06) 1px, transparent 1px); background-size: 48px 48px;"
+    class="pointer-events-none absolute inset-0 opacity-40"
+    style="background-image: linear-gradient(rgba(5,5,5,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(5,5,5,0.04) 1px, transparent 1px); background-size: 48px 48px;"
     aria-hidden="true"
   ></div>
-  <div class="scanline pointer-events-none absolute inset-0" aria-hidden="true"></div>
 
   <div class="relative mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-12 lg:gap-12 lg:py-28">
     <div class="lg:col-span-8">
       <div class="flex flex-wrap gap-2 font-mono text-[10px] uppercase tracking-[0.2em]">
-        <span class="border border-phoenix-green/40 bg-phoenix-green/5 px-2 py-1 text-phoenix-green">
+        <span class="border border-gpc-green/40 bg-gpc-green/5 px-2 py-1 text-gpc-green">
           ◉ {hero.eyebrow.system}
         </span>
-        <span class="border border-phoenix-cyan/40 bg-phoenix-cyan/5 px-2 py-1 text-phoenix-cyan">
+        <span class="border border-gpc-green/40 bg-gpc-green/5 px-2 py-1 text-gpc-green">
           {hero.eyebrow.loc}
         </span>
-        <span class="border border-phoenix-gray bg-phoenix-gray/40 px-2 py-1 text-phoenix-light/70">
+        <span class="border border-gpc-border bg-gpc-card/40 px-2 py-1 text-gpc-ink/70">
           {hero.eyebrow.version}
         </span>
       </div>
 
-      <h1 class="mt-8 font-display text-4xl leading-[1.05] text-phoenix-light md:text-6xl lg:text-7xl">
+      <h1 class="mt-8 font-display text-4xl leading-[1.05] text-gpc-ink md:text-6xl lg:text-7xl">
         {hero.h1.split(' ').map((word, i, arr) => (
           <>
             {i === arr.length - 2 || i === arr.length - 1 ? (
@@ -128,21 +127,21 @@ const blurb = subtitle ?? hero.sub;
         ))}
       </h1>
 
-      <p class="mt-6 max-w-2xl font-mono text-base leading-relaxed text-phoenix-light/80 md:text-lg">
+      <p class="mt-6 max-w-2xl font-mono text-base leading-relaxed text-gpc-ink/80 md:text-lg">
         {hero.sub}
       </p>
 
       <div class="mt-10 flex flex-wrap gap-4">
         <a
           href={cta1.href}
-          class="group inline-flex items-center gap-2 border border-phoenix-green bg-phoenix-green/10 px-6 py-3 font-mono text-sm uppercase tracking-widest text-phoenix-green shadow-[0_0_18px_rgba(0,255,148,0.25)] transition-all hover:bg-phoenix-green hover:text-phoenix-black hover:shadow-[0_0_28px_rgba(0,255,148,0.55)]"
+          class="group inline-flex items-center gap-2 bg-gpc-red px-8 py-4 font-display text-sm uppercase tracking-widest text-white transition-colors hover:bg-gpc-red-dark"
         >
           {cta1.label}
           <span class="transition-transform group-hover:translate-x-1">→</span>
         </a>
         <a
           href={cta2.href}
-          class="inline-flex items-center gap-2 border border-phoenix-light/40 px-6 py-3 font-mono text-sm uppercase tracking-widest text-phoenix-light transition-colors hover:border-phoenix-cyan hover:text-phoenix-cyan"
+          class="inline-flex items-center gap-2 border border-gpc-ink px-8 py-4 font-display text-sm uppercase tracking-widest text-gpc-ink transition-colors hover:bg-gpc-ink hover:text-white"
         >
           {cta2.label}
         </a>
@@ -150,33 +149,33 @@ const blurb = subtitle ?? hero.sub;
     </div>
 
     <aside class="relative lg:col-span-4">
-      <div class="border border-phoenix-gray bg-phoenix-gray/30 p-6">
-        <div class="flex items-center justify-between border-b border-phoenix-gray pb-3 font-mono text-[10px] uppercase tracking-widest text-phoenix-light/60">
+      <div class="border border-gpc-border bg-gpc-card p-6 shadow-sm">
+        <div class="flex items-center justify-between border-b border-gpc-border pb-3 font-mono text-[10px] uppercase tracking-widest text-gpc-text-muted">
           <span>// LIVE_METRICS</span>
-          <span class="flex items-center gap-1 text-phoenix-green">
-            <span class="h-1.5 w-1.5 rounded-full bg-phoenix-green shadow-[0_0_8px_#00FF94]"></span>
+          <span class="flex items-center gap-1 text-gpc-green">
+            <span class="h-1.5 w-1.5 rounded-full bg-gpc-green"></span>
             REC
           </span>
         </div>
 
         <div class="mt-5">
-          <p class="font-mono text-[10px] uppercase tracking-widest text-phoenix-light/60">
+          <p class="font-mono text-[10px] uppercase tracking-widest text-gpc-text-muted">
             {hero.stats.roasLabel}
           </p>
-          <p class="mt-1 font-display text-5xl leading-none glow-green">
+          <p class="mt-1 font-display text-5xl leading-none text-gpc-green">
             {hero.stats.roasValue}
           </p>
-          <div class="mt-3 h-1 overflow-hidden bg-phoenix-black">
-            <div class="h-full w-[78%] bg-gradient-to-r from-phoenix-green to-phoenix-cyan"></div>
+          <div class="mt-3 h-1 overflow-hidden bg-gpc-surface">
+            <div class="h-full w-[78%] bg-gradient-to-r from-gpc-green to-gpc-green-light"></div>
           </div>
         </div>
 
         <div class="mt-6">
-          <p class="font-mono text-[10px] uppercase tracking-widest text-phoenix-light/60">
+          <p class="font-mono text-[10px] uppercase tracking-widest text-gpc-text-muted">
             {hero.stats.campaignsLabel}
           </p>
-          <p class="mt-1 font-display text-3xl text-phoenix-light">
-            <span class="glow-cyan">{hero.stats.campaignsValue}</span>
+          <p class="mt-1 font-display text-3xl text-gpc-ink">
+            {hero.stats.campaignsValue}
           </p>
         </div>
 
@@ -184,8 +183,8 @@ const blurb = subtitle ?? hero.sub;
           {Array.from({ length: 12 }).map((_, i) => (
             <div
               class:list={[
-                'h-8 border border-phoenix-gray/60',
-                i % 3 === 0 ? 'bg-phoenix-green/30' : i % 4 === 0 ? 'bg-phoenix-cyan/20' : 'bg-phoenix-black',
+                'h-8 border border-gpc-border',
+                i % 3 === 0 ? 'bg-gpc-green/20' : i % 4 === 0 ? 'bg-gpc-green/10' : 'bg-gpc-white',
               ]}
             ></div>
           ))}
@@ -194,11 +193,11 @@ const blurb = subtitle ?? hero.sub;
     </aside>
   </div>
 
-  <div class="relative overflow-hidden border-y border-phoenix-gray bg-phoenix-gray/20 py-3">
+  <div class="relative overflow-hidden border-y border-gpc-border bg-gpc-card py-3">
     <div class="marquee-track">
       {marqueeRow.map((item) => (
-        <span class="mx-6 inline-flex items-center gap-6 font-mono text-xs uppercase tracking-[0.3em] text-phoenix-light/60">
-          <span class="text-phoenix-green">///</span>
+        <span class="mx-6 inline-flex items-center gap-6 font-mono text-xs uppercase tracking-[0.3em] text-gpc-text-secondary">
+          <span class="text-gpc-green">///</span>
           {item}
         </span>
       ))}

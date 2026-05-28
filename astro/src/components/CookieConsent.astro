@@ -41,32 +41,32 @@ const policyHref = localizedPath(locale, '/politica');
   data-locale={locale}
   hidden
   aria-label="Cookie consent"
-  class="fixed inset-x-0 bottom-0 z-[60] border-t border-phoenix-green/40 bg-phoenix-black/95 shadow-[0_-12px_32px_rgba(0,255,148,0.18)] backdrop-blur"
+  class="fixed inset-x-0 bottom-0 z-[60] border-t border-gpc-border bg-gpc-white shadow-[0_-8px_24px_rgba(0,0,0,0.08)]"
 >
   <div class="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-5 lg:flex-row lg:items-start lg:gap-8">
     <div class="flex-1">
-      <p class="font-mono text-[11px] uppercase tracking-[0.3em] text-phoenix-cyan">
+      <p class="font-mono text-[11px] uppercase tracking-[0.3em] text-gpc-green">
         {c.title}
       </p>
-      <p class="mt-2 max-w-3xl font-mono text-sm leading-relaxed text-phoenix-light/85">
+      <p class="mt-2 max-w-3xl font-mono text-sm leading-relaxed text-gpc-ink/85">
         {c.body}{' '}
-        <a href={policyHref} class="text-phoenix-green underline-offset-2 hover:underline">
+        <a href={policyHref} class="text-gpc-green underline-offset-2 hover:underline">
           {c.policyLink}
         </a>.
       </p>
 
       <div id="cookie-customize" hidden class="mt-4 grid gap-2 font-mono text-xs">
-        <label class="flex cursor-not-allowed items-center justify-between border border-phoenix-gray bg-phoenix-gray/30 px-3 py-2 text-phoenix-light/70 opacity-80">
+        <label class="flex cursor-not-allowed items-center justify-between border border-gpc-border bg-gpc-card/30 px-3 py-2 text-gpc-ink/70 opacity-80">
           <span>{c.categories.essential}</span>
-          <input type="checkbox" checked disabled class="h-4 w-4 accent-phoenix-green" />
+          <input type="checkbox" checked disabled class="h-4 w-4 accent-gpc-green" />
         </label>
-        <label class="flex cursor-pointer items-center justify-between border border-phoenix-gray bg-phoenix-gray/30 px-3 py-2 text-phoenix-light/85 transition-colors hover:border-phoenix-green has-[:checked]:border-phoenix-green has-[:checked]:bg-phoenix-green/10">
+        <label class="flex cursor-pointer items-center justify-between border border-gpc-border bg-gpc-card/30 px-3 py-2 text-gpc-ink/85 transition-colors hover:border-gpc-green has-[:checked]:border-gpc-green has-[:checked]:bg-gpc-green/10">
           <span>{c.categories.analytics}</span>
-          <input type="checkbox" data-cookie-cat="analytics" class="h-4 w-4 accent-phoenix-green" />
+          <input type="checkbox" data-cookie-cat="analytics" class="h-4 w-4 accent-gpc-green" />
         </label>
-        <label class="flex cursor-pointer items-center justify-between border border-phoenix-gray bg-phoenix-gray/30 px-3 py-2 text-phoenix-light/85 transition-colors hover:border-phoenix-green has-[:checked]:border-phoenix-green has-[:checked]:bg-phoenix-green/10">
+        <label class="flex cursor-pointer items-center justify-between border border-gpc-border bg-gpc-card/30 px-3 py-2 text-gpc-ink/85 transition-colors hover:border-gpc-green has-[:checked]:border-gpc-green has-[:checked]:bg-gpc-green/10">
           <span>{c.categories.marketing}</span>
-          <input type="checkbox" data-cookie-cat="marketing" class="h-4 w-4 accent-phoenix-green" />
+          <input type="checkbox" data-cookie-cat="marketing" class="h-4 w-4 accent-gpc-green" />
         </label>
       </div>
     </div>
@@ -75,21 +75,21 @@ const policyHref = localizedPath(locale, '/politica');
       <button
         type="button"
         data-cookie-action="accept-all"
-        class="border border-phoenix-green bg-phoenix-green/10 min-h-[44px] px-4 py-3 font-mono text-xs uppercase tracking-widest text-phoenix-green shadow-[0_0_18px_rgba(0,255,148,0.25)] transition-all hover:bg-phoenix-green hover:text-phoenix-black hover:shadow-[0_0_28px_rgba(0,255,148,0.55)]"
+        class="min-h-[44px] bg-gpc-green px-5 py-3 font-mono text-xs uppercase tracking-widest text-white transition-colors hover:bg-gpc-green-dark"
       >
         {c.acceptAll}
       </button>
       <button
         type="button"
         data-cookie-action="essential-only"
-        class="border border-phoenix-light/40 min-h-[44px] px-4 py-3 font-mono text-xs uppercase tracking-widest text-phoenix-light transition-colors hover:border-phoenix-cyan hover:text-phoenix-cyan"
+        class="border border-gpc-border/40 min-h-[44px] px-4 py-3 font-mono text-xs uppercase tracking-widest text-gpc-ink transition-colors hover:border-gpc-green hover:text-gpc-green"
       >
         {c.essentialOnly}
       </button>
       <button
         type="button"
         data-cookie-action="customize"
-        class="border border-phoenix-gray bg-phoenix-gray/30 min-h-[44px] px-4 py-3 font-mono text-xs uppercase tracking-widest text-phoenix-light/80 transition-colors hover:border-phoenix-green hover:text-phoenix-green"
+        class="border border-gpc-border bg-gpc-card/30 min-h-[44px] px-4 py-3 font-mono text-xs uppercase tracking-widest text-gpc-ink/80 transition-colors hover:border-gpc-green hover:text-gpc-green"
       >
         {c.customize}
       </button>
@@ -97,7 +97,7 @@ const policyHref = localizedPath(locale, '/politica');
         type="button"
         data-cookie-action="save"
         hidden
-        class="border border-phoenix-green bg-phoenix-green/10 min-h-[44px] px-4 py-3 font-mono text-xs uppercase tracking-widest text-phoenix-green transition-colors hover:bg-phoenix-green hover:text-phoenix-black"
+        class="min-h-[44px] bg-gpc-green px-5 py-3 font-mono text-xs uppercase tracking-widest text-white transition-colors hover:bg-gpc-green-dark"
       >
         {c.save}
       </button>

@@ -36,23 +36,23 @@ const faqJsonLd = schema && items.length
   : null;
 ---
 
-<section class="border-y border-phoenix-gray bg-phoenix-black">
+<section class="border-y border-gpc-border bg-gpc-white">
   <div class="mx-auto max-w-3xl px-6 py-20">
-    <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">
+    <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">
       {title}
     </p>
 
-    <div class="mt-8 divide-y divide-phoenix-gray border border-phoenix-gray bg-phoenix-gray/20">
+    <div class="mt-8 divide-y divide-gpc-border border border-gpc-border bg-gpc-card/20">
       {items.map((item) => (
-        <details class="group transition-colors open:bg-phoenix-gray/40">
+        <details class="group transition-colors open:bg-gpc-card/40">
           <summary
-            class="flex cursor-pointer list-none items-center justify-between gap-6 px-6 py-5 transition-colors hover:text-phoenix-green"
+            class="flex cursor-pointer list-none items-center justify-between gap-6 px-6 py-5 transition-colors hover:text-gpc-green"
           >
-            <span class="font-display text-lg text-phoenix-light group-open:text-phoenix-green">
+            <span class="font-display text-lg text-gpc-ink group-open:text-gpc-green">
               {item.question}
             </span>
             <span
-              class="grid h-8 w-8 flex-none place-items-center border border-phoenix-green/60 font-mono text-phoenix-green transition-transform duration-300 group-open:rotate-45 group-open:shadow-[0_0_14px_rgba(0,255,148,0.4)]"
+              class="grid h-8 w-8 flex-none place-items-center border border-gpc-green/60 font-mono text-gpc-green transition-transform duration-300 group-open:rotate-45 group-open:shadow-sm"
               aria-hidden="true"
             >
               +
@@ -62,7 +62,7 @@ const faqJsonLd = schema && items.length
             class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out group-open:grid-rows-[1fr]"
           >
             <div class="overflow-hidden">
-              <p class="px-6 pb-6 font-mono text-sm leading-relaxed text-phoenix-light/75">
+              <p class="px-6 pb-6 font-mono text-sm leading-relaxed text-gpc-ink/75">
                 {item.answer}
               </p>
             </div>

@@ -30,7 +30,7 @@ const targets = locales.map((l) => ({
     aria-haspopup="listbox"
     aria-expanded="false"
     data-lang-trigger
-    class="flex min-h-[44px] items-center gap-2 border border-phoenix-gray px-3 py-2 font-mono text-xs uppercase tracking-widest text-phoenix-light transition-colors hover:border-phoenix-green hover:text-phoenix-green"
+    class="flex min-h-[44px] items-center gap-2 border border-gpc-border px-3 py-2 font-mono text-xs uppercase tracking-widest text-gpc-ink transition-colors hover:border-gpc-green hover:text-gpc-green"
   >
     <span class="glow-green">{localeLabels[locale]}</span>
     <svg viewBox="0 0 12 8" class="h-2 w-3" fill="currentColor" aria-hidden="true">
@@ -41,7 +41,7 @@ const targets = locales.map((l) => ({
   <ul
     role="listbox"
     data-lang-menu
-    class="invisible absolute right-0 top-full z-50 mt-2 hidden min-w-[8rem] border border-phoenix-gray bg-phoenix-black/95 py-1 opacity-0 shadow-[0_0_24px_rgba(0,255,148,0.2)] backdrop-blur transition-all"
+    class="invisible absolute right-0 top-full z-50 mt-2 hidden min-w-[8rem] border border-gpc-border bg-gpc-white/95 py-1 opacity-0 shadow-sm backdrop-blur transition-all"
   >
     {targets.map((t) => (
       <li role="option" aria-selected={t.locale === locale}>
@@ -52,8 +52,8 @@ const targets = locales.map((l) => ({
           class:list={[
             'flex min-h-[44px] items-center justify-between gap-4 px-4 py-3 font-mono text-xs uppercase tracking-widest transition-colors',
             t.locale === locale
-              ? 'text-phoenix-green'
-              : 'text-phoenix-light/80 hover:bg-phoenix-gray/40 hover:text-phoenix-green',
+              ? 'text-gpc-green'
+              : 'text-gpc-ink/80 hover:bg-gpc-card/40 hover:text-gpc-green',
           ]}
         >
           <span>{t.label}</span>

@@ -73,19 +73,19 @@ const shareTargets = [
   ogType="article"
 >
   <article>
-    <header class="relative overflow-hidden border-b border-phoenix-gray bg-phoenix-black">
+    <header class="relative overflow-hidden border-b border-gpc-border bg-gpc-white">
       <div class="scanline pointer-events-none absolute inset-0" aria-hidden="true"></div>
       <div class="relative mx-auto max-w-3xl px-6 py-16 lg:py-20">
-        <a href={localizedPath('en', '/blog')} class="font-mono text-xs uppercase tracking-widest text-phoenix-light/60 hover:text-phoenix-green">
+        <a href={localizedPath('en', '/blog')} class="font-mono text-xs uppercase tracking-widest text-gpc-ink/60 hover:text-gpc-green">
           ← Back to blog
         </a>
-        <p class="mt-8 inline-block border border-phoenix-cyan/40 bg-phoenix-cyan/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-phoenix-cyan">
+        <p class="mt-8 inline-block border border-gpc-green/40 bg-gpc-green/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gpc-green">
           {entry.data.category}
         </p>
         <h1 class="mt-5 font-display text-3xl leading-tight md:text-5xl">
           <span class="glow-green">{entry.data.title}</span>
         </h1>
-        <div class="mt-6 flex flex-wrap items-center gap-4 font-mono text-sm text-phoenix-light/70">
+        <div class="mt-6 flex flex-wrap items-center gap-4 font-mono text-sm text-gpc-ink/70">
           <span>{entry.data.author}</span>
           <span aria-hidden="true">·</span>
           <time datetime={entry.data.publishDate.toISOString()}>{formatted}</time>
@@ -94,7 +94,7 @@ const shareTargets = [
               <span aria-hidden="true">·</span>
               <span class="flex flex-wrap gap-2">
                 {entry.data.tags.map((tg) => (
-                  <span class="border border-phoenix-gray px-2 py-0.5 text-[11px] uppercase tracking-widest text-phoenix-light/60">#{tg}</span>
+                  <span class="border border-gpc-border px-2 py-0.5 text-[11px] uppercase tracking-widest text-gpc-ink/60">#{tg}</span>
                 ))}
               </span>
             </>
@@ -104,26 +104,26 @@ const shareTargets = [
     </header>
 
     {entry.data.heroImage && (
-      <div class="border-b border-phoenix-gray bg-phoenix-black">
+      <div class="border-b border-gpc-border bg-gpc-white">
         <div class="mx-auto max-w-4xl px-6 py-10">
-          <img src={entry.data.heroImage} alt={entry.data.title} class="aspect-[16/8] w-full border border-phoenix-gray object-cover" loading="eager" fetchpriority="high" />
+          <img src={entry.data.heroImage} alt={entry.data.title} class="aspect-[16/8] w-full border border-gpc-border object-cover" loading="eager" fetchpriority="high" />
         </div>
       </div>
     )}
 
-    <section class="border-b border-phoenix-gray bg-phoenix-black">
+    <section class="border-b border-gpc-border bg-gpc-white">
       <div class="mx-auto grid max-w-5xl gap-12 px-6 py-16 lg:grid-cols-12">
         <aside class="lg:col-span-3">
           <div class="sticky top-28 space-y-3">
-            <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// SHARE</p>
+            <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// SHARE</p>
             <ul class="space-y-2 font-mono text-sm">
               {shareTargets.map((s) => (
                 <li>
-                  <a href={s.href} target="_blank" rel="noopener" class="block border border-phoenix-gray bg-phoenix-gray/30 px-3 py-2 text-phoenix-light/80 transition-colors hover:border-phoenix-green hover:text-phoenix-green">{s.name}</a>
+                  <a href={s.href} target="_blank" rel="noopener" class="block border border-gpc-border bg-gpc-card/30 px-3 py-2 text-gpc-ink/80 transition-colors hover:border-gpc-green hover:text-gpc-green">{s.name}</a>
                 </li>
               ))}
               <li>
-                <button type="button" data-copy-url data-url={fullUrl} class="block w-full border border-phoenix-gray bg-phoenix-gray/30 px-3 py-2 text-left text-phoenix-light/80 transition-colors hover:border-phoenix-green hover:text-phoenix-green">
+                <button type="button" data-copy-url data-url={fullUrl} class="block w-full border border-gpc-border bg-gpc-card/30 px-3 py-2 text-left text-gpc-ink/80 transition-colors hover:border-gpc-green hover:text-gpc-green">
                   <span data-copy-label>Copy link</span>
                 </button>
               </li>
@@ -131,17 +131,17 @@ const shareTargets = [
           </div>
         </aside>
 
-        <div class="prose prose-invert max-w-none font-mono text-base leading-relaxed text-phoenix-light/85 lg:col-span-9 prose-headings:font-display prose-headings:text-phoenix-light prose-h2:mt-10 prose-h2:text-2xl prose-h2:text-phoenix-green prose-h3:text-xl prose-strong:text-phoenix-light prose-a:text-phoenix-cyan prose-li:my-1 prose-code:rounded prose-code:bg-phoenix-gray/40 prose-code:px-1 prose-code:py-0.5 prose-pre:border prose-pre:border-phoenix-gray prose-pre:bg-phoenix-gray/30">
+        <div class="prose prose-invert max-w-none font-mono text-base leading-relaxed text-gpc-ink/85 lg:col-span-9 prose-headings:font-display prose-headings:text-gpc-ink prose-h2:mt-10 prose-h2:text-2xl prose-h2:text-gpc-green prose-h3:text-xl prose-strong:text-gpc-ink prose-a:text-gpc-green prose-li:my-1 prose-code:rounded prose-code:bg-gpc-card/40 prose-code:px-1 prose-code:py-0.5 prose-pre:border prose-pre:border-gpc-border prose-pre:bg-gpc-card/30">
           <Content />
         </div>
       </div>
     </section>
 
     {related.length > 0 && (
-      <section class="border-b border-phoenix-gray bg-phoenix-gray/10">
+      <section class="border-b border-gpc-border bg-gpc-card/10">
         <div class="mx-auto max-w-7xl px-6 py-16">
-          <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// KEEP READING</p>
-          <h2 class="mt-3 font-display text-2xl text-phoenix-light md:text-3xl">More from this category</h2>
+          <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// KEEP READING</p>
+          <h2 class="mt-3 font-display text-2xl text-gpc-ink md:text-3xl">More from this category</h2>
           <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {related.map((p) => (
               <BlogCard

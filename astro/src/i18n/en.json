@@ -118,11 +118,26 @@
     "header": "HOW WE WORK",
     "subheader": "A 5-step process, no surprises",
     "steps": [
-      { "title": "Discovery", "description": "Detailed audit: business, ad accounts, site, tracking, competition." },
-      { "title": "Strategy", "description": "Custom plan with ICP, messaging, channels, KPIs and budget." },
-      { "title": "Implementation", "description": "Account setup, pixels, server-side conversions, fresh creatives." },
-      { "title": "Optimization", "description": "Weekly iteration on data: bids, audience, creative." },
-      { "title": "Scaling", "description": "Controlled budget growth and new channels when ready." }
+      {
+        "title": "Discovery",
+        "description": "Detailed audit: business, ad accounts, site, tracking, competition."
+      },
+      {
+        "title": "Strategy",
+        "description": "Custom plan with ICP, messaging, channels, KPIs and budget."
+      },
+      {
+        "title": "Implementation",
+        "description": "Account setup, pixels, server-side conversions, fresh creatives."
+      },
+      {
+        "title": "Optimization",
+        "description": "Weekly iteration on data: bids, audience, creative."
+      },
+      {
+        "title": "Scaling",
+        "description": "Controlled budget growth and new channels when ready."
+      }
     ],
     "cta": "START WITH A FREE AUDIT"
   },
@@ -188,6 +203,86 @@
       "essential": "Essential (always on)",
       "analytics": "Analytics (GA4, Clarity)",
       "marketing": "Marketing (Meta Pixel)"
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "About Green Pheonix — Performance marketing without empty promises",
+      "description": "I'm Laurentiu, founder of Green Pheonix Concept. Honest performance marketing built on data, design and execution — no jargon, just measurable results. Brașov."
+    },
+    "h1": "Performance marketing without empty promises.",
+    "subHeadline": "I'm Laurentiu, founder of Green Pheonix Concept. I work at the intersection of data, design and execution — no jargon, no fluff, just measurable results.",
+    "section1": {
+      "title": "Why Green Pheonix exists",
+      "p1": "I have worked in marketing since 2024. I started as a Marketing Specialist at The Family Butchers România, running Meta campaigns for two national FMCG brands — Reinert and Martinel. In that time I gained hands-on experience across more than 1.1 million impressions and 700,000 people reached through multi-platform campaigns.",
+      "p2": "But I also saw what doesn't work in this industry. Agencies selling buzzwords. Flashy websites that don't sell. Beautiful ads made by agencies that don't perform because Meta's algorithms flag them as “advertising” and penalize them. Clients treated as IDs in a dashboard.",
+      "p3": "Green Pheonix grew out of one conviction: performance marketing should be done differently. We think before we act, we measure before we optimize, and we're honest with clients — even when they don't want to hear it."
+    },
+    "section2": {
+      "title": "The four things I fundamentally believe",
+      "belief1": {
+        "title": "Simplicity that sells > decorative complexity",
+        "body": "A beautiful site that doesn't sell is just an expensive suit. I build sites that are clear, fast, with a single path to action. Design isn't a creative award — it's a mechanism for trust and conversion. The most effective sites I've built are also the simplest."
+      },
+      "belief2": {
+        "title": "Ads alone don't sell",
+        "body": "A good ad moves traffic. Your organic profile decides whether they buy. Before the first campaign, I look at what a user finds when they reach you: is the social profile active? Are there real reviews? Is the content authentic or does it look like stock? The organic foundation is the investment that multiplies the ROI of every ad that follows."
+      },
+      "belief3": {
+        "title": "Authenticity matters to clients and to algorithms",
+        "body": "In 2026, ads that look like ads die. Meta rolled out Andromeda — an ML system that favors creative that looks REAL: UGC, natural lifestyle, people talking about a product instead of “selling” it. One person who steps in front of the camera and builds a connection with the brand is worth more than 10 glossy agency videos. For consumers and for algorithms alike."
+      },
+      "belief4": {
+        "title": "Strategy before execution",
+        "body": "Good campaigns are thought through, not improvised. Before the first ad: who is the ideal client, what message resonates, what objection needs dismantling, what path they take from click to purchase. That's the difference between an “agency that pushes buttons” and an “agency that produces results”. I turn down contracts where the client wants to skip strategy. Not because I can't — because I've seen too many campaigns burned on sloppy execution."
+      }
+    },
+    "section3": {
+      "title": "How I work",
+      "p1": "You work directly with me. There's no intermediary account manager handing you off to a developer. You talk to me — I execute.",
+      "p2": "I work with a small number of clients, not a portfolio of 30. I'd rather have 4-6 serious clients handled with care than 30 handled superficially.",
+      "p3": "We communicate on your preferred channel — Slack, WhatsApp, email. I reply within 24 working hours. For real emergencies (a campaign down, a site crashed), I reply faster.",
+      "p4": "I work in three languages: Romanian, Italian, English. That opens up opportunities for clients who want to reach the Romanian diaspora in Italy or the UK."
+    },
+    "section4": {
+      "title": "Background",
+      "bg1": "Marketing Specialist at The Family Butchers România (2024-present) — Reinert + Martinel brands, 1.1M+ impressions managed, 700K+ reach",
+      "bg2": "Marketing (ID), final year at UNITBV — Transilvania University of Brașov",
+      "bg3": "Founder of Green Pheonix Concept SRL (since 2022) — performance marketing and web development agency",
+      "bg4": "Technical specializations: Meta Ads (Andromeda), Google Ads, TikTok Ads, custom WordPress development, Astro static sites, schema markup and SEO for AI search engines"
+    },
+    "section5": {
+      "title": "Let's talk",
+      "body": "A free 30-minute discovery call. I don't sell anything on the first call — I listen to what you've built and tell you honestly what I see.",
+      "cta": "Book a discovery call"
+    }
+  },
+  "philosophy": {
+    "eyebrow": "4 THINGS WE BELIEVE",
+    "h2": "Performance marketing done right.",
+    "card1": {
+      "num": "01",
+      "title": "Simplicity that sells",
+      "body": "A site that sells > a site that impresses. Design isn't a creative award. It's a mechanism for trust.",
+      "link": "See web services"
+    },
+    "card2": {
+      "num": "02",
+      "title": "Organic foundation",
+      "body": "Ads move traffic. Your profile decides whether they buy. Before the first campaign, we look at what the user finds.",
+      "link": "See services"
+    },
+    "card3": {
+      "num": "03",
+      "title": "Authenticity",
+      "body": "Meta's algorithms penalize ads that look like ads. Real content, with real people, sells better.",
+      "link": "See the blog"
+    },
+    "card4": {
+      "num": "04",
+      "title": "Strategy before execution",
+      "body": "Good campaigns are thought through. Not improvised. We turn down contracts where we'd skip the audit.",
+      "link": "See the process"
     }
   }
 }

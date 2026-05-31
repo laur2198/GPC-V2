@@ -118,11 +118,26 @@
     "header": "COME LAVORIAMO",
     "subheader": "Un processo in 5 step, senza sorprese",
     "steps": [
-      { "title": "Discovery", "description": "Audit dettagliato: business, account ads, sito, tracking, competitor." },
-      { "title": "Strategia", "description": "Piano personalizzato con ICP, messaggi, canali, KPI e budget." },
-      { "title": "Implementazione", "description": "Setup account, pixel, conversioni server-side, nuovi creativi." },
-      { "title": "Ottimizzazione", "description": "Iteriamo settimanalmente sui dati: bid, audience, creative." },
-      { "title": "Scaling", "description": "Aumentiamo i budget in modo controllato e apriamo nuovi canali." }
+      {
+        "title": "Discovery",
+        "description": "Audit dettagliato: business, account ads, sito, tracking, competitor."
+      },
+      {
+        "title": "Strategia",
+        "description": "Piano personalizzato con ICP, messaggi, canali, KPI e budget."
+      },
+      {
+        "title": "Implementazione",
+        "description": "Setup account, pixel, conversioni server-side, nuovi creativi."
+      },
+      {
+        "title": "Ottimizzazione",
+        "description": "Iteriamo settimanalmente sui dati: bid, audience, creative."
+      },
+      {
+        "title": "Scaling",
+        "description": "Aumentiamo i budget in modo controllato e apriamo nuovi canali."
+      }
     ],
     "cta": "INIZIA CON UN AUDIT GRATUITO"
   },
@@ -188,6 +203,86 @@
       "essential": "Essenziali (sempre attivi)",
       "analytics": "Analytics (GA4, Clarity)",
       "marketing": "Marketing (Meta Pixel)"
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "Chi siamo — Green Pheonix | Marketing performance senza false promesse",
+      "description": "Sono Laurentiu, fondatore di Green Pheonix Concept. Marketing performance onesto, costruito su dati, design ed esecuzione — niente gerghi, solo risultati misurabili. Brașov."
+    },
+    "h1": "Marketing performance senza false promesse.",
+    "subHeadline": "Sono Laurentiu, fondatore di Green Pheonix Concept. Lavoro all'intersezione tra dati, design ed esecuzione — niente gerghi, niente fronzoli, solo risultati misurabili.",
+    "section1": {
+      "title": "Perché esiste Green Pheonix",
+      "p1": "Lavoro nel marketing dal 2024. Ho iniziato come Marketing Specialist a The Family Butchers România, gestendo campagne Meta per due brand FMCG nazionali — Reinert e Martinel. In quel periodo ho maturato esperienza diretta su oltre 1,1 milioni di impression e 700.000 persone raggiunte tramite campagne multi-piattaforma.",
+      "p2": "Ma ho visto anche cosa non funziona nel settore. Agenzie che vendono buzzword. Siti pomposi che non vendono. Annunci belli fatti dalle agenzie che non performano perché gli algoritmi di Meta li riconoscono come “pubblicità” e li penalizzano. Clienti trattati come ID in una dashboard.",
+      "p3": "Green Pheonix è nata dalla convinzione che il marketing performance si faccia diversamente: pensiamo prima di agire, misuriamo prima di ottimizzare e siamo onesti con i clienti — anche quando non vogliono sentirlo."
+    },
+    "section2": {
+      "title": "Le quattro cose in cui credo profondamente",
+      "belief1": {
+        "title": "Semplicità che vende > complessità decorativa",
+        "body": "Un sito bello che non vende è solo un abito costoso. Lavoro su siti chiari, veloci, con un'unica strada verso l'azione. Il design non è un premio di creatività — è un meccanismo di fiducia e conversione. I siti più efficaci che ho costruito sono anche i più semplici."
+      },
+      "belief2": {
+        "title": "Gli annunci da soli non vendono",
+        "body": "Un buon annuncio sposta traffico. Il tuo profilo organico decide se comprano. Prima della prima campagna guardo cosa trova l’utente quando arriva da te: il profilo social è attivo? Ci sono recensioni reali? Il contenuto è autentico o sembra di stock? La base organica è l’investimento che moltiplica il ROI di ogni annuncio successivo."
+      },
+      "belief3": {
+        "title": "L'autenticità conta per i clienti e per gli algoritmi",
+        "body": "Nel 2026, gli annunci che sembrano annunci muoiono. Meta ha introdotto Andromeda — un sistema di ML che premia i creative che sembrano REALI: UGC, lifestyle naturale, persone che parlano di un prodotto invece di “venderlo”. Una persona che si mette davanti alla camera e costruisce una connessione con il brand vale più di 10 video patinati da agenzia. Sia per i consumatori che per gli algoritmi."
+      },
+      "belief4": {
+        "title": "Strategia prima dell'esecuzione",
+        "body": "Le buone campagne si pensano, non si improvvisano. Prima del primo annuncio: chi è il cliente ideale, quale messaggio risuona, quale obiezione va smontata, quale percorso fa dal click all'acquisto. È la differenza tra un'agenzia che “preme bottoni” e un'agenzia che produce risultati. Rifiuto i contratti in cui il cliente vuole saltare la strategia. Non perché non possa — perché ho visto troppe campagne bruciate su un'esecuzione trascurata."
+      }
+    },
+    "section3": {
+      "title": "Come lavoro",
+      "p1": "Lavori direttamente con me. Non c'è un account manager intermedio che ti passa a uno sviluppatore. Parli con me — io eseguo.",
+      "p2": "Lavoro con un numero ristretto di clienti, non con un portfolio di 30. Preferisco 4-6 clienti seri seguiti con attenzione a 30 trattati superficialmente.",
+      "p3": "Comunichiamo sul tuo canale preferito — Slack, WhatsApp, email. Rispondo entro 24 ore lavorative. Per le vere emergenze (una campagna caduta, un sito offline), rispondo più rapidamente.",
+      "p4": "Lavoro in tre lingue: rumeno, italiano, inglese. Questo apre opportunità per i clienti che vogliono rivolgersi alla diaspora rumena in Italia o nel Regno Unito."
+    },
+    "section4": {
+      "title": "Background",
+      "bg1": "Marketing Specialist a The Family Butchers România (2024-presente) — brand Reinert + Martinel, 1,1M+ impression gestite, 700K+ reach",
+      "bg2": "Marketing (ID), ultimo anno alla UNITBV — Università Transilvania di Brașov",
+      "bg3": "Fondatore di Green Pheonix Concept SRL (dal 2022) — agenzia di performance marketing e sviluppo web",
+      "bg4": "Specializzazioni tecniche: Meta Ads (Andromeda), Google Ads, TikTok Ads, sviluppo WordPress custom, siti statici Astro, schema markup e SEO per i motori di ricerca AI"
+    },
+    "section5": {
+      "title": "Parliamone",
+      "body": "Una discovery call gratuita di 30 minuti. Non vendo nulla alla prima call — ascolto cosa hai costruito e ti dico onestamente cosa vedo.",
+      "cta": "Prenota una discovery call"
+    }
+  },
+  "philosophy": {
+    "eyebrow": "4 COSE IN CUI CREDIAMO",
+    "h2": "Marketing performance fatto con la testa.",
+    "card1": {
+      "num": "01",
+      "title": "Semplicità che vende",
+      "body": "Un sito che vende > un sito che impressiona. Il design non è un premio di creatività. È un meccanismo di fiducia.",
+      "link": "Vedi servizi web"
+    },
+    "card2": {
+      "num": "02",
+      "title": "Base organica",
+      "body": "Gli annunci spostano traffico. Il tuo profilo decide se comprano. Prima della prima campagna, guardiamo cosa trova l'utente.",
+      "link": "Vedi servizi"
+    },
+    "card3": {
+      "num": "03",
+      "title": "Autenticità",
+      "body": "Gli algoritmi di Meta penalizzano gli annunci che sembrano annunci. Il contenuto reale, con persone reali, vende meglio.",
+      "link": "Vedi il blog"
+    },
+    "card4": {
+      "num": "04",
+      "title": "Strategia prima dell'esecuzione",
+      "body": "Le buone campagne si pensano. Non si improvvisano. Rifiutiamo i contratti in cui salteremmo l’audit.",
+      "link": "Vedi il processo"
     }
   }
 }

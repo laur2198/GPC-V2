@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import StickyStackServices from '../../components/StickyStackServices.astro';
+import Philosophy from '../../components/Philosophy.astro';
 import TrustBar from '../../components/TrustBar.astro';
 import HowWeWork from '../../components/HowWeWork.astro';
 import FAQ from '../../components/FAQ.astro';
@@ -42,6 +43,8 @@ const previewCs = allCs.slice(0, 3);
 <BaseLayout title={meta.title} description={meta.description} locale={locale} faqSchema={faq.items}>
   <Hero locale={locale} />
   <TrustBar locale={locale} />
+
+  <Philosophy locale={locale} />
 
   <StickyStackServices locale={locale} />
 

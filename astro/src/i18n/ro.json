@@ -118,11 +118,26 @@
     "header": "CUM LUCRĂM",
     "subheader": "Un proces în 5 pași, fără surprize",
     "steps": [
-      { "title": "Discovery", "description": "Audit detaliat: business, conturi ads, site, tracking, competiție." },
-      { "title": "Strategie", "description": "Plan personalizat cu ICP, mesaje, canale, KPI și buget." },
-      { "title": "Implementare", "description": "Setup conturi, pixeli, conversii server-side, creative noi." },
-      { "title": "Optimizare", "description": "Iterăm săptămânal pe baza datelor: bid, audience, creative." },
-      { "title": "Scalare", "description": "Creștem bugetul controlat și lansăm canale noi când e momentul." }
+      {
+        "title": "Discovery",
+        "description": "Audit detaliat: business, conturi ads, site, tracking, competiție."
+      },
+      {
+        "title": "Strategie",
+        "description": "Plan personalizat cu ICP, mesaje, canale, KPI și buget."
+      },
+      {
+        "title": "Implementare",
+        "description": "Setup conturi, pixeli, conversii server-side, creative noi."
+      },
+      {
+        "title": "Optimizare",
+        "description": "Iterăm săptămânal pe baza datelor: bid, audience, creative."
+      },
+      {
+        "title": "Scalare",
+        "description": "Creștem bugetul controlat și lansăm canale noi când e momentul."
+      }
     ],
     "cta": "ÎNCEPE CU UN AUDIT GRATUIT"
   },
@@ -188,6 +203,86 @@
       "essential": "Esențiale (mereu active)",
       "analytics": "Analitice (GA4, Clarity)",
       "marketing": "Marketing (Meta Pixel)"
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "Despre Green Pheonix — Performance marketing fără promisiuni goale",
+      "description": "Sunt Laurentiu, fondatorul Green Pheonix Concept. Performance marketing onest, construit pe date, design și execuție — fără jargon, doar rezultate măsurabile. Brașov."
+    },
+    "h1": "Performance marketing fără promisiuni goale.",
+    "subHeadline": "Sunt Laurentiu, fondatorul Green Pheonix Concept. Lucrez la intersecția dintre date, design și execuție — fără jargon, fără pompă, doar rezultate măsurabile.",
+    "section1": {
+      "title": "De ce există Green Pheonix",
+      "p1": "Lucrez în marketing din 2024. Am început ca Marketing Specialist la The Family Butchers România, gestionând campanii Meta pentru două branduri FMCG naționale — Reinert și Martinel. În acea perioadă am acumulat experiență directă pe peste 1,1 milioane de afișări și 700.000 de oameni atinși prin campanii multi-platformă.",
+      "p2": "Dar am văzut și ce nu funcționează în industrie. Agenții care vând buzzwords. Site-uri pompoase care nu vând. Reclame frumoase făcute de agenții, dar care nu performează pentru că algoritmii Meta le detectează ca „publicitate” și le penalizează. Clienți tratați ca ID-uri într-un dashboard.",
+      "p3": "Green Pheonix a apărut din convingerea că marketingul performance se face altfel: gândim înainte să facem, măsurăm înainte să optimizăm, și suntem onești cu clienții — chiar și când nu vor să audă."
+    },
+    "section2": {
+      "title": "Cele 4 lucruri în care cred fundamental",
+      "belief1": {
+        "title": "Simplitate care vinde > complexitate decorativă",
+        "body": "Un site frumos care nu vinde e doar costum scump. Lucrez la site-uri clare, rapide, cu un singur drum spre acțiune. Designul nu e premiu de creație — e mecanism de încredere și conversie. Cele mai eficiente site-uri pe care le-am construit sunt și cele mai simple."
+      },
+      "belief2": {
+        "title": "Reclamele singure nu vând",
+        "body": "O reclamă bună mută trafic. Profilul tău organic decide dacă cumpără. Înainte de prima campanie, mă uit la ce găsește utilizatorul când ajunge la tine: arată profilul social activ? Există recenzii reale? Conținutul e autentic sau pare de stock? Fundația organică e investiția care multiplică ROI-ul oricărei reclame ulterioare."
+      },
+      "belief3": {
+        "title": "Autenticitatea contează pentru clienți și pentru algoritmi",
+        "body": "În 2026, reclamele care arată ca reclame mor. Meta a introdus Andromeda — un sistem de ML care favorizează creative care arată REAL: UGC, lifestyle natural, oameni care vorbesc despre un produs în loc să îl „vândă”. O persoană care apare în fața camerei și construiește o conexiune cu brandul = mai valoros decât 10 video-uri pompoase de agenție. Atât pentru consumatori, cât și pentru algoritmi."
+      },
+      "belief4": {
+        "title": "Strategie înainte de execuție",
+        "body": "Campaniile bune se gândesc, nu se improvizează. Înainte de prima reclamă: cine e clientul ideal, ce mesaj rezonează, ce obiecție trebuie demontată, ce traseu face de la click la cumpărare. Asta e diferența între „agenție care apasă butoane” și „agenție care produce rezultate”. Refuz contracte unde clientul vrea să sărim peste strategie. Nu pentru că nu pot — pentru că am văzut prea multe campanii arse pe execuție neîngrijită."
+      }
+    },
+    "section3": {
+      "title": "Cum lucrez",
+      "p1": "Lucrez direct cu tine. Nu există account manager intermediar care îți face hand-off de la dezvoltator. Tu vorbești cu mine — eu execut.",
+      "p2": "Lucrez cu un număr mic de clienți, nu cu un portofoliu de 30. Prefer 4-6 clienți serioși tratați cu atenție decât 30 tratați superficial.",
+      "p3": "Comunicăm pe canalul tău preferat — Slack, WhatsApp, email. Răspund în max 24 ore lucrătoare. Pentru urgențe reale (campanie căzută, site picat), răspund mai rapid.",
+      "p4": "Lucrez în 3 limbi: română, italiană, engleză. Asta deschide oportunități pentru clienți care vor să se adreseze diasporei românești din Italia sau Marea Britanie."
+    },
+    "section4": {
+      "title": "Background",
+      "bg1": "Marketing Specialist la The Family Butchers România (2024-prezent) — Reinert + Martinel brands, 1.1M+ afișări gestionate, 700K+ reach",
+      "bg2": "Marketing (ID), final year la UNITBV — Universitatea Transilvania Brașov",
+      "bg3": "Fondator Green Pheonix Concept SRL (din 2022) — agenție de performance marketing și dezvoltare web",
+      "bg4": "Specializări tehnice: Meta Ads (Andromeda), Google Ads, TikTok Ads, WordPress development custom, Astro static sites, schema markup și SEO pentru AI search engines"
+    },
+    "section5": {
+      "title": "Hai să vorbim",
+      "body": "Discovery call de 30 minute, gratuit. Nu vând nimic în primul call — ascult ce ai construit și-ți spun onest ce văd.",
+      "cta": "Programează discovery call"
+    }
+  },
+  "philosophy": {
+    "eyebrow": "4 LUCRURI ÎN CARE CREDEM",
+    "h2": "Marketing performance făcut cu cap.",
+    "card1": {
+      "num": "01",
+      "title": "Simplitate care vinde",
+      "body": "Un site care vinde > un site care impresionează. Designul nu e premiu de creație. E mecanism de încredere.",
+      "link": "Vezi servicii web"
+    },
+    "card2": {
+      "num": "02",
+      "title": "Fundație organică",
+      "body": "Reclamele mută trafic. Profilul tău decide dacă cumpără. Înainte de prima campanie, ne uităm la ce găsește utilizatorul.",
+      "link": "Vezi servicii"
+    },
+    "card3": {
+      "num": "03",
+      "title": "Autenticitate",
+      "body": "Algoritmii Meta penalizează reclamele care arată ca reclame. Conținutul real, cu oameni reali, vinde mai bine.",
+      "link": "Vezi blog"
+    },
+    "card4": {
+      "num": "04",
+      "title": "Strategie înainte de execuție",
+      "body": "Campaniile bune se gândesc. Nu se improvizează. Refuzăm contractele unde sărim peste audit.",
+      "link": "Vezi procesul"
     }
   }
 }

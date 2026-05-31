@@ -253,6 +253,28 @@ const faqJsonLd = faqSchema && faqSchema.length
       </svg>
     </a>
 
+    {/* Magnetic buttons: subtle pull toward the cursor, spring back on
+        leave. Disabled on touch + prefers-reduced-motion. */}
+    <script is:inline>
+      (function () {
+        if (!window.matchMedia) return;
+        if (window.matchMedia('(pointer: coarse)').matches) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var btns = document.querySelectorAll('.magnetic, .btn-main, .pill-btn');
+        btns.forEach(function (btn) {
+          btn.addEventListener('mousemove', function (e) {
+            var rect = btn.getBoundingClientRect();
+            var x = e.clientX - rect.left - rect.width / 2;
+            var y = e.clientY - rect.top - rect.height / 2;
+            btn.style.transform = 'translate(' + x * 0.15 + 'px, ' + y * 0.15 + 'px)';
+          });
+          btn.addEventListener('mouseleave', function () {
+            btn.style.transform = 'translate(0, 0)';
+          });
+        });
+      })();
+    </script>
+
     <CustomCursor />
   </body>
 </html>

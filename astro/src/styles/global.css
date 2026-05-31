@@ -150,6 +150,22 @@ body:has(:focus-visible) .cursor-outline {
   display: none;
 }
 
+/* Magnetic buttons — the button is "pulled" subtly toward the cursor
+   (JS sets an inline translate) and springs back on mouseleave. Easing
+   matches the live HTML physical-element curve. The JS is gated on a
+   fine pointer + no reduced-motion (see BaseLayout); this is just the
+   spring. */
+.magnetic {
+  transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .magnetic {
+    transition: none;
+    transform: none !important;
+  }
+}
+
 /* Reveal-on-scroll — restored from the live HTML `.reveal` behaviour.
    Sections start translated down + transparent and ease in (expo-out)
    when they enter the viewport (IntersectionObserver, threshold 0.1).

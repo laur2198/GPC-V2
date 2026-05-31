@@ -12,7 +12,7 @@ results:
   - { metric: "TBD", value: "TBD" }
 language: "ro"
 anonymized: false
-draft: true
+draft: false
 publishDate: 2026-05-08
 ---
 

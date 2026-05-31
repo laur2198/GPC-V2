@@ -17,7 +17,7 @@ const meta = {
 const showDrafts = import.meta.env.DEV;
 const all = (await getCollection('caseStudies', ({ data }) =>
   data.language === locale && (showDrafts || !data.draft)
-)).sort((a, b) => (a.data.title > b.data.title ? 1 : -1));
+)).sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999));
 
 const industries = Array.from(new Set(all.map((cs) => cs.data.industry))).sort();
 ---

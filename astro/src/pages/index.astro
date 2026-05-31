@@ -34,10 +34,11 @@ const testimonials = t<{ header: string; items: TestimonialItem[] }>(locale, 'te
 const aboutTeaser = t<{ header: string; title: string; description: string; ctaText: string }>(locale, 'aboutTeaser');
 
 const showDrafts = import.meta.env.DEV;
-const allCs = await getCollection('caseStudies', ({ data }) =>
+const byOrder = (a, b) => (a.data.order ?? 999) - (b.data.order ?? 999);
+const allCs = (await getCollection('caseStudies', ({ data }) =>
   data.language === locale && (showDrafts || !data.draft)
-);
-const previewCs = allCs.slice(0, 3);
+)).sort(byOrder);
+const previewCs = allCs.slice(0, 2);
 ---
 
 <BaseLayout title={meta.title} description={meta.description} locale={locale} faqSchema={faq.items}>

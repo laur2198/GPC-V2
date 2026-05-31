@@ -86,6 +86,24 @@ img, svg, video {
   animation: pulse-green 2s infinite;
 }
 
+/* Reveal-on-scroll — restored from the live HTML `.reveal` behaviour.
+   Sections start translated down + transparent and ease in (expo-out)
+   when they enter the viewport (IntersectionObserver, threshold 0.1).
+   Gated behind `html.js` so that without JavaScript (or for crawlers)
+   the content is always visible — no hidden-content SEO penalty. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1),
+    transform 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+  will-change: opacity, transform;
+}
+.js .reveal.is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
 /* Text-outline: hollow / stroked headline word.
    Matches the .text-outline treatment from the live HTML site
    used on words like "STUDIES", "WORKS", "VÂND". */
@@ -156,5 +174,12 @@ textarea:focus-visible {
 
   .marquee-track {
     animation: none !important;
+  }
+
+  /* Reveal-on-scroll: show instantly, no slide/fade. */
+  .js .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }

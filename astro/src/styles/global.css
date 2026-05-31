@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700;900&family=Space+Mono:wght@400;700&display=swap');
 
 :root {
   --gpc-white: #FFFFFF;
@@ -271,12 +271,22 @@ body:has(:focus-visible) .cursor-outline {
    vertically. .line-2 carries the editorial indent + brand color. */
 .sophisticated-headline {
   font-family: 'Oswald', sans-serif;
+  font-weight: 900;
   font-size: clamp(3.5rem, 7vw, 7rem);
-  line-height: 0.85;
-  letter-spacing: -0.5px;
+  line-height: 0.78;
+  letter-spacing: -1.5px;
   text-transform: uppercase;
   display: flex;
   flex-direction: column;
+}
+
+/* Heavy hero treatment for page-title h1s (compact hero + interior
+   pages). Oswald 900, tighter line-height + negative tracking — the
+   "smash" statement weight, scoped to heroes only. */
+.hero-heavy {
+  font-weight: 900;
+  line-height: 0.82;
+  letter-spacing: -1.5px;
 }
 .sophisticated-headline .line-1,
 .sophisticated-headline .line-3 {

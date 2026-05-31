@@ -10,9 +10,9 @@
   },
   "hero": {
     "eyebrow": {
-      "system": "ONLINE SYSTEM",
+      "system": "SISTEMA ONLINE",
       "loc": "LOC: BRAȘOV [45.6579° N, 25.6012° E]",
-      "version": "AGENCY_VER_2.5"
+      "version": "AGENZIA_VER_2.5"
     },
     "h1Line1": "ADS CHE PORTANO",
     "h1Line2": "CLIENTI VERI.",

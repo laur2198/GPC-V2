@@ -20,17 +20,47 @@ interface Props {
 }
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+const d = entry.data;
 
-const description = entry.data.anonymized
-  ? `${entry.data.industry} · ${entry.data.duration} · ${entry.data.services.join(', ')}`
-  : `${entry.data.client} · ${entry.data.industry} · ${entry.data.duration}`;
+// heroMetric falls back to the legacy results[0]; secondaryMetrics to results[1..].
+const heroMetric =
+  d.heroMetric ?? (d.results[0] ? { value: d.results[0].value, label: d.results[0].metric } : undefined);
+const secondaryMetrics =
+  d.secondaryMetrics ??
+  (d.results.length > 1 ? d.results.slice(1).map((r) => ({ value: r.value, label: r.metric })) : []);
+
+const heroImage = d.images?.hero ?? d.heroImage;
+const period = d.period ?? d.duration;
+
+// Image gallery: render every defined entry; missing files become labelled placeholders.
+const imageLabels: Record<string, string> = {
+  hero: 'Hero',
+  plugin: 'Plugin demo',
+  showroom: 'Showroom',
+  adi: 'Adi Bogluț',
+  sensei: 'Sensei',
+  beforeAfter: 'Before / After',
+};
+const galleryImages = d.images
+  ? Object.entries(d.images)
+      .filter(([key, src]) => key !== 'hero' && Boolean(src))
+      .map(([key, src]) => ({ key, src: src as string, label: imageLabels[key] ?? key }))
+  : [];
+
+const testimonialPending = d.testimonial
+  ? /în curs de confirmare/i.test(d.testimonial.quote)
+  : false;
+
+const description = d.anonymized
+  ? `${d.industry}${period ? ` · ${period}` : ''} · ${d.services.join(', ')}`
+  : `${d.client} · ${d.industry}${period ? ` · ${period}` : ''}`;
 ---
 
 <BaseLayout
-  title={`${entry.data.title} — Studiu de caz | Green Phoenix`}
+  title={`${d.title} — Studiu de caz | Green Pheonix`}
   description={description}
   locale="ro"
-  image={entry.data.heroImage}
+  image={heroImage}
 >
   <article>
     <!-- Hero -->
@@ -41,20 +71,34 @@ const description = entry.data.anonymized
           ← Înapoi la portofoliu
         </a>
         <p class="mt-8 inline-block border border-gpc-green/40 bg-gpc-green/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gpc-green">
-          {entry.data.industry}
+          {d.industry}
         </p>
         <h1 class="mt-5 max-w-4xl font-display text-4xl leading-tight md:text-5xl lg:text-6xl">
-          <span class="glow-green">{entry.data.title}</span>
+          <span class="glow-green">{d.title}</span>
         </h1>
         <p class="mt-6 font-mono text-sm uppercase tracking-widest text-gpc-ink/70">
-          {entry.data.anonymized ? 'Client anonimizat' : entry.data.client} · Durată: {entry.data.duration}
+          {d.anonymized ? 'Client anonimizat' : d.client}{d.location ? ` · ${d.location}` : ''}{period ? ` · ${period}` : ''}
         </p>
 
-        {entry.data.heroImage && (
+        {heroMetric && (
+          <div class="mt-12">
+            <div class="font-display leading-none text-gpc-green" style="font-size: clamp(3rem, 8vw, 7rem); font-weight: 700;">
+              {heroMetric.value}
+            </div>
+            <p class="mt-3 font-sans text-sm uppercase tracking-[0.2em] text-gpc-text-secondary">
+              {heroMetric.label}
+            </p>
+            {heroMetric.context && (
+              <p class="mt-1 font-sans text-xs italic text-gpc-text-secondary/80">{heroMetric.context}</p>
+            )}
+          </div>
+        )}
+
+        {heroImage && (
           <div class="mt-10 overflow-hidden border border-gpc-border">
             <img
-              src={entry.data.heroImage}
-              alt={entry.data.title}
+              src={heroImage}
+              alt={d.title}
               loading="eager"
               fetchpriority="high"
               class="aspect-[16/8] w-full object-cover"
@@ -64,16 +108,19 @@ const description = entry.data.anonymized
       </div>
     </header>
 
-    <!-- KPIs visual -->
-    {entry.data.results.length > 0 && (
+    <!-- Secondary metrics grid -->
+    {secondaryMetrics.length > 0 && (
       <section class="border-b border-gpc-border bg-gpc-card/10">
         <div class="mx-auto max-w-5xl px-6 py-14">
           <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// REZULTATE</p>
-          <div class="mt-6 grid gap-4 md:grid-cols-3">
-            {entry.data.results.map((r) => (
-              <div class="border border-gpc-border bg-gpc-card/40 p-6">
-                <div class="font-display text-4xl glow-green">{r.value}</div>
-                <div class="mt-2 font-mono text-xs uppercase tracking-widest text-gpc-ink/70">{r.metric}</div>
+          <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {secondaryMetrics.map((m) => (
+              <div class="reveal border border-gpc-border bg-gpc-card/40 p-6 transition-colors duration-300 hover:border-gpc-green">
+                <div class="font-display text-[2.5rem] leading-none text-gpc-green">{m.value}</div>
+                <div class="mt-2 font-mono text-xs uppercase tracking-widest text-gpc-ink/70">{m.label}</div>
+                {m.context && (
+                  <div class="mt-2 font-sans text-[0.7rem] italic leading-snug text-gpc-text-secondary/80">{m.context}</div>
+                )}
               </div>
             ))}
           </div>
@@ -89,7 +136,7 @@ const description = entry.data.anonymized
             <div class="border border-gpc-border bg-gpc-card/30 p-5">
               <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// SERVICII</p>
               <ul class="mt-4 space-y-2 font-mono text-sm">
-                {entry.data.services.map((s) => (
+                {d.services.map((s) => (
                   <li class="flex gap-2 text-gpc-ink/80">
                     <span class="text-gpc-green">✓</span>
                     <span>{s}</span>
@@ -102,26 +149,124 @@ const description = entry.data.anonymized
               <dl class="mt-4 space-y-3 font-mono text-sm">
                 <div>
                   <dt class="text-gpc-ink/60">Industrie</dt>
-                  <dd class="text-gpc-ink">{entry.data.industry}</dd>
+                  <dd class="text-gpc-ink">{d.industry}</dd>
                 </div>
-                <div>
-                  <dt class="text-gpc-ink/60">Durată</dt>
-                  <dd class="text-gpc-ink">{entry.data.duration}</dd>
-                </div>
+                {d.location && (
+                  <div>
+                    <dt class="text-gpc-ink/60">Locație</dt>
+                    <dd class="text-gpc-ink">{d.location}</dd>
+                  </div>
+                )}
+                {period && (
+                  <div>
+                    <dt class="text-gpc-ink/60">Perioadă</dt>
+                    <dd class="text-gpc-ink">{period}</dd>
+                  </div>
+                )}
+                {d.status && (
+                  <div>
+                    <dt class="text-gpc-ink/60">Status</dt>
+                    <dd class="text-gpc-ink">{d.status}</dd>
+                  </div>
+                )}
+                {d.website && (
+                  <div>
+                    <dt class="text-gpc-ink/60">Website</dt>
+                    <dd>
+                      <a href={`https://${d.website}`} target="_blank" rel="noopener" class="text-gpc-green hover:underline">{d.website}</a>
+                    </dd>
+                  </div>
+                )}
                 <div>
                   <dt class="text-gpc-ink/60">Client</dt>
-                  <dd class="text-gpc-ink">{entry.data.anonymized ? 'Anonimizat' : entry.data.client}</dd>
+                  <dd class="text-gpc-ink">{d.anonymized ? 'Anonimizat' : d.client}</dd>
                 </div>
               </dl>
             </div>
           </div>
         </aside>
 
-        <div class="prose prose-invert max-w-none font-mono text-base leading-relaxed text-gpc-ink/85 lg:col-span-8 prose-headings:font-display prose-headings:text-gpc-ink prose-h2:mt-10 prose-h2:text-2xl prose-h2:text-gpc-green prose-h3:text-xl prose-strong:text-gpc-ink prose-a:text-gpc-green prose-li:my-1">
+        <div class="prose prose-invert max-w-none font-mono text-base leading-relaxed text-gpc-ink/85 lg:col-span-8 prose-headings:font-display prose-headings:text-gpc-ink prose-h2:mt-10 prose-h2:text-2xl prose-h2:text-gpc-green prose-h3:text-xl prose-strong:text-gpc-ink prose-a:text-gpc-green prose-li:my-1 prose-table:text-sm prose-th:text-gpc-ink prose-td:text-gpc-ink/80">
           <Content />
         </div>
       </div>
     </section>
+
+    <!-- Services delivered (full-width list under body) -->
+    {d.services.length > 0 && (
+      <section class="reveal border-b border-gpc-border bg-gpc-card/10">
+        <div class="mx-auto max-w-5xl px-6 py-14">
+          <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// SERVICII LIVRATE</p>
+          <ul class="mt-6 grid gap-3 sm:grid-cols-2">
+            {d.services.map((s) => (
+              <li class="flex items-start gap-3 border border-gpc-border bg-gpc-white p-4 font-mono text-sm text-gpc-ink/85">
+                <span class="text-gpc-green">→</span>
+                <span>{s}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )}
+
+    <!-- Testimonial -->
+    {d.testimonial && (
+      <section class="border-b border-gpc-border bg-gpc-white">
+        <div class="mx-auto max-w-5xl px-6 py-16">
+          <figure class:list={['border-l-4 border-gpc-green bg-gpc-card/20 p-8 md:p-10', testimonialPending && 'opacity-50']}>
+            {testimonialPending && (
+              <span class="mb-4 inline-block border border-gpc-green/40 bg-gpc-green/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gpc-green">
+                Update curând
+              </span>
+            )}
+            <blockquote class="font-display text-[1.2rem] italic leading-relaxed text-gpc-ink md:text-[1.5rem]">
+              „{d.testimonial.quote}”
+            </blockquote>
+            <figcaption class="mt-6 font-mono text-sm">
+              <span class="font-bold text-gpc-ink">{d.testimonial.author}</span>
+              {d.testimonial.role && <span class="block text-gpc-text-secondary">{d.testimonial.role}</span>}
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+    )}
+
+    <!-- Images -->
+    {galleryImages.length > 0 && (
+      <section class="border-b border-gpc-border bg-gpc-card/10">
+        <div class="mx-auto max-w-5xl px-6 py-16">
+          <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// MEDIA</p>
+          <div class="mt-6 grid gap-6 md:grid-cols-2">
+            {galleryImages.map((img) => (
+              <figure class="overflow-hidden border border-gpc-border bg-gpc-white">
+                <div class="relative aspect-video bg-gpc-card">
+                  <img
+                    src={img.src}
+                    alt={img.label}
+                    loading="lazy"
+                    decoding="async"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    class="h-full w-full object-cover"
+                  />
+                  {/* Placeholder shown when the image file doesn't exist yet. */}
+                  <div class="absolute inset-0 hidden flex-col items-center justify-center gap-3 bg-gpc-card text-gpc-ink/30">
+                    <svg viewBox="0 0 24 24" class="h-10 w-10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                      <rect x="3" y="3" width="18" height="18" rx="2" />
+                      <circle cx="8.5" cy="8.5" r="1.5" />
+                      <path d="m21 15-5-5L5 21" />
+                    </svg>
+                    <span class="font-mono text-xs uppercase tracking-widest">{img.label}</span>
+                  </div>
+                </div>
+                <figcaption class="border-t border-gpc-border px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-gpc-ink/60">
+                  {img.label}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
 
     <CTA
       heading="Vrei rezultate similare?"

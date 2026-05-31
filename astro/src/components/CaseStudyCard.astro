@@ -3,15 +3,17 @@
  * CaseStudyCard
  *
  * Props:
- *   title    — string
- *   industry — short tag, e.g. "E-COMMERCE"
- *   image    — hero image URL (optional)
- *   summary  — short paragraph
- *   link     — href to the case study detail page
- *   kpis     — exactly 3 objects [{ label, value }]
+ *   title      — string
+ *   industry   — short tag, e.g. "E-COMMERCE"
+ *   image      — hero image URL (optional)
+ *   summary    — short paragraph
+ *   link       — href to the case study detail page
+ *   heroMetric — { value, label } headline metric (preferred)
+ *   kpis       — legacy fallback: up to 3 { label, value }
  *
- * Hover: scale 1.02 + neon green glow. Layout: image top, industry
- * tag mono, bold title, summary, KPI strip pinned at the bottom.
+ * Shows the headline metric prominently at the bottom of the card.
+ * Falls back to the legacy 3-KPI strip when no heroMetric is provided.
+ * Hover: scale 1.02 + neon green glow.
  */
 interface Kpi {
   label: string;
@@ -23,9 +25,11 @@ interface Props {
   image?: string;
   summary: string;
   link: string;
-  kpis: [Kpi, Kpi, Kpi];
+  heroMetric?: { value: string; label: string };
+  kpis?: Kpi[];
 }
-const { title, industry, image, summary, link, kpis } = Astro.props;
+const { title, industry, image, summary, link, heroMetric, kpis } = Astro.props;
+const fallbackKpis = (kpis ?? []).slice(0, 3);
 ---
 
 <a
@@ -59,15 +63,26 @@ const { title, industry, image, summary, link, kpis } = Astro.props;
       {summary}
     </p>
 
-    <div class="mt-auto grid grid-cols-3 gap-2 border-t border-gpc-border pt-4 transition-colors group-hover:border-gpc-green/40">
-      {kpis.map((k) => (
-        <div class="text-center">
-          <div class="font-display text-xl text-gpc-green">{k.value}</div>
-          <div class="mt-1 font-mono text-[10px] uppercase tracking-wider text-gpc-ink/60">
-            {k.label}
-          </div>
+    {heroMetric ? (
+      <div class="mt-auto border-t border-gpc-border pt-4 transition-colors group-hover:border-gpc-green/40">
+        <div class="font-display text-4xl leading-none text-gpc-green">{heroMetric.value}</div>
+        <div class="mt-2 font-mono text-[10px] uppercase tracking-[0.2em] text-gpc-ink/60">
+          {heroMetric.label}
         </div>
-      ))}
-    </div>
+      </div>
+    ) : (
+      fallbackKpis.length > 0 && (
+        <div class="mt-auto grid grid-cols-3 gap-2 border-t border-gpc-border pt-4 transition-colors group-hover:border-gpc-green/40">
+          {fallbackKpis.map((k) => (
+            <div class="text-center">
+              <div class="font-display text-xl text-gpc-green">{k.value}</div>
+              <div class="mt-1 font-mono text-[10px] uppercase tracking-wider text-gpc-ink/60">
+                {k.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      )
+    )}
   </div>
 </a>

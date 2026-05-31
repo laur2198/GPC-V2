@@ -67,22 +67,19 @@ const previewCs = allCs.slice(0, 3);
         </div>
         <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {previewCs.map((entry) => {
-            const r = entry.data.results;
-            const kpis: [{ label: string; value: string }, { label: string; value: string }, { label: string; value: string }] = [
-              r[0] ? { label: r[0].metric, value: r[0].value } : { label: 'Duration', value: entry.data.duration },
-              r[1] ? { label: r[1].metric, value: r[1].value } : { label: 'Services', value: String(entry.data.services.length) },
-              r[2] ? { label: r[2].metric, value: r[2].value } : { label: 'Industry', value: entry.data.industry },
-            ];
-            const summary = entry.data.anonymized
-              ? `${entry.data.industry} · ${entry.data.duration}`
-              : `${entry.data.client} · ${entry.data.duration}`;
+            const d = entry.data;
+            const heroMetric = d.heroMetric ?? (d.results[0] ? { value: d.results[0].value, label: d.results[0].metric } : undefined);
+            const kpis = d.results.map((r) => ({ label: r.metric, value: r.value }));
+            const meta = d.location ?? d.duration ?? d.industry;
+            const summary = d.anonymized ? `${d.industry} · ${meta}` : `${d.client} · ${meta}`;
             return (
               <CaseStudyCard
-                title={entry.data.title}
-                industry={entry.data.industry}
-                image={entry.data.heroImage}
+                title={d.title}
+                industry={d.industry}
+                image={d.images?.hero ?? d.heroImage}
                 summary={summary}
                 link={localizedPath(locale, `/portofoliu/${entry.slug}`)}
+                heroMetric={heroMetric}
                 kpis={kpis}
               />
             );

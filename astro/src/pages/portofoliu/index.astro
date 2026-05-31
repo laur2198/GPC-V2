@@ -61,23 +61,20 @@ const industries = Array.from(new Set(all.map((cs) => cs.data.industry))).sort()
       ) : (
         <div id="cs-grid" class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {all.map((cs) => {
-            const r = cs.data.results;
-            const kpis: [{ label: string; value: string }, { label: string; value: string }, { label: string; value: string }] = [
-              r[0] ? { label: r[0].metric, value: r[0].value } : { label: 'Durată', value: cs.data.duration },
-              r[1] ? { label: r[1].metric, value: r[1].value } : { label: 'Servicii', value: String(cs.data.services.length) },
-              r[2] ? { label: r[2].metric, value: r[2].value } : { label: 'Industrie', value: cs.data.industry },
-            ];
-            const summary = cs.data.anonymized
-              ? `${cs.data.industry} · ${cs.data.duration}`
-              : `${cs.data.client} · ${cs.data.duration}`;
+            const d = cs.data;
+            const heroMetric = d.heroMetric ?? (d.results[0] ? { value: d.results[0].value, label: d.results[0].metric } : undefined);
+            const kpis = d.results.map((r) => ({ label: r.metric, value: r.value }));
+            const meta = d.location ?? d.duration ?? d.industry;
+            const summary = d.anonymized ? `${d.industry} · ${meta}` : `${d.client} · ${meta}`;
             return (
-              <div data-industry={cs.data.industry}>
+              <div data-industry={d.industry}>
                 <CaseStudyCard
-                  title={cs.data.title}
-                  industry={cs.data.industry}
-                  image={cs.data.heroImage}
+                  title={d.title}
+                  industry={d.industry}
+                  image={d.images?.hero ?? d.heroImage}
                   summary={summary}
                   link={localizedPath(locale, `/portofoliu/${cs.slug}`)}
+                  heroMetric={heroMetric}
                   kpis={kpis}
                 />
               </div>

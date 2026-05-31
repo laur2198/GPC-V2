@@ -1,0 +1,56 @@
+---
+/**
+ * CustomCursor
+ *
+ * Signature dot + lagging outline cursor restored from the live HTML
+ * (`.cursor-dot` / `.cursor-outline`). The dot tracks the pointer
+ * instantly; the outline trails with a 500ms Web-Animations lag. On
+ * interactive elements the pair inverts green → red (body.hovering).
+ *
+ * Fully progressive: the markup is inert until the inline script confirms
+ * a fine pointer and adds `html.has-custom-cursor` (which is what turns on
+ * `cursor: none`). Disabled on touch (pointer: coarse) and while a
+ * keyboard-focused element is present (body:has(:focus-visible)) — see
+ * global.css. No styling/markup leaks when JS is off.
+ */
+---
+
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-outline" aria-hidden="true"></div>
+
+<script is:inline>
+  (function () {
+    // Bail on touch / no fine pointer — leave the native cursor alone.
+    if (!window.matchMedia || !window.matchMedia('(pointer: fine)').matches) return;
+
+    var dot = document.querySelector('.cursor-dot');
+    var outline = document.querySelector('.cursor-outline');
+    if (!dot || !outline) return;
+
+    // Only now do we hide the native cursor (CSS gated on this class).
+    document.documentElement.classList.add('has-custom-cursor');
+
+    window.addEventListener(
+      'mousemove',
+      function (e) {
+        var t = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px) translate(-50%, -50%)';
+        // Dot: instant.
+        dot.style.transform = t;
+        // Outline: lag via Web Animations API (fill forwards = settle at target).
+        outline.animate([{ transform: t }], { duration: 500, fill: 'forwards' });
+      },
+      { passive: true }
+    );
+
+    // green → red inversion over interactive targets.
+    var targets = document.querySelectorAll('a, button, .pill-btn, [data-cursor-hover]');
+    targets.forEach(function (el) {
+      el.addEventListener('mouseenter', function () {
+        document.body.classList.add('hovering');
+      });
+      el.addEventListener('mouseleave', function () {
+        document.body.classList.remove('hovering');
+      });
+    });
+  })();
+</script>

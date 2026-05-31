@@ -57,7 +57,7 @@ const cards = block.items.slice(0, 3).map((item, i) => ({
   <div class="stack-scroll-wrapper mx-auto max-w-7xl px-6 pb-20 pt-10">
     {cards.map((card) => (
       <article
-        class:list={['sticky-card', card.variant]}
+        class:list={['sticky-card', 'noise-overlay', card.variant]}
         style={`top: ${card.top}rem;`}
       >
         <span class="sticky-big-type" aria-hidden="true">{card.accentTag}</span>
@@ -135,7 +135,7 @@ const cards = block.items.slice(0, 3).map((item, i) => ({
   .sticky-desc {
     margin-top: 1.5rem;
     max-width: 36rem;
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
     font-size: 1.3rem;
     line-height: 1.5;
     opacity: 0.9;

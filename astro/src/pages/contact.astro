@@ -132,7 +132,7 @@ const interests = [
                 name="nume"
                 required
                 autocomplete="name"
-                class="w-full border border-gpc-border bg-gpc-white px-4 py-3 font-mono text-sm text-gpc-ink placeholder-gpc-text-muted/40 transition-colors focus:border-gpc-green focus:outline-none"
+                class="w-full border border-gpc-border bg-gpc-white px-4 py-3 font-sans text-sm text-gpc-ink placeholder-gpc-text-muted/40 transition-colors focus:border-gpc-green focus:outline-none"
                 placeholder="ex. Andrei Popescu"
               />
             </label>
@@ -146,7 +146,7 @@ const interests = [
                 name="email"
                 required
                 autocomplete="email"
-                class="w-full border border-gpc-border bg-gpc-white px-4 py-3 font-mono text-sm text-gpc-ink placeholder-gpc-text-muted/40 transition-colors focus:border-gpc-green focus:outline-none"
+                class="w-full border border-gpc-border bg-gpc-white px-4 py-3 font-sans text-sm text-gpc-ink placeholder-gpc-text-muted/40 transition-colors focus:border-gpc-green focus:outline-none"
                 placeholder="andrei@compania.ro"
               />
             </label>
@@ -159,7 +159,7 @@ const interests = [
                 type="tel"
                 name="telefon"
                 autocomplete="tel"
-                class="w-full border border-gpc-border bg-gpc-white px-4 py-3 font-mono text-sm text-gpc-ink placeholder-gpc-text-muted/40 transition-colors focus:border-gpc-green focus:outline-none"
+                class="w-full border border-gpc-border bg-gpc-white px-4 py-3 font-sans text-sm text-gpc-ink placeholder-gpc-text-muted/40 transition-colors focus:border-gpc-green focus:outline-none"
                 placeholder="+40 7XX XXX XXX"
               />
             </label>
@@ -170,7 +170,7 @@ const interests = [
               </span>
               <select
                 name="tip_business"
-                class="w-full border border-gpc-border bg-gpc-white px-4 py-3 font-mono text-sm text-gpc-ink transition-colors focus:border-gpc-green focus:outline-none"
+                class="w-full border border-gpc-border bg-gpc-white px-4 py-3 font-sans text-sm text-gpc-ink transition-colors focus:border-gpc-green focus:outline-none"
               >
                 {businessTypes.map((b) => (
                   <option value={b.value}>{b.label}</option>
@@ -184,7 +184,7 @@ const interests = [
               </span>
               <select
                 name="buget_lunar"
-                class="w-full border border-gpc-border bg-gpc-white px-4 py-3 font-mono text-sm text-gpc-ink transition-colors focus:border-gpc-green focus:outline-none"
+                class="w-full border border-gpc-border bg-gpc-white px-4 py-3 font-sans text-sm text-gpc-ink transition-colors focus:border-gpc-green focus:outline-none"
               >
                 {budgetTiers.map((b) => (
                   <option value={b.value}>{b.label}</option>
@@ -199,7 +199,7 @@ const interests = [
             </legend>
             <div class="grid gap-3 sm:grid-cols-2">
               {interests.map((it) => (
-                <label class="flex cursor-pointer items-center gap-3 border border-gpc-border/60 bg-gpc-card/30 px-4 py-3 font-mono text-sm text-gpc-ink transition-colors hover:border-gpc-green has-[:checked]:border-gpc-green has-[:checked]:bg-gpc-green/10">
+                <label class="flex cursor-pointer items-center gap-3 border border-gpc-border/60 bg-gpc-card/30 px-4 py-3 font-sans text-sm text-gpc-ink transition-colors hover:border-gpc-green has-[:checked]:border-gpc-green has-[:checked]:bg-gpc-green/10">
                   <input
                     type="checkbox"
                     name="servicii"
@@ -219,12 +219,12 @@ const interests = [
             <textarea
               name="mesaj"
               rows="5"
-              class="w-full border border-gpc-border bg-gpc-white px-4 py-3 font-mono text-sm text-gpc-ink placeholder-gpc-text-muted/40 transition-colors focus:border-gpc-green focus:outline-none"
+              class="w-full border border-gpc-border bg-gpc-white px-4 py-3 font-sans text-sm text-gpc-ink placeholder-gpc-text-muted/40 transition-colors focus:border-gpc-green focus:outline-none"
               placeholder="Spune-ne despre obiective, situația actuală sau orice context util."
             ></textarea>
           </label>
 
-          <label class="flex cursor-pointer items-start gap-3 border border-gpc-border bg-gpc-white/40 p-4 font-mono text-xs leading-relaxed text-gpc-ink/80">
+          <label class="flex cursor-pointer items-start gap-3 border border-gpc-border bg-gpc-white/40 p-4 font-sans text-xs leading-relaxed text-gpc-ink/80">
             <input
               type="checkbox"
               name="gdpr_consent"

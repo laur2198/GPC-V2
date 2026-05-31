@@ -161,13 +161,24 @@ const marqueeRow = [...marquee, ...marquee];
 
     {/* Visual column — phoenix logo */}
     <div class="order-1 flex items-center justify-center lg:order-2">
-      <div class="relative flex h-full w-full items-center justify-center">
+      <div id="phoenix-stage" class="phoenix-parallax relative flex h-full w-full items-center justify-center">
         {/* Soft radial halo behind the bird */}
         <div
           class="pointer-events-none absolute inset-0"
           style="background: radial-gradient(circle at 50% 50%, rgba(67,160,71,0.14), transparent 65%);"
           aria-hidden="true"
         ></div>
+        {/* Draw-on-scroll orbital ring (the logo itself is raster-backed,
+            so the animated stroke lives on this decorative ring). */}
+        <svg
+          id="phoenix-ring"
+          class="phoenix-ring pointer-events-none absolute h-[112%] w-[112%]"
+          viewBox="0 0 100 100"
+          fill="none"
+          aria-hidden="true"
+        >
+          <circle cx="50" cy="50" r="48" stroke="var(--gpc-green)" stroke-width="0.4" stroke-linecap="round" opacity="0.45" />
+        </svg>
         <img
           src="/logo_gpc.svg"
           alt="Green Pheonix"
@@ -193,5 +204,41 @@ const marqueeRow = [...marquee, ...marquee];
       ))}
     </div>
   </div>
+
+  <script is:inline>
+    (function () {
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var ring = document.getElementById('phoenix-ring');
+      var stage = document.getElementById('phoenix-stage');
+
+      // Draw-on-scroll: stroke the ring when it enters the viewport.
+      if (ring && !reduce) {
+        if ('IntersectionObserver' in window) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                ring.classList.add('phoenix-drawn');
+                io.unobserve(e.target);
+              }
+            });
+          }, { threshold: 0.3 });
+          io.observe(ring);
+        } else {
+          ring.classList.add('phoenix-drawn');
+        }
+      } else if (ring) {
+        ring.classList.add('phoenix-drawn');
+      }
+
+      // Subtle mouse parallax (fine pointers only, respects reduced-motion).
+      if (stage && !reduce && window.matchMedia('(pointer: fine)').matches) {
+        window.addEventListener('mousemove', function (ev) {
+          var x = (ev.clientX / window.innerWidth - 0.5) * 10;
+          var y = (ev.clientY / window.innerHeight - 0.5) * 10;
+          stage.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
+        }, { passive: true });
+      }
+    })();
+  </script>
 </section>
 )}

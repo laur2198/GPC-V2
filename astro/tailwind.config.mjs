@@ -23,7 +23,7 @@ export default {
       },
       fontFamily: {
         display: ['Oswald', 'sans-serif'],
-        sans: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
         mono: ['"Space Mono"', 'monospace'],
       },
     },

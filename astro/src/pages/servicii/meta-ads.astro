@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceDetail from '../../components/ServiceDetail.astro';
+import { type Locale, t } from '../../utils/i18n';
+
+const locale: Locale = 'ro';
+const meta = t<{ title: string; description: string }>(locale, 'services.metaAds.meta');
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: "Meta Ads",
+  provider: {
+    '@type': 'Organization',
+    name: 'Green Pheonix Concept',
+    url: 'https://greenpheonixconcept.com',
+  },
+  areaServed: ['Romania', 'Italy', 'United Kingdom'],
+  serviceType: "Meta Ads (Facebook & Instagram)",
+};
+---
+
+<BaseLayout title={meta.title} description={meta.description} locale={locale}>
+  <ServiceDetail locale={locale} service="metaAds" />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+</BaseLayout>

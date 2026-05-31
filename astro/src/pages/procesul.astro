@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTA from '../components/CTA.astro';
+import { type Locale, t, localizedPath } from '../utils/i18n';
+
+const locale: Locale = 'ro';
+
+interface Step {
+  num: string;
+  heading: string;
+  duration: string;
+  cost: string;
+  body: string;
+  deliverTitle: string;
+  deliver: string[];
+}
+interface ProcessCopy {
+  meta: { title: string; description: string };
+  h1: string;
+  subHeadline: string;
+  intro: { eyebrow: string; heading: string; p1: string; p2: string; risks: string[]; p3: string };
+  steps: Step[];
+  cta: { heading: string; body: string; button: string };
+}
+const p = t<ProcessCopy>(locale, 'process');
+
+// HowTo schema (low-priority SEO aid).
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: p.h1,
+  description: p.subHeadline,
+  step: p.steps.map((s, i) => ({
+    '@type': 'HowToStep',
+    position: i + 1,
+    name: s.heading,
+    text: s.body,
+  })),
+};
+---
+
+<BaseLayout title={p.meta.title} description={p.meta.description} locale={locale}>
+  <!-- Hero -->
+  <header class="relative overflow-hidden border-b border-gpc-border bg-gpc-white pt-24">
+    <div
+      class="pointer-events-none absolute inset-0 opacity-40"
+      style="background-image: linear-gradient(rgba(5,5,5,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(5,5,5,0.04) 1px, transparent 1px); background-size: 48px 48px;"
+      aria-hidden="true"
+    ></div>
+    <div class="relative mx-auto max-w-5xl px-6 py-16 lg:py-20">
+      <h1 class="max-w-4xl font-display text-4xl leading-tight md:text-5xl lg:text-6xl">
+        <span class="glow-green">{p.h1}</span>
+      </h1>
+      <p class="mt-6 max-w-2xl font-sans text-base leading-relaxed text-gpc-text-secondary md:text-lg">
+        {p.subHeadline}
+      </p>
+    </div>
+  </header>
+
+  <!-- Intro / philosophy -->
+  <section class="reveal border-b border-gpc-border bg-gpc-card/10">
+    <div class="mx-auto max-w-3xl px-6 py-16">
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">{p.intro.eyebrow}</p>
+      <h2 class="mt-3 font-display text-3xl text-gpc-ink md:text-4xl">{p.intro.heading}</h2>
+      <p class="mt-6 font-sans text-base leading-relaxed text-gpc-ink/85" set:html={p.intro.p1} />
+      <p class="mt-4 font-sans text-base leading-relaxed text-gpc-ink/85">{p.intro.p2}</p>
+      <ol class="mt-4 space-y-3">
+        {p.intro.risks.map((r, i) => (
+          <li class="flex gap-3 font-sans text-sm leading-relaxed text-gpc-ink/80">
+            <span class="font-mono text-gpc-red">{i + 1}.</span>
+            <span>{r}</span>
+          </li>
+        ))}
+      </ol>
+      <p class="mt-6 font-sans text-base font-medium leading-relaxed text-gpc-ink">{p.intro.p3}</p>
+    </div>
+  </section>
+
+  <!-- 5 steps -->
+  <section class="border-b border-gpc-border bg-gpc-white">
+    <div class="mx-auto max-w-5xl px-6 py-16">
+      <ol class="space-y-8">
+        {p.steps.map((step) => (
+          <li class="reveal border border-gpc-border bg-gpc-card/20 p-6 transition-colors duration-300 hover:border-gpc-green md:p-10">
+            <div class="flex flex-wrap items-baseline gap-x-6 gap-y-2">
+              <span class="font-display text-5xl leading-none text-gpc-green">{step.num}</span>
+              <h3 class="font-display text-2xl uppercase text-gpc-ink md:text-3xl" style="letter-spacing:-0.5px;">
+                {step.heading}
+              </h3>
+            </div>
+            <div class="mt-4 flex flex-wrap gap-3">
+              <span class="inline-block border border-gpc-border bg-gpc-white px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gpc-ink/70">
+                ⏱ {step.duration}
+              </span>
+              <span class="inline-block border border-gpc-green/40 bg-gpc-green/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gpc-green">
+                {step.cost}
+              </span>
+            </div>
+            <p class="mt-6 max-w-3xl font-sans text-base leading-relaxed text-gpc-ink/85">{step.body}</p>
+            <div class="mt-6 border-t border-gpc-border pt-5">
+              <p class="font-mono text-xs uppercase tracking-[0.2em] text-gpc-green">{step.deliverTitle}</p>
+              <ul class="mt-3 space-y-2">
+                {step.deliver.map((di) => (
+                  <li class="flex gap-2 font-sans text-sm leading-relaxed text-gpc-ink/80">
+                    <span class="text-gpc-green">→</span>
+                    <span>{di}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <CTA
+    heading={p.cta.heading}
+    subtext={p.cta.body}
+    buttonText={p.cta.button}
+    buttonLink={localizedPath(locale, '/contact')}
+  />
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+</BaseLayout>

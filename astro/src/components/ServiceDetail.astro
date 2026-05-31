@@ -1,0 +1,283 @@
+---
+/**
+ * ServiceDetail
+ *
+ * Reusable layout for a single-service detail page. All copy comes from
+ * the `services.<service>` i18n block, so the per-service .astro pages
+ * are thin wrappers. Sections render conditionally — a service may have
+ * a caseStudy OR a format block (or neither), etc.
+ *
+ * Props:
+ *   locale  — 'ro' | 'en' | 'it'
+ *   service — i18n key suffix, e.g. 'metaAds' → reads services.metaAds.*
+ */
+import { type Locale, t, localizedPath } from '../utils/i18n';
+
+interface ListSection {
+  heading: string;
+  goodTitle?: string;
+  good?: string[];
+  badTitle?: string;
+  bad?: string[];
+}
+interface ApproachPoint {
+  title?: string;
+  body: string;
+}
+interface DeliverItem {
+  num: string;
+  title: string;
+  bullets?: string[];
+}
+interface KpiSection {
+  eyebrow: string;
+  heading: string;
+  intro?: string;
+  primaryTitle: string;
+  primary: string[];
+  secondaryTitle: string;
+  secondary: string[];
+  avoidTitle: string;
+  avoid: string[];
+}
+interface CaseStudy {
+  eyebrow: string;
+  heading: string;
+  body: string;
+  metrics?: string[];
+  outro?: string;
+  linkLabel: string;
+  linkSlug: string;
+}
+interface ServiceCopy {
+  eyebrow: string;
+  h1: string;
+  subHeadline: string;
+  forWho: ListSection;
+  approach: { eyebrow: string; heading: string; intro?: string; points: ApproachPoint[] };
+  deliverables: { eyebrow: string; heading: string; items: DeliverItem[] };
+  kpi: KpiSection;
+  caseStudy?: CaseStudy;
+  format?: { eyebrow: string; heading: string; paragraphs: string[] };
+  cta: { heading: string; body: string; button: string };
+}
+
+interface Props {
+  locale: Locale;
+  service: string;
+}
+const { locale, service } = Astro.props;
+const s = t<ServiceCopy>(locale, `services.${service}`);
+const contactHref = localizedPath(locale, '/contact');
+const backLabel = t<string>(locale, 'services.umbrella.backLabel');
+---
+
+<article>
+  <!-- Hero -->
+  <header class="relative overflow-hidden border-b border-gpc-border bg-gpc-white pt-24">
+    <div
+      class="pointer-events-none absolute inset-0 opacity-40"
+      style="background-image: linear-gradient(rgba(5,5,5,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(5,5,5,0.04) 1px, transparent 1px); background-size: 48px 48px;"
+      aria-hidden="true"
+    ></div>
+    <div class="relative mx-auto max-w-5xl px-6 py-16 lg:py-20">
+      <a href={localizedPath(locale, '/servicii')} class="font-mono text-xs uppercase tracking-widest text-gpc-ink/60 hover:text-gpc-green">
+        ← {backLabel}
+      </a>
+      <p class="mt-8 font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">{s.eyebrow}</p>
+      <h1 class="mt-4 max-w-4xl font-display text-4xl leading-tight md:text-5xl lg:text-6xl">
+        <span class="glow-green">{s.h1}</span>
+      </h1>
+      <p class="mt-6 max-w-2xl font-sans text-base leading-relaxed text-gpc-text-secondary md:text-lg">
+        {s.subHeadline}
+      </p>
+    </div>
+  </header>
+
+  <!-- Section 1 — For who -->
+  <section class="reveal border-b border-gpc-border bg-gpc-card/10">
+    <div class="mx-auto max-w-5xl px-6 py-16">
+      <h2 class="font-display text-3xl text-gpc-ink md:text-4xl">{s.forWho.heading}</h2>
+      <div class="mt-8 grid gap-6 md:grid-cols-2">
+        {s.forWho.good && (
+          <div class="border border-gpc-border bg-gpc-white p-6">
+            <p class="font-mono text-sm font-bold text-gpc-green">{s.forWho.goodTitle}</p>
+            <ul class="mt-4 space-y-3">
+              {s.forWho.good.map((g) => (
+                <li class="flex gap-3 font-sans text-sm leading-relaxed text-gpc-ink/85">
+                  <span class="text-gpc-green">✓</span>
+                  <span set:html={g} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {s.forWho.bad && (
+          <div class="border border-gpc-border bg-gpc-white p-6">
+            <p class="font-mono text-sm font-bold text-gpc-red">{s.forWho.badTitle}</p>
+            <ul class="mt-4 space-y-3">
+              {s.forWho.bad.map((b) => (
+                <li class="flex gap-3 font-sans text-sm leading-relaxed text-gpc-ink/70">
+                  <span class="text-gpc-red">✕</span>
+                  <span set:html={b} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2 — Approach -->
+  <section class="reveal border-b border-gpc-border bg-gpc-white">
+    <div class="mx-auto max-w-5xl px-6 py-16">
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">{s.approach.eyebrow}</p>
+      <h2 class="mt-3 font-display text-3xl text-gpc-ink md:text-4xl">{s.approach.heading}</h2>
+      {s.approach.intro && (
+        <p class="mt-6 max-w-3xl font-sans text-base leading-relaxed text-gpc-ink/85">{s.approach.intro}</p>
+      )}
+      <ol class="mt-8 space-y-6">
+        {s.approach.points.map((p, i) => (
+          <li class="flex gap-4 border-l-2 border-gpc-green/40 pl-5">
+            <span class="font-mono text-sm text-gpc-green">{String(i + 1).padStart(2, '0')}</span>
+            <div>
+              {p.title && <p class="font-display text-lg uppercase tracking-wide text-gpc-ink">{p.title}</p>}
+              <p class="mt-1 font-sans text-sm leading-relaxed text-gpc-ink/80" set:html={p.body} />
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- Section 3 — Deliverables -->
+  <section class="reveal border-b border-gpc-border bg-gpc-card/10">
+    <div class="mx-auto max-w-5xl px-6 py-16">
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">{s.deliverables.eyebrow}</p>
+      <h2 class="mt-3 font-display text-3xl text-gpc-ink md:text-4xl">{s.deliverables.heading}</h2>
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
+        {s.deliverables.items.map((item) => (
+          <article class="border border-gpc-border bg-gpc-white p-6 transition-colors duration-300 hover:border-gpc-green">
+            <div class="flex items-baseline gap-3">
+              <span class="font-mono text-sm uppercase tracking-[0.2em] text-gpc-green">{item.num}</span>
+              <h3 class="font-display text-lg uppercase tracking-wide text-gpc-ink" set:html={item.title} />
+            </div>
+            {item.bullets && (
+              <ul class="mt-4 space-y-2">
+                {item.bullets.map((b) => (
+                  <li class="flex gap-2 font-sans text-sm leading-relaxed text-gpc-ink/75">
+                    <span class="text-gpc-green">→</span>
+                    <span set:html={b} />
+                  </li>
+                ))}
+              </ul>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4 — KPI -->
+  <section class="reveal border-b border-gpc-border bg-gpc-white">
+    <div class="mx-auto max-w-5xl px-6 py-16">
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">{s.kpi.eyebrow}</p>
+      <h2 class="mt-3 font-display text-3xl text-gpc-ink md:text-4xl">{s.kpi.heading}</h2>
+      {s.kpi.intro && (
+        <p class="mt-6 max-w-3xl font-sans text-base leading-relaxed text-gpc-ink/85">{s.kpi.intro}</p>
+      )}
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        <div class="border border-gpc-green/40 bg-gpc-green/5 p-6">
+          <p class="font-mono text-xs font-bold uppercase tracking-widest text-gpc-green">{s.kpi.primaryTitle}</p>
+          <ul class="mt-4 space-y-2">
+            {s.kpi.primary.map((m) => (
+              <li class="font-sans text-sm leading-relaxed text-gpc-ink/85" set:html={m} />
+            ))}
+          </ul>
+        </div>
+        <div class="border border-gpc-border bg-gpc-card/30 p-6">
+          <p class="font-mono text-xs font-bold uppercase tracking-widest text-gpc-ink/70">{s.kpi.secondaryTitle}</p>
+          <ul class="mt-4 space-y-2">
+            {s.kpi.secondary.map((m) => (
+              <li class="font-sans text-sm leading-relaxed text-gpc-ink/75" set:html={m} />
+            ))}
+          </ul>
+        </div>
+        <div class="border border-gpc-red/30 bg-gpc-red/5 p-6">
+          <p class="font-mono text-xs font-bold uppercase tracking-widest text-gpc-red">{s.kpi.avoidTitle}</p>
+          <ul class="mt-4 space-y-2">
+            {s.kpi.avoid.map((m) => (
+              <li class="flex gap-2 font-sans text-sm leading-relaxed text-gpc-ink/60">
+                <span class="text-gpc-red">✕</span>
+                <span set:html={m} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5a — Case study (optional) -->
+  {s.caseStudy && (
+    <section class="reveal border-b border-gpc-border bg-gpc-card/10">
+      <div class="mx-auto max-w-5xl px-6 py-16">
+        <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">{s.caseStudy.eyebrow}</p>
+        <h2 class="mt-3 font-display text-3xl text-gpc-ink md:text-4xl">{s.caseStudy.heading}</h2>
+        <p class="mt-6 max-w-3xl font-sans text-base leading-relaxed text-gpc-ink/85" set:html={s.caseStudy.body} />
+        {s.caseStudy.metrics && (
+          <ul class="mt-6 grid gap-3 sm:grid-cols-2">
+            {s.caseStudy.metrics.map((m) => (
+              <li class="border border-gpc-border bg-gpc-white p-4 font-display text-xl text-gpc-green" set:html={m} />
+            ))}
+          </ul>
+        )}
+        {s.caseStudy.outro && (
+          <p class="mt-6 max-w-3xl font-sans text-base leading-relaxed text-gpc-ink/85" set:html={s.caseStudy.outro} />
+        )}
+        <a
+          href={localizedPath(locale, `/portofoliu/${s.caseStudy.linkSlug}`)}
+          class="mt-8 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-gpc-green hover:underline"
+        >
+          {s.caseStudy.linkLabel} <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+  )}
+
+  <!-- Section 5b — Format / Pricing (optional) -->
+  {s.format && (
+    <section class="reveal border-b border-gpc-border bg-gpc-card/10">
+      <div class="mx-auto max-w-5xl px-6 py-16">
+        <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">{s.format.eyebrow}</p>
+        <h2 class="mt-3 font-display text-3xl text-gpc-ink md:text-4xl">{s.format.heading}</h2>
+        <div class="mt-6 max-w-3xl space-y-4">
+          {s.format.paragraphs.map((p) => (
+            <p class="font-sans text-base leading-relaxed text-gpc-ink/85" set:html={p} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Final CTA -->
+  <section class="reveal relative overflow-hidden border-b border-gpc-border bg-gpc-white">
+    <div
+      aria-hidden="true"
+      class="pointer-events-none absolute -left-20 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-gpc-green/15 blur-3xl"
+    ></div>
+    <div class="relative mx-auto max-w-3xl px-6 py-20 text-center">
+      <h2 class="font-display text-3xl leading-tight md:text-4xl">
+        <span class="glow-green">{s.cta.heading}</span>
+      </h2>
+      <p class="mx-auto mt-5 max-w-2xl font-sans text-base leading-relaxed text-gpc-ink/80">{s.cta.body}</p>
+      <a
+        href={contactHref}
+        class="magnetic group mt-8 inline-flex items-center gap-3 border border-gpc-green bg-gpc-green/10 px-8 py-4 font-mono text-sm uppercase tracking-[0.25em] text-gpc-green shadow-sm transition-all hover:bg-gpc-green hover:text-gpc-ink"
+      >
+        {s.cta.button} <span class="transition-transform group-hover:translate-x-1">→</span>
+      </a>
+    </div>
+  </section>
+</article>

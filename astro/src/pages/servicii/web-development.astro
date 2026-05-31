@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceDetail from '../../components/ServiceDetail.astro';
+import { type Locale, t } from '../../utils/i18n';
+
+const locale: Locale = 'ro';
+const meta = t<{ title: string; description: string }>(locale, 'services.webDev.meta');
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: "Web Development",
+  provider: {
+    '@type': 'Organization',
+    name: 'Green Pheonix Concept',
+    url: 'https://greenpheonixconcept.com',
+  },
+  areaServed: ['Romania', 'Italy', 'United Kingdom'],
+  serviceType: "Web Development",
+};
+---
+
+<BaseLayout title={meta.title} description={meta.description} locale={locale}>
+  <ServiceDetail locale={locale} service="webDev" />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+</BaseLayout>

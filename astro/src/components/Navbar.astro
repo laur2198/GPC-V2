@@ -21,6 +21,7 @@ interface NavStrings {
   home: string;
   ads: string;
   web: string;
+  services?: string;
   portfolio: string;
   blog: string;
   about: string;
@@ -28,10 +29,19 @@ interface NavStrings {
 }
 const nav = t<NavStrings>(locale, 'nav');
 
+// Services links. RO already has the umbrella /servicii page + its 6
+// sub-pages; en/it keep the two legacy links until Part 3 ships their
+// localized umbrella.
+const serviceLinks =
+  locale === 'ro'
+    ? [{ href: localizedPath(locale, '/servicii'), label: nav.services ?? 'Servicii' }]
+    : [
+        { href: localizedPath(locale, '/servicii-ads'), label: nav.ads },
+        { href: localizedPath(locale, '/servicii-web'), label: nav.web },
+      ];
 const links = [
   { href: localizedPath(locale, '/'), label: nav.home },
-  { href: localizedPath(locale, '/servicii-ads'), label: nav.ads },
-  { href: localizedPath(locale, '/servicii-web'), label: nav.web },
+  ...serviceLinks,
   { href: localizedPath(locale, '/portofoliu'), label: nav.portfolio },
   { href: localizedPath(locale, '/blog'), label: nav.blog },
   { href: localizedPath(locale, '/despre'), label: nav.about },

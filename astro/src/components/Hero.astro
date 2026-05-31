@@ -50,6 +50,13 @@ const {
 } = Astro.props;
 const variant = variantProp ?? (title ? 'compact' : 'full');
 
+// Compact hero: outline the final word of the headline (.text-outline)
+// — the "decupat / logo" treatment from the live HTML page titles.
+const compactTitle = (title ?? '').trim();
+const compactWords = compactTitle.split(/\s+/).filter(Boolean);
+const compactAccent = compactWords.length ? compactWords[compactWords.length - 1] : '';
+const compactLead = compactWords.slice(0, -1).join(' ');
+
 interface HeroStrings {
   eyebrow: { system: string; loc: string; version: string };
   h1Line1: string;
@@ -78,7 +85,9 @@ const marqueeRow = [...marquee, ...marquee];
     ></div>
     <div class="relative mx-auto max-w-4xl px-6 text-center">
       <h1 class="font-display text-4xl leading-tight text-gpc-ink md:text-6xl" style="letter-spacing:-0.5px;">
-        {title ?? hero.h1Line1}
+        {compactAccent
+          ? (<>{compactLead ? `${compactLead} ` : ''}<span class="text-outline">{compactAccent}</span></>)
+          : (title ?? hero.h1Line1)}
       </h1>
       {subtitle && (
         <p class="mt-6 font-sans text-base text-gpc-text-secondary md:text-lg">{subtitle}</p>

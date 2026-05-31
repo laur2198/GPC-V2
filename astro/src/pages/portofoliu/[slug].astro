@@ -230,12 +230,12 @@ const description = d.anonymized
                 Update curând
               </span>
             )}
-            <blockquote class="font-display text-[1.2rem] italic leading-relaxed text-gpc-ink md:text-[1.5rem]">
+            <blockquote class="font-sans text-[1.1rem] italic leading-relaxed text-gpc-ink md:text-[1.25rem]">
               „{d.testimonial.quote}”
             </blockquote>
-            <figcaption class="mt-6 font-mono text-sm">
-              <span class="font-bold text-gpc-ink">{d.testimonial.author}</span>
-              {d.testimonial.role && <span class="block text-gpc-text-secondary">{d.testimonial.role}</span>}
+            <figcaption class="mt-6">
+              <span class="font-mono text-sm font-bold uppercase tracking-wider text-gpc-ink">{d.testimonial.author}</span>
+              {d.testimonial.role && <span class="mt-1 block font-mono text-xs text-gpc-text-secondary">{d.testimonial.role}</span>}
             </figcaption>
           </figure>
         </div>

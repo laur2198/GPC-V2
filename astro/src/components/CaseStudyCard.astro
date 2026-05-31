@@ -30,7 +30,7 @@ const { title, industry, image, summary, link, kpis } = Astro.props;
 
 <a
   href={link}
-  class="reveal group flex h-full flex-col overflow-hidden border border-gpc-border bg-gpc-card/30 transition-all duration-300 hover:scale-[1.02] hover:border-gpc-green hover:shadow-sm"
+  class="reveal group flex h-full flex-col overflow-hidden border border-gpc-border bg-gpc-card/30 transition-all duration-300 ease-[cubic-bezier(0.165,0.84,0.44,1)] hover:scale-[1.02] hover:border-gpc-green hover:shadow-sm"
 >
   <div class="relative aspect-video overflow-hidden bg-gpc-white">
     {image ? (
@@ -39,7 +39,7 @@ const { title, industry, image, summary, link, kpis } = Astro.props;
         alt={title}
         loading="lazy"
         decoding="async"
-        class="h-full w-full object-cover opacity-90 transition-transform duration-500 group-hover:scale-105"
+        class="h-full w-full object-cover opacity-90 grayscale-[20%] transition-all duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0"
       />
     ) : (
       <div class="absolute inset-0 grid place-items-center bg-[radial-gradient(circle_at_30%_30%,rgba(67,160,71,0.12),transparent_60%)]">

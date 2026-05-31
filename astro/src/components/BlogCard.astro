@@ -11,18 +11,20 @@ const { title, description, publishDate, category, href, heroImage } = Astro.pro
 const formatted = publishDate.toISOString().slice(0, 10);
 ---
 
-<a href={href} class="group block overflow-hidden border border-gpc-border bg-gpc-card/40 transition-colors hover:border-gpc-green">
+<a href={href} class="reveal group block overflow-hidden border border-gpc-border bg-gpc-card/40 transition-all duration-300 ease-[cubic-bezier(0.165,0.84,0.44,1)] hover:-translate-y-1 hover:border-gpc-green hover:shadow-sm">
   {heroImage && (
     <div class="aspect-video overflow-hidden bg-gpc-white">
-      <img src={heroImage} alt={title} loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform group-hover:scale-105" />
+      <img src={heroImage} alt={title} loading="lazy" decoding="async" class="h-full w-full object-cover opacity-90 transition-all duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover:scale-105 group-hover:opacity-100" />
     </div>
   )}
   <div class="p-6">
     <div class="flex items-center justify-between font-mono text-xs">
       <span class="uppercase tracking-wider text-gpc-green">{category}</span>
-      <time class="text-gpc-ink/50">{formatted}</time>
+      <time class="text-gpc-ink/50 transition-colors group-hover:text-gpc-ink">{formatted}</time>
     </div>
-    <h3 class="mt-2 font-display text-xl text-gpc-ink">{title}</h3>
+    <h3 class="mt-2 font-display text-xl text-gpc-ink">
+      <span class="bg-gradient-to-r from-gpc-green to-gpc-green bg-[length:0%_2px] bg-left-bottom bg-no-repeat pb-1 transition-[background-size] duration-300 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover:bg-[length:100%_2px]">{title}</span>
+    </h3>
     <p class="mt-2 font-mono text-sm text-gpc-ink/70">{description}</p>
   </div>
 </a>

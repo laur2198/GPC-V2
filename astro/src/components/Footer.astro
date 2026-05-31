@@ -54,13 +54,21 @@ const quickLinks = [
 const year = new Date().getFullYear();
 ---
 
-<footer class="relative border-t border-gpc-border bg-gpc-footer text-white">
+<footer class="relative overflow-hidden border-t border-gpc-border bg-gpc-footer text-white">
   <div
     aria-hidden="true"
     class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gpc-green/60 to-transparent"
   ></div>
 
-  <div class="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-2 lg:grid-cols-4">
+  {/* Giant typographic poster — hover eases white → brand green */}
+  <div class="mx-auto max-w-7xl px-6 pt-16">
+    <div class="footer-giant-text">GREEN&nbsp;PHEONIX<sup>®</sup></div>
+  </div>
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="mt-8 border-t border-white/20"></div>
+  </div>
+
+  <div class="mx-auto grid max-w-7xl gap-12 px-6 pb-16 pt-12 md:grid-cols-2 lg:grid-cols-4">
     <div class="lg:col-span-1">
       <a href={localizedPath(locale, '/')} class="flex items-center gap-2">
         <svg viewBox="0 0 32 32" class="h-7 w-7 text-gpc-green" aria-hidden="true">

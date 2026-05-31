@@ -111,6 +111,38 @@ img, svg, video {
   color: transparent;
   -webkit-text-stroke: 1px var(--gpc-ink);
 }
+/* White stroke for use on dark backgrounds (footer, dark cards). */
+.text-outline-white {
+  color: transparent;
+  -webkit-text-stroke: 1px #ffffff;
+}
+
+/* Footer giant typographic poster — restored from the live HTML
+   `.footer-giant-text` (Oswald 700, ~13.5vw, line-height 0.8,
+   white that eases to brand green on hover). Decorative, not a link. */
+.footer-giant-text {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 13.5vw, 12rem);
+  line-height: 0.8;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #ffffff;
+  cursor: default;
+  transition: color 0.5s ease;
+}
+.footer-giant-text:hover {
+  color: var(--gpc-green);
+}
+.footer-giant-text sup {
+  font-size: 0.25em;
+  vertical-align: super;
+}
+@media (max-width: 768px) {
+  .footer-giant-text {
+    font-size: clamp(2rem, 18vw, 6rem);
+  }
+}
 
 /* Sophisticated headline — restored from the live HTML hero.
    Each .line-1/.line-2/.line-3 is a flex item so they stack

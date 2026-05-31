@@ -38,9 +38,45 @@ testimonial:
   author: "Bogdan Stoica"
   role: "Owner, Lemet Stone"
 images:
-  hero: "/case-studies/lemet/hero.jpg"
-  plugin: "/case-studies/lemet/sbc-calculator-demo.gif"
-  showroom: "/case-studies/lemet/showroom.jpg"
+  hero: "/case-studies/lemet/blat-granit-bucatarie.jpg"
+  product: "/case-studies/lemet/blat-marmura.jpg"
+  productAlt: "/case-studies/lemet/blat-quartz.jpg"
+  showroom: "/case-studies/lemet/showroom-cement-ash.jpg"
+  showroomAlt: "/case-studies/lemet/showroom-cement-ash-2.jpg"
+  galleryProduct1: "/case-studies/lemet/granit-halayeb.jpg"
+  galleryProduct2: "/case-studies/lemet/glaf-bianco-grigio.jpg"
+  galleryProduct3: "/case-studies/lemet/showroom-arabescato.jpg"
+  galleryProduct4: "/case-studies/lemet/showroom-calacatta-oro.jpg"
+  logo: "/case-studies/lemet/logo.png"
+imageAlt: "Blat de bucătărie din granit, Lemet Stone Brașov"
+imageMeta:
+  product:
+    alt: "Blat de bucătărie din marmură, Lemet Stone Brașov"
+    caption: "Blat marmură"
+  productAlt:
+    alt: "Blat de bucătărie din quartz, Lemet Stone Brașov"
+    caption: "Blat quartz"
+  showroom:
+    alt: "Showroom Lemet Stone — Cement Ash, interior piatră naturală"
+    caption: "Showroom — Cement Ash"
+  showroomAlt:
+    alt: "Showroom Lemet Stone — Cement Ash, detaliu amenajare"
+    caption: "Showroom — detaliu"
+  galleryProduct1:
+    alt: "Granit New Halayeb fiamat, Lemet Stone"
+    caption: "Granit New Halayeb"
+  galleryProduct2:
+    alt: "Glaf granit Bianco Grigio, Lemet Stone"
+    caption: "Glaf Bianco Grigio"
+  galleryProduct3:
+    alt: "Marmură Arabescato, showroom Lemet Stone"
+    caption: "Arabescato"
+  galleryProduct4:
+    alt: "Marmură Calacatta Oro, showroom Lemet Stone"
+    caption: "Calacatta Oro"
+  logo:
+    alt: "Logo Lemet Stone — piatra-naturala.ro"
+    caption: "Lemet Stone"
 ---
 
 ## Contextul

@@ -40,10 +40,25 @@ testimonial:
   author: "Sensei Lucian Bogluț"
   role: "Fondator, Kokoro Ju Jitsu Academy"
 images:
-  hero: "/case-studies/kokoro/hero.jpg"
-  adi: "/case-studies/kokoro/adi-bogut.jpg"
-  sensei: "/case-studies/kokoro/sensei-lucian.jpg"
-  beforeAfter: "/case-studies/kokoro/rebrand-comparison.jpg"
+  hero: "/case-studies/kokoro/adi-portrait.png"
+  adi: "/case-studies/kokoro/adi-portrait-wide.png"
+  sensei: "/case-studies/kokoro/sensei-lucian.png"
+  sempaiTeam: "/case-studies/kokoro/sempai-adrian.png"
+  logo: "/case-studies/kokoro/logo.png"
+imageAlt: "Adi Bogluț, campion mondial de ju jitsu, brand ambassador Kokoro Academy"
+imageMeta:
+  adi:
+    alt: "Adi Bogluț, campion mondial de ju jitsu, brand ambassador Kokoro Academy"
+    caption: "Adi Bogluț — campion mondial"
+  sensei:
+    alt: "Sensei Lucian Bogluț, fondator Kokoro Ju Jitsu Academy Brașov"
+    caption: "Sensei Lucian Bogluț — fondator"
+  sempaiTeam:
+    alt: "Sempai Adrian, instructor Kokoro Ju Jitsu Academy Brașov"
+    caption: "Sempai Adrian — instructor"
+  logo:
+    alt: "Logo Kokoro Ju Jitsu Academy"
+    caption: "Identitate vizuală nouă"
 ---
 
 ## Contextul

@@ -72,6 +72,7 @@ const industries = Array.from(new Set(all.map((cs) => cs.data.industry))).sort()
                   title={d.title}
                   industry={d.industry}
                   image={d.images?.hero ?? d.heroImage}
+                imageAlt={d.imageAlt}
                   summary={summary}
                   link={localizedPath(locale, `/portofoliu/${cs.slug}`)}
                   heroMetric={heroMetric}

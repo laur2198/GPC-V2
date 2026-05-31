@@ -65,16 +65,14 @@ const caseStudies = defineCollection({
         role: z.string().optional(),
       })
       .optional(),
-    images: z
-      .object({
-        hero: z.string().optional(),
-        plugin: z.string().optional(),
-        showroom: z.string().optional(),
-        adi: z.string().optional(),
-        sensei: z.string().optional(),
-        beforeAfter: z.string().optional(),
-      })
-      .optional(),
+    // Free-form image map — `hero` is the only special key (card/detail
+    // background); all other keys render as labelled gallery items.
+    images: z.record(z.string(), z.string()).optional(),
+    // Descriptive alt text for the hero image (accessibility).
+    imageAlt: z.string().optional(),
+    // Per-image alt text + captions for the detail gallery, keyed to match
+    // the `images` map keys.
+    imageMeta: z.record(z.string(), z.object({ alt: z.string(), caption: z.string().optional() })).optional(),
   }),
 });
 

@@ -40,20 +40,32 @@ const annotationMap: Record<string, { type: 'circle' | 'underline' | 'arrow'; po
 };
 const annotation = annotationMap[entry.slug];
 
-// Image gallery: render every defined entry; missing files become labelled placeholders.
-const imageLabels: Record<string, string> = {
-  hero: 'Hero',
+// Image gallery: every non-hero image, with alt + caption from imageMeta.
+const meta = d.imageMeta ?? {};
+const fallbackLabels: Record<string, string> = {
   plugin: 'Plugin demo',
   showroom: 'Showroom',
   adi: 'Adi Bogluț',
   sensei: 'Sensei',
   beforeAfter: 'Before / After',
+  logo: 'Logo',
 };
 const galleryImages = d.images
   ? Object.entries(d.images)
       .filter(([key, src]) => key !== 'hero' && Boolean(src))
-      .map(([key, src]) => ({ key, src: src as string, label: imageLabels[key] ?? key }))
+      .map(([key, src]) => ({
+        key,
+        src: src as string,
+        alt: meta[key]?.alt ?? fallbackLabels[key] ?? key,
+        caption: meta[key]?.caption ?? fallbackLabels[key] ?? key,
+        // "feature" images get a wider editorial slot.
+        feature: ['adi', 'sensei', 'showroom', 'product'].includes(key),
+        logo: key === 'logo',
+      }))
   : [];
+const featureImages = galleryImages.filter((g) => g.feature && !g.logo);
+const tileImages = galleryImages.filter((g) => !g.feature && !g.logo);
+const logoImage = galleryImages.find((g) => g.logo);
 
 const testimonialPending = d.testimonial
   ? /în curs de confirmare/i.test(d.testimonial.quote)
@@ -109,7 +121,7 @@ const description = d.anonymized
           <div class="mt-10 overflow-hidden border border-gpc-border">
             <img
               src={heroImage}
-              alt={d.title}
+              alt={d.imageAlt ?? d.title}
               loading="eager"
               fetchpriority="high"
               class="aspect-[16/8] w-full object-cover"
@@ -242,39 +254,69 @@ const description = d.anonymized
       </section>
     )}
 
-    <!-- Images -->
+    <!-- Media — editorial gallery -->
     {galleryImages.length > 0 && (
       <section class="border-b border-gpc-border bg-gpc-card/10">
         <div class="mx-auto max-w-5xl px-6 py-16">
           <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// MEDIA</p>
-          <div class="mt-6 grid gap-6 md:grid-cols-2">
-            {galleryImages.map((img) => (
-              <figure class="overflow-hidden border border-gpc-border bg-gpc-white">
-                <div class="relative aspect-video bg-gpc-card">
-                  <img
-                    src={img.src}
-                    alt={img.label}
-                    loading="lazy"
-                    decoding="async"
-                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-                    class="h-full w-full object-cover"
-                  />
-                  {/* Placeholder shown when the image file doesn't exist yet. */}
-                  <div class="absolute inset-0 hidden flex-col items-center justify-center gap-3 bg-gpc-card text-gpc-ink/30">
-                    <svg viewBox="0 0 24 24" class="h-10 w-10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                      <rect x="3" y="3" width="18" height="18" rx="2" />
-                      <circle cx="8.5" cy="8.5" r="1.5" />
-                      <path d="m21 15-5-5L5 21" />
-                    </svg>
-                    <span class="font-mono text-xs uppercase tracking-widest">{img.label}</span>
+
+          {/* Feature images: 2-col editorial */}
+          {featureImages.length > 0 && (
+            <div class="mt-8 grid gap-6 md:grid-cols-2">
+              {featureImages.map((img) => (
+                <figure class="reveal group overflow-hidden border border-gpc-border bg-gpc-white">
+                  <div class="aspect-[4/3] overflow-hidden">
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      loading="lazy"
+                      decoding="async"
+                      class="h-full w-full object-cover transition-transform duration-300 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover:scale-[1.02]"
+                    />
                   </div>
-                </div>
-                <figcaption class="border-t border-gpc-border px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-gpc-ink/60">
-                  {img.label}
-                </figcaption>
-              </figure>
-            ))}
-          </div>
+                  <figcaption class="border-t border-gpc-border px-4 py-3 font-mono text-[10px] uppercase tracking-widest text-gpc-ink/60">
+                    {img.caption}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          )}
+
+          {/* Smaller tiles: 2/4-col grid */}
+          {tileImages.length > 0 && (
+            <div class="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
+              {tileImages.map((img) => (
+                <figure class="reveal group overflow-hidden border border-gpc-border bg-gpc-white">
+                  <div class="aspect-square overflow-hidden">
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      loading="lazy"
+                      decoding="async"
+                      class="h-full w-full object-cover transition-transform duration-300 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover:scale-[1.02]"
+                    />
+                  </div>
+                  <figcaption class="border-t border-gpc-border px-3 py-2 font-mono text-[10px] uppercase tracking-widest text-gpc-ink/60">
+                    {img.caption}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          )}
+
+          {/* Client logo badge */}
+          {logoImage && (
+            <div class="mt-8 flex items-center gap-4 border-t border-gpc-border pt-8">
+              <img
+                src={logoImage.src}
+                alt={logoImage.alt}
+                loading="lazy"
+                decoding="async"
+                class="max-h-20 w-auto object-contain"
+              />
+              <span class="font-mono text-xs uppercase tracking-widest text-gpc-ink/50">{logoImage.caption}</span>
+            </div>
+          )}
         </div>
       </section>
     )}

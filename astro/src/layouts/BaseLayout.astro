@@ -164,18 +164,15 @@ const localBusinessSchema = {
       telephone: '+40793650902',
       email: 'contact@greenpheonixconcept.com',
       priceRange: '€€',
-      // Remote consultant — operational locality only, no street/postal.
+      // Remote consultant — operational locality only, no street/postal,
+      // and no fixed geo coordinates (not a visitable office).
       address: operationalAddress,
       areaServed: [
         { '@type': 'City', name: 'Brașov' },
-        { '@type': 'AdministrativeArea', name: 'Romania' },
+        { '@type': 'Country', name: 'Romania' },
         { '@type': 'Country', name: 'Italia' },
+        { '@type': 'AdministrativeArea', name: 'European Union' },
       ],
-      geo: {
-        '@type': 'GeoCoordinates',
-        latitude: 45.6579,
-        longitude: 25.6012,
-      },
       openingHoursSpecification: [
         {
           '@type': 'OpeningHoursSpecification',

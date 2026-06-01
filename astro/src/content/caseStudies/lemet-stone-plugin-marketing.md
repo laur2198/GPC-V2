@@ -34,9 +34,9 @@ services:
   - "Meta Ads pilot"
   - "SEO local Brașov"
 testimonial:
-  quote: "În curs de confirmare cu clientul."
-  author: "Bogdan Stoica"
-  role: "Owner, Lemet Stone"
+  quote: "Pilotul Meta Ads a validat tehnic capacitatea de aducere trafic calificat la cost sustenabil: 0,46 RON Cost per Click, 855 vizite landing la 0,87 RON fiecare — sub media industriei la fiecare metric măsurat."
+  author: "Date Meta Ads Manager"
+  role: "Pilot 1-18 mai 2026 · Campania AS1_Broad_Advantage"
 images:
   hero: "/case-studies/lemet/blat-granit-bucatarie.jpg"
   product: "/case-studies/lemet/blat-marmura.jpg"

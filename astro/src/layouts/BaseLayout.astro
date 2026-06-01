@@ -68,12 +68,20 @@ const localBusinessSchema = {
   '@id': site.origin,
   url: site.origin,
   telephone: '+40793650902',
+  email: 'contact@greenpheonixconcept.com',
   priceRange: '€€',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Brașov',
     postalCode: '500000',
     addressCountry: 'RO',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'contact@greenpheonixconcept.com',
+    telephone: '+40793650902',
+    contactType: 'customer support',
+    availableLanguage: ['Romanian', 'English', 'Italian'],
   },
   geo: {
     '@type': 'GeoCoordinates',

@@ -74,19 +74,27 @@ const orgId = `${site.origin}/#organization`;
 const personId = `${site.origin}/despre#person`;
 const homeLabel = locale === 'en' ? 'Home' : locale === 'it' ? 'Home' : 'Acasă';
 
-// Address used for the legally-registered company (CUI / J-number).
-const registeredAddress = {
+// Legal registered address (CUI / J-number) — Organization only.
+const legalAddress = {
   '@type': 'PostalAddress',
   streetAddress: 'Str. Principală Nr. 174',
   addressLocality: 'Gura Calitei',
   addressRegion: 'Vrancea',
+  postalCode: '627160',
   addressCountry: 'RO',
 };
+// Operational location (remote consultant — no fixed visitable office).
+const operationalAddress = {
+  '@type': 'PostalAddress',
+  addressLocality: 'Brașov',
+  addressRegion: 'Brașov',
+  addressCountry: 'RO',
+};
+// Only real, verified profiles. LinkedIn omitted until the URL is confirmed.
 const sameAs = [
   'https://www.facebook.com/profile.php?id=100079698837895',
-  'https://www.instagram.com/green_pheonix_/',
+  'https://www.instagram.com/green_pheonix_',
   'https://www.tiktok.com/@green.pheonix.concept',
-  'https://www.linkedin.com/company/green-pheonix-concept',
 ];
 
 const localBusinessSchema = {
@@ -103,8 +111,13 @@ const localBusinessSchema = {
       description:
         'Agenție de performance marketing din Brașov. Construim sisteme de marketing care aduc clienți reali, nu doar vanity metrics. Meta Ads, Google Ads, social media organic, websites care convertesc.',
       foundingDate: '2022',
-      founder: { '@id': personId },
-      address: registeredAddress,
+      founder: {
+        '@id': personId,
+        '@type': 'Person',
+        name: 'Laurențiu Bogdan',
+        legalName: 'Bogdan Laurențiu',
+      },
+      address: legalAddress,
       taxID: 'RO45667331',
       vatID: 'RO45667331',
       identifier: 'J2022000195397',
@@ -143,7 +156,7 @@ const localBusinessSchema = {
       sameAs,
     },
     {
-      '@type': 'LocalBusiness',
+      '@type': 'ProfessionalService',
       '@id': `${site.origin}/#localbusiness`,
       name: 'Green Pheonix Concept',
       url: site.origin,
@@ -151,7 +164,13 @@ const localBusinessSchema = {
       telephone: '+40793650902',
       email: 'contact@greenpheonixconcept.com',
       priceRange: '€€',
-      address: registeredAddress,
+      // Remote consultant — operational locality only, no street/postal.
+      address: operationalAddress,
+      areaServed: [
+        { '@type': 'City', name: 'Brașov' },
+        { '@type': 'AdministrativeArea', name: 'Romania' },
+        { '@type': 'Country', name: 'Italia' },
+      ],
       geo: {
         '@type': 'GeoCoordinates',
         latitude: 45.6579,
@@ -171,6 +190,7 @@ const localBusinessSchema = {
       '@type': 'Person',
       '@id': personId,
       name: 'Laurențiu Bogdan',
+      alternateName: 'Bogdan Laurențiu',
       jobTitle: 'Founder & Performance Marketing Strategist',
       worksFor: { '@id': orgId },
       url: `${site.origin}/despre`,
@@ -178,11 +198,18 @@ const localBusinessSchema = {
         'Meta Ads',
         'Google Ads',
         'Performance Marketing',
+        'Marketing Strategy',
         'Web Development',
-        'Astro',
+        'Astro Framework',
         'WordPress',
         'Python',
         'Django',
+        'JavaScript',
+        'TypeScript',
+        'Figma',
+        'HTML/CSS',
+        'SEO',
+        'Conversion Rate Optimization',
       ],
       alumniOf: {
         '@type': 'EducationalOrganization',

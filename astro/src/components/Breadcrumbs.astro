@@ -1,0 +1,44 @@
+---
+/**
+ * Breadcrumbs
+ *
+ * Minimal mono breadcrumb trail (Home / Section / Page). The matching
+ * BreadcrumbList JSON-LD is emitted by BaseLayout when the same `items`
+ * are passed to its `breadcrumbs` prop — pass both for HTML + schema.
+ *
+ * Props:
+ *   locale — 'ro' | 'en' | 'it'
+ *   items  — trail excluding Home: [{ name, href }] (last = current page)
+ */
+import { type Locale, localizedPath } from '../utils/i18n';
+
+interface Crumb {
+  name: string;
+  href: string;
+}
+interface Props {
+  locale?: Locale;
+  items: Crumb[];
+}
+const { locale = 'ro', items } = Astro.props;
+const homeLabel = locale === 'en' ? 'Home' : locale === 'it' ? 'Home' : 'Acasă';
+const trail = [{ name: homeLabel, href: localizedPath(locale, '/') }, ...items];
+---
+
+<nav aria-label="Breadcrumb" class="mx-auto max-w-5xl px-6 pt-24">
+  <ol class="flex flex-wrap items-center gap-2 font-mono text-xs uppercase tracking-widest text-gpc-text-secondary">
+    {trail.map((crumb, i) => {
+      const isLast = i === trail.length - 1;
+      return (
+        <li class="flex items-center gap-2">
+          {isLast ? (
+            <span aria-current="page" class="text-gpc-ink/80">{crumb.name}</span>
+          ) : (
+            <a href={crumb.href} class="transition-colors hover:text-gpc-green">{crumb.name}</a>
+          )}
+          {!isLast && <span aria-hidden="true" class="text-gpc-ink/30">/</span>}
+        </li>
+      );
+    })}
+  </ol>
+</nav>

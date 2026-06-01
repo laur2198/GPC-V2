@@ -40,7 +40,7 @@ const interests = [
 ];
 ---
 
-<BaseLayout title={meta.title} description={meta.description} locale={locale}>
+<BaseLayout title={meta.title} description={meta.description} locale={locale} breadcrumbs={[{ name: 'Contact', href: '/contact' }]}>
   <Hero
     locale={locale}
     variant="compact"

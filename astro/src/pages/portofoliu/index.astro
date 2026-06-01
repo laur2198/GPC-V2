@@ -22,7 +22,7 @@ const all = (await getCollection('caseStudies', ({ data }) =>
 const industries = Array.from(new Set(all.map((cs) => cs.data.industry))).sort();
 ---
 
-<BaseLayout title={meta.title} description={meta.description} locale={locale}>
+<BaseLayout title={meta.title} description={meta.description} locale={locale} breadcrumbs={[{ name: 'Portofoliu', href: '/portofoliu' }]}>
   <Hero
     locale={locale}
     variant="compact"

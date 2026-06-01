@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CTA from '../../components/CTA.astro';
 import HandDrawnAnnotation from '../../components/HandDrawnAnnotation.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
@@ -74,6 +75,34 @@ const testimonialPending = d.testimonial
 const description = d.anonymized
   ? `${d.industry}${period ? ` · ${period}` : ''} · ${d.services.join(', ')}`
   : `${d.client} · ${d.industry}${period ? ` · ${period}` : ''}`;
+
+const SITE = 'https://greenpheonixconcept.com';
+const published = d.publishDate ? new Date(d.publishDate).toISOString().slice(0, 10) : undefined;
+
+const breadcrumbs = [
+  { name: 'Portofoliu', href: localizedPath('ro', '/portofoliu') },
+  { name: d.client, href: localizedPath('ro', `/portofoliu/${entry.slug}`) },
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  '@id': `${SITE}/portofoliu/${entry.slug}#article`,
+  headline: d.title,
+  description,
+  author: { '@id': `${SITE}/despre#person` },
+  publisher: { '@id': `${SITE}/#organization` },
+  ...(published ? { datePublished: published, dateModified: published } : {}),
+  ...(heroImage ? { image: [`${SITE}${heroImage}`] } : {}),
+  about: [
+    {
+      '@type': 'Organization',
+      name: d.client,
+      ...(d.website ? { url: `https://${d.website}` } : {}),
+    },
+  ],
+  keywords: d.services.join(', '),
+};
 ---
 
 <BaseLayout
@@ -81,7 +110,11 @@ const description = d.anonymized
   description={description}
   locale="ro"
   image={heroImage}
+  ogType="article"
+  breadcrumbs={breadcrumbs}
+  jsonLd={[articleSchema]}
 >
+  <Breadcrumbs locale="ro" items={breadcrumbs} />
   <article>
     <!-- Hero -->
     <header class="relative overflow-hidden border-b border-gpc-border bg-gpc-white">

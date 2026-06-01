@@ -1,9 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 import CTA from '../components/CTA.astro';
 import { type Locale, t, localizedPath } from '../utils/i18n';
 
 const locale: Locale = 'ro';
+const breadcrumbs = [{ name: 'Servicii', href: localizedPath(locale, '/servicii') }];
 
 interface UmbrellaCard {
   num: string;
@@ -26,9 +28,10 @@ interface Umbrella {
 const u = t<Umbrella>(locale, 'services.umbrella');
 ---
 
-<BaseLayout title={u.meta.title} description={u.meta.description} locale={locale}>
+<BaseLayout title={u.meta.title} description={u.meta.description} locale={locale} breadcrumbs={breadcrumbs}>
+  <Breadcrumbs locale={locale} items={breadcrumbs} />
   <!-- Hero -->
-  <header class="relative overflow-hidden border-b border-gpc-border bg-gpc-white pt-24">
+  <header class="relative overflow-hidden border-b border-gpc-border bg-gpc-white pt-8">
     <div
       class="pointer-events-none absolute inset-0 opacity-40"
       style="background-image: linear-gradient(rgba(5,5,5,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(5,5,5,0.04) 1px, transparent 1px); background-size: 48px 48px;"

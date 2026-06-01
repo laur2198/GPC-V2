@@ -19,11 +19,16 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 import CustomCursor from '../components/CustomCursor.astro';
-import { type Locale, locales, switchLocalePath } from '../utils/i18n';
+import { type Locale, locales, switchLocalePath, localizedPath } from '../utils/i18n';
 
 interface FaqEntry {
   question: string;
   answer: string;
+}
+
+interface BreadcrumbItem {
+  name: string;
+  href: string;
 }
 
 interface Props {
@@ -37,6 +42,10 @@ interface Props {
   hideCookieBanner?: boolean;
   /** override OG type, e.g. 'article' on blog detail */
   ogType?: 'website' | 'article';
+  /** breadcrumb trail (excluding Home, which is prepended automatically) */
+  breadcrumbs?: BreadcrumbItem[];
+  /** extra JSON-LD blocks (e.g. Service, Article) emitted in <head> */
+  jsonLd?: unknown[];
 }
 
 const {
@@ -48,6 +57,8 @@ const {
   faqSchema,
   hideCookieBanner = false,
   ogType = 'website',
+  breadcrumbs,
+  jsonLd,
 } = Astro.props;
 
 const site = Astro.site ?? new URL('https://greenpheonixconcept.com');
@@ -59,47 +70,146 @@ const alternates = locales.map((l) => ({
   href: new URL(switchLocalePath(Astro.url, l), site).toString(),
 }));
 
+const orgId = `${site.origin}/#organization`;
+const personId = `${site.origin}/despre#person`;
+const homeLabel = locale === 'en' ? 'Home' : locale === 'it' ? 'Home' : 'Acasă';
+
+// Address used for the legally-registered company (CUI / J-number).
+const registeredAddress = {
+  '@type': 'PostalAddress',
+  streetAddress: 'Str. Principală Nr. 174',
+  addressLocality: 'Gura Calitei',
+  addressRegion: 'Vrancea',
+  addressCountry: 'RO',
+};
+const sameAs = [
+  'https://www.facebook.com/profile.php?id=100079698837895',
+  'https://www.instagram.com/green_pheonix_/',
+  'https://www.tiktok.com/@green.pheonix.concept',
+  'https://www.linkedin.com/company/green-pheonix-concept',
+];
+
 const localBusinessSchema = {
   '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  name: 'Green Pheonix',
-  legalName: 'GREEN PHEONIX CONCEPT S.R.L.',
-  image: new URL('/logo_gpc.svg', site).toString(),
-  '@id': site.origin,
-  url: site.origin,
-  telephone: '+40793650902',
-  email: 'contact@greenpheonixconcept.com',
-  priceRange: '€€',
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Brașov',
-    postalCode: '500000',
-    addressCountry: 'RO',
-  },
-  contactPoint: {
-    '@type': 'ContactPoint',
-    email: 'contact@greenpheonixconcept.com',
-    telephone: '+40793650902',
-    contactType: 'customer support',
-    availableLanguage: ['Romanian', 'English', 'Italian'],
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: 45.6579,
-    longitude: 25.6012,
-  },
-  openingHoursSpecification: {
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-    opens: '09:00',
-    closes: '18:00',
-  },
-  sameAs: [
-    'https://www.facebook.com/profile.php?id=100079698837895',
-    'https://www.instagram.com/green_pheonix_/',
-    'https://www.tiktok.com/@green.pheonix.concept',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': orgId,
+      name: 'Green Pheonix Concept',
+      legalName: 'GREEN PHEONIX CONCEPT S.R.L.',
+      url: site.origin,
+      logo: new URL('/logo_gpc.svg', site).toString(),
+      image: new URL('/logo_gpc.svg', site).toString(),
+      description:
+        'Agenție de performance marketing din Brașov. Construim sisteme de marketing care aduc clienți reali, nu doar vanity metrics. Meta Ads, Google Ads, social media organic, websites care convertesc.',
+      foundingDate: '2022',
+      founder: { '@id': personId },
+      address: registeredAddress,
+      taxID: 'RO45667331',
+      vatID: 'RO45667331',
+      identifier: 'J2022000195397',
+      email: 'contact@greenpheonixconcept.com',
+      telephone: '+40793650902',
+      areaServed: [
+        { '@type': 'Country', name: 'Romania' },
+        { '@type': 'Country', name: 'Italy' },
+        { '@type': 'AdministrativeArea', name: 'European Union' },
+      ],
+      knowsLanguage: ['ro', 'en', 'it'],
+      knowsAbout: [
+        'Meta Ads',
+        'Facebook Ads',
+        'Instagram Ads',
+        'Google Ads',
+        'Performance Marketing',
+        'Social Media Marketing',
+        'Web Development',
+        'WordPress',
+        'Astro Framework',
+        'Marketing Strategy',
+        'SEO',
+        'Conversion Rate Optimization',
+      ],
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          telephone: '+40793650902',
+          email: 'contact@greenpheonixconcept.com',
+          contactType: 'customer service',
+          availableLanguage: ['Romanian', 'English', 'Italian'],
+          areaServed: ['RO', 'IT', 'EU'],
+        },
+      ],
+      sameAs,
+    },
+    {
+      '@type': 'LocalBusiness',
+      '@id': `${site.origin}/#localbusiness`,
+      name: 'Green Pheonix Concept',
+      url: site.origin,
+      image: new URL('/logo_gpc.svg', site).toString(),
+      telephone: '+40793650902',
+      email: 'contact@greenpheonixconcept.com',
+      priceRange: '€€',
+      address: registeredAddress,
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 45.6579,
+        longitude: 25.6012,
+      },
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          opens: '09:00',
+          closes: '18:00',
+        },
+      ],
+      sameAs,
+    },
+    {
+      '@type': 'Person',
+      '@id': personId,
+      name: 'Laurențiu Bogdan',
+      jobTitle: 'Founder & Performance Marketing Strategist',
+      worksFor: { '@id': orgId },
+      url: `${site.origin}/despre`,
+      knowsAbout: [
+        'Meta Ads',
+        'Google Ads',
+        'Performance Marketing',
+        'Web Development',
+        'Astro',
+        'WordPress',
+        'Python',
+        'Django',
+      ],
+      alumniOf: {
+        '@type': 'EducationalOrganization',
+        name: 'Universitatea Transilvania din Brașov',
+        department: 'Marketing',
+      },
+    },
   ],
 };
+
+// BreadcrumbList — Home is always position 1; passed items follow.
+const breadcrumbSchema =
+  breadcrumbs && breadcrumbs.length
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: homeLabel, item: new URL(localizedPath(locale, '/'), site).toString() },
+          ...breadcrumbs.map((b, i) => ({
+            '@type': 'ListItem',
+            position: i + 2,
+            name: b.name,
+            item: new URL(b.href, site).toString(),
+          })),
+        ],
+      }
+    : null;
 
 const faqJsonLd = faqSchema && faqSchema.length
   ? {
@@ -161,6 +271,12 @@ const faqJsonLd = faqSchema && faqSchema.length
     {faqJsonLd && (
       <script is:inline type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
     )}
+    {breadcrumbSchema && (
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    )}
+    {jsonLd && jsonLd.map((block) => (
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(block)} />
+    ))}
 
     {/*
       INSTRUCTIONS — Analytics: înlocuiește `G-XXXXXXXXXX`, `XXXXXXXXXXXXXXXX`

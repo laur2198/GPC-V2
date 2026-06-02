@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTA from '../../components/CTA.astro';
+import { type Locale, t, localizedPath } from '../../utils/i18n';
+
+const locale: Locale = 'en';
+const breadcrumbs = [{ name: 'Services', href: localizedPath(locale, '/servicii') }];
+
+interface UmbrellaCard {
+  num: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  cta: string;
+  slug: string;
+}
+interface Umbrella {
+  eyebrow: string;
+  h1: string;
+  subHeadline: string;
+  intro: { p1: string; p2: string };
+  cards: UmbrellaCard[];
+  philosophy: { eyebrow: string; heading: string; intro: string; bullets: string[]; outro: string };
+  cta: { heading: string; body: string; button: string };
+  meta: { title: string; description: string };
+}
+const u = t<Umbrella>(locale, 'services.umbrella');
+---
+
+<BaseLayout title={u.meta.title} description={u.meta.description} locale={locale} breadcrumbs={breadcrumbs}>
+  <Breadcrumbs locale={locale} items={breadcrumbs} />
+  <!-- Hero -->
+  <header class="relative overflow-hidden border-b border-gpc-border bg-gpc-white pt-8">
+    <div
+      class="pointer-events-none absolute inset-0 opacity-40"
+      style="background-image: linear-gradient(rgba(5,5,5,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(5,5,5,0.04) 1px, transparent 1px); background-size: 48px 48px;"
+      aria-hidden="true"
+    ></div>
+    <div class="relative mx-auto max-w-5xl px-6 py-16 lg:py-20">
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">{u.eyebrow}</p>
+      <h1 class="mt-4 max-w-4xl hero-heavy font-display text-4xl md:text-5xl lg:text-6xl">
+        <span class="glow-green">{u.h1}</span>
+      </h1>
+      <p class="mt-6 max-w-2xl font-sans text-base leading-relaxed text-gpc-text-secondary md:text-lg">
+        {u.subHeadline}
+      </p>
+    </div>
+  </header>
+
+  <!-- Intro -->
+  <section class="reveal border-b border-gpc-border bg-gpc-card/10">
+    <div class="mx-auto max-w-3xl px-6 py-14 space-y-4">
+      <p class="font-sans text-base leading-relaxed text-gpc-ink/85">{u.intro.p1}</p>
+      <p class="font-sans text-base leading-relaxed text-gpc-ink/85">{u.intro.p2}</p>
+    </div>
+  </section>
+
+  <!-- 6-card grid -->
+  <section class="reveal border-b border-gpc-border bg-gpc-white">
+    <div class="mx-auto max-w-7xl px-6 py-16">
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {u.cards.map((card) => (
+          <a
+            href={localizedPath(locale, `/servicii/${card.slug}`)}
+            class="group relative flex h-full flex-col border border-gpc-border bg-gpc-card/30 p-6 transition-all duration-300 ease-[cubic-bezier(0.165,0.84,0.44,1)] hover:-translate-y-1 hover:border-gpc-green hover:bg-gpc-card/60 hover:shadow-sm md:p-8"
+          >
+            <span
+              aria-hidden="true"
+              class="pointer-events-none absolute right-5 top-4 font-display text-6xl leading-none text-gpc-ink/5 transition-colors group-hover:text-gpc-green/20"
+            >
+              {card.num}
+            </span>
+            <span class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">{card.num}</span>
+            <h2 class="mt-4 font-display text-2xl uppercase text-gpc-ink transition-colors group-hover:text-gpc-green" style="letter-spacing:-0.5px;">
+              {card.title}
+            </h2>
+            <p class="mt-1 font-mono text-xs uppercase tracking-widest text-gpc-ink/50">{card.subtitle}</p>
+            <p class="mt-4 flex-1 font-sans text-sm leading-relaxed text-gpc-text-secondary">{card.description}</p>
+            <span class="mt-6 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-gpc-ink/70 group-hover:text-gpc-green">
+              {card.cta}
+              <span class="transition-transform group-hover:translate-x-1">→</span>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy -->
+  <section class="reveal border-b border-gpc-border bg-gpc-card/10">
+    <div class="mx-auto max-w-3xl px-6 py-16">
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">{u.philosophy.eyebrow}</p>
+      <h2 class="mt-3 font-display text-3xl text-gpc-ink md:text-4xl">{u.philosophy.heading}</h2>
+      <p class="mt-6 font-sans text-base leading-relaxed text-gpc-ink/85">{u.philosophy.intro}</p>
+      <ul class="mt-6 space-y-4">
+        {u.philosophy.bullets.map((b) => (
+          <li class="flex gap-3 border-l-2 border-gpc-green/40 pl-4 font-sans text-sm leading-relaxed text-gpc-ink/80">
+            <span>{b}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="mt-6 font-sans text-base font-medium leading-relaxed text-gpc-ink">{u.philosophy.outro}</p>
+    </div>
+  </section>
+
+  <CTA
+    heading={u.cta.heading}
+    subtext={u.cta.body}
+    buttonText={u.cta.button}
+    buttonLink={localizedPath(locale, '/contact')}
+  />
+</BaseLayout>

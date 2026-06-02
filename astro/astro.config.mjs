@@ -4,10 +4,14 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://greenpheonixconcept.com',
-  // Legacy RO service URLs now redirect into the new /servicii structure.
+  // Legacy service URLs now redirect into the new /servicii structure.
   redirects: {
     '/servicii-ads': '/servicii/meta-ads',
     '/servicii-web': '/servicii/web-development',
+    '/en/servicii-ads': '/en/servicii/meta-ads',
+    '/en/servicii-web': '/en/servicii/web-development',
+    '/it/servicii-ads': '/it/servicii/meta-ads',
+    '/it/servicii-web': '/it/servicii/web-development',
   },
   i18n: {
     defaultLocale: 'ro',

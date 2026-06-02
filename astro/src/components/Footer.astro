@@ -42,16 +42,9 @@ interface FooterStrings {
 }
 const f = t<FooterStrings>(locale, 'footer');
 
-const serviceLinks =
-  locale === 'ro'
-    ? [{ href: localizedPath(locale, '/servicii'), label: (nav as { services?: string }).services ?? 'Servicii' }]
-    : [
-        { href: localizedPath(locale, '/servicii-ads'), label: nav.ads },
-        { href: localizedPath(locale, '/servicii-web'), label: nav.web },
-      ];
 const quickLinks = [
   { href: localizedPath(locale, '/'), label: nav.home },
-  ...serviceLinks,
+  { href: localizedPath(locale, '/servicii'), label: (nav as { services?: string }).services ?? 'Servicii' },
   { href: localizedPath(locale, '/portofoliu'), label: nav.portfolio },
   { href: localizedPath(locale, '/blog'), label: nav.blog },
   { href: localizedPath(locale, '/despre'), label: nav.about },

@@ -6,7 +6,8 @@
     "portfolio": "Portfolio",
     "blog": "Blog",
     "about": "Chi siamo",
-    "contact": "Contatti"
+    "contact": "Contatti",
+    "services": "Servizi"
   },
   "hero": {
     "eyebrow": {
@@ -46,39 +47,1005 @@
       {
         "number": "02",
         "title": "Meta Ads",
-        "description": "Facebook & Instagram per lead, e-commerce e retargeting con dati proprietari.",
+        "description": "Facebook e Instagram per lead, e-commerce e retargeting basato su dati proprietari.",
         "ctaText": "Dettagli Meta Ads",
         "accentTag": "SOCIAL"
       },
       {
         "number": "03",
         "title": "TikTok Ads",
-        "description": "Contenuti nativi e creativi iterati ogni settimana per audience Gen Z e Millennial.",
+        "description": "Contenuti nativi e creative iterate ogni settimana per audience Gen Z e Millennial.",
         "ctaText": "Dettagli TikTok",
         "accentTag": "VIDEO"
       },
       {
         "number": "04",
-        "title": "Siti & Landing",
-        "description": "Astro, WordPress e Shopify — 95+ Lighthouse e UX orientata alla conversione.",
+        "title": "Siti e Landing",
+        "description": "Astro, WordPress e Shopify — performance 95+ Lighthouse e UX orientata alla conversione.",
         "ctaText": "Dettagli Web",
         "accentTag": "DEV"
       },
       {
         "number": "05",
-        "title": "Tracking & Analytics",
+        "title": "Tracking e Analytics",
         "description": "GA4, GTM, conversioni server-side e dashboard Looker Studio.",
         "ctaText": "Dettagli tracking",
         "accentTag": "DATA"
       },
       {
         "number": "06",
-        "title": "Audit & Strategia",
-        "description": "Analisi a 360° su ads, sito e funnel — piano d'azione concreto in 7 giorni.",
-        "ctaText": "Richiedi audit",
+        "title": "Audit e Strategia",
+        "description": "Analisi a 360° su ads, sito e funnel — con un piano d'azione concreto in 7 giorni.",
+        "ctaText": "Richieda un audit",
         "accentTag": "CONSULTING"
       }
-    ]
+    ],
+    "umbrella": {
+      "eyebrow": "// COSA FACCIAMO",
+      "h1": "Servizi che producono risultati misurabili.",
+      "subHeadline": "6 servizi integrati o indipendenti. Sceglie ciò di cui ha bisogno, paga per ciò che riceve. Niente pacchetti imposti, niente upsell inutili.",
+      "backLabel": "Tutti i servizi",
+      "intro": {
+        "p1": "Lavoriamo con aziende serie che vogliono crescere nel digitale con criterio. Non vendiamo «presenza online» o «branding olistico» — vendiamo servizi concreti che producono numeri concreti.",
+        "p2": "Ogni servizio qui sotto può essere attivato singolarmente o integrato nella Sua strategia complessiva. Il nostro consiglio: inizi con un audit gratuito, vediamo insieme di cosa ha davvero bisogno."
+      },
+      "cards": [
+        {
+          "num": "01",
+          "title": "Meta Ads",
+          "subtitle": "Facebook + Instagram + Threads",
+          "description": "Campagne calibrate su Andromeda. Setup tracking completo, creative testate per coorte, ottimizzazione settimanale.",
+          "cta": "Vedi dettagli",
+          "slug": "meta-ads"
+        },
+        {
+          "num": "02",
+          "title": "Google Ads",
+          "subtitle": "Search + Performance Max + YouTube",
+          "description": "Intent-based marketing. Keyword research approfondita, ad copy costruito sulla ricerca reale, landing page alignment.",
+          "cta": "Vedi dettagli",
+          "slug": "google-ads"
+        },
+        {
+          "num": "03",
+          "title": "Social Media",
+          "subtitle": "Strategia + Content + Community",
+          "description": "Presenza organica che vende. Content calendar di 30 giorni, post production, community management attivo.",
+          "cta": "Vedi dettagli",
+          "slug": "social-media"
+        },
+        {
+          "num": "04",
+          "title": "Web Development",
+          "subtitle": "Astro + WordPress + Plugin custom",
+          "description": "Siti veloci, pensati per la conversione. Dalla landing page all'e-commerce custom. Plugin WordPress dedicati.",
+          "cta": "Vedi dettagli",
+          "slug": "web-development"
+        },
+        {
+          "num": "05",
+          "title": "Strategia e Audit",
+          "subtitle": "Discovery + Piano + Roadmap",
+          "description": "Analizziamo il Suo ecosistema digitale. Documento concreto con osservazioni prioritizzate. Piano a 3-6-12 mesi.",
+          "cta": "Vedi dettagli",
+          "slug": "strategie-audit"
+        },
+        {
+          "num": "06",
+          "title": "Content Production",
+          "subtitle": "Reels + UGC + Carousels",
+          "description": "Contenuti autentici che performano su Andromeda. Production in-house, senza filtri da stock.",
+          "cta": "Vedi dettagli",
+          "slug": "content-production"
+        }
+      ],
+      "philosophy": {
+        "eyebrow": "// FILOSOFIA",
+        "heading": "Perché non vendiamo pacchetti predefiniti",
+        "intro": "I pacchetti «Starter / Growth / Scale» sono comodi per le agenzie, ma raramente adatti ai clienti. La realtà è che:",
+        "bullets": [
+          "Un bar locale con 300 follower su Instagram non ha bisogno di «Performance Max + Email Marketing + Influencer outreach» — ha bisogno di una sola campagna Meta iper-targetizzata più una solida content production",
+          "Un e-commerce con traffico costante e un buon AOV non ha bisogno di «rebranding + social media strategy + landing page redesign» — ha bisogno solo di scaling Meta + ottimizzazione Google Shopping",
+          "Un B2B SaaS con un sales cycle lungo non ha bisogno di «campagne volume» — ha bisogno di LinkedIn Ads + retargeting + content marketing"
+        ],
+        "outro": "I pacchetti standardizzati costringono i clienti a comprare ciò che non serve loro. Noi scegliamo l'opposto: Le consigliamo solo ciò che funziona per il Suo contesto specifico."
+      },
+      "cta": {
+        "heading": "Non sa da dove iniziare?",
+        "body": "Discovery call gratuita. La ascoltiamo per 30 minuti e Le diciamo onestamente quali servizi Le servirebbero (e quali no).",
+        "button": "Prenoti una discovery call"
+      },
+      "meta": {
+        "title": "Servizi — Performance marketing e web | Green Pheonix",
+        "description": "6 servizi integrati o indipendenti: Meta Ads, Google Ads, Social Media, Web Development, Strategia e Audit, Content Production. Niente pacchetti imposti."
+      }
+    },
+    "metaAds": {
+      "eyebrow": "// SERVIZIO 01",
+      "h1": "Meta Ads. Calibrate per Andromeda.",
+      "subHeadline": "Facebook + Instagram + Threads. Setup tracking completo, creative testate per coorte, ottimizzazione settimanale su ciò che conta — non su ciò che appare bene in dashboard.",
+      "meta": {
+        "title": "Meta Ads — Facebook e Instagram Ads | Green Pheonix",
+        "description": "Campagne Meta calibrate su Andromeda: creative-first, server-side tracking, ottimizzazione per coorti. Audit gratuito del Suo account Meta."
+      },
+      "forWho": {
+        "heading": "Per chi funziona",
+        "goodTitle": "Meta Ads è adatto se ha:",
+        "good": [
+          "<strong>Un prodotto o servizio validato</strong> — vende già in modo organico o tramite altri canali, non parte da zero",
+          "<strong>Un budget media costante</strong> — il minimo che permette di uscire dalla fase di apprendimento (Meta consiglia l'equivalente di ~50 conversioni/mese sul pixel)",
+          "<strong>Risorse per le creative</strong> — o produciamo noi i contenuti, o ha asset propri (UGC, lifestyle, demo prodotto)",
+          "<strong>Tracking funzionante</strong> — oppure è disposto a costruirlo insieme a noi (Pixel + CAPI + Conversions API)"
+        ],
+        "badTitle": "NON è adatto se:",
+        "bad": [
+          "Vuole testare un prodotto per la prima volta (prima serve la validazione organica)",
+          "Il Suo budget è sotto la soglia di ottimizzazione della piattaforma",
+          "Si aspetta un ROI nei primi 14-21 giorni (la fase di apprendimento non lo permette)"
+        ]
+      },
+      "approach": {
+        "eyebrow": "// APPROACH",
+        "heading": "Come pensiamo Meta Ads nel 2026",
+        "intro": "L'algoritmo Meta è cambiato radicalmente con Andromeda. Gli annunci che sembrano annunci muoiono — l'algoritmo rileva lo stile «pubblicitario» e ne riduce il reach. I contenuti che sembrano REALI (UGC, lifestyle naturale, persone vere) vincono.",
+        "points": [
+          {
+            "title": "Creative-first thinking",
+            "body": "Prima del targeting, pensiamo a quali creative funzioneranno. Il targeting lo risolve l'algoritmo (Advantage+ audiences, broad targeting), la creative risolve l'engagement."
+          },
+          {
+            "title": "Multi-creative testing",
+            "body": "6-12 varianti per ad set, rotazione sistematica, decisioni sui dati dopo 7 giorni (non sull'intuito)."
+          },
+          {
+            "title": "Server-side tracking",
+            "body": "Il pixel da solo non basta più (iOS 17+, ad blocker, GDPR). Configuriamo la Conversions API server-side per dati completi."
+          },
+          {
+            "title": "Cohort optimization",
+            "body": "Analizziamo le conversioni su coorti di 7/30/90 giorni, non su report istantanei. Il ROAS reale ≠ il ROAS mostrato in dashboard."
+          }
+        ]
+      },
+      "deliverables": {
+        "eyebrow": "// DELIVERABLE",
+        "heading": "Cosa riceve concretamente",
+        "items": [
+          {
+            "num": "01",
+            "title": "Audit dell'account esistente",
+            "bullets": [
+              "Analisi delle campagne attive, della struttura dell'account, del tracking",
+              "Elenco dei problemi prioritizzati + piano di intervento"
+            ]
+          },
+          {
+            "num": "02",
+            "title": "Configurazione tracking completo",
+            "bullets": [
+              "Meta Pixel + Conversions API server-side",
+              "Custom events per ogni touchpoint rilevante",
+              "Verifica della data quality + match rate optimization"
+            ]
+          },
+          {
+            "num": "03",
+            "title": "Audience research basata sui dati",
+            "bullets": [
+              "Lookalike audiences dalla customer list",
+              "Interest stacks testati sulla base della performance storica",
+              "Advantage+ audiences con seed targeting preciso"
+            ]
+          },
+          {
+            "num": "04",
+            "title": "Creative production o review",
+            "bullets": [
+              "Se produciamo noi: 6-12 varianti UGC-style, lifestyle, hook-driven",
+              "Se ha già gli asset: review + raccomandazioni di ottimizzazione"
+            ]
+          },
+          {
+            "num": "05",
+            "title": "Setup campagne multi-livello",
+            "bullets": [
+              "Cold (broad + Advantage+)",
+              "Warm (engagement, video views, page visitors)",
+              "Hot (retargeting basato sul behavior, abandoned cart)"
+            ]
+          },
+          {
+            "num": "06",
+            "title": "Ottimizzazione settimanale",
+            "bullets": [
+              "Decisioni basate sulle regole che definiamo insieme",
+              "Pause/scale sulle varianti con performance testata",
+              "Refresh delle creative ogni 2-3 settimane contro la fatigue"
+            ]
+          },
+          {
+            "num": "07",
+            "title": "Report mensile con analisi",
+            "bullets": [
+              "Non una dashboard auto-generata",
+              "La storia del mese: cosa ha funzionato, cosa no, cosa cambiamo"
+            ]
+          }
+        ]
+      },
+      "kpi": {
+        "eyebrow": "// KPI",
+        "heading": "Come misuriamo il successo",
+        "intro": "Monitoriamo metriche di impatto reale, non di vanità:",
+        "primaryTitle": "Primary (ciò che conta per Lei)",
+        "primary": [
+          "<strong>ROAS</strong> — su coorti 7/30 giorni",
+          "<strong>CAC</strong> — confrontato con l'LTV",
+          "<strong>Profitto reale per campagna</strong> (non solo il revenue lordo)"
+        ],
+        "secondaryTitle": "Secondary (come ottimizziamo)",
+        "secondary": [
+          "CPM (efficienza del reach)",
+          "CTR (engagement della creative)",
+          "CVR (conversion rate per landing)",
+          "Frequency (indicatore di fatigue)"
+        ],
+        "avoidTitle": "NON monitoriamo come obiettivo finale",
+        "avoid": [
+          "Impressions o reach assoluti (vanity metrics)",
+          "Engagement rate senza contesto di business",
+          "«Awareness lift» senza misurazione del comportamento reale"
+        ]
+      },
+      "cta": {
+        "heading": "Vuole un audit gratuito dell'account Meta?",
+        "body": "3-5 giorni, un documento concreto con osservazioni prioritizzate. Gratuito se lavoriamo insieme dopo. Resta Suo a prescindere dalla decisione.",
+        "button": "Prenoti un audit Meta"
+      }
+    },
+    "googleAds": {
+      "eyebrow": "// SERVIZIO 02",
+      "h1": "Google Ads. Intent sopra interest.",
+      "subHeadline": "Search + Performance Max + YouTube. Catturiamo la domanda esistente, non la costruiamo da zero. Più efficiente quando il Suo prodotto è cercato attivamente.",
+      "meta": {
+        "title": "Google Ads — Search, PMax e YouTube | Green Pheonix",
+        "description": "Campagne Google Ads intent-based: Search-first, negative keywords aggressive, landing page alignment, conversion tracking enhanced. Audit gratuito."
+      },
+      "forWho": {
+        "heading": "Per chi funziona",
+        "goodTitle": "Google Ads è adatto se:",
+        "good": [
+          "<strong>Il Suo prodotto è cercato attivamente</strong> — gli utenti sanno cosa vogliono, cercano con intent (es: «installazione aria condizionata Brașov», «avvocato divorzio urgente», «pietra naturale cucina»)",
+          "<strong>Ha un buon margine per vendita</strong> — il CPC di Google è più alto di Meta, richiede ROAS aggressivi",
+          "<strong>Il Suo sito è pronto per la conversione</strong> — landing page veloce, CTA chiara, trust signals visibili",
+          "<strong>Vuole volumi prevedibili</strong> — i Search Ads scalano in modo prevedibile, meno sorprese rispetto a Meta"
+        ],
+        "badTitle": "NON è adatto se:",
+        "bad": [
+          "Il Suo prodotto non ha search demand (categoria nuova, lifestyle aspirazionale)",
+          "Budget media molto ridotto — il Search ha un CPC medio di 1-5 EUR in RO, servono fondi per un test significativo",
+          "Il Suo sito non converte (Google Ads fa emergere i problemi di UX/conversione in modo più brutale di Meta)"
+        ]
+      },
+      "approach": {
+        "eyebrow": "// APPROACH",
+        "heading": "La nostra strategia Google Ads",
+        "points": [
+          {
+            "title": "Search-first, automation second",
+            "body": "I clienti giusti iniziano con campagne Search manuali (Manual CPC o target CPA), non con Performance Max. Costruiamo una baseline di dati prima di cedere il controllo all'AI."
+          },
+          {
+            "title": "Negative keywords aggressive",
+            "body": "Il 30% del lavoro mensile è la pulizia delle ricerche irrilevanti. Il budget sprecato in «ricerche tangenziali» è la perdita #1 delle campagne Google."
+          },
+          {
+            "title": "Landing page alignment",
+            "body": "Ogni ad group ha una landing page dedicata. Il messaggio dell'annuncio = il messaggio sulla landing. Quality Score più alto = CPC ridotto."
+          },
+          {
+            "title": "Performance Max strategico, non impulsivo",
+            "body": "Usiamo PMax solo dopo aver costruito una baseline Search chiara. Costruiamo asset groups su temi semantici, non bulk dump."
+          },
+          {
+            "title": "Conversion tracking enhanced",
+            "body": "Enhanced Conversions, server-side tracking, offline conversion import per il B2B con sales cycle lungo."
+          }
+        ]
+      },
+      "deliverables": {
+        "eyebrow": "// DELIVERABLE",
+        "heading": "Cosa riceve concretamente",
+        "items": [
+          {
+            "num": "01",
+            "title": "Keyword research approfondita",
+            "bullets": [
+              "Tool stack: Google Keyword Planner + Ahrefs + Semrush + AnswerThePublic",
+              "Cluster per intent (informational vs commercial vs transactional)",
+              "Long-tail keywords con CPC sostenibile"
+            ]
+          },
+          {
+            "num": "02",
+            "title": "Account structure pulita",
+            "bullets": [
+              "Campaign separation per goal (Search Brand / Search Generic / PMax / Display Retargeting)",
+              "Ad group structure tematica, NON keyword stuffing"
+            ]
+          },
+          {
+            "num": "03",
+            "title": "Ad copy testato",
+            "bullets": [
+              "Responsive Search Ads con 15 headlines + 4 descriptions per ad group",
+              "Testing sistematico, decisioni sui dati dopo 14 giorni",
+              "Allineamento messaggio annuncio ↔ landing page"
+            ]
+          },
+          {
+            "num": "04",
+            "title": "Setup tracking completo",
+            "bullets": [
+              "GA4 + Google Ads conversion tracking",
+              "Enhanced Conversions con first-party data",
+              "Offline import se ha un CRM (Hubspot, Salesforce, Pipedrive)"
+            ]
+          },
+          {
+            "num": "05",
+            "title": "Negative keywords management",
+            "bullets": [
+              "Lista iniziale basata sulla research",
+              "Audit settimanale del Search Terms Report",
+              "Lista negative condivisa tra le campagne"
+            ]
+          },
+          {
+            "num": "06",
+            "title": "Performance Max strategico",
+            "bullets": [
+              "Asset groups su temi semantici (non bulk)",
+              "Audience signals per il bootstrap",
+              "Brand exclusions chiare"
+            ]
+          },
+          {
+            "num": "07",
+            "title": "Report mensile con analisi",
+            "bullets": [
+              "Performance per ad group, non solo per campagna",
+              "Quality Score trends",
+              "Raccomandazioni concrete per il mese successivo"
+            ]
+          }
+        ]
+      },
+      "kpi": {
+        "eyebrow": "// KPI",
+        "heading": "Come misuriamo il successo",
+        "primaryTitle": "Primary",
+        "primary": [
+          "<strong>CPA</strong> — confrontato con l'LTV target",
+          "<strong>ROAS</strong> sulle campagne e-commerce",
+          "<strong>Volume di conversioni qualificate</strong> (NON i clic)",
+          "Profit margin dopo l'ad spend"
+        ],
+        "secondaryTitle": "Secondary",
+        "secondary": [
+          "Quality Score (target 7+ sulle keyword primary)",
+          "Impression Share (search lost — budget vs rank)",
+          "CTR per ad group",
+          "Conversion rate per landing"
+        ],
+        "avoidTitle": "NON monitoriamo come obiettivo finale",
+        "avoid": [
+          "Volume di clic senza contesto di conversione",
+          "Posizione assoluta (la posizione 1 non = redditizio)",
+          "«Brand awareness» tramite Search (per quello esiste il Display)"
+        ]
+      },
+      "cta": {
+        "heading": "Vuole un audit gratuito dell'account Google Ads?",
+        "body": "Analizziamo il Suo account esistente (o il setup attuale se è self-managed). Un documento con osservazioni, gratuito se lavoriamo insieme.",
+        "button": "Prenoti un audit Google"
+      }
+    },
+    "socialMedia": {
+      "eyebrow": "// SERVIZIO 03",
+      "h1": "Social Media. Presenza organica che vende.",
+      "subHeadline": "Gli annunci da soli non vendono. Costruiamo insieme le fondamenta organiche che moltiplicano il ROI di qualsiasi annuncio successivo. Content calendar, production, community management.",
+      "meta": {
+        "title": "Social Media — Strategia, content e community | Green Pheonix",
+        "description": "Presenza organica che vende: content pillars, 14-day production cycle, community management. Le fondamenta organiche che moltiplicano il ROI degli annunci."
+      },
+      "forWho": {
+        "heading": "Per chi funziona",
+        "goodTitle": "Il Social Media management è adatto se:",
+        "good": [
+          "<strong>Vuoi costruire una presenza duratura</strong>, non solo annunci on-off",
+          "<strong>Capisci che i risultati arrivano in 3-6 mesi</strong>, non da un giorno all'altro",
+          "<strong>Puoi sostenere la content production</strong> — o produciamo noi, o hai risorse interne",
+          "<strong>Hai un brand con personalità</strong> che merita di essere amplificato (non generico)"
+        ],
+        "badTitle": "NON è adatto se:",
+        "bad": [
+          "Vuoi solo «postare 3 volte a settimana per esserci» — questo è uno spreco di soldi, non una strategia",
+          "Ti aspetti un ROI direttamente attribuibile per ogni post (il social organico è long-tail)",
+          "Rifiuti di apparire davanti alla camera o di esporre il tuo team (l'autenticità è un fattore critico)"
+        ]
+      },
+      "approach": {
+        "eyebrow": "// APPROACH",
+        "heading": "Perché l'autenticità batte la produzione pomposa",
+        "intro": "Nel 2026, gli algoritmi Meta e TikTok penalizzano i contenuti «pubblicitari». I contenuti che performano sono reali (persone vere, non modelli da stock), imperfetti (footage verticale da iPhone, non camera 4K cinematic), conversazionali (parlano direttamente con l'audience) e story-driven (benefici attraverso il contesto, non liste di feature).",
+        "points": [
+          {
+            "title": "Audit dei contenuti esistenti",
+            "body": "Vediamo cosa ha performato storicamente da te, cosa no, cosa possiamo replicare in modo scalabile."
+          },
+          {
+            "title": "Definizione dei content pillars",
+            "body": "3-4 pilastri tematici che coprono authority + community + conversion."
+          },
+          {
+            "title": "14-day production cycle",
+            "body": "Calendario su 2 settimane, produzione in batch, pianificazione costante."
+          },
+          {
+            "title": "Performance feedback loop",
+            "body": "Ogni 30 giorni valutiamo cosa funziona, aggiustiamo pillars/format/frequency."
+          }
+        ]
+      },
+      "deliverables": {
+        "eyebrow": "// DELIVERABLE",
+        "heading": "Cosa ricevi concretamente",
+        "items": [
+          {
+            "num": "01",
+            "title": "Strategy document iniziale",
+            "bullets": [
+              "Definizione dell'audience persona",
+              "Content pillars (3-4 temi)",
+              "Tone of voice guidelines",
+              "Competitor benchmark"
+            ]
+          },
+          {
+            "num": "02",
+            "title": "Content calendar 30 giorni",
+            "bullets": [
+              "Per piattaforma (Instagram, Facebook, TikTok, LinkedIn se applicabile)",
+              "Mix authority / community / conversion",
+              "Hook + caption + visual brief"
+            ]
+          },
+          {
+            "num": "03",
+            "title": "Content production",
+            "bullets": [
+              "Reels production (2-3/sett)",
+              "Carousels editoriali (1-2/sett)",
+              "Story templates riutilizzabili",
+              "UGC sourcing se applicabile"
+            ]
+          },
+          {
+            "num": "04",
+            "title": "Posting + community management",
+            "bullets": [
+              "Posting negli slot ottimali (data-driven)",
+              "Risposta ai commenti entro max 12h",
+              "DM management per i lead caldi",
+              "Crisis management se necessario"
+            ]
+          },
+          {
+            "num": "05",
+            "title": "Hashtag strategy + Reels optimization",
+            "bullets": [
+              "Hashtag stacks rotation",
+              "Trending sounds research",
+              "Reels hook optimization (regola dei 3 sec)"
+            ]
+          },
+          {
+            "num": "06",
+            "title": "Report mensile",
+            "bullets": [
+              "Follower netti + engagement rate",
+              "Top performing posts con analisi",
+              "La storia del mese + raccomandazioni"
+            ]
+          }
+        ]
+      },
+      "kpi": {
+        "eyebrow": "// KPI",
+        "heading": "Come misuriamo il successo",
+        "primaryTitle": "Primary",
+        "primary": [
+          "<strong>Engagement rate</strong> (lift rispetto al settore)",
+          "Profile visits + website clicks",
+          "Saves + shares (intent reali)",
+          "Conversioni attribuibili (via UTM + last-click)"
+        ],
+        "secondaryTitle": "Secondary",
+        "secondary": [
+          "Follower growth netto",
+          "Reach + impressions",
+          "Top performing content patterns"
+        ],
+        "avoidTitle": "NON monitoriamo come obiettivo finale",
+        "avoid": [
+          "Vanity followers count",
+          "Like totali (low intent signal)",
+          "Posting frequency per «esserci»"
+        ]
+      },
+      "caseStudy": {
+        "eyebrow": "// ESEMPIO CONCRETO",
+        "heading": "Come abbiamo fatto crescere Kokoro Brașov in organico",
+        "body": "Per l'Academia Kokoro Brașov, abbiamo costruito le fondamenta organiche in 90 giorni, senza un solo leu di Meta Ads:",
+        "metrics": [
+          "+595% impressions Instagram",
+          "+295% reach Instagram",
+          "+536% follower organici",
+          "+85% engagement Facebook"
+        ],
+        "outro": "La storia: 14-day content cycle basato su authority (lezioni tecniche + palmares di Adi Bogluț, campione mondiale) + community (bambini all'allenamento) + conversion (giveaway + sessioni demo).",
+        "linkLabel": "Vedi il case study completo",
+        "linkSlug": "academia-kokoro-rebrand"
+      },
+      "cta": {
+        "heading": "Vuole un audit gratuito della Sua presenza social?",
+        "body": "Analizziamo i Suoi account, individuiamo gap e opportunità. Raccomandazione onesta: è adatto al social organico oppure è meglio investire negli annunci a pagamento.",
+        "button": "Prenoti un audit social"
+      }
+    },
+    "webDev": {
+      "eyebrow": "// SERVIZIO 04",
+      "h1": "Web Development. Siti che vendono.",
+      "subHeadline": "Astro, WordPress e plugin custom. Costruiamo siti veloci, pensati per la conversione. Dalla landing page all'e-commerce custom — con una struttura che dura.",
+      "meta": {
+        "title": "Web Development — Astro, WordPress e plugin custom | Green Pheonix",
+        "description": "Siti veloci pensati per la conversione: Astro per la performance, WordPress per il content, plugin custom. Core Web Vitals 95+, SEO e AEO ready."
+      },
+      "forWho": {
+        "heading": "Per chi funziona",
+        "goodTitle": "Lavoriamo sul web development se:",
+        "good": [
+          "<strong>Vuoi un sito che produce business</strong>, non un portfolio decorativo",
+          "<strong>Capisci che la performance conta</strong> — i Core Web Vitals influenzano SEO e conversione direttamente",
+          "<strong>Vuoi una ownership reale</strong> — dominio intestato a te, hosting professionale, codice documentato",
+          "<strong>Hai un contesto di business chiaro</strong> — sai cosa vendi, a chi vendi, cosa deve fare il visitatore"
+        ],
+        "badTitle": "NON lavoriamo se:",
+        "bad": [
+          "Vuoi «un sito bello il più economico possibile» senza criteri di business",
+          "Rifiuti di investire in un hosting professionale (sotto i 25 EUR/mese = performance compromessa)",
+          "Ti aspetti che sia pronto in una settimana con uno scope non definito"
+        ]
+      },
+      "approach": {
+        "eyebrow": "// APPROACH",
+        "heading": "Perché scegliamo gli stack che usiamo",
+        "intro": "Non usiamo un solo framework «perché è quello che sappiamo fare». Scegliamo lo stack in funzione della tua esigenza concreta:",
+        "points": [
+          {
+            "title": "Astro 5 — siti statici, multilingue, ottimizzati per l'AI",
+            "body": "Performance massima (zero JS by default), Core Web Vitals 95+ di default, SEO e AEO/GEO ready (schema markup nativo), multilingual senza plugin esterni, hosting economico (Cloudflare, Netlify, Vercel). <strong>Usato per</strong>: marketing sites, landing pages, blog professionali."
+          },
+          {
+            "title": "WordPress — content management frequente",
+            "body": "E-commerce complesso tramite WooCommerce, blog multi-author con workflow editoriale, form e integrazioni CRM estese, plugin custom sviluppati da noi. <strong>Usato per</strong>: e-commerce, siti con aggiornamenti quotidiani, integrazioni di business complesse."
+          },
+          {
+            "title": "Plugin WordPress custom — funzionalità uniche",
+            "body": "Sviluppati da zero, non adattati da shelf. Codice documentato e mantenuto, admin panel proprio per il controllo non tecnico. <strong>Esempio reale</strong>: SBC Calculator per Lemet Stone (configurazione dei pezzi in pietra direttamente sul sito, preventivi automatici, documentazione tecnica per la produzione)."
+          }
+        ]
+      },
+      "deliverables": {
+        "eyebrow": "// DELIVERABLE",
+        "heading": "Cosa ricevi concretamente",
+        "items": [
+          {
+            "num": "01",
+            "title": "Discovery + Strategy",
+            "bullets": [
+              "Wireframe funzionali (NON template prefabbricati)",
+              "User flow mapping (chi arriva, cosa fa, dove converte)",
+              "Content audit (cosa hai, cosa va creato)"
+            ]
+          },
+          {
+            "num": "02",
+            "title": "Design system custom",
+            "bullets": [
+              "Palette colori adattata al brand",
+              "Typography rules (max 2 family fonts)",
+              "Components library riutilizzabile",
+              "Mobile-first responsive"
+            ]
+          },
+          {
+            "num": "03",
+            "title": "Development",
+            "bullets": [
+              "Codice scritto da zero (NON template di tema)",
+              "Component-based architecture",
+              "Performance budget: Lighthouse 95+ su tutte le pagine",
+              "Accessibility WCAG 2.1 AA compliant"
+            ]
+          },
+          {
+            "num": "04",
+            "title": "SEO + AEO/GEO Setup",
+            "bullets": [
+              "Schema markup completo (Organization, LocalBusiness, FAQPage, ecc.)",
+              "Open Graph + Twitter Cards ottimizzati",
+              "Sitemap XML + robots.txt configurati",
+              "llms.txt per gli AI search engines",
+              "hreflang se è multilingue"
+            ]
+          },
+          {
+            "num": "05",
+            "title": "Integrazioni",
+            "bullets": [
+              "Form con CRM/email marketing (Mailerlite, ActiveCampaign, Hubspot)",
+              "Analytics (GA4 + Microsoft Clarity per gli heatmap)",
+              "Pixel tracking (Meta, Google, TikTok)",
+              "Payment processors se applicabile (Stripe, Netopia, EuPlatesc)"
+            ]
+          },
+          {
+            "num": "06",
+            "title": "Hand-off + Training",
+            "bullets": [
+              "Documentazione tecnica completa",
+              "Video di training per l'admin panel (se WordPress)",
+              "Setup hosting consigliato (ti guidiamo nella sottoscrizione)",
+              "30 giorni di supporto post-lancio inclusi"
+            ]
+          }
+        ]
+      },
+      "kpi": {
+        "eyebrow": "// KPI",
+        "heading": "Come misuriamo il successo",
+        "primaryTitle": "Primary",
+        "primary": [
+          "<strong>Conversion rate</strong> (form completato / vendita / call booked)",
+          "Bounce rate (sotto il 50% landing, sotto il 60% blog)",
+          "Core Web Vitals scores (LCP, FID, CLS in «Good»)",
+          "Time to interactive (sotto i 3 sec)"
+        ],
+        "secondaryTitle": "Secondary",
+        "secondary": [
+          "Organic search traffic growth",
+          "Pages per session",
+          "Goal completions GA4"
+        ],
+        "avoidTitle": "NON monitoriamo come obiettivo finale",
+        "avoid": [
+          "«Quanto è bello esteticamente» (soggettivo, irrilevante per il business)",
+          "Page views totali senza contesto di conversione",
+          "Vanity awards (Awwwards, ecc.)"
+        ]
+      },
+      "caseStudy": {
+        "eyebrow": "// ESEMPIO CONCRETO",
+        "heading": "Plugin custom + WooCommerce — Lemet Stone",
+        "body": "Per Lemet Stone (Brașov, pietra naturale), abbiamo costruito un plugin WordPress custom che ha cambiato radicalmente il modo di vendere dell'azienda. <strong>Il problema</strong>: i clienti inviavano schizzi disegnati a penna per i preventivi. <strong>La soluzione</strong>: il plugin SBC Calculator con 4 moduli (countertops, caminetti, davanzali, scale) — gli utenti configurano i pezzi direttamente sul sito, ricevono preventivi istantanei, la documentazione tecnica arriva direttamente in produzione.",
+        "metrics": [
+          "0,46 RON Cost per Click",
+          "24.899 persone raggiunte in 18 giorni",
+          "855 visite alla landing a 0,87 RON",
+          "13,86 RON CPM (vs media 25-50)"
+        ],
+        "linkLabel": "Vedi il case study completo",
+        "linkSlug": "lemet-stone-plugin-marketing"
+      },
+      "cta": {
+        "heading": "Vuole parlare del Suo sito?",
+        "body": "Discovery call gratuita. Le diciamo onestamente se ha bisogno di un sito nuovo, di un refactor o solo di piccoli miglioramenti. Non vendiamo siti inutili.",
+        "button": "Prenoti una discovery call"
+      }
+    },
+    "strategyAudit": {
+      "eyebrow": "// SERVIZIO 05",
+      "h1": "Strategia e Audit. Prima dell'esecuzione.",
+      "subHeadline": "Discovery + audit dell'ecosistema + piano personalizzato. La differenza tra «agenzia che preme bottoni» e «agenzia che produce risultati» inizia qui.",
+      "meta": {
+        "title": "Strategia e Audit digitale | Green Pheonix",
+        "description": "Audit dell'ecosistema su 5 assi (sito, ads, organic, competizione, tracking), raccomandazioni ICE, roadmap 3-6-12 mesi. Discovery call gratuita."
+      },
+      "forWho": {
+        "heading": "Per chi funziona",
+        "goodTitle": "Strategy e Audit è adatto se:",
+        "good": [
+          "<strong>Vuole prendere decisioni basate sui dati</strong>, non su intuizioni o pressione di vendita",
+          "<strong>È stanco delle proposte generiche</strong> ricevute da altre agenzie (lo stesso template, solo con il logo cambiato)",
+          "<strong>Ha un budget che vuole investire con criterio</strong> — non disperderlo su canali che non funzionano",
+          "<strong>Gestisce un'azienda seria</strong> che merita un'analisi professionale, non tirare a indovinare"
+        ],
+        "badTitle": "NON è adatto se:",
+        "bad": [
+          "Vuole solo una conferma per una decisione già presa («mi dica che ho ragione»)",
+          "Rifiuta di ascoltare un feedback duro («ma la concorrenza fa X, perché non anch'io»)",
+          "Si aspetta una «strategia» in 30 minuti (un'analisi seria richiede 1-2 settimane)"
+        ]
+      },
+      "approach": {
+        "eyebrow": "// APPROACH",
+        "heading": "Cosa facciamo di diverso dalle altre agenzie",
+        "intro": "Gli audit generici che riceve sono per lo più content template + screenshot di Lighthouse. NON è questo che facciamo noi.",
+        "points": [
+          {
+            "title": "Discovery call approfondita",
+            "body": "60-90 min, non 30 — domande che smontano le presunzioni, non confermano ciò che vuole sentirsi dire."
+          },
+          {
+            "title": "Audit su 5 assi paralleli",
+            "body": "Sito, Ads, Organic, Competition, Tracking. Ognuno con una metodologia chiara."
+          },
+          {
+            "title": "Sintesi strategica",
+            "body": "Non una lista generica di «issues to fix», ma una prioritizzazione basata sull'ICE framework (Impact × Confidence × Ease)."
+          },
+          {
+            "title": "Roadmap personalizzata",
+            "body": "Piano a 3-6-12 mesi con milestone concrete, non «faremo marketing digitale»."
+          },
+          {
+            "title": "Decision criteria documentati",
+            "body": "Cosa deve essere vero per proseguire nella direzione X, quali segnali ci fanno pivotare."
+          }
+        ]
+      },
+      "deliverables": {
+        "eyebrow": "// DELIVERABLE",
+        "heading": "Cosa riceve concretamente",
+        "items": [
+          {
+            "num": "01",
+            "title": "Discovery document",
+            "bullets": [
+              "Sintesi della conversazione: cosa vuole, cosa ha, cosa La blocca",
+              "Ipotesi iniziali (testabili, non parole vuote)",
+              "Constraints (budget, timeline, risorse)"
+            ]
+          },
+          {
+            "num": "02",
+            "title": "Audit dell'ecosistema completo (10-20 pagine)",
+            "bullets": [
+              "<strong>Sito</strong>: performance, SEO on-page + technical, UX/CRO, accessibility, AEO/GEO readiness",
+              "<strong>Ads</strong>: struttura degli account Meta + Google, audience strategy, creative inventory, tracking quality, budget allocation",
+              "<strong>Organic</strong>: social media, engagement vs benchmarks, content consistency, Google My Business + reviews",
+              "<strong>Competition</strong>: 3-5 competitor, ad spend visibility (Meta Ad Library), organic positioning, gaps",
+              "<strong>Tracking</strong>: GA4 verification, data quality dei pixel, Conversions API status, GDPR compliance"
+            ]
+          },
+          {
+            "num": "03",
+            "title": "Raccomandazioni prioritizzate (ICE framework)",
+            "bullets": [
+              "Quick wins (high impact, low effort) — 5-10 azioni",
+              "Strategic moves (high impact, moderate effort) — 3-5 iniziative",
+              "Long-term plays (high impact, high effort) — 1-2 direttive"
+            ]
+          },
+          {
+            "num": "04",
+            "title": "Roadmap 3-6-12 mesi",
+            "bullets": [
+              "Milestone concrete con KPI",
+              "Budget consigliato per canale",
+              "Risk factors + mitigation strategies",
+              "Decision points chiari (quando valutiamo, quando pivotiamo)"
+            ]
+          },
+          {
+            "num": "05",
+            "title": "Strategy session live (90 min)",
+            "bullets": [
+              "Walk-through del documento",
+              "Domande da parte Sua, risposte argomentate",
+              "Adjustment sulla base delle Sue priorità"
+            ]
+          }
+        ]
+      },
+      "kpi": {
+        "eyebrow": "// KPI",
+        "heading": "Come misuriamo il successo",
+        "intro": "Audit/Strategy non produce direttamente revenue — produce decisioni informate. La misurazione del successo:",
+        "primaryTitle": "Criteri di qualità dell'audit",
+        "primary": [
+          "Individua almeno 3 opportunità che prima non vedeva",
+          "Capisce perché un canale X funziona/non funziona (non solo CHE funziona)",
+          "Ha una roadmap chiara a 6 mesi con decision points"
+        ],
+        "secondaryTitle": "ROI a lungo termine",
+        "secondary": [
+          "Decisioni finanziarie informate (dove investi, dove tagli)",
+          "Evitare gli errori costosi (campagne mal concepite, sito rifatto 3 volte)",
+          "Maggiore velocity di esecuzione"
+        ],
+        "avoidTitle": "Cosa NON è",
+        "avoid": [
+          "Una conferma per una decisione già presa",
+          "Un template generico con il logo cambiato",
+          "Una «strategia» consegnata in 30 minuti"
+        ]
+      },
+      "format": {
+        "eyebrow": "// FORMAT",
+        "heading": "Come si attiva",
+        "paragraphs": [
+          "<strong>Discovery call (30 min) — gratuita.</strong> Ascoltiamo prima, valutiamo se siamo adatti.",
+          "<strong>Audit standalone</strong> — progetto puntuale. Documento completo, deliverable concreti, senza obbligo di prosecuzione.",
+          "<strong>Audit gratuito se lavoriamo insieme dopo.</strong> Se firma un contratto per l'implementazione successiva, l'audit è incluso.",
+          "Non pubblichiamo il prezzo perché dipende dallo scope: un audit Meta Ads semplice ≠ un audit dell'ecosistema completo su 5 assi; una discovery di 60 min ≠ un workshop strategico di 2 giorni. Ne parliamo nella discovery call. Le diciamo onestamente quanto costa per il Suo caso concreto."
+        ]
+      },
+      "cta": {
+        "heading": "Vuole iniziare con un audit?",
+        "body": "Discovery call gratuita, 30 minuti. Ci racconta il Suo contesto, Le diciamo cosa faremmo e quanto durerebbe.",
+        "button": "Prenoti una discovery"
+      }
+    },
+    "contentProduction": {
+      "eyebrow": "// SERVIZIO 06",
+      "h1": "Content Production. Contenuti che performano.",
+      "subHeadline": "Reels, UGC, carousels, fotografia di prodotto. Produciamo contenuti autentici che funzionano sugli algoritmi moderni — non video pomposi che nessuno guarda.",
+      "meta": {
+        "title": "Content Production — Reels, UGC e carousels | Green Pheonix",
+        "description": "Contenuti autentici che performano sugli algoritmi moderni: Reels, TikToks, carousels, UGC sourcing, fotografia di prodotto. Production in-house, senza stock."
+      },
+      "forWho": {
+        "heading": "Per chi funziona",
+        "goodTitle": "La content production è adatta se:",
+        "good": [
+          "<strong>Vuoi contenuti con personalità</strong>, non generici da stock",
+          "<strong>Sei disposto ad apparire davanti alla camera</strong> (o hai qualcuno nel team) — l'autenticità batte la produzione",
+          "<strong>Capisci che il processo è iterativo</strong> — i primi Reels non avranno 1M di views",
+          "<strong>Hai un prodotto/servizio con una storyline</strong> che merita di essere raccontata"
+        ],
+        "badTitle": "NON è adatto se:",
+        "bad": [
+          "Vuoi restare 100% anonimo (i faceless brand hanno poche chance di vincere su TikTok e Reels)",
+          "Ti aspetti «viral content guaranteed» — queste promesse sono sempre false",
+          "Rifiuti di esporre il tuo prodotto reale (l'UGC funziona solo con un prodotto reale)"
+        ]
+      },
+      "approach": {
+        "eyebrow": "// APPROACH",
+        "heading": "Perché il content da agenzia classico non funziona nel 2026",
+        "intro": "Gli algoritmi Meta e TikTok rilevano il «content pubblicitario» attraverso: cinematic camera angles, stock music generica, color grading esagerato, voice-over senza personalità, branding heavy, production value evidentemente «agency-made». Il contenuto che vince è footage verticale da iPhone, hook nei primi 3 secondi, story-driven, person-led, music trending platform-native, voice-over casual.",
+        "points": [
+          {
+            "body": "Questo non significa «trascurato» — significa «polished nella direzione giusta». Produciamo con criterio, ottimizziamo per la piattaforma, non per il reel showcase."
+          }
+        ]
+      },
+      "deliverables": {
+        "eyebrow": "// DELIVERABLE",
+        "heading": "Cosa produciamo concretamente",
+        "items": [
+          {
+            "num": "01",
+            "title": "Reels (Instagram + Facebook)",
+            "bullets": [
+              "8-15 secondi, ottimale per l'engagement",
+              "Hook nei primi 3 secondi",
+              "Captions burned-in (ottimizzazione audio off)",
+              "Verticale 9:16, music trending platform-native",
+              "Production: 4-8 Reels/mese standard"
+            ]
+          },
+          {
+            "num": "02",
+            "title": "TikToks",
+            "bullets": [
+              "Formato nativo TikTok (NON repost diretto dai Reels)",
+              "Trends research settimanale",
+              "Sounds research per l'hook",
+              "Duet/stitch opportunities",
+              "Production: 6-12 TikToks/mese standard"
+            ]
+          },
+          {
+            "num": "03",
+            "title": "Carousels editoriali",
+            "bullets": [
+              "5-10 slide su un topic specifico",
+              "Hook forte sul primo slide",
+              "Save-worthy content (educativo, tips, frameworks)",
+              "Branded in modo sottile, non overwhelming",
+              "Production: 4-6 carousels/mese"
+            ]
+          },
+          {
+            "num": "04",
+            "title": "UGC sourcing e coaching",
+            "bullets": [
+              "Reclutamento di creators rilevanti per la tua nicchia",
+              "Brief dettagliati, NON «fai come vuoi»",
+              "Coaching su hook + storyline",
+              "Review + feedback iterativo",
+              "Production: 2-4 UGC/mese a seconda del budget"
+            ]
+          },
+          {
+            "num": "05",
+            "title": "Fotografia di prodotto (se applicabile)",
+            "bullets": [
+              "In-studio se hai un prodotto fisico",
+              "Lifestyle photography per il lookbook",
+              "Detail shots per l'e-commerce",
+              "Mockups per le landing pages"
+            ]
+          },
+          {
+            "num": "06",
+            "title": "Strategy e coaching",
+            "bullets": [
+              "Definizione dei content pillars",
+              "Hook frameworks documentati",
+              "Voice & tone guide per la consistency",
+              "Coaching per te o per il tuo team"
+            ]
+          }
+        ]
+      },
+      "kpi": {
+        "eyebrow": "// KPI",
+        "heading": "Come misuriamo il successo",
+        "primaryTitle": "Primary",
+        "primary": [
+          "Reach + impressions per post (vs baseline dell'account)",
+          "<strong>Engagement rate</strong> (lift rispetto al benchmark)",
+          "Saves + shares (intent signal reale)",
+          "Profile visits + website clicks (attribuibili)"
+        ],
+        "secondaryTitle": "Secondary",
+        "secondary": [
+          "Follower organici netti",
+          "Reels plays + completion rate",
+          "Comment quality (depth signal)"
+        ],
+        "avoidTitle": "NON monitoriamo come obiettivo finale",
+        "avoid": [
+          "Il video «virale» singolo (effimero, irripetibile)",
+          "Like totali (low intent signal)",
+          "Production polish di per sé («funziona» > «sembra cinematic»)"
+        ]
+      },
+      "caseStudy": {
+        "eyebrow": "// ESEMPIO CONCRETO",
+        "heading": "Come abbiamo fatto crescere Kokoro in organico con content autentico",
+        "body": "Per l'Academia Kokoro Brașov, la content production è stata il motore della crescita organica. 14-day production cycle con un mix authority + community + conversion:",
+        "metrics": [
+          "+595% impressions Instagram in 90 giorni",
+          "+295% reach — tutto organico",
+          "+536% follower netti",
+          "Top Reel: Adi Bogluț, 4.032 reach organico"
+        ],
+        "outro": "Non abbiamo speso un solo leu di Meta Ads su Kokoro. Solo content che andava prodotto.",
+        "linkLabel": "Vedi il case study completo",
+        "linkSlug": "academia-kokoro-rebrand"
+      },
+      "cta": {
+        "heading": "Vuole parlare di content strategy per il Suo brand?",
+        "body": "Discovery call gratuita. Guardiamo i Suoi contenuti esistenti, cosa fa la concorrenza, cosa potrebbe fare in modo diverso per performare sugli algoritmi moderni.",
+        "button": "Prenoti una discovery"
+      }
+    }
   },
   "trustBar": {
     "header": "HANNO LAVORATO CON NOI",
@@ -154,12 +1121,32 @@
     "header": "DOMANDE FREQUENTI",
     "items": [
       {
-        "question": "Qual è il budget minimo consigliato per le ads?",
-        "answer": "Dipende dal settore e dagli obiettivi. In generale consigliamo almeno 1.500€/mese di media + fee agenzia, perché gli algoritmi escano dalla fase di learning. Sotto questa soglia lavoriamo prima su offerta, sito e tracking."
+        "question": "Qual è il budget minimo per lavorare con voi?",
+        "answer": "Non pubblichiamo prezzi perché ogni situazione è diversa — un bar che vuole i primi 50 clienti al mese ha bisogno di un investimento diverso rispetto a un brand che vuole entrare a livello regionale. Prima di «quanto costa», noi chiediamo: cosa vende, a chi vende, cosa ha provato, cosa funziona, dove vuole arrivare. Il budget esce dalle risposte. Se ciò che vuole ottenere non si concilia con ciò che può investire, glielo diciamo direttamente — non Le prendiamo soldi per una campagna che non può dare risultati."
       },
       {
-        "question": "In quanto tempo arrivano i risultati?",
-        "answer": "Primi segnali entro 48–72h dal lancio. L'ottimizzazione reale si vede in 2–4 settimane, dopo aver raccolto dati sufficienti."
+        "question": "Quanto ci vuole prima di ricevere il sito?",
+        "answer": "Landing page di conversione: 7-14 giorni lavorativi dopo aver ricevuto i contenuti. Sito completo (5-8 pagine, blog, integrazioni): 3-5 settimane. E-commerce custom o plugin dedicato: 4-8 settimane. Il tempo reale dipende dalla velocità di feedback da parte Sua. Lavoriamo per iterazioni settimanali — riceve un prototipo, ci dà feedback, aggiustiamo. Senza un cliente coinvolto, nessun sito si conclude in tempo."
+      },
+      {
+        "question": "Qual è il workflow per lavorare insieme?",
+        "answer": "In 5 passi: 1. Discovery call (30 min, gratuita). 2. Audit (3-5 giorni, gratuito se lavoriamo insieme dopo). 3. Proposta strategica (5-7 giorni). 4. Implementazione (durata variabile, milestone settimanali). 5. Ottimizzazione e reporting (report mensile con analisi, NON dashboard automatica). Paga quando e se firma il contratto."
+      },
+      {
+        "question": "Perché non addebitate una manutenzione mensile per i siti?",
+        "answer": "Perché gli abbonamenti di manutenzione fissa sono il più delle volte soldi buttati. Un sito ben costruito su uno stack moderno non ha bisogno di «manutenzione mensile» — non si rompe da solo. Lavoriamo diversamente: il sito viene consegnato funzionante, sicuro, documentato. Quando ha bisogno di modifiche, addebitiamo solo il lavoro effettivo. Paga ciò che riceve, non un abbonamento permanente."
+      },
+      {
+        "question": "Quali sono i costi nascosti di un sito?",
+        "answer": "Non esistono lavorando con noi — riceve un'offerta con tutto ciò che rientra nel prezzo, chiaro per voci. In generale, attenzione a: hosting inadatto (200-500 RON/mese retail vs ~25 EUR/mese professionale), dominio nascosto presso lo sviluppatore (lo verifichi a Suo nome), plugin premium pagati annualmente (60-300 EUR/anno ciascuno), piccole modifiche che arrivano a centinaia di euro senza una struttura chiara, SSL a pagamento (è gratis con Let's Encrypt — se qualcuno Le chiede 200 RON/anno, scappi)."
+      },
+      {
+        "question": "Posso lavorare con voi se gestisco già campagne su un altro account?",
+        "answer": "Sì. Anzi, è la situazione ideale — abbiamo un punto di partenza reale. Il processo: 1. Accesso «Analyst» (read-only) agli account Meta/Google/TikTok. 2. Audit di 3-5 giorni (gratuito se lavoriamo insieme dopo). 3. Decide se trasferire il management o se lavorare in modo complementare. NON facciamo trash-talking sul lavoro precedente. A volte è buono, a volte no. Diciamo onestamente ciò che vediamo."
+      },
+      {
+        "question": "Se i risultati non si vedono nelle prime settimane, c'è qualcosa che non va?",
+        "answer": "Non necessariamente — ed è esattamente il tipo di domanda che va posta onestamente prima di firmare. Gli algoritmi Meta e Google hanno bisogno di minimo 14-21 giorni per uscire dalla fase di apprendimento. Nelle prime 4 settimane valutiamo se la direzione è corretta (costo per lead in calo, qualità dei lead in crescita). L'ottimizzazione reale arriva nei mesi 2-3. L'unica situazione in cui Le diciamo onestamente «non siamo sulla strada giusta»: i numeri sono MOLTO sotto i benchmark e non vediamo come recuperare. In quel caso preferiamo rescindere il contratto piuttosto che consumare il Suo budget."
       }
     ]
   },
@@ -284,6 +1271,100 @@
       "title": "Strategia prima dell'esecuzione",
       "body": "Le buone campagne si pensano. Non si improvvisano. Rifiutiamo i contratti in cui salteremmo l’audit.",
       "link": "Vedi il processo"
+    }
+  },
+  "process": {
+    "meta": {
+      "title": "Come lavoriamo — Il processo in 5 passi | Green Pheonix",
+      "description": "Il nostro processo in 5 passi: discovery, audit, proposta strategica, implementazione, ottimizzazione. Disciplina che ripaga, senza sorprese."
+    },
+    "h1": "Come lavoriamo. 5 passi, senza sorprese.",
+    "subHeadline": "Il nostro processo non è una decorazione da sito. È il meccanismo che ci permette di rifiutare i progetti sbagliati e di consegnare bene quelli accettati.",
+    "intro": {
+      "eyebrow": "// FILOSOFIA",
+      "heading": "Perché abbiamo un processo rigoroso",
+      "p1": "La maggior parte delle agenzie avvia l'esecuzione nella settimana 1 dopo la firma. Noi avviamo il <em>pensiero</em> nella settimana 1. È una differenza fondamentale.",
+      "p2": "Un processo solido La protegge da due rischi reali:",
+      "risks": [
+        "Pagare per l'esecuzione su una strategia sbagliata (campagne che non funzionano per il Suo prodotto, un sito bello che non vende)",
+        "Non poter misurare cosa è successo (il tracking non è stato pensato dall'inizio, KPI non definiti, non sa cosa ottimizzare)"
+      ],
+      "p3": "Il nostro processo risolve entrambi i problemi. Non è burocrazia — è disciplina che ripaga."
+    },
+    "steps": [
+      {
+        "num": "01",
+        "heading": "Ascoltiamo prima di consigliare",
+        "duration": "30 minuti",
+        "cost": "Gratuito",
+        "body": "Il primo contatto è una conversazione semplice, non una presentazione di vendita. Le chiediamo: Cosa ha costruito finora? Dove vuole arrivare in 6-12 mesi? Cosa ha provato? Cosa ha funzionato, cosa no? Che budget, timeline e team ha? Noi Le diciamo se siamo adatti o no. Se non lo siamo, Le consigliamo chi cercare. Se lo siamo, passiamo al passo 2.",
+        "deliverTitle": "Cosa riceve",
+        "deliver": [
+          "Una conversazione onesta senza pitch",
+          "Una raccomandazione chiara: siamo adatti / non siamo adatti",
+          "Email di follow-up con un riepilogo"
+        ]
+      },
+      {
+        "num": "02",
+        "heading": "Analizziamo ciò che c'è, non presupponiamo",
+        "duration": "3-5 giorni",
+        "cost": "Gratuito se lavoriamo insieme dopo",
+        "body": "Prima di qualsiasi proposta, guardiamo con attenzione tutto il Suo ecosistema digitale. NON presupponiamo nulla. Analizziamo: il sito (performance, UX, SEO, conversione), gli account ads esistenti (campagne, audience, creative, tracking), la presenza organica (social media, Google My Business, recensioni), la concorrenza diretta (3-5 competitor), il tracking (pixel, conversioni, attribuzione).",
+        "deliverTitle": "Cosa riceve",
+        "deliver": [
+          "Un documento di audit di 10-20 pagine con osservazioni concrete",
+          "Una lista di problemi prioritizzati (high impact / low effort first)",
+          "3-5 raccomandazioni tattiche che può implementare da solo",
+          "Nota: l'audit è separato dalla proposta. Se non lavoriamo insieme, il documento resta Suo."
+        ]
+      },
+      {
+        "num": "03",
+        "heading": "Un piano concreto, non poesie",
+        "duration": "5-7 giorni",
+        "cost": "Incluso se firma",
+        "body": "Sulla base dell'audit costruiamo un piano personalizzato. NON usiamo template generici. Contiene: obiettivi misurabili a 3-6 mesi (numeri concreti), strategia (quali canali, in che ordine, con quale ragionamento), KPI per ogni canale, deliverable dettagliati per milestone, una timeline realistica, un budget chiaro per voci, un punto di decisione sul ROI.",
+        "deliverTitle": "Cosa facciamo insieme",
+        "deliver": [
+          "1-2 sessioni di revisione",
+          "Aggiustiamo sulla base del feedback",
+          "Negoziamo onestamente dove emergono discrepanze",
+          "Paga quando e se firma. La proposta resta Sua a prescindere dalla decisione."
+        ]
+      },
+      {
+        "num": "04",
+        "heading": "Esecuzione per milestone, senza sorprese",
+        "duration": "Variabile",
+        "cost": "Secondo contratto",
+        "body": "Qui si vede se l'agenzia regge. Noi lavoriamo in modo trasparente — vede in tempo reale cosa facciamo. Come lavoriamo ogni giorno: canale di comunicazione a Sua scelta (Slack/WhatsApp/email), risposta entro max 24h nei giorni lavorativi, milestone settimanali, accesso continuo agli account (Editor role), documentazione live (Notion shared).",
+        "deliverTitle": "Cosa NON facciamo",
+        "deliver": [
+          "Dashboard auto-generate senza analisi",
+          "Invocare «l'algoritmo» come scusa",
+          "Cambiare la strategia ogni 2 settimane",
+          "Scope creep non approvato"
+        ]
+      },
+      {
+        "num": "05",
+        "heading": "Riportiamo ciò che conta, non ciò che fa bella figura",
+        "duration": "Mensile",
+        "cost": "Incluso nel retainer",
+        "body": "Il nostro reporting non è una dashboard automatica. È un'analisi personale con contesto e raccomandazioni. Cosa riceve ogni mese: cifre grezze (metriche rilevanti, non vanity), tendenze (mese su mese), la storia (cosa è successo, perché, cosa significa), win e loss (onestà), raccomandazioni (3-5 azioni concrete per il mese successivo).",
+        "deliverTitle": "Ritmo",
+        "deliver": [
+          "Report scritto entro il giorno 5 del mese",
+          "Sync mensile su Zoom 30-60 min",
+          "Quarterly review con strategy reset se necessario"
+        ]
+      }
+    ],
+    "cta": {
+      "heading": "Pronto a iniziare con il passo 1?",
+      "body": "Discovery call di 30 minuti. Niente pitch, niente pressione. Solo una conversazione onesta su ciò che sta cercando di costruire.",
+      "button": "Prenoti una discovery call"
     }
   }
 }

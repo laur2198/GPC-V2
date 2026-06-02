@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import ServiceDetail from '../../../components/ServiceDetail.astro';
+import { type Locale, t, localizedPath } from '../../../utils/i18n';
+
+const locale: Locale = 'it';
+const meta = t<{ title: string; description: string }>(locale, 'services.strategyAudit.meta');
+
+const breadcrumbs = [
+  { name: 'Servizi', href: localizedPath(locale, '/servicii') },
+  { name: "Strategia & Audit", href: localizedPath(locale, '/servicii/strategie-audit') },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': 'https://greenpheonixconcept.com/it/servicii/strategie-audit#service',
+  name: "Strategia & Audit — Diagnosi Digitale Completa",
+  provider: { '@id': 'https://greenpheonixconcept.com/#organization' },
+  serviceType: "Marketing Consulting",
+  category: "Business Consulting",
+  description: meta.description,
+  areaServed: [
+    { '@type': 'Country', name: 'Romania' },
+    { '@type': 'Country', name: 'Italy' },
+  ],
+  audience: {
+    '@type': 'BusinessAudience',
+    audienceType: 'Small and medium businesses',
+  },
+  offers: {
+    '@type': 'Offer',
+    availability: 'https://schema.org/InStock',
+    priceCurrency: 'EUR',
+    priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'EUR' },
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: "Strategie & Audit Services",
+    itemListElement: ["Audit ecosistem pe 5 axe","Recomandări prioritizate ICE","Roadmap 3-6-12 luni","Strategy session live"].map((n) => ({
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Service', name: n },
+    })),
+  },
+};
+---
+
+<BaseLayout title={meta.title} description={meta.description} locale={locale} breadcrumbs={breadcrumbs} jsonLd={[serviceSchema]}>
+  <Breadcrumbs locale={locale} items={breadcrumbs} />
+  <ServiceDetail locale={locale} service="strategyAudit" />
+</BaseLayout>

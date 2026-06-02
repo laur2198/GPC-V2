@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import CTA from '../../../components/CTA.astro';
+import HandDrawnAnnotation from '../../../components/HandDrawnAnnotation.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { localizedPath } from '../../../utils/i18n';
 
@@ -20,19 +22,103 @@ interface Props {
 }
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+const d = entry.data;
+const cleanSlug = entry.slug.replace(/-it$/, '');
 
-const description = entry.data.anonymized
-  ? `${entry.data.industry} · ${entry.data.duration} · ${entry.data.services.join(', ')}`
-  : `${entry.data.client} · ${entry.data.industry} · ${entry.data.duration}`;
+// heroMetric falls back to the legacy results[0]; secondaryMetrics to results[1..].
+const heroMetric =
+  d.heroMetric ?? (d.results[0] ? { value: d.results[0].value, label: d.results[0].metric } : undefined);
+const secondaryMetrics =
+  d.secondaryMetrics ??
+  (d.results.length > 1 ? d.results.slice(1).map((r) => ({ value: r.value, label: r.metric })) : []);
+
+const heroImage = d.images?.hero ?? d.heroImage;
+const period = d.period ?? d.duration;
+
+// Hand-drawn marginalia next to the hero metric, keyed by slug.
+const annotationMap: Record<string, { type: 'circle' | 'underline' | 'arrow'; position: 'right' | 'below'; text: string }> = {
+  'lemet-stone-plugin-marketing': { type: 'circle', position: 'right', text: 'sub media' },
+  'academia-kokoro-rebrand': { type: 'underline', position: 'below', text: 'fără ads' },
+};
+const annotation = annotationMap[cleanSlug];
+
+// Image gallery: every non-hero image, with alt + caption from imageMeta.
+const meta = d.imageMeta ?? {};
+const fallbackLabels: Record<string, string> = {
+  plugin: 'Plugin demo',
+  showroom: 'Showroom',
+  adi: 'Adi Bogluț',
+  sensei: 'Sensei',
+  beforeAfter: 'Before / After',
+  logo: 'Logo',
+};
+const galleryImages = d.images
+  ? Object.entries(d.images)
+      .filter(([key, src]) => key !== 'hero' && Boolean(src))
+      .map(([key, src]) => ({
+        key,
+        src: src as string,
+        alt: meta[key]?.alt ?? fallbackLabels[key] ?? key,
+        caption: meta[key]?.caption ?? fallbackLabels[key] ?? key,
+        // "feature" images get a wider editorial slot.
+        feature: ['adi', 'sensei', 'showroom', 'product'].includes(key),
+        logo: key === 'logo',
+      }))
+  : [];
+const featureImages = galleryImages.filter((g) => g.feature && !g.logo);
+const tileImages = galleryImages.filter((g) => !g.feature && !g.logo);
+const logoImage = galleryImages.find((g) => g.logo);
+
+const testimonialPending = d.testimonial
+  ? /în curs de confirmare/i.test(d.testimonial.quote)
+  : false;
+
+const description = d.anonymized
+  ? `${d.industry}${period ? ` · ${period}` : ''} · ${d.services.join(', ')}`
+  : `${d.client} · ${d.industry}${period ? ` · ${period}` : ''}`;
+
+const SITE = 'https://greenpheonixconcept.com';
+const published = d.publishDate ? new Date(d.publishDate).toISOString().slice(0, 10) : undefined;
+
+const breadcrumbs = [
+  { name: 'Portfolio', href: localizedPath('it', '/portofoliu') },
+  { name: d.client, href: localizedPath('it', `/portofoliu/${cleanSlug}`) },
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  '@id': `${SITE}/it/portofoliu/${cleanSlug}#article`,
+  inLanguage: 'it',
+  headline: d.title,
+  description,
+  author: { '@id': `${SITE}/despre#person` },
+  publisher: { '@id': `${SITE}/#organization` },
+  ...(published ? { datePublished: published, dateModified: published } : {}),
+  ...(heroImage ? { image: [`${SITE}${heroImage}`] } : {}),
+  about: [
+    {
+      '@type': 'Organization',
+      name: d.client,
+      ...(d.website ? { url: `https://${d.website}` } : {}),
+    },
+  ],
+  keywords: d.services.join(', '),
+};
 ---
 
 <BaseLayout
-  title={`${entry.data.title} — Case Study | Green Phoenix`}
+  title={`${d.title} — Caso studio | Green Pheonix`}
   description={description}
   locale="it"
-  image={entry.data.heroImage}
+  image={heroImage}
+  ogType="article"
+  breadcrumbs={breadcrumbs}
+  jsonLd={[articleSchema]}
 >
+  <Breadcrumbs locale="it" items={breadcrumbs} />
   <article>
+    <!-- Hero -->
     <header class="relative overflow-hidden border-b border-gpc-border bg-gpc-white">
       <div class="scanline pointer-events-none absolute inset-0" aria-hidden="true"></div>
       <div class="relative mx-auto max-w-5xl px-6 py-16 lg:py-24">
@@ -40,32 +126,59 @@ const description = entry.data.anonymized
           ← Torna al portfolio
         </a>
         <p class="mt-8 inline-block border border-gpc-green/40 bg-gpc-green/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gpc-green">
-          {entry.data.industry}
+          {d.industry}
         </p>
-        <h1 class="mt-5 max-w-4xl font-display text-4xl leading-tight md:text-5xl lg:text-6xl">
-          <span class="glow-green">{entry.data.title}</span>
+        <h1 class="mt-5 max-w-4xl hero-heavy font-display text-4xl md:text-5xl lg:text-6xl">
+          <span class="glow-green">{d.title}</span>
         </h1>
         <p class="mt-6 font-mono text-sm uppercase tracking-widest text-gpc-ink/70">
-          {entry.data.anonymized ? 'Cliente anonimizzato' : entry.data.client} · Durata: {entry.data.duration}
+          {d.anonymized ? 'Cliente anonimizzato' : d.client}{d.location ? ` · ${d.location}` : ''}{period ? ` · ${period}` : ''}
         </p>
 
-        {entry.data.heroImage && (
+        {heroMetric && (
+          <div class="reveal mt-12">
+            <div class="relative inline-block font-display leading-none text-gpc-green" style="font-size: clamp(3rem, 8vw, 7rem); font-weight: 700;">
+              {heroMetric.value}
+              {annotation && (
+                <HandDrawnAnnotation type={annotation.type} position={annotation.position} text={annotation.text} />
+              )}
+            </div>
+            <p class="mt-3 font-sans text-sm uppercase tracking-[0.2em] text-gpc-text-secondary">
+              {heroMetric.label}
+            </p>
+            {heroMetric.context && (
+              <p class="mt-1 font-sans text-xs italic text-gpc-text-secondary/80">{heroMetric.context}</p>
+            )}
+          </div>
+        )}
+
+        {heroImage && (
           <div class="mt-10 overflow-hidden border border-gpc-border">
-            <img src={entry.data.heroImage} alt={entry.data.title} loading="eager" fetchpriority="high" class="aspect-[16/8] w-full object-cover" />
+            <img
+              src={heroImage}
+              alt={d.imageAlt ?? d.title}
+              loading="eager"
+              fetchpriority="high"
+              class="aspect-[16/8] w-full object-cover"
+            />
           </div>
         )}
       </div>
     </header>
 
-    {entry.data.results.length > 0 && (
+    <!-- Secondary metrics grid -->
+    {secondaryMetrics.length > 0 && (
       <section class="border-b border-gpc-border bg-gpc-card/10">
         <div class="mx-auto max-w-5xl px-6 py-14">
           <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// RISULTATI</p>
-          <div class="mt-6 grid gap-4 md:grid-cols-3">
-            {entry.data.results.map((r) => (
-              <div class="border border-gpc-border bg-gpc-card/40 p-6">
-                <div class="font-display text-4xl glow-green">{r.value}</div>
-                <div class="mt-2 font-mono text-xs uppercase tracking-widest text-gpc-ink/70">{r.metric}</div>
+          <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {secondaryMetrics.map((m) => (
+              <div class="reveal border border-gpc-border bg-gpc-card/40 p-6 transition-colors duration-300 hover:border-gpc-green">
+                <div class="font-display text-[2.5rem] leading-none text-gpc-green">{m.value}</div>
+                <div class="mt-2 font-mono text-xs uppercase tracking-widest text-gpc-ink/70">{m.label}</div>
+                {m.context && (
+                  <div class="mt-2 font-sans text-[0.7rem] italic leading-snug text-gpc-text-secondary/80">{m.context}</div>
+                )}
               </div>
             ))}
           </div>
@@ -73,6 +186,7 @@ const description = entry.data.anonymized
       </section>
     )}
 
+    <!-- Body grid: services sidebar + markdown content -->
     <section class="border-b border-gpc-border bg-gpc-white">
       <div class="mx-auto grid max-w-5xl gap-12 px-6 py-16 lg:grid-cols-12">
         <aside class="lg:col-span-4">
@@ -80,32 +194,172 @@ const description = entry.data.anonymized
             <div class="border border-gpc-border bg-gpc-card/30 p-5">
               <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// SERVIZI</p>
               <ul class="mt-4 space-y-2 font-mono text-sm">
-                {entry.data.services.map((s) => (
-                  <li class="flex gap-2 text-gpc-ink/80"><span class="text-gpc-green">✓</span><span>{s}</span></li>
+                {d.services.map((s) => (
+                  <li class="flex gap-2 text-gpc-ink/80">
+                    <span class="text-gpc-green">✓</span>
+                    <span>{s}</span>
+                  </li>
                 ))}
               </ul>
             </div>
             <div class="border border-gpc-border bg-gpc-card/30 p-5">
               <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// DETTAGLI</p>
               <dl class="mt-4 space-y-3 font-mono text-sm">
-                <div><dt class="text-gpc-ink/60">Settore</dt><dd class="text-gpc-ink">{entry.data.industry}</dd></div>
-                <div><dt class="text-gpc-ink/60">Durata</dt><dd class="text-gpc-ink">{entry.data.duration}</dd></div>
-                <div><dt class="text-gpc-ink/60">Cliente</dt><dd class="text-gpc-ink">{entry.data.anonymized ? 'Anonimizzato' : entry.data.client}</dd></div>
+                <div>
+                  <dt class="text-gpc-ink/60">Settore</dt>
+                  <dd class="text-gpc-ink">{d.industry}</dd>
+                </div>
+                {d.location && (
+                  <div>
+                    <dt class="text-gpc-ink/60">Località</dt>
+                    <dd class="text-gpc-ink">{d.location}</dd>
+                  </div>
+                )}
+                {period && (
+                  <div>
+                    <dt class="text-gpc-ink/60">Periodo</dt>
+                    <dd class="text-gpc-ink">{period}</dd>
+                  </div>
+                )}
+                {d.status && (
+                  <div>
+                    <dt class="text-gpc-ink/60">Status</dt>
+                    <dd class="text-gpc-ink">{d.status}</dd>
+                  </div>
+                )}
+                {d.website && (
+                  <div>
+                    <dt class="text-gpc-ink/60">Website</dt>
+                    <dd>
+                      <a href={`https://${d.website}`} target="_blank" rel="noopener" class="text-gpc-green hover:underline">{d.website}</a>
+                    </dd>
+                  </div>
+                )}
+                <div>
+                  <dt class="text-gpc-ink/60">Cliente</dt>
+                  <dd class="text-gpc-ink">{d.anonymized ? 'Anonimizzato' : d.client}</dd>
+                </div>
               </dl>
             </div>
           </div>
         </aside>
 
-        <div class="prose prose-invert max-w-none font-sans text-base leading-relaxed text-gpc-ink/85 lg:col-span-8 prose-headings:font-display prose-headings:text-gpc-ink prose-h2:mt-10 prose-h2:text-2xl prose-h2:text-gpc-green prose-h3:text-xl prose-strong:text-gpc-ink prose-a:text-gpc-green prose-li:my-1">
+        <div class="prose prose-invert max-w-none font-sans text-base leading-relaxed text-gpc-ink/85 lg:col-span-8 prose-headings:font-display prose-headings:text-gpc-ink prose-h2:mt-10 prose-h2:text-2xl prose-h2:text-gpc-green prose-h3:text-xl prose-strong:text-gpc-ink prose-a:text-gpc-green prose-li:my-1 prose-table:text-sm prose-th:text-gpc-ink prose-td:text-gpc-ink/80">
           <Content />
         </div>
       </div>
     </section>
 
+    <!-- Services delivered (full-width list under body) -->
+    {d.services.length > 0 && (
+      <section class="reveal border-b border-gpc-border bg-gpc-card/10">
+        <div class="mx-auto max-w-5xl px-6 py-14">
+          <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// SERVIZI EROGATI</p>
+          <ul class="mt-6 grid gap-3 sm:grid-cols-2">
+            {d.services.map((s) => (
+              <li class="flex items-start gap-3 border border-gpc-border bg-gpc-white p-4 font-mono text-sm text-gpc-ink/85">
+                <span class="text-gpc-green">→</span>
+                <span>{s}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )}
+
+    <!-- Testimonial -->
+    {d.testimonial && (
+      <section class="border-b border-gpc-border bg-gpc-white">
+        <div class="mx-auto max-w-5xl px-6 py-16">
+          <figure class:list={['border-l-4 border-gpc-green bg-gpc-card/20 p-8 md:p-10', testimonialPending && 'opacity-50']}>
+            {testimonialPending && (
+              <span class="mb-4 inline-block border border-gpc-green/40 bg-gpc-green/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gpc-green">
+                Aggiornamento a breve
+              </span>
+            )}
+            <blockquote class="font-sans text-[1.1rem] italic leading-relaxed text-gpc-ink md:text-[1.25rem]">
+              „{d.testimonial.quote}”
+            </blockquote>
+            <figcaption class="mt-6">
+              <span class="font-mono text-sm font-bold uppercase tracking-wider text-gpc-ink">{d.testimonial.author}</span>
+              {d.testimonial.role && <span class="mt-1 block font-mono text-xs text-gpc-text-secondary">{d.testimonial.role}</span>}
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+    )}
+
+    <!-- Media — editorial gallery -->
+    {galleryImages.length > 0 && (
+      <section class="border-b border-gpc-border bg-gpc-card/10">
+        <div class="mx-auto max-w-5xl px-6 py-16">
+          <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// MEDIA</p>
+
+          {/* Feature images: 2-col editorial */}
+          {featureImages.length > 0 && (
+            <div class="mt-8 grid gap-6 md:grid-cols-2">
+              {featureImages.map((img) => (
+                <figure class="reveal group overflow-hidden border border-gpc-border bg-gpc-white">
+                  <div class="aspect-[4/3] overflow-hidden">
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      loading="lazy"
+                      decoding="async"
+                      class="h-full w-full object-cover transition-transform duration-300 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover:scale-[1.02]"
+                    />
+                  </div>
+                  <figcaption class="border-t border-gpc-border px-4 py-3 font-mono text-[10px] uppercase tracking-widest text-gpc-ink/60">
+                    {img.caption}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          )}
+
+          {/* Smaller tiles: 2/4-col grid */}
+          {tileImages.length > 0 && (
+            <div class="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
+              {tileImages.map((img) => (
+                <figure class="reveal group overflow-hidden border border-gpc-border bg-gpc-white">
+                  <div class="aspect-square overflow-hidden">
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      loading="lazy"
+                      decoding="async"
+                      class="h-full w-full object-cover transition-transform duration-300 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover:scale-[1.02]"
+                    />
+                  </div>
+                  <figcaption class="border-t border-gpc-border px-3 py-2 font-mono text-[10px] uppercase tracking-widest text-gpc-ink/60">
+                    {img.caption}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          )}
+
+          {/* Client logo badge */}
+          {logoImage && (
+            <div class="mt-8 flex items-center gap-4 border-t border-gpc-border pt-8">
+              <img
+                src={logoImage.src}
+                alt={logoImage.alt}
+                loading="lazy"
+                decoding="async"
+                class="max-h-20 w-auto object-contain"
+              />
+              <span class="font-mono text-xs uppercase tracking-widest text-gpc-ink/50">{logoImage.caption}</span>
+            </div>
+          )}
+        </div>
+      </section>
+    )}
+
     <CTA
       heading="Vuoi risultati simili?"
-      subtext="Prenota un audit gratuito e scopriamo se il nostro playbook si adatta al tuo business."
-      buttonText="Prenota audit"
+      subtext="Prenoti un audit gratuito e vediamo se il nostro playbook si adatta al Suo business."
+      buttonText="Prenota un audit"
       buttonLink={localizedPath('it', '/contact')}
     />
   </article>

@@ -99,9 +99,9 @@ const interests = [
           Sostituisci [FORM_ID_PLACEHOLDER] in `action` con l'ID reale da
           formspree.io. Honeypot, _next, _subject e _language sono già pronti.
         */}
-        <form action="https://formspree.io/f/[FORM_ID_PLACEHOLDER]" method="POST" novalidate class="space-y-6 border border-gpc-border bg-gpc-card/20 p-6 md:p-8">
-          <input type="hidden" name="_subject" value="[GPC] Nuova richiesta progetto" />
-          <input type="hidden" name="_next" value="https://greenpheonixconcept.com/it/multumim" />
+        <form id="contact-form" data-redirect="/it/grazie" data-sending="Invio…" data-ok="Messaggio inviato ✓" data-err="Qualcosa è andato storto. Riprova o scrivici a contact@greenpheonixconcept.com." action="https://formspree.io/f/mjgznoda" method="POST" novalidate class="space-y-6 border border-gpc-border bg-gpc-card/20 p-6 md:p-8">
+          <input type="hidden" name="_subject" value="New contact from greenpheonixconcept.com IT" />
+          <input type="hidden" name="_next" value="https://greenpheonixconcept.com/it/grazie" />
           <input type="hidden" name="_language" value="it" />
           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
           <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// RICHIESTA PREVENTIVO</p>
@@ -168,16 +168,54 @@ const interests = [
             </span>
           </label>
 
-          <button type="submit" class="group inline-flex w-full items-center justify-center gap-3 border border-gpc-green bg-gpc-green/10 px-8 py-4 font-mono text-sm uppercase tracking-[0.25em] text-gpc-green shadow-sm transition-all hover:bg-gpc-green hover:text-gpc-ink hover:shadow-sm md:w-auto">
-            Invia messaggio
+          <button type="submit" data-submit class="group inline-flex w-full items-center justify-center gap-3 border border-gpc-green bg-gpc-green/10 px-8 py-4 font-mono text-sm uppercase tracking-[0.25em] text-gpc-green shadow-sm transition-all hover:bg-gpc-green hover:text-gpc-ink hover:shadow-sm disabled:cursor-not-allowed disabled:opacity-60 md:w-auto">
+            <span data-submit-label>Invia messaggio</span>
             <span class="transition-transform group-hover:translate-x-1">→</span>
           </button>
+
+          <p data-form-status role="status" aria-live="polite" hidden class="font-mono text-sm"></p>
 
           <p class="font-mono text-[11px] text-gpc-ink/50">* Campi obbligatori. Rispondiamo entro 24h lavorative.</p>
         </form>
       </div>
     </div>
   </section>
+
+  <script is:inline>
+    (function () {
+      var form = document.getElementById('contact-form');
+      if (!form) return;
+      var btn = form.querySelector('[data-submit]');
+      var label = form.querySelector('[data-submit-label]');
+      var status = form.querySelector('[data-form-status]');
+      var defaultLabel = label ? label.textContent : 'Invia messaggio';
+      var sendingLabel = form.getAttribute('data-sending') || 'Invio…';
+      var okLabel = form.getAttribute('data-ok') || 'Messaggio inviato ✓';
+      var errLabel = form.getAttribute('data-err') || 'Qualcosa è andato storto. Riprova o scrivici a contact@greenpheonixconcept.com.';
+      var redirect = form.getAttribute('data-redirect') || '/it/grazie';
+      function setStatus(msg, ok) { if (!status) return; status.hidden = false; status.textContent = msg; status.style.color = ok ? 'var(--gpc-green)' : 'var(--gpc-red)'; }
+      function fireConversions() {
+        try { if (typeof window.gtag !== 'undefined') window.gtag('event', 'form_submit', { event_category: 'engagement', event_label: 'contact_form' }); } catch (e) {}
+        try { if (typeof window.fbq !== 'undefined') window.fbq('track', 'Lead'); } catch (e) {}
+        try { if (typeof window.ttq !== 'undefined') window.ttq.track('SubmitForm'); } catch (e) {}
+      }
+      form.addEventListener('submit', function (ev) {
+        var hp = form.querySelector('[name="_gotcha"]');
+        if (hp && hp.value) { ev.preventDefault(); return; }
+        if (!form.checkValidity()) return;
+        ev.preventDefault();
+        if (btn) btn.disabled = true;
+        if (label) label.textContent = sendingLabel;
+        if (status) status.hidden = true;
+        fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
+          .then(function (res) {
+            if (res.ok) { fireConversions(); if (label) label.textContent = okLabel; setStatus(okLabel, true); window.location.href = redirect; }
+            else { return res.json().then(function () { throw new Error('formspree'); }); }
+          })
+          .catch(function () { if (btn) btn.disabled = false; if (label) label.textContent = defaultLabel; setStatus(errLabel, false); });
+      });
+    })();
+  </script>
 
   <section class="border-t border-gpc-border bg-gpc-card/10">
     <div class="mx-auto max-w-7xl px-6 py-16">

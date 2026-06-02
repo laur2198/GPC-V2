@@ -1,39 +1,39 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { localizedPath } from '../utils/i18n';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { localizedPath } from '../../utils/i18n';
 
 const meta = {
-  title: 'Mulțumim! | Green Phoenix',
-  description: 'Mesajul tău a fost trimis. Te contactăm în maxim 24 de ore lucrătoare.',
+  title: 'Grazie! | Green Pheonix',
+  description: 'Il tuo messaggio è stato inviato. Rispondiamo entro 24 ore lavorative.',
 };
 ---
 
-<BaseLayout title={meta.title} description={meta.description} locale="ro" noindex hideCookieBanner>
+<BaseLayout title={meta.title} description={meta.description} locale="it" noindex hideCookieBanner>
   <section class="relative min-h-[60vh] border-b border-gpc-border bg-gpc-white">
     <div class="scanline pointer-events-none absolute inset-0" aria-hidden="true"></div>
     <div class="relative mx-auto max-w-3xl px-6 py-24 text-center">
       <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// TRANSMISSION_OK</p>
       <h1 class="mt-4 font-display text-4xl leading-tight md:text-6xl">
-        <span class="glow-green">Mulțumim!</span>
+        <span class="glow-green">Grazie, il tuo messaggio è arrivato</span>
       </h1>
       <p class="mx-auto mt-6 max-w-xl font-sans text-base leading-relaxed text-gpc-ink/85 md:text-lg">
-        Mesajul tău a fost trimis cu succes. Te contactăm în maxim <span class="text-gpc-green">24 de ore lucrătoare</span>, de obicei mult mai repede.
+        Rispondiamo entro <span class="text-gpc-green">24 ore lavorative</span> (lun–ven), all'indirizzo email che ci hai indicato — di solito molto prima.
       </p>
       <p class="mx-auto mt-3 max-w-xl font-mono text-sm text-gpc-ink/60">
-        Între timp, dacă vrei să discutăm imediat, ne găsești și pe WhatsApp.
+        Nel frattempo, se preferisci parlare subito, ci trovi su WhatsApp.
       </p>
       <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
         <a
-          href={localizedPath('ro', '/')}
+          href={localizedPath('it', '/')}
           class="border border-gpc-green bg-gpc-green/10 px-6 py-3 font-mono text-sm uppercase tracking-widest text-gpc-green transition-colors hover:bg-gpc-green hover:text-gpc-ink"
         >
-          Înapoi acasă →
+          Torna alla home →
         </a>
         <a
-          href={localizedPath('ro', '/servicii')}
+          href={localizedPath('it', '/servicii')}
           class="border border-gpc-border/40 px-6 py-3 font-mono text-sm uppercase tracking-widest text-gpc-ink transition-colors hover:border-gpc-green hover:text-gpc-green"
         >
-          Explorează serviciile
+          Esplora i servizi
         </a>
         <a
           href="https://wa.me/40793650902"
@@ -41,7 +41,7 @@ const meta = {
           rel="noopener"
           class="border border-gpc-border/40 px-6 py-3 font-mono text-sm uppercase tracking-widest text-gpc-ink transition-colors hover:border-gpc-green hover:text-gpc-green"
         >
-          Scrie-ne pe WhatsApp
+          Scrivici su WhatsApp
         </a>
       </div>
     </div>

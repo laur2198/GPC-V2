@@ -38,6 +38,7 @@ interface FooterStrings {
   terms: string;
   anpc: string;
   disclaimer: string;
+  cookieSettings?: string;
 }
 const f = t<FooterStrings>(locale, 'footer');
 
@@ -236,7 +237,16 @@ const year = new Date().getFullYear();
   <div class="border-t border-white/10">
     <div class="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-6 text-center font-mono text-[11px] uppercase tracking-widest text-white/60 md:flex-row md:items-center md:justify-between md:text-left">
       <p>© {year} GREEN PHEONIX®. {f.rights}</p>
-      <p>{f.disclaimer}</p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <button
+          type="button"
+          onclick="window.gpcOpenCookieSettings && window.gpcOpenCookieSettings()"
+          class="uppercase tracking-widest text-white/60 transition-colors hover:text-gpc-green"
+        >
+          {f.cookieSettings ?? 'Cookie settings'}
+        </button>
+        <p>{f.disclaimer}</p>
+      </div>
     </div>
   </div>
 </footer>

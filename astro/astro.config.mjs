@@ -25,6 +25,8 @@ export default defineConfig({
       },
       filter: (page) =>
         !page.includes('/multumim') &&
+        !page.includes('/thank-you') &&
+        !page.includes('/grazie') &&
         !page.endsWith('/404') &&
         !page.endsWith('/404/'),
     }),

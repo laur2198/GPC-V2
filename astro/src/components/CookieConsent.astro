@@ -169,6 +169,21 @@ const policyHref = localizedPath(locale, '/politica');
       show();
     }
 
+    // Footer "Cookie settings" link re-opens the banner (pre-filled).
+    (window as unknown as { gpcOpenCookieSettings?: () => void }).gpcOpenCookieSettings = function () {
+      const prev = readConsent();
+      if (prev) {
+        cats.forEach((c) => {
+          const key = c.dataset.cookieCat as keyof Granted;
+          if (key in prev.granted) c.checked = prev.granted[key];
+        });
+      }
+      customize?.removeAttribute('hidden');
+      saveBtn?.removeAttribute('hidden');
+      banner.querySelector<HTMLButtonElement>('[data-cookie-action="customize"]')?.setAttribute('hidden', '');
+      show();
+    };
+
     banner.addEventListener('click', (event) => {
       const target = event.target as HTMLElement;
       const btn = target.closest<HTMLButtonElement>('[data-cookie-action]');

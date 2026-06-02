@@ -303,60 +303,86 @@ const faqJsonLd = faqSchema && faqSchema.length
     ))}
 
     {/*
-      INSTRUCTIONS — Analytics: înlocuiește `G-XXXXXXXXXX`, `XXXXXXXXXXXXXXXX`
-      și `cccccccccc` cu ID-urile reale și apoi *uncomment* secțiunea de mai
-      jos. Scripturile se vor încărca doar după ce userul acceptă consimțământul
-      (CookieConsent setează `html.consent-given`). Până atunci sunt complet
-      inerte.
+      Consent-gated tracking. Nothing loads until the CookieConsent banner
+      dispatches `gpc:cookie-consent` with { analytics, marketing }. The
+      listeners are registered in <head> (parsed before the banner runs at
+      body-end), so a returning visitor's stored consent replays correctly.
+      Analytics → GA4 + Clarity. Marketing → Meta + TikTok.
     */}
-    {/*
-      <!-- Google Analytics 4 -->
-      <script is:inline>
-        document.addEventListener('gpc:cookie-consent', function (e) {
-          if (!e.detail || !e.detail.analytics) return;
-          if (window.__ga4Loaded) return;
-          window.__ga4Loaded = true;
-          var s = document.createElement('script');
-          s.async = true;
-          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
-          document.head.appendChild(s);
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
-        });
-      </script>
+    <!-- Google Analytics 4 (analytics) -->
+    <script is:inline>
+      document.addEventListener('gpc:cookie-consent', function (e) {
+        if (!e.detail || !e.detail.analytics) return;
+        if (window.__ga4Loaded) return;
+        window.__ga4Loaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-BP0J2SJTP1';
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-BP0J2SJTP1', { anonymize_ip: true });
+      });
+    </script>
 
-      <!-- Meta Pixel -->
-      <script is:inline>
-        document.addEventListener('gpc:cookie-consent', function (e) {
-          if (!e.detail || !e.detail.marketing) return;
-          if (window.__metaPixelLoaded) return;
-          window.__metaPixelLoaded = true;
-          !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-          n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-          n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-          t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-          document,'script','https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', 'XXXXXXXXXXXXXXXX');
-          fbq('track', 'PageView');
-        });
-      </script>
+    <!-- Microsoft Clarity (analytics) -->
+    <script is:inline>
+      document.addEventListener('gpc:cookie-consent', function (e) {
+        if (!e.detail || !e.detail.analytics) return;
+        if (window.__clarityLoaded) return;
+        window.__clarityLoaded = true;
+        (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, 'clarity', 'script', 'x0mayh28j0');
+      });
+    </script>
 
-      <!-- Microsoft Clarity -->
-      <script is:inline>
-        document.addEventListener('gpc:cookie-consent', function (e) {
-          if (!e.detail || !e.detail.analytics) return;
-          if (window.__clarityLoaded) return;
-          window.__clarityLoaded = true;
-          (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-          })(window, document, 'clarity', 'script', 'cccccccccc');
-        });
-      </script>
-    */}
+    <!-- Meta Pixel (marketing) -->
+    <script is:inline>
+      document.addEventListener('gpc:cookie-consent', function (e) {
+        if (!e.detail || !e.detail.marketing) return;
+        if (window.__metaPixelLoaded) return;
+        window.__metaPixelLoaded = true;
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1250834263629342');
+        fbq('track', 'PageView');
+      });
+    </script>
+
+    <!-- TikTok Pixel (marketing) -->
+    <script is:inline>
+      document.addEventListener('gpc:cookie-consent', function (e) {
+        if (!e.detail || !e.detail.marketing) return;
+        if (window.__tiktokPixelLoaded) return;
+        window.__tiktokPixelLoaded = true;
+        !function (w, d, t) {
+          w.TiktokAnalyticsObject = t;
+          var ttq = w[t] = w[t] || [];
+          ttq.methods = ["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
+          ttq.setAndDefer = function (t, e) { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))); }; };
+          for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
+          ttq.instance = function (t) { for (var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++) ttq.setAndDefer(e, ttq.methods[n]); return e; };
+          ttq.load = function (e, n) {
+            var r = "https://analytics.tiktok.com/i18n/pixel/events.js", o = n && n.partner;
+            ttq._i = ttq._i || {}; ttq._i[e] = []; ttq._i[e]._u = r;
+            ttq._t = ttq._t || {}; ttq._t[e] = +new Date;
+            ttq._o = ttq._o || {}; ttq._o[e] = n || {};
+            n = document.createElement("script"); n.type = "text/javascript"; n.async = !0; n.src = r + "?sdkid=" + e + "&lib=" + t;
+            e = document.getElementsByTagName("script")[0]; e.parentNode.insertBefore(n, e);
+          };
+          ttq.load('D64F6T3C77U69UNGKT30');
+          ttq.page();
+        }(window, document, 'ttq');
+      });
+    </script>
   </head>
   <body class="min-h-screen bg-gpc-white text-gpc-ink antialiased">
     <Navbar locale={locale} />

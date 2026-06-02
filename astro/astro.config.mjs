@@ -12,6 +12,10 @@ export default defineConfig({
     '/en/servicii-web': '/en/servicii/web-development',
     '/it/servicii-ads': '/it/servicii/meta-ads',
     '/it/servicii-web': '/it/servicii/web-development',
+    // Legacy single privacy page → split legal documents.
+    '/politica': '/politica-confidentialitate',
+    '/en/politica': '/en/privacy-policy',
+    '/it/politica': '/it/informativa-privacy',
   },
   i18n: {
     defaultLocale: 'ro',

@@ -46,6 +46,8 @@ interface Props {
   breadcrumbs?: BreadcrumbItem[];
   /** extra JSON-LD blocks (e.g. Service, Article) emitted in <head> */
   jsonLd?: unknown[];
+  /** explicit per-locale paths when slugs differ across languages (legal pages) */
+  hreflangPaths?: Partial<Record<Locale, string>>;
 }
 
 const {
@@ -59,6 +61,7 @@ const {
   ogType = 'website',
   breadcrumbs,
   jsonLd,
+  hreflangPaths,
 } = Astro.props;
 
 const site = Astro.site ?? new URL('https://greenpheonixconcept.com');
@@ -67,7 +70,7 @@ const ogImage = image.startsWith('http') ? image : new URL(image, site).toString
 
 const alternates = locales.map((l) => ({
   hreflang: l,
-  href: new URL(switchLocalePath(Astro.url, l), site).toString(),
+  href: new URL(hreflangPaths?.[l] ?? switchLocalePath(Astro.url, l), site).toString(),
 }));
 
 const orgId = `${site.origin}/#organization`;
@@ -271,7 +274,7 @@ const faqJsonLd = faqSchema && faqSchema.length
     {alternates.map((a) => (
       <link rel="alternate" hreflang={a.hreflang} href={a.href} />
     ))}
-    <link rel="alternate" hreflang="x-default" href={new URL(switchLocalePath(Astro.url, 'ro'), site).toString()} />
+    <link rel="alternate" hreflang="x-default" href={new URL(hreflangPaths?.ro ?? switchLocalePath(Astro.url, 'ro'), site).toString()} />
 
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content="Green Pheonix" />

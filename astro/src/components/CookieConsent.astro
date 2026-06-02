@@ -15,7 +15,7 @@
  *
  * Hides itself once a choice is recorded. Cyberpunk dark + neon green.
  */
-import { type Locale, t, localizedPath } from '../utils/i18n';
+import { type Locale, t } from '../utils/i18n';
 
 interface Props {
   locale?: Locale;
@@ -33,7 +33,11 @@ interface Strings {
   categories: { essential: string; analytics: string; marketing: string };
 }
 const c = t<Strings>(locale, 'cookies');
-const policyHref = localizedPath(locale, '/politica');
+const policyHref = {
+  ro: '/politica-cookies',
+  en: '/en/cookie-policy',
+  it: '/it/politica-cookies',
+}[locale];
 ---
 
 <aside

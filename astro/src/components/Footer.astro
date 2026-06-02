@@ -36,11 +36,19 @@ interface FooterStrings {
   rights: string;
   policy: string;
   terms: string;
+  cookiePolicy?: string;
   anpc: string;
   disclaimer: string;
   cookieSettings?: string;
 }
 const f = t<FooterStrings>(locale, 'footer');
+
+// Legal page slugs differ per locale.
+const legalSlugs = {
+  ro: { privacy: '/politica-confidentialitate', terms: '/termeni-conditii', cookies: '/politica-cookies' },
+  en: { privacy: '/en/privacy-policy', terms: '/en/terms-of-service', cookies: '/en/cookie-policy' },
+  it: { privacy: '/it/informativa-privacy', terms: '/it/termini-condizioni', cookies: '/it/politica-cookies' },
+}[locale];
 
 const quickLinks = [
   { href: localizedPath(locale, '/'), label: nav.home },
@@ -152,20 +160,28 @@ const year = new Date().getFullYear();
       </h3>
       <ul class="mt-4 space-y-2">
         <li>
-          <a
-            href={localizedPath(locale, '/politica')}
-            class="font-sans text-sm text-white/80 hover:text-gpc-green"
-          >
+          <a href={legalSlugs.privacy} class="font-sans text-sm text-white/80 hover:text-gpc-green">
             {f.policy}
           </a>
         </li>
         <li>
-          <a
-            href={localizedPath(locale, '/politica')}
-            class="font-sans text-sm text-white/80 hover:text-gpc-green"
-          >
+          <a href={legalSlugs.terms} class="font-sans text-sm text-white/80 hover:text-gpc-green">
             {f.terms}
           </a>
+        </li>
+        <li>
+          <a href={legalSlugs.cookies} class="font-sans text-sm text-white/80 hover:text-gpc-green">
+            {f.cookiePolicy ?? 'Cookie Policy'}
+          </a>
+        </li>
+        <li>
+          <button
+            type="button"
+            onclick="window.gpcOpenCookieSettings && window.gpcOpenCookieSettings()"
+            class="font-sans text-sm text-white/80 transition-colors hover:text-gpc-green"
+          >
+            {f.cookieSettings ?? 'Cookie settings'}
+          </button>
         </li>
         <li>
           <a

@@ -1,0 +1,133 @@
+---
+/**
+ * LegalDoc
+ *
+ * Renders a structured legal document (privacy / terms / cookies) from a
+ * LegalDocData object, with WebPage + BreadcrumbList JSON-LD. Used by the
+ * thin per-locale legal page wrappers.
+ *
+ * Props:
+ *   locale — 'ro' | 'en' | 'it'
+ *   doc    — LegalDocData
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import { type Locale, localizedPath } from '../utils/i18n';
+import type { LegalDocData } from '../data/legal/legal.ro';
+
+interface Props {
+  locale: Locale;
+  doc: LegalDocData;
+}
+const { locale, doc } = Astro.props;
+
+const SITE = 'https://greenpheonixconcept.com';
+const path = `/${doc.slug}`;
+const breadcrumbs = [{ name: doc.breadcrumb, href: localizedPath(locale, path) }];
+
+// Legal docs have different slugs per locale → explicit hreflang map.
+const SLUGS: Record<string, Record<Locale, string>> = {
+  privacy: { ro: '/politica-confidentialitate', en: '/en/privacy-policy', it: '/it/informativa-privacy' },
+  terms: { ro: '/termeni-conditii', en: '/en/terms-of-service', it: '/it/termini-condizioni' },
+  cookies: { ro: '/politica-cookies', en: '/en/cookie-policy', it: '/it/politica-cookies' },
+};
+const docKey =
+  doc.slug.includes('privacy') || doc.slug.includes('confidential') ? 'privacy'
+  : doc.slug.includes('term') ? 'terms'
+  : 'cookies';
+const hreflangPaths = SLUGS[docKey];
+
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: doc.title,
+  description: doc.metaDescription,
+  inLanguage: locale,
+  isPartOf: { '@id': `${SITE}/#organization` },
+  publisher: { '@id': `${SITE}/#organization` },
+  datePublished: '2026-06-02',
+  dateModified: doc.lastUpdated,
+};
+---
+
+<BaseLayout
+  title={doc.metaTitle}
+  description={doc.metaDescription}
+  locale={locale}
+  hideCookieBanner
+  breadcrumbs={breadcrumbs}
+  jsonLd={[webPageSchema]}
+  hreflangPaths={hreflangPaths}
+>
+  <Breadcrumbs locale={locale} items={breadcrumbs} />
+
+  <header class="border-b border-gpc-border bg-gpc-white">
+    <div class="mx-auto max-w-3xl px-6 py-12 lg:py-16">
+      <h1 class="hero-heavy font-display text-4xl md:text-5xl">
+        <span class="glow-green">{doc.title}</span>
+      </h1>
+      <p class="mt-5 font-sans text-base leading-relaxed text-gpc-text-secondary">{doc.subtitle}</p>
+      <p class="mt-6 inline-block border border-gpc-border bg-gpc-card/30 px-4 py-2 font-mono text-[11px] uppercase tracking-widest text-gpc-ink/60">
+        Last updated: <span class="text-gpc-green">{doc.lastUpdated}</span>
+      </p>
+    </div>
+  </header>
+
+  <article class="mx-auto max-w-3xl px-6 py-14">
+    {/* Disclaimer */}
+    <aside class="mb-12 border-l-4 border-gpc-green bg-gpc-card/30 p-5 font-sans text-sm leading-relaxed text-gpc-ink/80">
+      {doc.disclaimer}
+    </aside>
+
+    {doc.sections.map((section) => (
+      <section class="mb-12">
+        <h2 class="font-display text-2xl text-gpc-ink md:text-3xl">{section.heading}</h2>
+        <div class="mt-4 space-y-4">
+          {section.blocks.map((block) => {
+            if (block.type === 'h3') {
+              return <h3 class="mt-6 font-display text-lg text-gpc-green">{block.text}</h3>;
+            }
+            if (block.type === 'p') {
+              return <p class="font-sans text-sm leading-relaxed text-gpc-ink/85" set:html={block.html} />;
+            }
+            if (block.type === 'ul') {
+              return (
+                <ul class="list-inside list-disc space-y-2 font-sans text-sm leading-relaxed text-gpc-ink/80">
+                  {block.items?.map((it) => <li set:html={it} />)}
+                </ul>
+              );
+            }
+            if (block.type === 'ol') {
+              return (
+                <ol class="list-inside list-decimal space-y-2 font-sans text-sm leading-relaxed text-gpc-ink/80">
+                  {block.items?.map((it) => <li set:html={it} />)}
+                </ol>
+              );
+            }
+            if (block.type === 'table') {
+              return (
+                <div class="overflow-x-auto border border-gpc-border">
+                  <table class="w-full text-left">
+                    <thead class="bg-gpc-card/40">
+                      <tr class="font-mono text-xs uppercase tracking-widest text-gpc-green">
+                        {block.head?.map((h) => <th class="px-4 py-3">{h}</th>)}
+                      </tr>
+                    </thead>
+                    <tbody class="font-sans text-sm text-gpc-ink/80">
+                      {block.rows?.map((row) => (
+                        <tr class="border-t border-gpc-border">
+                          {row.map((cell) => <td class="px-4 py-3" set:html={cell} />)}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              );
+            }
+            return null;
+          })}
+        </div>
+      </section>
+    ))}
+  </article>
+</BaseLayout>

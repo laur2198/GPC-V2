@@ -203,7 +203,7 @@
           },
           {
             "title": "Cohort optimization",
-            "body": "We analyze conversions across 7/30/90-day cohorts, not instant reports. Real ROAS != ROAS shown in the dashboard."
+            "body": "We analyze conversions across 7/30/90-day cohorts, not instant reports. Real ROAS isn't the ROAS shown in the dashboard."
           }
         ]
       },
@@ -890,7 +890,7 @@
           "<strong>Discovery call (30 min) — free.</strong> We listen first, then assess whether we are a good fit.",
           "<strong>Standalone audit</strong> — a one-off project. A complete document, concrete deliverables, with no obligation to continue.",
           "<strong>Free audit if we work together afterwards.</strong> If you sign a contract for subsequent implementation, the audit is included.",
-          "We do not publish the price because it depends on scope: a simple Meta Ads audit != a complete 5-axis ecosystem audit; a 60-min discovery != a 2-day strategic workshop. We discuss it in the discovery call. We tell you honestly what it costs for your specific case."
+          "We do not publish the price because it depends on scope: a simple Meta Ads audit is not the same as a complete 5-axis ecosystem audit; a 60-min discovery is not the same as a 2-day strategic workshop. We discuss it in the discovery call. We tell you honestly what it costs for your specific case."
         ]
       },
       "cta": {
@@ -1202,7 +1202,7 @@
     "subHeadline": "I'm Laurentiu, founder of Green Pheonix Concept. I work at the intersection of data, design and execution — no jargon, no fluff, just measurable results.",
     "section1": {
       "title": "Why Green Pheonix exists",
-      "p1": "I have worked in marketing since 2024. I started as a Marketing Specialist at The Family Butchers România, running Meta campaigns for two national FMCG brands — Reinert and Martinel. In that time I gained hands-on experience across more than 1.1 million impressions and 700,000 people reached through multi-platform campaigns.",
+      "p1": "I've been working in marketing since 2024. I started as a Marketing Specialist at The Family Butchers România, running Meta campaigns for two national FMCG brands — Reinert and Martinel. In that time I gained hands-on experience across more than 1.1 million impressions and 700,000 people reached through multi-platform campaigns.",
       "p2": "But I also saw what doesn't work in this industry. Agencies selling buzzwords. Flashy websites that don't sell. Beautiful ads made by agencies that don't perform because Meta's algorithms flag them as “advertising” and penalize them. Clients treated as IDs in a dashboard.",
       "p3": "Green Pheonix grew out of one conviction: performance marketing should be done differently. We think before we act, we measure before we optimize, and we're honest with clients — even when they don't want to hear it."
     },

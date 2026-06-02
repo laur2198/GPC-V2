@@ -10,7 +10,7 @@ export async function getStaticPaths() {
     data.language === 'it' && (showDrafts || !data.draft)
   );
   return items.map((entry) => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.slug.replace(/-it$/, '') },
     props: { entry },
   }));
 }

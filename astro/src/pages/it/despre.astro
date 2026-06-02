@@ -27,9 +27,10 @@ const about = t<AboutCopy>(locale, 'about');
 const beliefs = [about.section2.belief1, about.section2.belief2, about.section2.belief3, about.section2.belief4];
 const howWork = [about.section3.p1, about.section3.p2, about.section3.p3, about.section3.p4];
 const background = [about.section4.bg1, about.section4.bg2, about.section4.bg3, about.section4.bg4];
+const breadcrumbs = [{ name: 'Chi sono', href: localizedPath(locale, '/despre') }];
 ---
 
-<BaseLayout title={about.meta.title} description={about.meta.description} locale={locale}>
+<BaseLayout title={about.meta.title} description={about.meta.description} locale={locale} breadcrumbs={breadcrumbs}>
   <Hero locale={locale} variant="compact" title={about.h1} subtitle={about.subHeadline} />
 
   <!-- Section 1 — Why Green Pheonix exists -->

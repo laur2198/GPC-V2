@@ -1,6 +1,5 @@
 ---
 title: "Lemet Stone — Plugin custom + Marketing pentru piatră naturală"
-slug: lemet-stone-plugin-marketing
 client: "Lemet Stone"
 industry: "Pietre naturale & amenajări"
 location: "Brașov, România"

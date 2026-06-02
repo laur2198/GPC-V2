@@ -1,6 +1,5 @@
 ---
 title: "Academia Kokoro Brașov — Rebrand & creștere organică"
-slug: academia-kokoro-rebrand
 client: "Kokoro Ju Jitsu Academy"
 industry: "Arte marțiale / sport copii"
 location: "Brașov, România"

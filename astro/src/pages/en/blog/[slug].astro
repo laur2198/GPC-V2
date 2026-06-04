@@ -49,7 +49,7 @@ const articleSchema = {
   author: { '@type': 'Person', name: entry.data.author },
   publisher: {
     '@type': 'Organization',
-    name: 'Green Phoenix',
+    name: 'Green Pheonix',
     logo: { '@type': 'ImageObject', url: new URL('/logo_gpc.svg', site).toString() },
   },
   mainEntityOfPage: { '@type': 'WebPage', '@id': fullUrl },
@@ -66,7 +66,7 @@ const shareTargets = [
 ---
 
 <BaseLayout
-  title={`${entry.data.title} | Green Phoenix Blog`}
+  title={`${entry.data.title} | Green Pheonix Blog`}
   description={entry.data.description}
   locale="en"
   image={entry.data.heroImage}

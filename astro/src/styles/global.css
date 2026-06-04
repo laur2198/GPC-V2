@@ -226,12 +226,19 @@ body:has(:focus-visible) .cursor-outline {
   transform: none;
 }
 
-/* Text-outline: hollow / stroked headline word.
-   Matches the .text-outline treatment from the live HTML site
-   used on words like "STUDIES", "WORKS", "VÂND". */
+/* Text-outline: hollow / stroked headline word — signature treatment on
+   accent words like "VÂND". Stroke thickened to 1.5px and coloured brand
+   green for readability (was 1px transparent-ink, hard to read at a glance). */
 .text-outline {
   color: transparent;
-  -webkit-text-stroke: 1px var(--gpc-ink);
+  -webkit-text-stroke: 1.5px var(--gpc-green);
+  paint-order: stroke fill;
+}
+/* Fallback / alternative: solid green accent word, no outline.
+   Swap `.text-outline` → `.text-filled` on the accent word if a fully
+   filled treatment is preferred over the hollow one. */
+.text-filled {
+  color: var(--gpc-green);
 }
 /* White stroke for use on dark backgrounds (footer, dark cards). */
 .text-outline-white {

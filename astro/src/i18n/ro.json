@@ -1115,7 +1115,8 @@
   },
   "testimonials": {
     "header": "CE SPUN CLIENȚII",
-    "items": []
+    "items": [],
+    "viewCase": "Vezi cazul complet"
   },
   "faq": {
     "header": "ÎNTREBĂRI FRECVENTE",
@@ -1170,7 +1171,7 @@
     "policy": "Politică de confidențialitate",
     "terms": "Termeni și condiții",
     "anpc": "ANPC",
-    "disclaimer": "Green Phoenix este marca comercială a Green Pheonix Concept SRL · CUI 45667331 · J2022000195397 · Brașov, România",
+    "disclaimer": "Green Pheonix este marca comercială a Green Pheonix Concept SRL · CUI 45667331 · J2022000195397 · Brașov, România",
     "cookieSettings": "Setări cookies",
     "cookiePolicy": "Politică Cookies"
   },
@@ -1265,7 +1266,7 @@
       "num": "03",
       "title": "Autenticitate",
       "body": "Algoritmii Meta penalizează reclamele care arată ca reclame. Conținutul real, cu oameni reali, vinde mai bine.",
-      "link": "Vezi blog"
+      "link": "Vezi content production"
     },
     "card4": {
       "num": "04",
@@ -1367,5 +1368,25 @@
       "body": "Discovery call de 30 minute. Fără pitch, fără presiune. Doar o conversație onestă despre ce încerci să construiești.",
       "button": "Programează discovery call"
     }
+  },
+  "proofBar": {
+    "eyebrow": "// REZULTATE REALE",
+    "items": [
+      {
+        "value": "1,1M+",
+        "label": "afișări gestionate",
+        "context": "Reinert + Martinel (The Family Butchers RO)"
+      },
+      {
+        "value": "+595%",
+        "label": "impressions Instagram",
+        "context": "Kokoro — 90 zile, organic pur"
+      },
+      {
+        "value": "0,46 RON",
+        "label": "Cost per Click Meta",
+        "context": "Lemet — sub media industriei"
+      }
+    ]
   }
 }

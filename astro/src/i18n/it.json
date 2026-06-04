@@ -1114,8 +1114,9 @@
     "viewAll": "Vedi tutti i progetti"
   },
   "testimonials": {
-    "header": "DICONO DI NOI",
-    "items": []
+    "header": "COSA DICONO I CLIENTI",
+    "items": [],
+    "viewCase": "Vedi il caso completo"
   },
   "faq": {
     "header": "DOMANDE FREQUENTI",
@@ -1170,7 +1171,7 @@
     "policy": "Informativa sulla privacy",
     "terms": "Termini e condizioni",
     "anpc": "ANPC",
-    "disclaimer": "Green Phoenix è il marchio commerciale di Green Pheonix Concept SRL · P.IVA 45667331 · J2022000195397 · Brașov, Romania",
+    "disclaimer": "Green Pheonix è il marchio commerciale di Green Pheonix Concept SRL · P.IVA 45667331 · J2022000195397 · Brașov, Romania",
     "cookieSettings": "Impostazioni cookie",
     "cookiePolicy": "Politica Cookies"
   },
@@ -1265,7 +1266,7 @@
       "num": "03",
       "title": "Autenticità",
       "body": "Gli algoritmi di Meta penalizzano gli annunci che sembrano annunci. Il contenuto reale, con persone reali, vende meglio.",
-      "link": "Vedi il blog"
+      "link": "Vedi content production"
     },
     "card4": {
       "num": "04",
@@ -1367,5 +1368,25 @@
       "body": "Discovery call di 30 minuti. Niente pitch, niente pressione. Solo una conversazione onesta su ciò che sta cercando di costruire.",
       "button": "Prenoti una discovery call"
     }
+  },
+  "proofBar": {
+    "eyebrow": "// RISULTATI REALI",
+    "items": [
+      {
+        "value": "1,1M+",
+        "label": "impression gestite",
+        "context": "Reinert + Martinel (The Family Butchers RO)"
+      },
+      {
+        "value": "+595%",
+        "label": "impression Instagram",
+        "context": "Kokoro — 90 giorni, puramente organico"
+      },
+      {
+        "value": "0,46 RON",
+        "label": "Costo per Click Meta",
+        "context": "Lemet — sotto la media del settore"
+      }
+    ]
   }
 }

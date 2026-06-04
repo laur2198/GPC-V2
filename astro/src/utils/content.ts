@@ -14,7 +14,7 @@ type LocaleCopy = Record<string, PageCopy>;
 export const copy: Record<Locale, LocaleCopy> = {
   ro: {
     home: {
-      meta: { title: 'Green Phoenix — Performanță digitală', description: 'Agenție de marketing digital: ads și site-uri care convertesc.' },
+      meta: { title: 'Green Pheonix — Performanță digitală', description: 'Agenție de marketing digital: ads și site-uri care convertesc.' },
       hero: { title: 'Performanță digitală pentru afaceri ambițioase', subtitle: 'Campanii ads și site-uri care convertesc.', ctaLabel: 'Discută cu noi' },
       services: [
         { title: 'Google Ads', description: 'Campanii Search, Shopping, PMax optimizate pentru ROAS.' },
@@ -34,37 +34,37 @@ export const copy: Record<Locale, LocaleCopy> = {
       cta: { title: 'Pregătit să creștem împreună?', description: 'Programează un audit gratuit de 30 de minute.', ctaLabel: 'Contactează-ne' },
     },
     'servicii-ads': {
-      meta: { title: 'Servicii Ads — Green Phoenix', description: 'Campanii Google Ads, Meta Ads și TikTok Ads pentru rezultate măsurabile.' },
+      meta: { title: 'Servicii Ads — Green Pheonix', description: 'Campanii Google Ads, Meta Ads și TikTok Ads pentru rezultate măsurabile.' },
       hero: { title: 'Campanii ads care aduc clienți', subtitle: 'Google, Meta, TikTok — strategie, execuție și optimizare.', ctaLabel: 'Cere ofertă' },
     },
     'servicii-web': {
-      meta: { title: 'Servicii Web — Green Phoenix', description: 'Site-uri și landing pages performante, optimizate pentru conversie.' },
+      meta: { title: 'Servicii Web — Green Pheonix', description: 'Site-uri și landing pages performante, optimizate pentru conversie.' },
       hero: { title: 'Site-uri web care convertesc', subtitle: 'Design rapid, SEO tehnic și UX bazat pe date.', ctaLabel: 'Solicită proiect' },
     },
     despre: {
-      meta: { title: 'Despre noi — Green Phoenix', description: 'Cine suntem și de ce facem ce facem.' },
-      hero: { title: 'Despre Green Phoenix', subtitle: 'O echipă focusată pe rezultate, nu pe vanity metrics.', ctaLabel: 'Vorbește cu noi' },
+      meta: { title: 'Despre noi — Green Pheonix', description: 'Cine suntem și de ce facem ce facem.' },
+      hero: { title: 'Despre Green Pheonix', subtitle: 'O echipă focusată pe rezultate, nu pe vanity metrics.', ctaLabel: 'Vorbește cu noi' },
     },
     contact: {
-      meta: { title: 'Contact — Green Phoenix', description: 'Discută cu echipa noastră.' },
+      meta: { title: 'Contact — Green Pheonix', description: 'Discută cu echipa noastră.' },
       hero: { title: 'Hai să vorbim', subtitle: 'Programează un audit gratuit sau cere o ofertă personalizată.', ctaLabel: 'Trimite mesaj' },
     },
     politica: {
-      meta: { title: 'Politică de confidențialitate', description: 'Politica de confidențialitate Green Phoenix.' },
+      meta: { title: 'Politică de confidențialitate', description: 'Politica de confidențialitate Green Pheonix.' },
       hero: { title: 'Politică de confidențialitate', subtitle: 'Cum colectăm, folosim și protejăm datele tale.', ctaLabel: '' },
     },
     portofoliu: {
-      meta: { title: 'Portofoliu — Green Phoenix', description: 'Studii de caz și proiecte realizate.' },
+      meta: { title: 'Portofoliu — Green Pheonix', description: 'Studii de caz și proiecte realizate.' },
       hero: { title: 'Proiectele noastre', subtitle: 'Rezultate reale pentru clienți reali.', ctaLabel: '' },
     },
     blog: {
-      meta: { title: 'Blog — Green Phoenix', description: 'Articole despre marketing digital, ads și optimizare web.' },
+      meta: { title: 'Blog — Green Pheonix', description: 'Articole despre marketing digital, ads și optimizare web.' },
       hero: { title: 'Blog', subtitle: 'Insight-uri, ghiduri și studii de caz.', ctaLabel: '' },
     },
   },
   en: {
     home: {
-      meta: { title: 'Green Phoenix — Digital performance', description: 'Digital marketing agency: ads and websites that convert.' },
+      meta: { title: 'Green Pheonix — Digital performance', description: 'Digital marketing agency: ads and websites that convert.' },
       hero: { title: 'Digital performance for ambitious businesses', subtitle: 'Ad campaigns and websites that convert.', ctaLabel: 'Talk to us' },
       services: [
         { title: 'Google Ads', description: 'Search, Shopping, PMax campaigns optimized for ROAS.' },
@@ -84,37 +84,37 @@ export const copy: Record<Locale, LocaleCopy> = {
       cta: { title: 'Ready to grow together?', description: 'Book a free 30-minute audit.', ctaLabel: 'Contact us' },
     },
     'servicii-ads': {
-      meta: { title: 'Ads Services — Green Phoenix', description: 'Google Ads, Meta Ads and TikTok Ads campaigns with measurable results.' },
+      meta: { title: 'Ads Services — Green Pheonix', description: 'Google Ads, Meta Ads and TikTok Ads campaigns with measurable results.' },
       hero: { title: 'Ad campaigns that bring clients', subtitle: 'Google, Meta, TikTok — strategy, execution and optimization.', ctaLabel: 'Request a quote' },
     },
     'servicii-web': {
-      meta: { title: 'Web Services — Green Phoenix', description: 'High-performance websites and landing pages optimized for conversion.' },
+      meta: { title: 'Web Services — Green Pheonix', description: 'High-performance websites and landing pages optimized for conversion.' },
       hero: { title: 'Websites that convert', subtitle: 'Fast design, technical SEO and data-driven UX.', ctaLabel: 'Start a project' },
     },
     despre: {
-      meta: { title: 'About — Green Phoenix', description: 'Who we are and why we do what we do.' },
-      hero: { title: 'About Green Phoenix', subtitle: 'A team focused on results, not vanity metrics.', ctaLabel: 'Talk to us' },
+      meta: { title: 'About — Green Pheonix', description: 'Who we are and why we do what we do.' },
+      hero: { title: 'About Green Pheonix', subtitle: 'A team focused on results, not vanity metrics.', ctaLabel: 'Talk to us' },
     },
     contact: {
-      meta: { title: 'Contact — Green Phoenix', description: 'Talk to our team.' },
+      meta: { title: 'Contact — Green Pheonix', description: 'Talk to our team.' },
       hero: { title: 'Let’s talk', subtitle: 'Book a free audit or request a custom quote.', ctaLabel: 'Send a message' },
     },
     politica: {
-      meta: { title: 'Privacy policy', description: 'Green Phoenix privacy policy.' },
+      meta: { title: 'Privacy policy', description: 'Green Pheonix privacy policy.' },
       hero: { title: 'Privacy policy', subtitle: 'How we collect, use and protect your data.', ctaLabel: '' },
     },
     portofoliu: {
-      meta: { title: 'Portfolio — Green Phoenix', description: 'Case studies and completed projects.' },
+      meta: { title: 'Portfolio — Green Pheonix', description: 'Case studies and completed projects.' },
       hero: { title: 'Our work', subtitle: 'Real results for real clients.', ctaLabel: '' },
     },
     blog: {
-      meta: { title: 'Blog — Green Phoenix', description: 'Articles on digital marketing, ads and web optimization.' },
+      meta: { title: 'Blog — Green Pheonix', description: 'Articles on digital marketing, ads and web optimization.' },
       hero: { title: 'Blog', subtitle: 'Insights, guides and case studies.', ctaLabel: '' },
     },
   },
   it: {
     home: {
-      meta: { title: 'Green Phoenix — Performance digitale', description: 'Agenzia di marketing digitale: ads e siti che convertono.' },
+      meta: { title: 'Green Pheonix — Performance digitale', description: 'Agenzia di marketing digitale: ads e siti che convertono.' },
       hero: { title: 'Performance digitale per aziende ambiziose', subtitle: 'Campagne ads e siti che convertono.', ctaLabel: 'Parla con noi' },
       services: [
         { title: 'Google Ads', description: 'Campagne Search, Shopping, PMax ottimizzate per il ROAS.' },
@@ -134,31 +134,31 @@ export const copy: Record<Locale, LocaleCopy> = {
       cta: { title: 'Pronto a crescere insieme?', description: 'Prenota un audit gratuito di 30 minuti.', ctaLabel: 'Contattaci' },
     },
     'servicii-ads': {
-      meta: { title: 'Servizi Ads — Green Phoenix', description: 'Campagne Google Ads, Meta Ads e TikTok Ads con risultati misurabili.' },
+      meta: { title: 'Servizi Ads — Green Pheonix', description: 'Campagne Google Ads, Meta Ads e TikTok Ads con risultati misurabili.' },
       hero: { title: 'Campagne ads che portano clienti', subtitle: 'Google, Meta, TikTok — strategia, esecuzione e ottimizzazione.', ctaLabel: 'Richiedi un preventivo' },
     },
     'servicii-web': {
-      meta: { title: 'Servizi Web — Green Phoenix', description: 'Siti e landing page ad alte performance ottimizzati per la conversione.' },
+      meta: { title: 'Servizi Web — Green Pheonix', description: 'Siti e landing page ad alte performance ottimizzati per la conversione.' },
       hero: { title: 'Siti che convertono', subtitle: 'Design veloce, SEO tecnica e UX basata sui dati.', ctaLabel: 'Avvia un progetto' },
     },
     despre: {
-      meta: { title: 'Chi siamo — Green Phoenix', description: 'Chi siamo e perché facciamo quello che facciamo.' },
+      meta: { title: 'Chi siamo — Green Pheonix', description: 'Chi siamo e perché facciamo quello che facciamo.' },
       hero: { title: 'Chi siamo', subtitle: 'Un team focalizzato sui risultati, non sulle vanity metrics.', ctaLabel: 'Parla con noi' },
     },
     contact: {
-      meta: { title: 'Contatti — Green Phoenix', description: 'Parla con il nostro team.' },
+      meta: { title: 'Contatti — Green Pheonix', description: 'Parla con il nostro team.' },
       hero: { title: 'Parliamone', subtitle: 'Prenota un audit gratuito o richiedi un preventivo personalizzato.', ctaLabel: 'Invia un messaggio' },
     },
     politica: {
-      meta: { title: 'Informativa sulla privacy', description: 'Informativa sulla privacy di Green Phoenix.' },
+      meta: { title: 'Informativa sulla privacy', description: 'Informativa sulla privacy di Green Pheonix.' },
       hero: { title: 'Informativa sulla privacy', subtitle: 'Come raccogliamo, usiamo e proteggiamo i tuoi dati.', ctaLabel: '' },
     },
     portofoliu: {
-      meta: { title: 'Portfolio — Green Phoenix', description: 'Case study e progetti realizzati.' },
+      meta: { title: 'Portfolio — Green Pheonix', description: 'Case study e progetti realizzati.' },
       hero: { title: 'I nostri progetti', subtitle: 'Risultati reali per clienti reali.', ctaLabel: '' },
     },
     blog: {
-      meta: { title: 'Blog — Green Phoenix', description: 'Articoli su marketing digitale, ads e ottimizzazione web.' },
+      meta: { title: 'Blog — Green Pheonix', description: 'Articoli su marketing digitale, ads e ottimizzazione web.' },
       hero: { title: 'Blog', subtitle: 'Insight, guide e case study.', ctaLabel: '' },
     },
   },

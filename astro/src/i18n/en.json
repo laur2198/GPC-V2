@@ -1115,7 +1115,8 @@
   },
   "testimonials": {
     "header": "WHAT CLIENTS SAY",
-    "items": []
+    "items": [],
+    "viewCase": "See the full case"
   },
   "faq": {
     "header": "FREQUENTLY ASKED QUESTIONS",
@@ -1170,7 +1171,7 @@
     "policy": "Privacy policy",
     "terms": "Terms & conditions",
     "anpc": "ANPC",
-    "disclaimer": "Green Phoenix is the commercial brand of Green Pheonix Concept SRL · VAT 45667331 · J2022000195397 · Brașov, Romania",
+    "disclaimer": "Green Pheonix is the commercial brand of Green Pheonix Concept SRL · VAT 45667331 · J2022000195397 · Brașov, Romania",
     "cookieSettings": "Cookie settings",
     "cookiePolicy": "Cookie Policy"
   },
@@ -1265,7 +1266,7 @@
       "num": "03",
       "title": "Authenticity",
       "body": "Meta's algorithms penalize ads that look like ads. Real content, with real people, sells better.",
-      "link": "See the blog"
+      "link": "See content production"
     },
     "card4": {
       "num": "04",
@@ -1367,5 +1368,25 @@
       "body": "A 30-minute discovery call. No pitch, no pressure. Just an honest conversation about what you are trying to build.",
       "button": "Book a discovery call"
     }
+  },
+  "proofBar": {
+    "eyebrow": "// REAL RESULTS",
+    "items": [
+      {
+        "value": "1.1M+",
+        "label": "impressions managed",
+        "context": "Reinert + Martinel (The Family Butchers RO)"
+      },
+      {
+        "value": "+595%",
+        "label": "Instagram impressions",
+        "context": "Kokoro — 90 days, fully organic"
+      },
+      {
+        "value": "0.46 RON",
+        "label": "Meta Cost per Click",
+        "context": "Lemet — below industry average"
+      }
+    ]
   }
 }

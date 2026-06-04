@@ -252,9 +252,11 @@ body:has(:focus-visible) .cursor-outline {
 .footer-giant-text {
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
-  font-size: clamp(2rem, 13.5vw, 12rem);
+  /* Tempered from clamp(2rem, 13.5vw, 12rem) — most aggressive level,
+     reduced so it reads as a statement, not a shout dominating the footer. */
+  font-size: clamp(1.85rem, 12vw, 11.25rem);
   line-height: 0.8;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   text-transform: uppercase;
   color: #ffffff;
   cursor: default;
@@ -269,7 +271,7 @@ body:has(:focus-visible) .cursor-outline {
 }
 @media (max-width: 768px) {
   .footer-giant-text {
-    font-size: clamp(2rem, 18vw, 6rem);
+    font-size: clamp(1.85rem, 16vw, 5.5rem);
   }
 }
 
@@ -279,9 +281,11 @@ body:has(:focus-visible) .cursor-outline {
 .sophisticated-headline {
   font-family: 'Oswald', sans-serif;
   font-weight: 900;
-  font-size: clamp(3.5rem, 7vw, 7rem);
-  line-height: 0.78;
-  letter-spacing: -1.5px;
+  /* Tempered ~7% from clamp(3.5rem, 7vw, 7rem) for quieter authority. */
+  font-size: clamp(3.25rem, 6.5vw, 6.5rem);
+  line-height: 0.82;
+  /* Relaxed tracking from -1.5px toward neutral (Oswald is condensed). */
+  letter-spacing: -0.5px;
   text-transform: uppercase;
   display: flex;
   flex-direction: column;
@@ -292,8 +296,9 @@ body:has(:focus-visible) .cursor-outline {
    "smash" statement weight, scoped to heroes only. */
 .hero-heavy {
   font-weight: 900;
-  line-height: 0.82;
-  letter-spacing: -1.5px;
+  line-height: 0.85;
+  /* Relaxed tracking from -1.5px toward neutral. */
+  letter-spacing: -0.5px;
 }
 .sophisticated-headline .line-1,
 .sophisticated-headline .line-3 {
@@ -305,8 +310,8 @@ body:has(:focus-visible) .cursor-outline {
 }
 @media (max-width: 768px) {
   .sophisticated-headline {
-    font-size: clamp(2.5rem, 11vw, 4.5rem);
-    letter-spacing: -1px;
+    font-size: clamp(2.35rem, 10.5vw, 4.2rem);
+    letter-spacing: -0.5px;
   }
   .sophisticated-headline .line-2 { margin-left: 0; }
 }

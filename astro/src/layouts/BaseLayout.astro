@@ -66,7 +66,22 @@ const {
 
 const site = Astro.site ?? new URL('https://greenpheonixconcept.com');
 const canonical = new URL(Astro.url.pathname, site).toString();
-const ogImage = image.startsWith('http') ? image : new URL(image, site).toString();
+
+// Routes that have a programmatically-generated OG image (RO masters).
+// The OG endpoint lives at /og/<route>.png — see src/pages/og/[...route].png.ts.
+const OG_ROUTES = new Set([
+  'index', 'servicii', 'despre', 'procesul', 'contact', 'portofoliu',
+  'servicii/meta-ads', 'servicii/google-ads', 'servicii/social-media',
+  'servicii/web-development', 'servicii/strategie-audit', 'servicii/content-production',
+  'portofoliu/academia-kokoro-rebrand', 'portofoliu/lemet-stone-plugin-marketing',
+]);
+// Normalise the current path to an OG-route key (strip locale + slashes).
+const ogKeyRaw = Astro.url.pathname.replace(/^\/(en|it)(?=\/|$)/, '').replace(/^\/|\/$/g, '');
+const ogKey = ogKeyRaw === '' ? 'index' : ogKeyRaw;
+const generatedOg = OG_ROUTES.has(ogKey) ? `/og/${ogKey}.png` : null;
+
+const ogSource = image !== '/og-image.jpg' ? image : (generatedOg ?? image);
+const ogImage = ogSource.startsWith('http') ? ogSource : new URL(ogSource, site).toString();
 
 const alternates = locales.map((l) => ({
   hreflang: l,
@@ -282,6 +297,8 @@ const faqJsonLd = faqSchema && faqSchema.length
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content={locale === 'ro' ? 'ro_RO' : locale === 'it' ? 'it_IT' : 'en_US'} />
 
     <meta name="twitter:card" content="summary_large_image" />

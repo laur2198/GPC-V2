@@ -12,7 +12,8 @@ const FONTS = [
   './src/assets/fonts/Oswald-Bold.ttf',
   './src/assets/fonts/SpaceMono-Bold.ttf',
 ];
-const LOGO = { path: './src/assets/og-logo.png', size: [90] as [number] };
+// Green phoenix mark (extracted from the hero logo) on the dark OG card.
+const LOGO = { path: './src/assets/phoenix-mark.png', size: [70] as [number] };
 
 interface OGPage {
   title: string;

@@ -2,7 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700;900&family=Space+Mono:wght@400;700&display=swap');
+/* ============================================================
+   Self-hosted fonts (GDPR-friendly — no Google CDN requests).
+   woff2, subsets latin + latin-ext (RO diacritics: ă â î ș ț).
+   Files live in /public/fonts. font-display: swap avoids FOIT.
+   Only weights actually used by the site are shipped:
+     Inter   400 / 500 / 600 / 700   (body, font-medium, prose)
+     Oswald  400 / 700               (headings; 900 usages resolve
+                                       to 700 — Oswald has no 900)
+     Space Mono 400 / 700            (eyebrows / mono labels)
+   ============================================================ */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/inter-v20-latin_latin-ext-regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/inter-v20-latin_latin-ext-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/inter-v20-latin_latin-ext-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/inter-v20-latin_latin-ext-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/oswald-v57-latin_latin-ext-regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/oswald-v57-latin_latin-ext-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/space-mono-v17-latin_latin-ext-regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/space-mono-v17-latin_latin-ext-700.woff2') format('woff2');
+}
 
 :root {
   --gpc-white: #FFFFFF;

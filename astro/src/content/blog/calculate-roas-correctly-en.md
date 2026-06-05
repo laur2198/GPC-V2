@@ -6,7 +6,7 @@ publishDate: 2026-04-22
 author: "Laurențiu Bogdan"
 category: "Performance Marketing"
 tags: ["roas", "tracking", "ga4", "meta-ads"]
-heroImage: "/og-ads.jpg"
+heroImage: "/og/blog/calculate-roas-correctly.png"
 language: "en"
 ---
 

@@ -5,7 +5,7 @@ publishDate: 2026-02-08
 author: "Laurențiu Bogdan"
 category: "Performance Marketing"
 tags: ["meta-ads", "facebook-ads", "buget", "strategy"]
-heroImage: "/og-image.jpg"
+heroImage: "/og/blog/buget-facebook-ads-2026.png"
 language: "ro"
 ---
 

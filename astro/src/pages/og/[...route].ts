@@ -124,6 +124,20 @@ for (const cs of caseStudies) {
   }
 }
 
+// --- Blog posts → standard layout, every locale ----------------------------
+// Branded cover images for blog cards (heroImage) and social shares. Title
+// comes from each post's already-translated frontmatter; eyebrow is the post
+// category. Blog slugs are globally unique (the -en/-it suffix is baked into
+// the filename), so a flat blog/<slug> key needs no locale prefixing and can't
+// collide. Drafts are skipped — they're excluded from the build anyway.
+const blogPosts = await getCollection('blog', ({ data }) => !data.draft);
+for (const post of blogPosts) {
+  pages[`blog/${post.slug}`] = {
+    title: post.data.title,
+    description: `// ${post.data.category.toUpperCase()}`,
+  };
+}
+
 export const { getStaticPaths, GET } = await OGImageRoute({
   param: 'route',
   pages,

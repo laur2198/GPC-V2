@@ -6,7 +6,7 @@ publishDate: 2026-03-14
 author: "Laurențiu Bogdan"
 category: "Web & UX"
 tags: ["landing-page", "cro", "ux", "copywriting"]
-heroImage: "/og-web.jpg"
+heroImage: "/og/blog/anatomia-landing-page.png"
 language: "it"
 ---
 

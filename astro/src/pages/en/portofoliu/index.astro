@@ -53,7 +53,8 @@ const industries = Array.from(new Set(all.map((cs) => cs.data.industry))).sort()
               r[1] ? { label: r[1].metric, value: r[1].value } : { label: 'Services', value: String(cs.data.services.length) },
               r[2] ? { label: r[2].metric, value: r[2].value } : { label: 'Industry', value: cs.data.industry },
             ];
-            const summary = cs.data.anonymized ? `${cs.data.industry} · ${cs.data.duration}` : `${cs.data.client} · ${cs.data.duration}`;
+            const meta = cs.data.location ?? cs.data.duration ?? cs.data.industry;
+            const summary = cs.data.anonymized ? `${cs.data.industry} · ${meta}` : `${cs.data.client} · ${meta}`;
             return (
               <div data-industry={cs.data.industry}>
                 <CaseStudyCard title={cs.data.title} industry={cs.data.industry} image={cs.data.heroImage} summary={summary} link={localizedPath(locale, `/portofoliu/${cs.slug.replace(/-(en|it)$/, '')}`)} kpis={kpis} />

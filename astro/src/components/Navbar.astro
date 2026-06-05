@@ -14,8 +14,11 @@ import LanguageSwitcher from './LanguageSwitcher.astro';
 
 interface Props {
   locale: Locale;
+  /** Per-locale slug map for translated-slug pages; forwarded to the
+   *  LanguageSwitcher so it links to the correct page, not a 404. */
+  hreflangPaths?: Partial<Record<Locale, string>>;
 }
-const { locale } = Astro.props;
+const { locale, hreflangPaths } = Astro.props;
 
 interface NavStrings {
   home: string;
@@ -81,7 +84,7 @@ const current = Astro.url.pathname.replace(/\/$/, '') || '/';
     </ul>
 
     <div class="flex items-center gap-3">
-      <LanguageSwitcher locale={locale} />
+      <LanguageSwitcher locale={locale} hreflangPaths={hreflangPaths} />
       <button
         id="nav-toggle"
         type="button"

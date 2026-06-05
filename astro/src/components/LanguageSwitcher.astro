@@ -15,12 +15,20 @@ import { type Locale, locales, localeLabels, switchLocalePath } from '../utils/i
 
 interface Props {
   locale: Locale;
+  /**
+   * Explicit per-locale paths for pages whose slug differs across
+   * languages (legal docs, thank-you). Mirrors BaseLayout's hreflang
+   * logic: prefer the mapped slug, fall back to the same-slug swap.
+   * Without it the switcher would naively prepend /en//it/ to the
+   * current slug and 404 on translated-slug pages.
+   */
+  hreflangPaths?: Partial<Record<Locale, string>>;
 }
-const { locale } = Astro.props;
+const { locale, hreflangPaths } = Astro.props;
 const targets = locales.map((l) => ({
   locale: l,
   label: localeLabels[l],
-  href: switchLocalePath(Astro.url, l),
+  href: hreflangPaths?.[l] ?? switchLocalePath(Astro.url, l),
 }));
 ---
 

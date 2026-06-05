@@ -67,18 +67,30 @@ const {
 const site = Astro.site ?? new URL('https://greenpheonixconcept.com');
 const canonical = new URL(Astro.url.pathname, site).toString();
 
-// Routes that have a programmatically-generated OG image (RO masters).
-// The OG endpoint lives at /og/<route>.png — see src/pages/og/[...route].png.ts.
+// Routes (locale-agnostic) that have a programmatically-generated OG image.
+// RO masters live at /og/<route>.png; en/it variants at /og/<locale>/<route>.png
+// — see src/pages/og/[...route].ts.
 const OG_ROUTES = new Set([
   'index', 'servicii', 'despre', 'procesul', 'contact', 'portofoliu',
   'servicii/meta-ads', 'servicii/google-ads', 'servicii/social-media',
   'servicii/web-development', 'servicii/strategie-audit', 'servicii/content-production',
   'portofoliu/academia-kokoro-rebrand', 'portofoliu/lemet-stone-plugin-marketing',
 ]);
-// Normalise the current path to an OG-route key (strip locale + slashes).
-const ogKeyRaw = Astro.url.pathname.replace(/^\/(en|it)(?=\/|$)/, '').replace(/^\/|\/$/g, '');
-const ogKey = ogKeyRaw === '' ? 'index' : ogKeyRaw;
-const generatedOg = OG_ROUTES.has(ogKey) ? `/og/${ogKey}.png` : null;
+// Split the locale prefix off the path but keep it, so en/it pages point at
+// their own localized OG card instead of the RO master. Key matches the OG
+// endpoint: '<route>' for ro, '<locale>/<route>' for en/it.
+const ogSegments = Astro.url.pathname.replace(/^\/|\/$/g, '').split('/').filter(Boolean);
+const ogLocale = ogSegments[0] === 'en' || ogSegments[0] === 'it' ? ogSegments[0] : null;
+const ogKey = (ogLocale ? ogSegments.slice(1) : ogSegments).join('/') || 'index';
+// astro-og-canvas collapses a localized home key ('en/index') to /og/<locale>.png
+// (the trailing /index is dropped); the RO home stays /og/index.png. Everything
+// else mirrors the key path: /og/<route>.png (ro) or /og/<locale>/<route>.png.
+let generatedOg: string | null = null;
+if (OG_ROUTES.has(ogKey)) {
+  if (!ogLocale) generatedOg = `/og/${ogKey}.png`;
+  else if (ogKey === 'index') generatedOg = `/og/${ogLocale}.png`;
+  else generatedOg = `/og/${ogLocale}/${ogKey}.png`;
+}
 
 const ogSource = image !== '/og-image.jpg' ? image : (generatedOg ?? image);
 const ogImage = ogSource.startsWith('http') ? ogSource : new URL(ogSource, site).toString();

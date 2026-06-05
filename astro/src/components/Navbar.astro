@@ -35,12 +35,13 @@ interface NavStrings {
 const nav = t<NavStrings>(locale, 'nav');
 
 // Single "Services" umbrella link — all locales now have /servicii + 6 subs.
-// Blog is hidden from nav until real articles ship (drafts are placeholders);
-// routes stay live, just not promoted.
+// Blog is live again now that the 3 trilingual articles ship; draft skeletons
+// stay out of the build (draft:true) so only real posts are reachable.
 const links = [
   { href: localizedPath(locale, '/'), label: nav.home },
   { href: localizedPath(locale, '/servicii'), label: nav.services ?? 'Servicii' },
   { href: localizedPath(locale, '/portofoliu'), label: nav.portfolio },
+  { href: localizedPath(locale, '/blog'), label: nav.blog },
   { href: localizedPath(locale, '/despre'), label: nav.about },
   { href: localizedPath(locale, '/contact'), label: nav.contact },
 ];

@@ -52,11 +52,12 @@ const legalSlugs = {
   it: { privacy: '/it/informativa-privacy', terms: '/it/termini-condizioni', cookies: '/it/politica-cookies' },
 }[locale];
 
-// Blog hidden from footer too until real articles ship (routes stay live).
+// Blog is live again now that the 3 trilingual articles ship.
 const quickLinks = [
   { href: localizedPath(locale, '/'), label: nav.home },
   { href: localizedPath(locale, '/servicii'), label: (nav as { services?: string }).services ?? 'Servicii' },
   { href: localizedPath(locale, '/portofoliu'), label: nav.portfolio },
+  { href: localizedPath(locale, '/blog'), label: nav.blog },
   { href: localizedPath(locale, '/despre'), label: nav.about },
   { href: localizedPath(locale, '/contact'), label: nav.contact },
 ];

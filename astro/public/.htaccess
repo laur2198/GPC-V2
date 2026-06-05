@@ -20,6 +20,7 @@ Redirect 301 /portofoliu.html                      /portofoliu
 Redirect 301 /despre.html                          /despre
 Redirect 301 /contact.html                         /contact
 Redirect 301 /politica.html                        /politica
+# Legacy blog .html URLs → matching live articles (blog is live again).
 Redirect 301 /blog.html                            /blog
 Redirect 301 /blog-facebook-ads.html               /blog/buget-facebook-ads-2026
 Redirect 301 /blog-roas.html                       /blog/cum-calculezi-roas

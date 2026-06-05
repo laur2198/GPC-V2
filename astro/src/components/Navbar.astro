@@ -9,8 +9,10 @@
  * GREEN PHEONIX wordmark with glyph icon, mobile hamburger off-canvas
  * panel, language switcher dropdown.
  */
+import { Image } from 'astro:assets';
 import { type Locale, t, localizedPath } from '../utils/i18n';
 import LanguageSwitcher from './LanguageSwitcher.astro';
+import phoenixMark from '../assets/phoenix-mark.png';
 
 interface Props {
   locale: Locale;
@@ -52,12 +54,14 @@ const current = Astro.url.pathname.replace(/\/$/, '') || '/';
 >
   <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
     <a href={localizedPath(locale, '/')} class="group flex items-center gap-2">
-      <svg viewBox="0 0 32 32" class="h-7 w-7 text-gpc-green transition-transform group-hover:rotate-12" aria-hidden="true">
-        <path
-          fill="currentColor"
-          d="M16 2 4 9v14l12 7 12-7V9L16 2Zm0 3.3 9.2 5.3v10.8L16 26.7 6.8 21.4V10.6L16 5.3Zm0 4.2-5.5 3.2v6.4l5.5 3.2 5.5-3.2v-6.4L16 9.5Zm0 2.4 3.5 2v4l-3.5 2-3.5-2v-4L16 11.9Z"
-        />
-      </svg>
+      <Image
+        src={phoenixMark}
+        alt=""
+        width={28}
+        height={28}
+        loading="eager"
+        class="h-7 w-7 object-contain transition-transform group-hover:rotate-12"
+      />
       <span class="font-display text-base tracking-[0.18em] text-gpc-ink">
         GREEN <span class="glow-green">PHEONIX</span>
       </span>

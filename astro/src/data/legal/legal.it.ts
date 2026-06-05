@@ -72,7 +72,7 @@ export const privacy: LegalDocData = {
           'Microsoft Corp. (USA) — <a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener">privacy statement</a> — Clarity heatmap.',
           'Meta Platforms Inc. (USA) — <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">privacy policy</a> — Facebook/Instagram Pixel.',
           'TikTok Pte. Ltd. (Singapore) — <a href="https://www.tiktok.com/legal/privacy-policy-eea" target="_blank" rel="noopener">privacy policy</a> — TikTok Pixel.',
-          'Il fornitore di hosting (confermato al momento del deploy) — erogazione del sito.',
+          'Namecheap, Inc. (USA) — <a href="https://www.namecheap.com/legal/general/privacy-policy/" target="_blank" rel="noopener">privacy policy</a> — hosting del sito (log del server: indirizzo IP, user-agent, data e ora di accesso).',
           'ANAF e autorità, nei limiti degli obblighi di legge.',
         ] },
       ],
@@ -81,6 +81,7 @@ export const privacy: LegalDocData = {
       heading: '6. Trasferimento al di fuori dello SEE/UE',
       blocks: [
         { type: 'p', html: 'Formspree, Google, Microsoft e Meta possono trattare dati negli USA; TikTok a Singapore. Garanzie applicate: <strong>Clausole Contrattuali Standard (SCC)</strong> e, ove applicabile, <strong>EU-US Data Privacy Framework (DPF)</strong>.' },
+        { type: 'p', html: 'Il sito è ospitato da <strong>Namecheap, Inc.</strong>, con server negli <strong>Stati Uniti</strong>. Ciò comporta il trasferimento di dati tecnici (indirizzo IP, log del server) verso gli USA, effettuato sulla base delle <strong>Clausole Contrattuali Standard (SCC)</strong> approvate dalla Commissione Europea, che garantiscono un livello adeguato di protezione dei dati.' },
       ],
     },
     {

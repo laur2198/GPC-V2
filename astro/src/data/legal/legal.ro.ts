@@ -94,7 +94,7 @@ export const privacy: LegalDocData = {
           'Microsoft Corp. (SUA) — <a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener">privacy statement</a> — Clarity heatmaps.',
           'Meta Platforms Inc. (SUA) — <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">privacy policy</a> — Facebook/Instagram Pixel.',
           'TikTok Pte. Ltd. (Singapore) — <a href="https://www.tiktok.com/legal/privacy-policy-eea" target="_blank" rel="noopener">privacy policy</a> — TikTok Pixel.',
-          'Furnizorul de hosting (confirmat la deploy) — livrarea site-ului.',
+          'Namecheap, Inc. (SUA) — <a href="https://www.namecheap.com/legal/general/privacy-policy/" target="_blank" rel="noopener">privacy policy</a> — găzduire site (jurnale de server: adresă IP, user-agent, dată și oră acces).',
           'ANAF și autorități, în limita obligațiilor legale.',
         ] },
       ],
@@ -103,6 +103,7 @@ export const privacy: LegalDocData = {
       heading: '6. Transfer în afara SEE/UE',
       blocks: [
         { type: 'p', html: 'Formspree, Google, Microsoft și Meta pot prelucra date în SUA; TikTok în Singapore. Garanțiile aplicate: <strong>Clauze Contractuale Standard (SCC)</strong> și, unde e cazul, <strong>EU-US Data Privacy Framework (DPF)</strong>.' },
+        { type: 'p', html: 'Găzduirea site-ului este asigurată de <strong>Namecheap, Inc.</strong>, cu servere în <strong>Statele Unite ale Americii</strong>. Aceasta implică transferul datelor tehnice (adresă IP, jurnale de server) către SUA, realizat în baza <strong>Clauzelor Contractuale Standard (SCC)</strong> aprobate de Comisia Europeană, care asigură un nivel adecvat de protecție a datelor.' },
       ],
     },
     {

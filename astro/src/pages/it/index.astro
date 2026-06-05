@@ -1,13 +1,13 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
+import ProofBar from '../../components/ProofBar.astro';
 import StickyStackServices from '../../components/StickyStackServices.astro';
 import Philosophy from '../../components/Philosophy.astro';
 import TrustBar from '../../components/TrustBar.astro';
 import HowWeWork from '../../components/HowWeWork.astro';
 import FAQ from '../../components/FAQ.astro';
 import CTA from '../../components/CTA.astro';
-import Testimonial from '../../components/Testimonial.astro';
 import CaseStudyCard from '../../components/CaseStudyCard.astro';
 import { getCollection } from 'astro:content';
 import { type Locale, t, localizedPath } from '../../utils/i18n';
@@ -22,14 +22,7 @@ const faq = t<{ header: string; items: { question: string; answer: string }[] }>
 
 const finalCta = t<{ heading: string; subtext: string; buttonText: string }>(locale, 'finalCta');
 
-interface TestimonialItem {
-  quote: string;
-  author: string;
-  role: string;
-  company: string;
-  rating: number;
-}
-const testimonials = t<{ header: string; items: TestimonialItem[] }>(locale, 'testimonials');
+const testimonialsUi = t<{ header: string; viewCase: string }>(locale, 'testimonials');
 
 const aboutTeaser = t<{ header: string; title: string; description: string; ctaText: string }>(locale, 'aboutTeaser');
 
@@ -46,10 +39,27 @@ if (allCs.length === 0) {
   )).sort(byOrder);
 }
 const previewCs = allCs.slice(0, 2);
+
+// Real client testimonials sourced from case studies. We only show quotes
+// from real named people — entries that are data-source attributions
+// (e.g. "Date Meta Ads Manager") or pending placeholders are excluded.
+const PLACEHOLDER = /în curs de confirmare|todo|lorem|placeholder|provizoriu|date meta ads manager|ads manager/i;
+const realTestimonials = allCs
+  .filter((cs) => {
+    const tm = cs.data.testimonial;
+    return tm && tm.quote && tm.author && !PLACEHOLDER.test(tm.quote) && !PLACEHOLDER.test(tm.author);
+  })
+  .map((cs) => ({
+    quote: cs.data.testimonial!.quote,
+    author: cs.data.testimonial!.author,
+    role: cs.data.testimonial!.role ?? '',
+    href: localizedPath(locale, `/portofoliu/${cs.slug.replace(/-(en|it)$/, '')}`),
+  }));
 ---
 
 <BaseLayout title={meta.title} description={meta.description} locale={locale} faqSchema={faq.items}>
   <Hero locale={locale} />
+  <ProofBar locale={locale} />
   <TrustBar locale={locale} />
 
   <Philosophy locale={locale} />
@@ -87,7 +97,7 @@ const previewCs = allCs.slice(0, 2);
                 image={d.images?.hero ?? d.heroImage}
                 imageAlt={d.imageAlt}
                 summary={summary}
-                link={localizedPath(entry.data.language, `/portofoliu/${entry.slug}`)}
+                link={localizedPath(entry.data.language, `/portofoliu/${entry.slug.replace(/-(en|it)$/, '')}`)}
                 heroMetric={heroMetric}
                 kpis={kpis}
               />
@@ -104,13 +114,26 @@ const previewCs = allCs.slice(0, 2);
     </section>
   )}
 
-  {testimonials.items.length > 0 && (
+  {realTestimonials.length > 0 && (
     <section class="reveal border-t border-gpc-border bg-gpc-white">
-      <div class="mx-auto max-w-4xl px-6 py-20">
-        <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">{testimonials.header}</p>
-        <div class="mt-10 space-y-8">
-          {testimonials.items.map((tm) => (
-            <Testimonial quote={tm.quote} author={tm.author} role={tm.role} company={tm.company} rating={tm.rating} />
+      <div class="mx-auto max-w-3xl px-6 py-20 text-center">
+        <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">{testimonialsUi.header}</p>
+        <div class="mt-10 space-y-10">
+          {realTestimonials.map((tm) => (
+            <figure class="border-l-4 border-gpc-green bg-gpc-card/20 p-8 text-left md:p-10">
+              <blockquote class="font-sans text-[1.15rem] italic leading-relaxed text-gpc-ink md:text-[1.35rem]">
+                „{tm.quote}”
+              </blockquote>
+              <figcaption class="mt-6">
+                <span class="font-mono text-sm font-bold uppercase tracking-wider text-gpc-ink">{tm.author}</span>
+                {tm.role && <span class="mt-1 block font-mono text-xs text-gpc-text-secondary">{tm.role}</span>}
+                {tm.href && (
+                  <a href={tm.href} class="mt-4 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-gpc-green hover:underline">
+                    {testimonialsUi.viewCase} <span aria-hidden="true">→</span>
+                  </a>
+                )}
+              </figcaption>
+            </figure>
           ))}
         </div>
       </div>

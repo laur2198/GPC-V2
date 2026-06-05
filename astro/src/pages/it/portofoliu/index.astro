@@ -56,7 +56,7 @@ const industries = Array.from(new Set(all.map((cs) => cs.data.industry))).sort()
             const summary = cs.data.anonymized ? `${cs.data.industry} · ${cs.data.duration}` : `${cs.data.client} · ${cs.data.duration}`;
             return (
               <div data-industry={cs.data.industry}>
-                <CaseStudyCard title={cs.data.title} industry={cs.data.industry} image={cs.data.heroImage} summary={summary} link={localizedPath(locale, `/portofoliu/${cs.slug}`)} kpis={kpis} />
+                <CaseStudyCard title={cs.data.title} industry={cs.data.industry} image={cs.data.heroImage} summary={summary} link={localizedPath(locale, `/portofoliu/${cs.slug.replace(/-(en|it)$/, '')}`)} kpis={kpis} />
               </div>
             );
           })}

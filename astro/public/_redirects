@@ -37,3 +37,6 @@
 /it/servicii-ads               /it/servicii/meta-ads/                  301
 /it/servicii-web               /it/servicii/web-development/           301
 /it/politica                   /it/informativa-privacy/                301
+
+# Sitemap alias (@astrojs/sitemap emits sitemap-index.xml)
+/sitemap.xml                   /sitemap-index.xml                      301

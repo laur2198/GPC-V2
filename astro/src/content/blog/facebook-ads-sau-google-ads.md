@@ -5,9 +5,9 @@ publishDate: 2026-06-17
 author: "Laurențiu Bogdan"
 category: "Performance Marketing"
 tags: ["google-ads", "facebook-ads", "meta-ads", "publicitate-online", "afaceri-mici"]
-heroImage: "/images/blog/placeholder.svg"
+heroImage: "/og/blog/facebook-ads-sau-google-ads.png"
 language: "ro"
-draft: true
+draft: false
 ---
 
 Aproape orice antreprenor care vrea să facă reclamă online ajunge în aceeași dilemă: bag bani în Google sau în Facebook? Răspunsul scurt e că întrebarea e greșit pusă. Cele două platforme nu fac același lucru, iar alegerea nu ține de care e „mai bună", ci de **unde se află clientul tău în momentul în care iei decizia**.

@@ -6,9 +6,9 @@ publishDate: 2026-06-17
 author: "Laurențiu Bogdan"
 category: "Performance Marketing"
 tags: ["google-ads", "facebook-ads", "landing-page", "conversii", "publicitate-online"]
-heroImage: "/images/blog/placeholder.svg"
+heroImage: "/og/blog/perche-i-tuoi-annunci-non-portano-clienti.png"
 language: "it"
-draft: true
+draft: false
 ---
 
 È una delle situazioni più frustranti per un imprenditore: paghi gli annunci mese dopo mese, vedi nella dashboard che "funziona" — click, impression, persone che entrano nel sito — ma a fine mese il numero di nuovi clienti è zero o quasi. La conclusione rapida è "gli annunci non funzionano". Quasi mai è vero.

@@ -5,9 +5,9 @@ publishDate: 2026-06-17
 author: "Laurențiu Bogdan"
 category: "Performance Marketing"
 tags: ["promovare-cluburi-sportive", "marketing-sali-fitness", "arte-martiale", "facebook-ads", "afaceri-locale"]
-heroImage: "/images/blog/placeholder.svg"
+heroImage: "/og/blog/promovare-online-cluburi-sportive.png"
 language: "ro"
-draft: true
+draft: false
 ---
 
 Un club sportiv bun se vinde în sală: prin antrenori, prin rezultate, prin comunitate. Problema e că nimic din toate astea nu se vede online, acolo unde părintele care caută un sport pentru copil sau adultul care vrea să înceapă mișcarea iau decizia. Iar concurența nu mai e doar clubul de pe strada vecină — e fiecare sală care a învățat să se promoveze pe Facebook și Instagram.

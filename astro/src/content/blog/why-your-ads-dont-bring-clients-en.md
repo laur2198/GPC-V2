@@ -6,9 +6,9 @@ publishDate: 2026-06-17
 author: "Laurențiu Bogdan"
 category: "Performance Marketing"
 tags: ["google-ads", "facebook-ads", "landing-page", "conversii", "publicitate-online"]
-heroImage: "/images/blog/placeholder.svg"
+heroImage: "/og/blog/why-your-ads-dont-bring-clients.png"
 language: "en"
-draft: true
+draft: false
 ---
 
 It's one of the most frustrating situations for an entrepreneur: you pay for ads month after month, you see in the dashboard that it's "working" — clicks, impressions, people coming to the site — but at the end of the month the number of new customers is zero or close to it. The quick conclusion is "ads don't work". It's almost never true.

@@ -6,9 +6,9 @@ publishDate: 2026-06-17
 author: "Laurențiu Bogdan"
 category: "Web & UX"
 tags: ["landing-page", "site-de-prezentare", "web-design", "conversii", "afaceri-mici"]
-heroImage: "/images/blog/placeholder.svg"
+heroImage: "/og/blog/website-vs-landing-page.png"
 language: "en"
-draft: true
+draft: false
 ---
 
 "I want a website." It's one of the most common requests any web company gets — and almost every time it hides a confusion. Because "website" can mean two very different things, with different purposes, different costs, and different results: a brochure website or a landing page.

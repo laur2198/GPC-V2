@@ -5,9 +5,9 @@ publishDate: 2026-06-17
 author: "Laurențiu Bogdan"
 category: "Strategy"
 tags: ["agentie-marketing", "marketing-digital", "afaceri-mici", "cum-alegi"]
-heroImage: "/images/blog/placeholder.svg"
+heroImage: "/og/blog/cum-alegi-agentie-marketing.png"
 language: "ro"
-draft: true
+draft: false
 ---
 
 Marketingul online e plin de povești cu bani aruncați. Antreprenor care a plătit șase luni pentru „administrare pagină de Facebook" și nu a văzut un singur client în plus. Firmă care a dat 3.000 de lei pe un site care arată bine, dar nu aduce nicio cerere de ofertă. De fiecare dată, problema nu a fost că marketingul „nu funcționează" — a fost alegerea greșită a agenției.

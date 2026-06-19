@@ -6,9 +6,9 @@ publishDate: 2026-06-17
 author: "Laurențiu Bogdan"
 category: "Strategy"
 tags: ["agentie-marketing", "marketing-digital", "afaceri-mici", "cum-alegi"]
-heroImage: "/images/blog/placeholder.svg"
+heroImage: "/og/blog/come-scegliere-agenzia-marketing.png"
 language: "it"
-draft: true
+draft: false
 ---
 
 Il marketing online è pieno di storie di soldi buttati. Un imprenditore che ha pagato sei mesi per la "gestione della pagina Facebook" senza vedere un solo cliente in più. Un'azienda che ha speso 3.000 lei per un sito che ha un bell'aspetto ma non porta nessuna richiesta. Ogni volta, il problema non è stato che il marketing "non funziona" — è stata la scelta sbagliata dell'agenzia.

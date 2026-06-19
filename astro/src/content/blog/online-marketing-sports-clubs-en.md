@@ -6,9 +6,9 @@ publishDate: 2026-06-17
 author: "Laurențiu Bogdan"
 category: "Performance Marketing"
 tags: ["promovare-cluburi-sportive", "marketing-sali-fitness", "arte-martiale", "facebook-ads", "afaceri-locale"]
-heroImage: "/images/blog/placeholder.svg"
+heroImage: "/og/blog/online-marketing-sports-clubs.png"
 language: "en"
-draft: true
+draft: false
 ---
 
 A good sports club sells itself in the gym: through its coaches, its results, its community. The problem is that none of that shows up online, where the parent looking for a sport for their child or the adult who wants to start moving actually makes the decision. And the competition is no longer just the club on the next street — it's every gym that has learned to promote itself on Facebook and Instagram.

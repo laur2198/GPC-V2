@@ -5,9 +5,9 @@ publishDate: 2026-06-17
 author: "Laurențiu Bogdan"
 category: "Performance Marketing"
 tags: ["google-ads", "facebook-ads", "landing-page", "conversii", "publicitate-online"]
-heroImage: "/images/blog/placeholder.svg"
+heroImage: "/og/blog/de-ce-reclamele-nu-aduc-clienti.png"
 language: "ro"
-draft: true
+draft: false
 ---
 
 E una dintre cele mai frustrante situații pentru un antreprenor: plătești reclame lună de lună, vezi în dashboard că „merge" — clickuri, afișări, oameni care intră pe site — dar la final de lună numărul de clienți noi e zero sau aproape. Concluzia rapidă e „reclamele nu funcționează". Aproape niciodată nu e adevărat.

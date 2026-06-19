@@ -6,9 +6,9 @@ publishDate: 2026-06-17
 author: "Laurențiu Bogdan"
 category: "Web & UX"
 tags: ["landing-page", "site-de-prezentare", "web-design", "conversii", "afaceri-mici"]
-heroImage: "/images/blog/placeholder.svg"
+heroImage: "/og/blog/sito-vetrina-vs-landing-page.png"
 language: "it"
-draft: true
+draft: false
 ---
 
 "Voglio un sito." È una delle richieste più frequenti che riceve qualsiasi web agency — e quasi ogni volta nasconde una confusione. Perché "sito" può significare due cose molto diverse, con scopi diversi, costi diversi e risultati diversi: un sito vetrina o una landing page.

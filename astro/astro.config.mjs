@@ -23,7 +23,6 @@ export default defineConfig({
         !page.includes('/multumim') &&
         !page.includes('/thank-you') &&
         !page.includes('/grazie') &&
-        !page.includes('/blog') &&
         !page.endsWith('/404') &&
         !page.endsWith('/404/'),
     }),

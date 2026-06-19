@@ -6,9 +6,9 @@ publishDate: 2026-06-17
 author: "Laurențiu Bogdan"
 category: "Performance Marketing"
 tags: ["google-ads", "facebook-ads", "meta-ads", "publicitate-online", "afaceri-mici"]
-heroImage: "/images/blog/placeholder.svg"
+heroImage: "/og/blog/facebook-ads-vs-google-ads.png"
 language: "en"
-draft: true
+draft: false
 ---
 
 Almost every entrepreneur who wants to advertise online lands in the same dilemma: do I put money into Google or into Facebook? The short answer is that the question is wrong. The two platforms don't do the same job, and the choice isn't about which one is "better" — it's about **where your customer is at the moment they make the decision**.

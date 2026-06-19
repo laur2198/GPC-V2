@@ -6,9 +6,9 @@ publishDate: 2026-06-17
 author: "Laurențiu Bogdan"
 category: "Strategy"
 tags: ["agentie-marketing", "marketing-digital", "afaceri-mici", "cum-alegi"]
-heroImage: "/images/blog/placeholder.svg"
+heroImage: "/og/blog/how-to-choose-marketing-agency.png"
 language: "en"
-draft: true
+draft: false
 ---
 
 Online marketing is full of stories about wasted money. An entrepreneur who paid six months for "Facebook page management" and didn't see a single extra customer. A company that spent 3,000 lei on a site that looks good but brings in no inquiries. Every time, the problem wasn't that marketing "doesn't work" — it was choosing the wrong agency.

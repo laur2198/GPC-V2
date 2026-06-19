@@ -5,9 +5,9 @@ publishDate: 2026-06-17
 author: "Laurențiu Bogdan"
 category: "Web & UX"
 tags: ["landing-page", "site-de-prezentare", "web-design", "conversii", "afaceri-mici"]
-heroImage: "/images/blog/placeholder.svg"
+heroImage: "/og/blog/site-de-prezentare-vs-landing-page.png"
 language: "ro"
-draft: true
+draft: false
 ---
 
 „Vreau un site." E una dintre cele mai frecvente cereri pe care le primește orice firmă de web — și aproape de fiecare dată ascunde o confuzie. Pentru că „site" poate însemna două lucruri foarte diferite, cu scopuri diferite, costuri diferite și rezultate diferite: un site de prezentare sau o landing page.

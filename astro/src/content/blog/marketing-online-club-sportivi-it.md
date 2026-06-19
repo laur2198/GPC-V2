@@ -6,9 +6,9 @@ publishDate: 2026-06-17
 author: "Laurențiu Bogdan"
 category: "Performance Marketing"
 tags: ["promovare-cluburi-sportive", "marketing-sali-fitness", "arte-martiale", "facebook-ads", "afaceri-locale"]
-heroImage: "/images/blog/placeholder.svg"
+heroImage: "/og/blog/marketing-online-club-sportivi.png"
 language: "it"
-draft: true
+draft: false
 ---
 
 Un buon club sportivo si vende in palestra: attraverso gli allenatori, i risultati, la comunità. Il problema è che niente di tutto questo si vede online, dove il genitore che cerca uno sport per il figlio o l'adulto che vuole iniziare a muoversi prendono la decisione. E la concorrenza non è più solo il club della via accanto — è ogni palestra che ha imparato a promuoversi su Facebook e Instagram.

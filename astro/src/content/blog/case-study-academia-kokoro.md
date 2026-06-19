@@ -5,9 +5,9 @@ publishDate: 2026-06-17
 author: "Laurențiu Bogdan"
 category: "Case Study"
 tags: ["case-study", "crestere-organica", "cluburi-sportive", "branding", "social-media"]
-heroImage: "/images/blog/placeholder.svg"
+heroImage: "/og/blog/case-study-academia-kokoro.png"
 language: "ro"
-draft: true
+draft: false
 ---
 
 Majoritatea poveștilor de marketing încep cu „am crescut bugetul de reclame". Aceasta nu. Pentru Academia Kokoro — un club de Ju-Jitsu din Brașov — creșterea a venit din altceva: o identitate digitală construită corect și conținut autentic, fără un leu de buget de publicitate. Rezultatul, în 90 de zile: **+595% creștere a impresiilor pe Instagram**, organic pur.

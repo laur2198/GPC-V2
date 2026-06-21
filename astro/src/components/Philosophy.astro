@@ -1,0 +1,80 @@
+---
+/**
+ * Philosophy
+ *
+ * Homepage "4 things we believe" section — a 2×2 grid (stacked on mobile)
+ * of belief cards. Mirrors the four core beliefs from the About page in a
+ * condensed, action-linked form. Reads the `philosophy` i18n block so
+ * RO/EN/IT copy is shared.
+ *
+ * Props:
+ *   locale — 'ro' | 'en' | 'it' (default 'ro')
+ */
+import { type Locale, t, localizedPath } from '../utils/i18n';
+
+interface Card {
+  num: string;
+  title: string;
+  body: string;
+  link: string;
+}
+interface Props {
+  locale?: Locale;
+}
+const { locale = 'ro' } = Astro.props;
+
+const block = t<{
+  eyebrow: string;
+  h2: string;
+  card1: Card;
+  card2: Card;
+  card3: Card;
+  card4: Card;
+}>(locale, 'philosophy');
+
+// card1/2 point at the new umbrella sub-pages (old /servicii-web|ads are
+// now redirects); card3 (authenticity) → content-production instead of the
+// de-promoted blog; card4 → process anchor.
+const cards = [
+  { ...block.card1, href: localizedPath(locale, '/servicii/web-development') },
+  { ...block.card2, href: localizedPath(locale, '/servicii/meta-ads') },
+  { ...block.card3, href: localizedPath(locale, '/servicii/content-production') },
+  { ...block.card4, href: '#procesul' },
+];
+---
+
+<section class="reveal border-t border-gpc-border bg-gpc-white">
+  <div class="mx-auto max-w-7xl px-6 py-20">
+    <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">{block.eyebrow}</p>
+    <h2 class="mt-3 max-w-2xl font-display text-3xl text-gpc-ink md:text-4xl">{block.h2}</h2>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-2">
+      {cards.map((card) => (
+        <article class="group relative flex flex-col border border-gpc-border bg-gpc-card/30 p-6 transition-colors duration-300 ease-[cubic-bezier(0.165,0.84,0.44,1)] hover:border-gpc-green md:p-10">
+          <span
+            aria-hidden="true"
+            class="font-mono text-sm uppercase tracking-[0.3em] text-gpc-ink/30"
+          >
+            {card.num}
+          </span>
+          <h3
+            class="mt-4 font-display text-3xl uppercase text-gpc-ink"
+            style="letter-spacing:-0.5px;"
+          >
+            {card.title}
+          </h3>
+          <p class="mt-4 max-w-prose font-sans text-base leading-relaxed text-gpc-text-secondary">
+            {card.body}
+          </p>
+          <a
+            href={card.href}
+            class="group/link mt-6 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-gpc-ink/70 transition-colors hover:text-gpc-green"
+          >
+            {card.link}
+            <span class="transition-transform group-hover/link:translate-x-1">→</span>
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

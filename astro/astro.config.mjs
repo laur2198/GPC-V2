@@ -4,6 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://greenpheonixconcept.com',
+  trailingSlash: 'always',
   i18n: {
     defaultLocale: 'ro',
     locales: ['ro', 'en', 'it'],
@@ -20,6 +21,8 @@ export default defineConfig({
       },
       filter: (page) =>
         !page.includes('/multumim') &&
+        !page.includes('/thank-you') &&
+        !page.includes('/grazie') &&
         !page.endsWith('/404') &&
         !page.endsWith('/404/'),
     }),

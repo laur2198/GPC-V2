@@ -9,7 +9,7 @@ import { type Locale, localizedPath } from '../../../utils/i18n';
 const locale: Locale = 'it';
 
 const meta = {
-  title: 'Blog — Performance marketing & web | Green Phoenix',
+  title: 'Blog — Performance marketing & web | Green Pheonix',
   description:
     'Articoli pragmatici su Google Ads, Meta, TikTok, GA4, Core Web Vitals e CRO. Senza fronzoli, senza opinioni — solo ciò che funziona.',
 };
@@ -30,20 +30,20 @@ const categories = Array.from(new Set(posts.map((p) => p.data.category))).sort()
     subtitle="Insight e guide su performance marketing, web e analytics. Tutto ciò che pubblichiamo qui è testato sul campo, non sintetizzato da altri articoli."
   />
 
-  <section class="border-t border-phoenix-gray bg-phoenix-black">
+  <section class="border-t border-gpc-border bg-gpc-white">
     <div class="mx-auto max-w-7xl px-6 py-16">
       {categories.length > 1 && (
         <div class="flex flex-wrap items-center gap-3" role="group" aria-label="Filtro categoria">
-          <span class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// FILTRO</span>
-          <button type="button" data-filter="all" class="border border-phoenix-green bg-phoenix-green/10 px-3 py-1.5 font-mono text-xs uppercase tracking-widest text-phoenix-green" aria-pressed="true">Tutti</button>
+          <span class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// FILTRO</span>
+          <button type="button" data-filter="all" class="border border-gpc-green bg-gpc-green/10 px-3 py-1.5 font-mono text-xs uppercase tracking-widest text-gpc-green" aria-pressed="true">Tutti</button>
           {categories.map((cat) => (
-            <button type="button" data-filter={cat} class="border border-phoenix-gray bg-phoenix-gray/30 px-3 py-1.5 font-mono text-xs uppercase tracking-widest text-phoenix-light/80 transition-colors hover:border-phoenix-green hover:text-phoenix-green" aria-pressed="false">{cat}</button>
+            <button type="button" data-filter={cat} class="border border-gpc-border bg-gpc-card/30 px-3 py-1.5 font-mono text-xs uppercase tracking-widest text-gpc-ink/80 transition-colors hover:border-gpc-green hover:text-gpc-green" aria-pressed="false">{cat}</button>
           ))}
         </div>
       )}
 
       {posts.length === 0 ? (
-        <p class="py-12 text-center font-mono text-phoenix-light/60">Articoli in arrivo.</p>
+        <p class="py-12 text-center font-mono text-gpc-ink/60">Articoli in arrivo.</p>
       ) : (
         <div id="blog-grid" class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((p) => (
@@ -80,12 +80,12 @@ const categories = Array.from(new Set(posts.map((p) => p.data.category))).sort()
       buttons.forEach((b) => {
         const active = b === btn;
         b.setAttribute('aria-pressed', String(active));
-        b.classList.toggle('border-phoenix-green', active);
-        b.classList.toggle('bg-phoenix-green/10', active);
-        b.classList.toggle('text-phoenix-green', active);
-        b.classList.toggle('border-phoenix-gray', !active);
-        b.classList.toggle('bg-phoenix-gray/30', !active);
-        b.classList.toggle('text-phoenix-light/80', !active);
+        b.classList.toggle('border-gpc-green', active);
+        b.classList.toggle('bg-gpc-green/10', active);
+        b.classList.toggle('text-gpc-green', active);
+        b.classList.toggle('border-gpc-border', !active);
+        b.classList.toggle('bg-gpc-card/30', !active);
+        b.classList.toggle('text-gpc-ink/80', !active);
       });
       cards.forEach((card) => {
         const cat = card.dataset.category ?? '';

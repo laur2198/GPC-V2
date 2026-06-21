@@ -6,9 +6,9 @@ import { type Locale } from '../utils/i18n';
 const locale: Locale = 'ro';
 
 const meta = {
-  title: 'Contact — Green Phoenix | Brașov',
+  title: 'Contact — Green Pheonix | Brașov',
   description:
-    'Discută cu echipa Green Phoenix. Programează un audit gratuit, cere o ofertă personalizată sau scrie-ne pe WhatsApp. Răspuns în 24h lucrătoare.',
+    'Discută cu echipa Green Pheonix. Programează un audit gratuit, cere o ofertă personalizată sau scrie-ne pe WhatsApp. Răspuns în 24h lucrătoare.',
 };
 
 const businessTypes = [
@@ -40,7 +40,7 @@ const interests = [
 ];
 ---
 
-<BaseLayout title={meta.title} description={meta.description} locale={locale}>
+<BaseLayout title={meta.title} description={meta.description} locale={locale} breadcrumbs={[{ name: 'Contact', href: '/contact' }]}>
   <Hero
     locale={locale}
     variant="compact"
@@ -48,40 +48,40 @@ const interests = [
     subtitle="Programează un audit gratuit, cere o ofertă personalizată sau scrie-ne pe WhatsApp. Răspundem în 24h lucrătoare."
   />
 
-  <section class="border-t border-phoenix-gray bg-phoenix-black">
+  <section class="border-t border-gpc-border bg-gpc-white">
     <div class="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-12">
       <!-- Sidebar info -->
       <aside class="space-y-8 lg:col-span-4">
-        <div class="border border-phoenix-gray bg-phoenix-gray/30 p-6">
-          <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// CONTACT DIRECT</p>
+        <div class="border border-gpc-border bg-gpc-card/30 p-6">
+          <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// CONTACT DIRECT</p>
           <ul class="mt-5 space-y-4 font-mono text-sm">
             <li>
-              <p class="text-phoenix-light/60">Telefon</p>
-              <a href="tel:+40793650902" class="mt-1 block font-display text-xl text-phoenix-light hover:text-phoenix-green">
+              <p class="text-gpc-ink/60">Telefon</p>
+              <a href="tel:+40793650902" class="mt-1 block font-display text-xl text-gpc-ink hover:text-gpc-green">
                 +40 793 650 902
               </a>
             </li>
             <li>
-              <p class="text-phoenix-light/60">Email</p>
-              <a href="mailto:contact@greenpheonixconcept.com" class="mt-1 block font-display text-base text-phoenix-light hover:text-phoenix-green">
+              <p class="text-gpc-ink/60">Email</p>
+              <a href="mailto:contact@greenpheonixconcept.com" class="mt-1 block font-display text-base text-gpc-ink hover:text-gpc-green">
                 contact@greenpheonixconcept.com
               </a>
             </li>
             <li>
-              <p class="text-phoenix-light/60">Sediu</p>
-              <p class="mt-1 font-display text-base text-phoenix-light">Brașov, România</p>
-              <p class="text-xs text-phoenix-light/60">45.6579° N, 25.6012° E</p>
+              <p class="text-gpc-ink/60">Sediu</p>
+              <p class="mt-1 font-display text-base text-gpc-ink">Brașov, România</p>
+              <p class="text-xs text-gpc-ink/60">45.6579° N, 25.6012° E</p>
             </li>
           </ul>
         </div>
 
-        <div class="border border-phoenix-gray bg-phoenix-gray/30 p-6">
-          <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// PROGRAM</p>
-          <ul class="mt-5 space-y-2 font-mono text-sm text-phoenix-light/80">
-            <li class="flex justify-between"><span>Luni – Vineri</span><span class="text-phoenix-green">09:00 – 18:00</span></li>
-            <li class="flex justify-between"><span>Sâmbătă – Duminică</span><span class="text-phoenix-light/60">Închis</span></li>
+        <div class="border border-gpc-border bg-gpc-card/30 p-6">
+          <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// PROGRAM</p>
+          <ul class="mt-5 space-y-2 font-mono text-sm text-gpc-ink/80">
+            <li class="flex justify-between"><span>Luni – Vineri</span><span class="text-gpc-green">09:00 – 18:00</span></li>
+            <li class="flex justify-between"><span>Sâmbătă – Duminică</span><span class="text-gpc-ink/60">Închis</span></li>
           </ul>
-          <p class="mt-4 font-mono text-xs text-phoenix-light/60">
+          <p class="mt-4 font-mono text-xs text-gpc-ink/60">
             Răspundem la mesajele primite în afara programului în următoarea zi lucrătoare, până la ora 12:00.
           </p>
         </div>
@@ -90,7 +90,7 @@ const interests = [
           href="https://wa.me/40793650902?text=Salut!%20A%C8%99%20vrea%20s%C4%83%20discut%C4%83m%20despre%20o%20colaborare."
           target="_blank"
           rel="noopener"
-          class="flex items-center justify-between gap-3 border border-phoenix-green bg-phoenix-green/10 px-6 py-4 font-mono text-sm uppercase tracking-widest text-phoenix-green shadow-[0_0_18px_rgba(0,255,148,0.25)] transition-all hover:bg-phoenix-green hover:text-phoenix-black hover:shadow-[0_0_28px_rgba(0,255,148,0.55)]"
+          class="flex items-center justify-between gap-3 border border-gpc-green bg-gpc-green/10 px-6 py-4 font-mono text-sm uppercase tracking-widest text-gpc-green shadow-sm transition-all hover:bg-gpc-green hover:text-gpc-ink hover:shadow-sm"
         >
           <span>Scrie-ne pe WhatsApp</span>
           <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor" aria-hidden="true">
@@ -101,76 +101,72 @@ const interests = [
 
       <!-- Form -->
       <div class="lg:col-span-8">
-        {/*
-          INSTRUCTIONS — Formspree:
-          Înlocuiește [FORM_ID_PLACEHOLDER] din `action` cu ID-ul real generat
-          pe https://formspree.io după ce Laurențiu creează formularul. Restul
-          (honeypot _gotcha, _next, _subject, _language) este deja configurat.
-        */}
         <form
-          action="https://formspree.io/f/[FORM_ID_PLACEHOLDER]"
+          id="contact-form"
+          data-redirect="/multumim"
+          action="https://formspree.io/f/mjgznoda"
           method="POST"
           novalidate
-          class="space-y-6 border border-phoenix-gray bg-phoenix-gray/20 p-6 md:p-8"
+          class="space-y-6 border border-gpc-border bg-gpc-card/20 p-6 md:p-8"
         >
-          <input type="hidden" name="_subject" value="[GPC] Cerere ofertă nouă" />
+          <input type="hidden" name="_subject" value="New contact from greenpheonixconcept.com RO" />
           <input type="hidden" name="_next" value="https://greenpheonixconcept.com/multumim" />
           <input type="hidden" name="_language" value="ro" />
           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
-          <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// CERERE OFERTĂ</p>
-          <h2 class="font-display text-2xl text-phoenix-light md:text-3xl">
+          <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// CERERE OFERTĂ</p>
+          <h2 class="font-display text-2xl text-gpc-ink md:text-3xl">
             Spune-ne despre proiect
           </h2>
 
           <div class="grid gap-5 md:grid-cols-2">
             <label class="block">
-              <span class="mb-1 block font-mono text-xs uppercase tracking-widest text-phoenix-light/70">
-                Nume <span class="text-phoenix-green">*</span>
+              <span class="mb-1 block font-mono text-xs uppercase tracking-widest text-gpc-ink/70">
+                Nume <span class="text-gpc-green">*</span>
               </span>
               <input
                 type="text"
                 name="nume"
                 required
                 autocomplete="name"
-                class="w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 font-mono text-sm text-phoenix-light placeholder-phoenix-light/40 transition-colors focus:border-phoenix-green focus:outline-none"
+                class="w-full border border-gpc-border bg-gpc-white px-4 py-3 font-sans text-sm text-gpc-ink placeholder-gpc-text-muted/40 transition-colors focus:border-gpc-green focus:outline-none"
                 placeholder="ex. Andrei Popescu"
               />
             </label>
 
             <label class="block">
-              <span class="mb-1 block font-mono text-xs uppercase tracking-widest text-phoenix-light/70">
-                Email <span class="text-phoenix-green">*</span>
+              <span class="mb-1 block font-mono text-xs uppercase tracking-widest text-gpc-ink/70">
+                Email <span class="text-gpc-green">*</span>
               </span>
               <input
                 type="email"
                 name="email"
                 required
                 autocomplete="email"
-                class="w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 font-mono text-sm text-phoenix-light placeholder-phoenix-light/40 transition-colors focus:border-phoenix-green focus:outline-none"
+                class="w-full border border-gpc-border bg-gpc-white px-4 py-3 font-sans text-sm text-gpc-ink placeholder-gpc-text-muted/40 transition-colors focus:border-gpc-green focus:outline-none"
                 placeholder="andrei@compania.ro"
               />
             </label>
 
             <label class="block">
-              <span class="mb-1 block font-mono text-xs uppercase tracking-widest text-phoenix-light/70">
+              <span class="mb-1 block font-mono text-xs uppercase tracking-widest text-gpc-ink/70">
                 Telefon
               </span>
               <input
                 type="tel"
                 name="telefon"
                 autocomplete="tel"
-                class="w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 font-mono text-sm text-phoenix-light placeholder-phoenix-light/40 transition-colors focus:border-phoenix-green focus:outline-none"
+                class="w-full border border-gpc-border bg-gpc-white px-4 py-3 font-sans text-sm text-gpc-ink placeholder-gpc-text-muted/40 transition-colors focus:border-gpc-green focus:outline-none"
                 placeholder="+40 7XX XXX XXX"
               />
             </label>
 
             <label class="block">
-              <span class="mb-1 block font-mono text-xs uppercase tracking-widest text-phoenix-light/70">
+              <span class="mb-1 block font-mono text-xs uppercase tracking-widest text-gpc-ink/70">
                 Tip business
               </span>
               <select
                 name="tip_business"
-                class="w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 font-mono text-sm text-phoenix-light transition-colors focus:border-phoenix-green focus:outline-none"
+                class="w-full border border-gpc-border bg-gpc-white px-4 py-3 font-sans text-sm text-gpc-ink transition-colors focus:border-gpc-green focus:outline-none"
               >
                 {businessTypes.map((b) => (
                   <option value={b.value}>{b.label}</option>
@@ -179,12 +175,12 @@ const interests = [
             </label>
 
             <label class="block md:col-span-2">
-              <span class="mb-1 block font-mono text-xs uppercase tracking-widest text-phoenix-light/70">
+              <span class="mb-1 block font-mono text-xs uppercase tracking-widest text-gpc-ink/70">
                 Buget lunar estimat
               </span>
               <select
                 name="buget_lunar"
-                class="w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 font-mono text-sm text-phoenix-light transition-colors focus:border-phoenix-green focus:outline-none"
+                class="w-full border border-gpc-border bg-gpc-white px-4 py-3 font-sans text-sm text-gpc-ink transition-colors focus:border-gpc-green focus:outline-none"
               >
                 {budgetTiers.map((b) => (
                   <option value={b.value}>{b.label}</option>
@@ -193,18 +189,18 @@ const interests = [
             </label>
           </div>
 
-          <fieldset class="border border-phoenix-gray bg-phoenix-black/40 p-5">
-            <legend class="px-2 font-mono text-xs uppercase tracking-widest text-phoenix-light/70">
+          <fieldset class="border border-gpc-border bg-gpc-white/40 p-5">
+            <legend class="px-2 font-mono text-xs uppercase tracking-widest text-gpc-ink/70">
               Ce te interesează
             </legend>
             <div class="grid gap-3 sm:grid-cols-2">
               {interests.map((it) => (
-                <label class="flex cursor-pointer items-center gap-3 border border-phoenix-gray/60 bg-phoenix-gray/30 px-4 py-3 font-mono text-sm text-phoenix-light transition-colors hover:border-phoenix-green has-[:checked]:border-phoenix-green has-[:checked]:bg-phoenix-green/10">
+                <label class="flex cursor-pointer items-center gap-3 border border-gpc-border/60 bg-gpc-card/30 px-4 py-3 font-sans text-sm text-gpc-ink transition-colors hover:border-gpc-green has-[:checked]:border-gpc-green has-[:checked]:bg-gpc-green/10">
                   <input
                     type="checkbox"
                     name="servicii"
                     value={it.value}
-                    class="h-4 w-4 accent-phoenix-green"
+                    class="h-4 w-4 accent-gpc-green"
                   />
                   <span>{it.label}</span>
                 </label>
@@ -213,27 +209,27 @@ const interests = [
           </fieldset>
 
           <label class="block">
-            <span class="mb-1 block font-mono text-xs uppercase tracking-widest text-phoenix-light/70">
+            <span class="mb-1 block font-mono text-xs uppercase tracking-widest text-gpc-ink/70">
               Mesaj
             </span>
             <textarea
               name="mesaj"
               rows="5"
-              class="w-full border border-phoenix-gray bg-phoenix-black px-4 py-3 font-mono text-sm text-phoenix-light placeholder-phoenix-light/40 transition-colors focus:border-phoenix-green focus:outline-none"
+              class="w-full border border-gpc-border bg-gpc-white px-4 py-3 font-sans text-sm text-gpc-ink placeholder-gpc-text-muted/40 transition-colors focus:border-gpc-green focus:outline-none"
               placeholder="Spune-ne despre obiective, situația actuală sau orice context util."
             ></textarea>
           </label>
 
-          <label class="flex cursor-pointer items-start gap-3 border border-phoenix-gray bg-phoenix-black/40 p-4 font-mono text-xs leading-relaxed text-phoenix-light/80">
+          <label class="flex cursor-pointer items-start gap-3 border border-gpc-border bg-gpc-white/40 p-4 font-sans text-xs leading-relaxed text-gpc-ink/80">
             <input
               type="checkbox"
               name="gdpr_consent"
               required
-              class="mt-1 h-4 w-4 flex-none accent-phoenix-green"
+              class="mt-1 h-4 w-4 flex-none accent-gpc-green"
             />
             <span>
               Sunt de acord cu prelucrarea datelor personale conform
-              <a href="/politica" class="text-phoenix-green underline-offset-2 hover:underline">
+              <a href="/politica" class="text-gpc-green underline-offset-2 hover:underline">
                 politicii de confidențialitate
               </a>. Datele tale nu sunt partajate cu terți și pot fi șterse oricând.
             </span>
@@ -241,13 +237,16 @@ const interests = [
 
           <button
             type="submit"
-            class="group inline-flex w-full items-center justify-center gap-3 border border-phoenix-green bg-phoenix-green/10 px-8 py-4 font-mono text-sm uppercase tracking-[0.25em] text-phoenix-green shadow-[0_0_22px_rgba(0,255,148,0.25)] transition-all hover:bg-phoenix-green hover:text-phoenix-black hover:shadow-[0_0_36px_rgba(0,255,148,0.55)] md:w-auto"
+            data-submit
+            class="group inline-flex w-full items-center justify-center gap-3 border border-gpc-green bg-gpc-green/10 px-8 py-4 font-mono text-sm uppercase tracking-[0.25em] text-gpc-green shadow-sm transition-all hover:bg-gpc-green hover:text-gpc-ink hover:shadow-sm disabled:cursor-not-allowed disabled:opacity-60 md:w-auto"
           >
-            Trimite mesaj
+            <span data-submit-label>Trimite mesaj</span>
             <span class="transition-transform group-hover:translate-x-1">→</span>
           </button>
 
-          <p class="font-mono text-[11px] text-phoenix-light/50">
+          <p data-form-status role="status" aria-live="polite" hidden class="font-mono text-sm"></p>
+
+          <p class="font-mono text-[11px] text-gpc-ink/50">
             * Câmpuri obligatorii. Răspundem în maxim 24h lucrătoare.
           </p>
         </form>
@@ -255,12 +254,73 @@ const interests = [
     </div>
   </section>
 
+  <script is:inline>
+    (function () {
+      var form = document.getElementById('contact-form');
+      if (!form) return;
+      var btn = form.querySelector('[data-submit]');
+      var label = form.querySelector('[data-submit-label]');
+      var status = form.querySelector('[data-form-status]');
+      var defaultLabel = label ? label.textContent : 'Trimite mesaj';
+      var sendingLabel = form.getAttribute('data-sending') || 'Se trimite…';
+      var okLabel = form.getAttribute('data-ok') || 'Mesaj trimis ✓';
+      var errLabel = form.getAttribute('data-err') || 'Ceva n-a mers. Încearcă din nou sau scrie-ne direct la contact@greenpheonixconcept.com.';
+      var redirect = form.getAttribute('data-redirect') || '/multumim';
+
+      function setStatus(msg, ok) {
+        if (!status) return;
+        status.hidden = false;
+        status.textContent = msg;
+        status.style.color = ok ? 'var(--gpc-green)' : 'var(--gpc-red)';
+      }
+
+      function fireConversions() {
+        try { if (typeof window.gtag !== 'undefined') window.gtag('event', 'form_submit', { event_category: 'engagement', event_label: 'contact_form' }); } catch (e) {}
+        try { if (typeof window.fbq !== 'undefined') window.fbq('track', 'Lead'); } catch (e) {}
+        try { if (typeof window.ttq !== 'undefined') window.ttq.track('SubmitForm'); } catch (e) {}
+      }
+
+      form.addEventListener('submit', function (ev) {
+        // Honeypot — if filled, silently drop.
+        var hp = form.querySelector('[name="_gotcha"]');
+        if (hp && hp.value) { ev.preventDefault(); return; }
+        if (!form.checkValidity()) return; // let native validation show
+        ev.preventDefault();
+
+        if (btn) btn.disabled = true;
+        if (label) label.textContent = sendingLabel;
+        if (status) status.hidden = true;
+
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        })
+          .then(function (res) {
+            if (res.ok) {
+              fireConversions();
+              if (label) label.textContent = okLabel;
+              setStatus(okLabel, true);
+              window.location.href = redirect;
+            } else {
+              return res.json().then(function () { throw new Error('formspree'); });
+            }
+          })
+          .catch(function () {
+            if (btn) btn.disabled = false;
+            if (label) label.textContent = defaultLabel;
+            setStatus(errLabel, false);
+          });
+      });
+    })();
+  </script>
+
   <!-- Map -->
-  <section class="border-t border-phoenix-gray bg-phoenix-gray/10">
+  <section class="border-t border-gpc-border bg-gpc-card/10">
     <div class="mx-auto max-w-7xl px-6 py-16">
-      <p class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// LOCAȚIE</p>
-      <h2 class="mt-3 font-display text-3xl text-phoenix-light md:text-4xl">Brașov, România</h2>
-      <div class="mt-8 aspect-[16/7] w-full overflow-hidden border border-phoenix-gray">
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// LOCAȚIE</p>
+      <h2 class="mt-3 font-display text-3xl text-gpc-ink md:text-4xl">Brașov, România</h2>
+      <div class="mt-8 aspect-[16/7] w-full overflow-hidden border border-gpc-border">
         <iframe
           title="Hartă Brașov"
           src="https://www.openstreetmap.org/export/embed.html?bbox=25.5712%2C45.6310%2C25.6313%2C45.6850&layer=mapnik&marker=45.6579%2C25.6012"

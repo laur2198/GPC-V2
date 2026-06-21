@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ServiceDetail from '../../components/ServiceDetail.astro';
+import { type Locale, t, localizedPath } from '../../utils/i18n';
+
+const locale: Locale = 'ro';
+const meta = t<{ title: string; description: string }>(locale, 'services.contentProduction.meta');
+
+const breadcrumbs = [
+  { name: 'Servicii', href: localizedPath(locale, '/servicii') },
+  { name: "Content Production", href: localizedPath(locale, '/servicii/content-production') },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': 'https://greenpheonixconcept.com/servicii/content-production#service',
+  name: "Content Production — Reels, UGC și carousels",
+  provider: { '@id': 'https://greenpheonixconcept.com/#organization' },
+  serviceType: "Content Production",
+  category: "Creative Production",
+  description: meta.description,
+  areaServed: [
+    { '@type': 'Country', name: 'Romania' },
+    { '@type': 'Country', name: 'Italy' },
+  ],
+  audience: {
+    '@type': 'BusinessAudience',
+    audienceType: 'Small and medium businesses',
+  },
+  offers: {
+    '@type': 'Offer',
+    availability: 'https://schema.org/InStock',
+    priceCurrency: 'EUR',
+    priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'EUR' },
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: "Content Production Services",
+    itemListElement: ["Reels și TikToks","Carousels editoriale","UGC sourcing și coaching","Fotografie produs"].map((n) => ({
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Service', name: n },
+    })),
+  },
+};
+---
+
+<BaseLayout title={meta.title} description={meta.description} locale={locale} breadcrumbs={breadcrumbs} jsonLd={[serviceSchema]}>
+  <Breadcrumbs locale={locale} items={breadcrumbs} />
+  <ServiceDetail locale={locale} service="contentProduction" />
+</BaseLayout>

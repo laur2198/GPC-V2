@@ -5,7 +5,7 @@ publishDate: 2026-03-14
 author: "Laurențiu Bogdan"
 category: "Web & UX"
 tags: ["landing-page", "cro", "ux", "copywriting"]
-heroImage: "/og-web.jpg"
+heroImage: "/og/blog/landing-page-care-converteste.png"
 language: "ro"
 ---
 

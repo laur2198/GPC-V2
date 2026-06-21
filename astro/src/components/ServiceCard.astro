@@ -26,32 +26,32 @@ const { number, title, description, link, ctaText, accentTag } = Astro.props;
 
 <a
   href={link}
-  class="group relative flex h-full flex-col justify-between overflow-hidden border border-phoenix-gray bg-phoenix-gray/30 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-phoenix-green hover:bg-phoenix-gray/60 hover:shadow-[0_0_28px_rgba(0,255,148,0.25)]"
+  class="reveal group relative flex h-full flex-col justify-between overflow-hidden border border-gpc-border bg-gpc-card/30 p-6 transition-all duration-300 ease-[cubic-bezier(0.165,0.84,0.44,1)] hover:-translate-y-1 hover:border-gpc-green hover:bg-gpc-card/60 hover:shadow-sm"
 >
   <span
     aria-hidden="true"
-    class="pointer-events-none absolute right-4 top-2 font-display text-7xl leading-none text-phoenix-light/5 transition-colors group-hover:text-phoenix-green/20"
+    class="pointer-events-none absolute right-4 top-2 font-display text-7xl leading-none text-gpc-ink/5 transition-colors group-hover:text-gpc-green/20"
   >
     {number}
   </span>
 
   <div class="relative">
-    <span class="inline-block border border-phoenix-cyan/40 bg-phoenix-cyan/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-phoenix-cyan">
+    <span class="inline-block border border-gpc-green/40 bg-gpc-green/5 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gpc-green">
       {accentTag}
     </span>
-    <h3 class="mt-5 font-display text-2xl text-phoenix-light transition-colors group-hover:text-phoenix-green">
+    <h3 class="mt-5 font-display text-2xl text-gpc-ink transition-colors group-hover:text-gpc-green">
       {title}
     </h3>
-    <p class="mt-3 font-mono text-sm leading-relaxed text-phoenix-light/70">
+    <p class="mt-3 font-sans text-sm leading-relaxed text-gpc-ink/70">
       {description}
     </p>
   </div>
 
-  <div class="relative mt-8 flex items-center justify-between border-t border-phoenix-gray pt-4 transition-colors group-hover:border-phoenix-green/40">
-    <span class="font-mono text-xs uppercase tracking-widest text-phoenix-light/80 group-hover:text-phoenix-green">
+  <div class="relative mt-8 flex items-center justify-between border-t border-gpc-border pt-4 transition-colors group-hover:border-gpc-green/40">
+    <span class="font-mono text-xs uppercase tracking-widest text-gpc-ink/80 group-hover:text-gpc-green">
       {ctaText}
     </span>
-    <span class="font-mono text-xl text-phoenix-green transition-transform group-hover:translate-x-1">
+    <span class="font-mono text-xl text-gpc-green transition-transform group-hover:translate-x-1">
       →
     </span>
   </div>

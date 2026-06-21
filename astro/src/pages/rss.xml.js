@@ -7,7 +7,7 @@ export async function GET(context) {
     .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
 
   return rss({
-    title: 'Green Phoenix — Blog',
+    title: 'Green Pheonix — Blog',
     description: 'Articole pragmatice despre performance marketing, web și analytics, fără jargon.',
     site: context.site,
     items: posts.map((post) => ({

@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ServiceDetail from '../../components/ServiceDetail.astro';
+import { type Locale, t, localizedPath } from '../../utils/i18n';
+
+const locale: Locale = 'ro';
+const meta = t<{ title: string; description: string }>(locale, 'services.metaAds.meta');
+
+const breadcrumbs = [
+  { name: 'Servicii', href: localizedPath(locale, '/servicii') },
+  { name: "Meta Ads", href: localizedPath(locale, '/servicii/meta-ads') },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': 'https://greenpheonixconcept.com/servicii/meta-ads#service',
+  name: "Meta Ads — Campanii Facebook și Instagram",
+  provider: { '@id': 'https://greenpheonixconcept.com/#organization' },
+  serviceType: "Performance Marketing",
+  category: "Digital Advertising",
+  description: meta.description,
+  areaServed: [
+    { '@type': 'Country', name: 'Romania' },
+    { '@type': 'Country', name: 'Italy' },
+  ],
+  audience: {
+    '@type': 'BusinessAudience',
+    audienceType: 'Small and medium businesses',
+  },
+  offers: {
+    '@type': 'Offer',
+    availability: 'https://schema.org/InStock',
+    priceCurrency: 'EUR',
+    priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'EUR' },
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: "Meta Ads Services",
+    itemListElement: ["Setup și structurare campanii","Optimizare creative și audiențe","A/B testing sistematic","Tracking server-side (Conversions API)"].map((n) => ({
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Service', name: n },
+    })),
+  },
+};
+---
+
+<BaseLayout title={meta.title} description={meta.description} locale={locale} breadcrumbs={breadcrumbs} jsonLd={[serviceSchema]}>
+  <Breadcrumbs locale={locale} items={breadcrumbs} />
+  <ServiceDetail locale={locale} service="metaAds" />
+</BaseLayout>

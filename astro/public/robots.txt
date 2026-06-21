@@ -5,4 +5,39 @@ Disallow: /multumim
 Disallow: /en/multumim
 Disallow: /it/multumim
 
+# AI Search Engines & LLM bots
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Disallowed scrapers
+User-agent: Bytespider
+Disallow: /
+
+# Sitemap
 Sitemap: https://greenpheonixconcept.com/sitemap-index.xml
+
+# AI guidance: https://greenpheonixconcept.com/llms.txt

@@ -6,7 +6,7 @@ publishDate: 2026-02-08
 author: "Laurențiu Bogdan"
 category: "Performance Marketing"
 tags: ["meta-ads", "facebook-ads", "budget", "strategy"]
-heroImage: "/og-image.jpg"
+heroImage: "/og/blog/facebook-ads-budget-2026.png"
 language: "en"
 ---
 

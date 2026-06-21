@@ -1,0 +1,42 @@
+# ============================================================
+# Green Phoenix — Cloudflare Pages redirects
+# Ported from legacy .htaccess + astro.config.mjs redirects.
+# Canonical form is directory-style (trailing slash).
+# Chains collapsed: each source points directly to its final URL.
+# ============================================================
+
+# Legacy .html (old static cPanel URLs → new clean URLs)
+/index.html                    /                                       301
+/servicii-ads.html             /servicii/meta-ads/                     301
+/servicii-web.html             /servicii/web-development/              301
+/portofoliu.html               /portofoliu/                            301
+/despre.html                   /despre/                                301
+/contact.html                  /contact/                               301
+/politica.html                 /politica-confidentialitate/            301
+/blog.html                     /blog/                                  301
+/blog-facebook-ads.html        /blog/buget-facebook-ads-2026/          301
+/blog-roas.html                /blog/cum-calculezi-roas/               301
+/blog-site-conversii.html      /blog/landing-page-care-converteste/    301
+/landing-ecommerce.html        /servicii/web-development/              301
+/landing-horeca.html           /servicii/web-development/              301
+/landing-transportatori.html   /servicii/meta-ads/                     301
+/studiu-caz-bpd.html           /portofoliu/                            301
+/proiect-detaliu.html          /portofoliu/                            301
+
+# Internal redirects RO (moved out of astro.config.mjs)
+/servicii-ads                  /servicii/meta-ads/                     301
+/servicii-web                  /servicii/web-development/              301
+/politica                      /politica-confidentialitate/            301
+
+# Internal redirects EN
+/en/servicii-ads               /en/servicii/meta-ads/                  301
+/en/servicii-web               /en/servicii/web-development/           301
+/en/politica                   /en/privacy-policy/                     301
+
+# Internal redirects IT
+/it/servicii-ads               /it/servicii/meta-ads/                  301
+/it/servicii-web               /it/servicii/web-development/           301
+/it/politica                   /it/informativa-privacy/                301
+
+# Sitemap alias (@astrojs/sitemap emits sitemap-index.xml)
+/sitemap.xml                   /sitemap-index.xml                      301

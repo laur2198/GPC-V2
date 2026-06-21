@@ -9,15 +9,15 @@ import { type Locale, localizedPath } from '../../../utils/i18n';
 const locale: Locale = 'it';
 
 const meta = {
-  title: 'Portfolio — Case Study | Green Phoenix',
+  title: 'Portfolio — Case Study | Green Pheonix',
   description:
-    'Progetti reali, risultati misurati. Case study da trasporto, medico, e-commerce e B2B — performance marketing e siti costruiti sui dati.',
+    'Progetti reali, risultati misurati. Case study da sport e ristrutturazioni (pietra naturale) — performance marketing, branding e siti costruiti sui dati.',
 };
 
 const showDrafts = import.meta.env.DEV;
 const all = (await getCollection('caseStudies', ({ data }) =>
   data.language === locale && (showDrafts || !data.draft)
-)).sort((a, b) => (a.data.title > b.data.title ? 1 : -1));
+)).sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999));
 
 const industries = Array.from(new Set(all.map((cs) => cs.data.industry))).sort();
 ---
@@ -30,20 +30,20 @@ const industries = Array.from(new Set(all.map((cs) => cs.data.industry))).sort()
     subtitle="Una selezione di progetti recenti con numeri validati dai clienti. Altri case study verranno pubblicati man mano che riceviamo le approvazioni."
   />
 
-  <section class="border-t border-phoenix-gray bg-phoenix-black">
+  <section class="border-t border-gpc-border bg-gpc-white">
     <div class="mx-auto max-w-7xl px-6 py-16">
       {industries.length > 1 && (
         <div class="flex flex-wrap items-center gap-3" role="group" aria-label="Filtro settore">
-          <span class="font-mono text-xs uppercase tracking-[0.3em] text-phoenix-cyan">// FILTRO</span>
-          <button type="button" data-filter="all" class="border border-phoenix-green bg-phoenix-green/10 px-3 py-1.5 font-mono text-xs uppercase tracking-widest text-phoenix-green" aria-pressed="true">Tutti</button>
+          <span class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// FILTRO</span>
+          <button type="button" data-filter="all" class="border border-gpc-green bg-gpc-green/10 px-3 py-1.5 font-mono text-xs uppercase tracking-widest text-gpc-green" aria-pressed="true">Tutti</button>
           {industries.map((ind) => (
-            <button type="button" data-filter={ind} class="border border-phoenix-gray bg-phoenix-gray/30 px-3 py-1.5 font-mono text-xs uppercase tracking-widest text-phoenix-light/80 transition-colors hover:border-phoenix-green hover:text-phoenix-green" aria-pressed="false">{ind}</button>
+            <button type="button" data-filter={ind} class="border border-gpc-border bg-gpc-card/30 px-3 py-1.5 font-mono text-xs uppercase tracking-widest text-gpc-ink/80 transition-colors hover:border-gpc-green hover:text-gpc-green" aria-pressed="false">{ind}</button>
           ))}
         </div>
       )}
 
       {all.length === 0 ? (
-        <p class="py-12 text-center font-mono text-phoenix-light/60">Case study in arrivo.</p>
+        <p class="py-12 text-center font-mono text-gpc-ink/60">Case study in arrivo.</p>
       ) : (
         <div id="cs-grid" class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {all.map((cs) => {
@@ -53,10 +53,11 @@ const industries = Array.from(new Set(all.map((cs) => cs.data.industry))).sort()
               r[1] ? { label: r[1].metric, value: r[1].value } : { label: 'Servizi', value: String(cs.data.services.length) },
               r[2] ? { label: r[2].metric, value: r[2].value } : { label: 'Settore', value: cs.data.industry },
             ];
-            const summary = cs.data.anonymized ? `${cs.data.industry} · ${cs.data.duration}` : `${cs.data.client} · ${cs.data.duration}`;
+            const meta = cs.data.location ?? cs.data.duration ?? cs.data.industry;
+            const summary = cs.data.anonymized ? `${cs.data.industry} · ${meta}` : `${cs.data.client} · ${meta}`;
             return (
               <div data-industry={cs.data.industry}>
-                <CaseStudyCard title={cs.data.title} industry={cs.data.industry} image={cs.data.heroImage} summary={summary} link={localizedPath(locale, `/portofoliu/${cs.slug}`)} kpis={kpis} />
+                <CaseStudyCard title={cs.data.title} industry={cs.data.industry} image={cs.data.heroImage} summary={summary} link={localizedPath(locale, `/portofoliu/${cs.slug.replace(/-(en|it)$/, '')}`)} kpis={kpis} />
               </div>
             );
           })}
@@ -82,12 +83,12 @@ const industries = Array.from(new Set(all.map((cs) => cs.data.industry))).sort()
       buttons.forEach((b) => {
         const active = b === btn;
         b.setAttribute('aria-pressed', String(active));
-        b.classList.toggle('border-phoenix-green', active);
-        b.classList.toggle('bg-phoenix-green/10', active);
-        b.classList.toggle('text-phoenix-green', active);
-        b.classList.toggle('border-phoenix-gray', !active);
-        b.classList.toggle('bg-phoenix-gray/30', !active);
-        b.classList.toggle('text-phoenix-light/80', !active);
+        b.classList.toggle('border-gpc-green', active);
+        b.classList.toggle('bg-gpc-green/10', active);
+        b.classList.toggle('text-gpc-green', active);
+        b.classList.toggle('border-gpc-border', !active);
+        b.classList.toggle('bg-gpc-card/30', !active);
+        b.classList.toggle('text-gpc-ink/80', !active);
       });
       cards.forEach((card) => {
         const ind = card.dataset.industry ?? '';

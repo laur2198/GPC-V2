@@ -3,15 +3,18 @@
  * CaseStudyCard
  *
  * Props:
- *   title    — string
- *   industry — short tag, e.g. "E-COMMERCE"
- *   image    — hero image URL (optional)
- *   summary  — short paragraph
- *   link     — href to the case study detail page
- *   kpis     — exactly 3 objects [{ label, value }]
+ *   title      — string
+ *   industry   — short tag, e.g. "E-COMMERCE"
+ *   image      — hero image URL (optional)
+ *   imageAlt   — descriptive alt text for the background image
+ *   summary    — short paragraph
+ *   link       — href to the case study detail page
+ *   heroMetric — { value, label } headline metric (preferred)
+ *   kpis       — legacy fallback: up to 3 { label, value }
  *
- * Hover: scale 1.02 + neon green glow. Layout: image top, industry
- * tag mono, bold title, summary, KPI strip pinned at the bottom.
+ * When a hero image + heroMetric are present, the card becomes a
+ * full-bleed image with a dark gradient overlay and the metric in white
+ * (ken-burns hover). Otherwise it falls back to the white-card layout.
  */
 interface Kpi {
   label: string;
@@ -21,53 +24,99 @@ interface Props {
   title: string;
   industry: string;
   image?: string;
+  imageAlt?: string;
   summary: string;
   link: string;
-  kpis: [Kpi, Kpi, Kpi];
+  heroMetric?: { value: string; label: string };
+  kpis?: Kpi[];
 }
-const { title, industry, image, summary, link, kpis } = Astro.props;
+const { title, industry, image, imageAlt, summary, link, heroMetric, kpis } = Astro.props;
+const fallbackKpis = (kpis ?? []).slice(0, 3);
+const immersive = Boolean(image && heroMetric);
 ---
 
-<a
-  href={link}
-  class="group flex h-full flex-col overflow-hidden border border-phoenix-gray bg-phoenix-gray/30 transition-all duration-300 hover:scale-[1.02] hover:border-phoenix-green hover:shadow-[0_0_36px_rgba(0,255,148,0.25)]"
->
-  <div class="relative aspect-video overflow-hidden bg-phoenix-black">
-    {image ? (
-      <img
-        src={image}
-        alt={title}
-        loading="lazy"
-        decoding="async"
-        class="h-full w-full object-cover opacity-90 transition-transform duration-500 group-hover:scale-105"
-      />
-    ) : (
-      <div class="absolute inset-0 grid place-items-center bg-[radial-gradient(circle_at_30%_30%,rgba(0,255,148,0.18),transparent_60%)]">
-        <span class="font-display text-4xl text-phoenix-light/20">{industry.slice(0, 2)}</span>
-      </div>
-    )}
-    <span class="absolute left-4 top-4 border border-phoenix-cyan/60 bg-phoenix-black/70 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-phoenix-cyan">
+{immersive ? (
+  <a
+    href={link}
+    class="reveal group relative flex aspect-[4/5] flex-col justify-end overflow-hidden border border-gpc-border transition-all duration-300 ease-[cubic-bezier(0.165,0.84,0.44,1)] hover:scale-[1.02] hover:border-gpc-green hover:shadow-sm"
+  >
+    {/* Background image with ken-burns hover */}
+    <img
+      src={image}
+      alt={imageAlt ?? title}
+      loading="lazy"
+      decoding="async"
+      class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover:scale-105"
+    />
+    {/* Dark gradient overlay for legibility */}
+    <div
+      aria-hidden="true"
+      class="absolute inset-0"
+      style="background: linear-gradient(to bottom, rgba(5,5,5,0.15) 0%, rgba(5,5,5,0.45) 55%, rgba(5,5,5,0.82) 100%);"
+    ></div>
+
+    <span class="absolute left-5 top-5 z-10 border border-gpc-green/70 bg-gpc-ink/40 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gpc-green backdrop-blur-sm">
       {industry}
     </span>
-  </div>
 
-  <div class="flex flex-1 flex-col p-6">
-    <h3 class="font-display text-2xl font-bold text-phoenix-light transition-colors group-hover:text-phoenix-green">
-      {title}
-    </h3>
-    <p class="mt-3 font-mono text-sm leading-relaxed text-phoenix-light/70">
-      {summary}
-    </p>
-
-    <div class="mt-auto grid grid-cols-3 gap-2 border-t border-phoenix-gray pt-4 transition-colors group-hover:border-phoenix-green/40">
-      {kpis.map((k) => (
-        <div class="text-center">
-          <div class="font-display text-xl text-phoenix-green">{k.value}</div>
-          <div class="mt-1 font-mono text-[10px] uppercase tracking-wider text-phoenix-light/60">
-            {k.label}
-          </div>
-        </div>
-      ))}
+    <div class="relative z-10 flex flex-col gap-3 p-8 md:p-10">
+      <div>
+        <div class="font-display text-5xl font-bold leading-none text-white drop-shadow-sm">{heroMetric!.value}</div>
+        <div class="mt-2 font-mono text-[10px] uppercase tracking-[0.2em] text-white/80">{heroMetric!.label}</div>
+      </div>
+      <h3 class="font-display text-2xl uppercase text-white transition-colors group-hover:text-gpc-green">
+        {title}
+      </h3>
+      <p class="font-sans text-sm leading-relaxed text-white/75 line-clamp-2">{summary}</p>
     </div>
-  </div>
-</a>
+  </a>
+) : (
+  <a
+    href={link}
+    class="reveal group flex h-full flex-col overflow-hidden border border-gpc-border bg-gpc-card/30 transition-all duration-300 ease-[cubic-bezier(0.165,0.84,0.44,1)] hover:scale-[1.02] hover:border-gpc-green hover:shadow-sm"
+  >
+    <div class="relative aspect-video overflow-hidden bg-gpc-white">
+      {image ? (
+        <img
+          src={image}
+          alt={imageAlt ?? title}
+          loading="lazy"
+          decoding="async"
+          class="h-full w-full object-cover opacity-90 grayscale-[20%] transition-all duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0"
+        />
+      ) : (
+        <div class="absolute inset-0 grid place-items-center bg-[radial-gradient(circle_at_30%_30%,rgba(67,160,71,0.12),transparent_60%)]">
+          <span class="font-display text-4xl text-gpc-ink/20">{industry.slice(0, 2)}</span>
+        </div>
+      )}
+      <span class="absolute left-4 top-4 border border-gpc-green/60 bg-gpc-white/70 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-gpc-green">
+        {industry}
+      </span>
+    </div>
+
+    <div class="flex flex-1 flex-col p-6">
+      <h3 class="font-display text-2xl font-bold text-gpc-ink transition-colors group-hover:text-gpc-green">
+        {title}
+      </h3>
+      <p class="mt-3 font-sans text-sm leading-relaxed text-gpc-ink/70">{summary}</p>
+
+      {heroMetric ? (
+        <div class="mt-auto border-t border-gpc-border pt-4 transition-colors group-hover:border-gpc-green/40">
+          <div class="font-display text-4xl leading-none text-gpc-green">{heroMetric.value}</div>
+          <div class="mt-2 font-mono text-[10px] uppercase tracking-[0.2em] text-gpc-ink/60">{heroMetric.label}</div>
+        </div>
+      ) : (
+        fallbackKpis.length > 0 && (
+          <div class="mt-auto grid grid-cols-3 gap-2 border-t border-gpc-border pt-4 transition-colors group-hover:border-gpc-green/40">
+            {fallbackKpis.map((k) => (
+              <div class="text-center">
+                <div class="font-display text-xl text-gpc-green">{k.value}</div>
+                <div class="mt-1 font-mono text-[10px] uppercase tracking-wider text-gpc-ink/60">{k.label}</div>
+              </div>
+            ))}
+          </div>
+        )
+      )}
+    </div>
+  </a>
+)}

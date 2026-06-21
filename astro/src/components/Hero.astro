@@ -2,17 +2,25 @@
 /**
  * Hero
  *
+ * Faithful port of the live HTML `.hero-sophisticated` layout:
+ *  - asymmetric 1.2fr / 0.8fr grid (text 60% / visual 40%)
+ *  - min-height 100vh ("first impression full-screen")
+ *  - .sophisticated-headline with clamp(3.5rem, 7vw, 7rem),
+ *    line-height 0.85, line-2 indented 40px + brand green,
+ *    .text-outline on the final accent word
+ *  - tech eyebrow row with a pulsing green dot on ONLINE SYSTEM
+ *  - marquee ticker bottom-aligned (30s linear infinite)
+ *  - right column: large green pheonix mark on a soft radial halo
+ *
  * Props:
  *   locale       — 'ro' | 'en' | 'it' (required for full hero)
  *   ctaPrimary   — { label, href } override; defaults to i18n + /contact
  *   ctaSecondary — { label, href } override; defaults to i18n + /servicii-ads
  *   variant      — 'full' (default) | 'compact'
- *   title        — overrides h1 (any variant)
- *   subtitle     — overrides paragraph (any variant)
+ *   title        — overrides h1 (compact only)
+ *   subtitle     — overrides paragraph
  *
- * 'full' renders eyebrow tags, h1, subtitle, dual CTAs, live-metrics
- * panel and a marquee. 'compact' renders just title + subtitle on a
- * scanline background — used by inner pages.
+ * No fabricated performance numbers anywhere.
  */
 import { type Locale, t, localizedPath } from '../utils/i18n';
 
@@ -27,7 +35,6 @@ interface Props {
   variant?: 'full' | 'compact';
   title?: string;
   subtitle?: string;
-  /** legacy: rendered only when variant='compact' */
   ctaLabel?: string;
   ctaHref?: string;
 }
@@ -43,18 +50,22 @@ const {
 } = Astro.props;
 const variant = variantProp ?? (title ? 'compact' : 'full');
 
+// Compact hero: outline the final word of the headline (.text-outline)
+// — the "decupat / logo" treatment from the live HTML page titles.
+const compactTitle = (title ?? '').trim();
+const compactWords = compactTitle.split(/\s+/).filter(Boolean);
+const compactAccent = compactWords.length ? compactWords[compactWords.length - 1] : '';
+const compactLead = compactWords.slice(0, -1).join(' ');
+
 interface HeroStrings {
   eyebrow: { system: string; loc: string; version: string };
-  h1: string;
+  h1Line1: string;
+  h1Line2: string;
+  h1Line3Prefix: string;
+  h1Line3Accent: string;
   sub: string;
   ctaPrimary: string;
   ctaSecondary: string;
-  stats: {
-    roasLabel: string;
-    roasValue: string;
-    campaignsLabel: string;
-    campaignsValue: string;
-  };
 }
 const hero = t<HeroStrings>(locale, 'hero');
 const marquee = t<string[]>(locale, 'marquee');
@@ -63,28 +74,28 @@ const cta1 = ctaPrimary ?? { label: hero.ctaPrimary, href: localizedPath(locale,
 const cta2 = ctaSecondary ?? { label: hero.ctaSecondary, href: localizedPath(locale, '/servicii-ads') };
 
 const marqueeRow = [...marquee, ...marquee];
-const headline = title ?? hero.h1;
-const blurb = subtitle ?? hero.sub;
 ---
 
 {variant === 'compact' && (
-  <section class="scanline relative overflow-hidden border-b border-phoenix-gray bg-phoenix-black py-20">
+  <section class="relative overflow-hidden border-b border-gpc-border bg-gpc-white py-20">
     <div
-      class="pointer-events-none absolute inset-0 opacity-30"
-      style="background-image: linear-gradient(rgba(0,255,148,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,229,255,0.06) 1px, transparent 1px); background-size: 48px 48px;"
+      class="pointer-events-none absolute inset-0 opacity-40"
+      style="background-image: linear-gradient(rgba(5,5,5,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(5,5,5,0.04) 1px, transparent 1px); background-size: 48px 48px;"
       aria-hidden="true"
     ></div>
     <div class="relative mx-auto max-w-4xl px-6 text-center">
-      <h1 class="font-display text-4xl leading-tight md:text-6xl">
-        <span class="glow-green">{headline}</span>
+      <h1 class="hero-heavy font-display text-4xl text-gpc-ink md:text-6xl">
+        {compactAccent
+          ? (<>{compactLead ? `${compactLead} ` : ''}<span class="text-outline">{compactAccent}</span></>)
+          : (title ?? hero.h1Line1)}
       </h1>
-      {blurb && (
-        <p class="mt-6 font-mono text-base text-phoenix-light/80 md:text-lg">{blurb}</p>
+      {subtitle && (
+        <p class="mt-6 font-sans text-base text-gpc-text-secondary md:text-lg">{subtitle}</p>
       )}
       {ctaLabel && ctaHref && (
         <a
           href={ctaHref}
-          class="mt-10 inline-block border border-phoenix-green bg-phoenix-green/10 px-6 py-3 font-mono text-sm uppercase tracking-widest text-phoenix-green transition-colors hover:bg-phoenix-green hover:text-phoenix-black"
+          class="mt-10 inline-block bg-gpc-red px-8 py-4 font-display text-sm uppercase tracking-widest text-white transition-colors hover:bg-gpc-red-dark"
         >
           {ctaLabel}
         </a>
@@ -94,115 +105,140 @@ const blurb = subtitle ?? hero.sub;
 )}
 
 {variant === 'full' && (
-<section class="relative overflow-hidden border-b border-phoenix-gray bg-phoenix-black">
+<section class="relative flex min-h-screen flex-col overflow-hidden bg-gpc-white pt-20">
+  {/* Blueprint grid background */}
   <div
-    class="pointer-events-none absolute inset-0 opacity-30"
-    style="background-image: linear-gradient(rgba(0,255,148,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,229,255,0.06) 1px, transparent 1px); background-size: 48px 48px;"
+    class="pointer-events-none absolute inset-0 opacity-40"
+    style="background-image: linear-gradient(rgba(5,5,5,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(5,5,5,0.04) 1px, transparent 1px); background-size: 48px 48px;"
     aria-hidden="true"
   ></div>
-  <div class="scanline pointer-events-none absolute inset-0" aria-hidden="true"></div>
 
-  <div class="relative mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-12 lg:gap-12 lg:py-28">
-    <div class="lg:col-span-8">
-      <div class="flex flex-wrap gap-2 font-mono text-[10px] uppercase tracking-[0.2em]">
-        <span class="border border-phoenix-green/40 bg-phoenix-green/5 px-2 py-1 text-phoenix-green">
-          ◉ {hero.eyebrow.system}
-        </span>
-        <span class="border border-phoenix-cyan/40 bg-phoenix-cyan/5 px-2 py-1 text-phoenix-cyan">
-          {hero.eyebrow.loc}
-        </span>
-        <span class="border border-phoenix-gray bg-phoenix-gray/40 px-2 py-1 text-phoenix-light/70">
-          {hero.eyebrow.version}
-        </span>
-      </div>
-
-      <h1 class="mt-8 font-display text-4xl leading-[1.05] text-phoenix-light md:text-6xl lg:text-7xl">
-        {hero.h1.split(' ').map((word, i, arr) => (
-          <>
-            {i === arr.length - 2 || i === arr.length - 1 ? (
-              <span class="glow-green">{word}{i < arr.length - 1 ? ' ' : ''}</span>
-            ) : (
-              <span>{word}{i < arr.length - 1 ? ' ' : ''}</span>
-            )}
-          </>
-        ))}
-      </h1>
-
-      <p class="mt-6 max-w-2xl font-mono text-base leading-relaxed text-phoenix-light/80 md:text-lg">
-        {hero.sub}
-      </p>
-
-      <div class="mt-10 flex flex-wrap gap-4">
-        <a
-          href={cta1.href}
-          class="group inline-flex items-center gap-2 border border-phoenix-green bg-phoenix-green/10 px-6 py-3 font-mono text-sm uppercase tracking-widest text-phoenix-green shadow-[0_0_18px_rgba(0,255,148,0.25)] transition-all hover:bg-phoenix-green hover:text-phoenix-black hover:shadow-[0_0_28px_rgba(0,255,148,0.55)]"
-        >
-          {cta1.label}
-          <span class="transition-transform group-hover:translate-x-1">→</span>
-        </a>
-        <a
-          href={cta2.href}
-          class="inline-flex items-center gap-2 border border-phoenix-light/40 px-6 py-3 font-mono text-sm uppercase tracking-widest text-phoenix-light transition-colors hover:border-phoenix-cyan hover:text-phoenix-cyan"
-        >
-          {cta2.label}
-        </a>
-      </div>
-    </div>
-
-    <aside class="relative lg:col-span-4">
-      <div class="border border-phoenix-gray bg-phoenix-gray/30 p-6">
-        <div class="flex items-center justify-between border-b border-phoenix-gray pb-3 font-mono text-[10px] uppercase tracking-widest text-phoenix-light/60">
-          <span>// LIVE_METRICS</span>
-          <span class="flex items-center gap-1 text-phoenix-green">
-            <span class="h-1.5 w-1.5 rounded-full bg-phoenix-green shadow-[0_0_8px_#00FF94]"></span>
-            REC
-          </span>
-        </div>
-
-        <div class="mt-5">
-          <p class="font-mono text-[10px] uppercase tracking-widest text-phoenix-light/60">
-            {hero.stats.roasLabel}
-          </p>
-          <p class="mt-1 font-display text-5xl leading-none glow-green">
-            {hero.stats.roasValue}
-          </p>
-          <div class="mt-3 h-1 overflow-hidden bg-phoenix-black">
-            <div class="h-full w-[78%] bg-gradient-to-r from-phoenix-green to-phoenix-cyan"></div>
-          </div>
-        </div>
-
-        <div class="mt-6">
-          <p class="font-mono text-[10px] uppercase tracking-widest text-phoenix-light/60">
-            {hero.stats.campaignsLabel}
-          </p>
-          <p class="mt-1 font-display text-3xl text-phoenix-light">
-            <span class="glow-cyan">{hero.stats.campaignsValue}</span>
-          </p>
-        </div>
-
-        <div class="mt-6 grid grid-cols-3 gap-1">
-          {Array.from({ length: 12 }).map((_, i) => (
-            <div
-              class:list={[
-                'h-8 border border-phoenix-gray/60',
-                i % 3 === 0 ? 'bg-phoenix-green/30' : i % 4 === 0 ? 'bg-phoenix-cyan/20' : 'bg-phoenix-black',
-              ]}
-            ></div>
-          ))}
-        </div>
-      </div>
-    </aside>
+  {/* Tech eyebrow row, full-width */}
+  <div class="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-gpc-border px-6 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-gpc-text-muted md:px-10">
+    <span class="inline-flex items-center gap-2">
+      <span class="pulsing-dot" aria-hidden="true"></span>
+      {hero.eyebrow.system}
+    </span>
+    <span class="hidden md:inline">{hero.eyebrow.loc}</span>
+    <span>{hero.eyebrow.version}</span>
   </div>
 
-  <div class="relative overflow-hidden border-y border-phoenix-gray bg-phoenix-gray/20 py-3">
+  {/* Main grid — asymmetric 1.2fr / 0.8fr like the live HTML */}
+  <div
+    class="relative z-10 mx-auto grid w-full flex-1 grid-cols-1 items-center gap-10 px-6 py-12 md:px-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-12 lg:py-16"
+    style="max-width: 1440px;"
+  >
+    {/* Text column */}
+      <div class="order-2 lg:order-1">
+        <h1 class="sophisticated-headline">
+          <span class="line-1">{hero.h1Line1}</span>
+          <span class="line-2">{hero.h1Line2}</span>
+          <span class="line-3">
+            {hero.h1Line3Prefix}{' '}<span class="text-outline">{hero.h1Line3Accent}</span>
+          </span>
+        </h1>
+
+        <p class="mt-10 max-w-xl font-sans text-base leading-relaxed text-gpc-text-secondary md:text-lg lg:ml-10">
+          {hero.sub}
+        </p>
+
+        <div class="mt-10 flex flex-wrap gap-4 lg:ml-10">
+          <a
+            href={cta1.href}
+            class="group inline-flex items-center gap-2 bg-gpc-red px-8 py-4 font-display text-sm uppercase tracking-widest text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-gpc-red-dark"
+          >
+            {cta1.label}
+            <span class="transition-transform group-hover:translate-x-1">→</span>
+          </a>
+          <a
+            href={cta2.href}
+            class="inline-flex items-center gap-2 border border-gpc-ink px-8 py-4 font-display text-sm uppercase tracking-widest text-gpc-ink transition-colors hover:bg-gpc-ink hover:text-white"
+          >
+            {cta2.label}
+          </a>
+        </div>
+      </div>
+
+    {/* Visual column — phoenix logo */}
+    <div class="order-1 flex items-center justify-center lg:order-2">
+      <div id="phoenix-stage" class="phoenix-parallax relative flex h-full w-full items-center justify-center">
+        {/* Soft radial halo behind the bird */}
+        <div
+          class="pointer-events-none absolute inset-0"
+          style="background: radial-gradient(circle at 50% 50%, rgba(67,160,71,0.14), transparent 65%);"
+          aria-hidden="true"
+        ></div>
+        {/* Draw-on-scroll orbital ring (the logo itself is raster-backed,
+            so the animated stroke lives on this decorative ring). */}
+        <svg
+          id="phoenix-ring"
+          class="phoenix-ring pointer-events-none absolute h-[112%] w-[112%]"
+          viewBox="0 0 100 100"
+          fill="none"
+          aria-hidden="true"
+        >
+          <circle cx="50" cy="50" r="48" stroke="var(--gpc-green)" stroke-width="0.4" stroke-linecap="round" opacity="0.45" />
+        </svg>
+        <img
+          src="/logo_gpc.svg"
+          alt="Green Pheonix"
+          width="640"
+          height="640"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+          class="relative w-full max-w-[260px] drop-shadow-sm sm:max-w-xs lg:max-w-md xl:max-w-lg"
+        />
+      </div>
+    </div>
+  </div>
+
+  {/* Marquee ticker bottom */}
+  <div class="relative z-10 overflow-hidden border-t border-gpc-border bg-gpc-card py-3">
     <div class="marquee-track">
       {marqueeRow.map((item) => (
-        <span class="mx-6 inline-flex items-center gap-6 font-mono text-xs uppercase tracking-[0.3em] text-phoenix-light/60">
-          <span class="text-phoenix-green">///</span>
+        <span class="mx-6 inline-flex items-center gap-6 font-mono text-xs uppercase tracking-[0.3em] text-gpc-text-secondary">
+          <span class="text-gpc-green">///</span>
           {item}
         </span>
       ))}
     </div>
   </div>
+
+  <script is:inline>
+    (function () {
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var ring = document.getElementById('phoenix-ring');
+      var stage = document.getElementById('phoenix-stage');
+
+      // Draw-on-scroll: stroke the ring when it enters the viewport.
+      if (ring && !reduce) {
+        if ('IntersectionObserver' in window) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                ring.classList.add('phoenix-drawn');
+                io.unobserve(e.target);
+              }
+            });
+          }, { threshold: 0.3 });
+          io.observe(ring);
+        } else {
+          ring.classList.add('phoenix-drawn');
+        }
+      } else if (ring) {
+        ring.classList.add('phoenix-drawn');
+      }
+
+      // Subtle mouse parallax (fine pointers only, respects reduced-motion).
+      if (stage && !reduce && window.matchMedia('(pointer: fine)').matches) {
+        window.addEventListener('mousemove', function (ev) {
+          var x = (ev.clientX / window.innerWidth - 0.5) * 10;
+          var y = (ev.clientY / window.innerHeight - 0.5) * 10;
+          stage.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
+        }, { passive: true });
+      }
+    })();
+  </script>
 </section>
 )}

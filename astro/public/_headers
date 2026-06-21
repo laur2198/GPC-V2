@@ -1,0 +1,15 @@
+# ============================================================
+# Green Phoenix — Cloudflare Pages headers
+# Ported from legacy .htaccess (mod_headers + immutable assets).
+# Gzip/Expires/ErrorDocument/dotfiles intentionally omitted —
+# handled by Cloudflare automatically.
+# ============================================================
+
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()

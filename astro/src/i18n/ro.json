@@ -6,24 +6,22 @@
     "portfolio": "Portofoliu",
     "blog": "Blog",
     "about": "Despre",
-    "contact": "Contact"
+    "contact": "Contact",
+    "services": "Servicii"
   },
   "hero": {
     "eyebrow": {
-      "system": "ONLINE SYSTEM",
+      "system": "SISTEM ONLINE",
       "loc": "LOC: BRAȘOV [45.6579° N, 25.6012° E]",
-      "version": "AGENCY_VER_2.5"
+      "version": "AGENȚIE_VER_2.5"
     },
-    "h1": "Reclame care aduc clienți. Site-uri care convertesc.",
-    "sub": "Strategie clară, execuție măsurabilă și creșteri reale pentru afaceri ambițioase. Lucrăm cu Google Ads, Meta, TikTok și site-uri optimizate pentru performanță.",
+    "h1Line1": "RECLAME CARE",
+    "h1Line2": "ADUC CLIENȚI.",
+    "h1Line3Prefix": "SITE-URI CARE",
+    "h1Line3Accent": "VÂND",
+    "sub": "Ajutăm afacerile să obțină mai mulți clienți prin reclame online și site-uri optimizate pentru vânzare. Fără jargon, fără noroc — doar rezultate măsurabile.",
     "ctaPrimary": "Programează un audit",
-    "ctaSecondary": "Vezi servicii",
-    "stats": {
-      "roasLabel": "ROAS mediu clienți",
-      "roasValue": "4.5x",
-      "campaignsLabel": "Campanii active",
-      "campaignsValue": "32+"
-    }
+    "ctaSecondary": "Vezi servicii"
   },
   "marquee": [
     "STRATEGIE",
@@ -81,7 +79,973 @@
         "ctaText": "Cere audit",
         "accentTag": "CONSULTING"
       }
-    ]
+    ],
+    "umbrella": {
+      "eyebrow": "// CE FACEM",
+      "h1": "Servicii care produc rezultate măsurabile.",
+      "subHeadline": "6 servicii integrate sau independente. Alegi ce ai nevoie, plătești pentru ce primești. Fără pachete impuse, fără upsell-uri inutile.",
+      "backLabel": "Toate serviciile",
+      "intro": {
+        "p1": "Lucrăm cu afaceri serioase care vor să crească digital cu cap. Nu vindem „prezență online” sau „branding holistic” — vindem servicii concrete care produc cifre concrete.",
+        "p2": "Fiecare serviciu de mai jos poate fi contractat singur sau integrat în strategia ta totală. Recomandarea noastră: începe cu un audit gratuit, vedem împreună de ce ai nevoie cu adevărat."
+      },
+      "cards": [
+        {
+          "num": "01",
+          "title": "Meta Ads",
+          "subtitle": "Facebook + Instagram + Threads",
+          "description": "Campanii calibrate pe Andromeda. Setup tracking complet, creative testat per cohort, optimizare săptămânală.",
+          "cta": "Vezi detalii",
+          "slug": "meta-ads"
+        },
+        {
+          "num": "02",
+          "title": "Google Ads",
+          "subtitle": "Search + Performance Max + YouTube",
+          "description": "Intent-based marketing. Keyword research profund, ad copy construit pe căutare reală, landing-page alignment.",
+          "cta": "Vezi detalii",
+          "slug": "google-ads"
+        },
+        {
+          "num": "03",
+          "title": "Social Media",
+          "subtitle": "Strategie + Content + Community",
+          "description": "Prezență organică care vinde. Content calendar pe 30 zile, post production, community management activ.",
+          "cta": "Vezi detalii",
+          "slug": "social-media"
+        },
+        {
+          "num": "04",
+          "title": "Web Development",
+          "subtitle": "Astro + WordPress + Plugin-uri custom",
+          "description": "Site-uri rapide, gândite pentru conversie. De la landing page la e-commerce custom. Plugin-uri WordPress dedicate.",
+          "cta": "Vezi detalii",
+          "slug": "web-development"
+        },
+        {
+          "num": "05",
+          "title": "Strategie & Audit",
+          "subtitle": "Discovery + Plan + Roadmap",
+          "description": "Analizăm ecosistemul tău digital. Document concret cu observații prioritizate. Plan pe 3-6-12 luni.",
+          "cta": "Vezi detalii",
+          "slug": "strategie-audit"
+        },
+        {
+          "num": "06",
+          "title": "Content Production",
+          "subtitle": "Reels + UGC + Carousels",
+          "description": "Conținut autentic care performează pe Andromeda. Production in-house, fără filtre de stock.",
+          "cta": "Vezi detalii",
+          "slug": "content-production"
+        }
+      ],
+      "philosophy": {
+        "eyebrow": "// FILOZOFIE",
+        "heading": "De ce nu vindem pachete predefinite",
+        "intro": "Pachetele „Starter / Growth / Scale” sunt convenabile pentru agenții, dar rar potrivite pentru clienți. Realitatea e că:",
+        "bullets": [
+          "O cafenea locală cu 300 followers Instagram nu are nevoie de „Performance Max + Email Marketing + Influencer outreach” — are nevoie de o singură campanie Meta hyper-targetată plus content production solid",
+          "Un e-commerce cu trafic constant și AOV bun nu are nevoie de „rebranding + social media strategy + landing page redesign” — are nevoie doar de scaling Meta + optimizare Google Shopping",
+          "Un B2B SaaS cu sales cycle lung nu are nevoie de „campanii volume” — are nevoie de LinkedIn Ads + retargeting + content marketing"
+        ],
+        "outro": "Pachetele standardizate forțează clienții să cumpere ce nu le trebuie. Noi alegem opusul: îți recomandăm doar ce funcționează pentru contextul tău specific."
+      },
+      "cta": {
+        "heading": "Nu știi de unde să începi?",
+        "body": "Discovery call gratuit. Te ascultăm 30 de minute și-ți spunem onest ce servicii ți-ar folosi (și care nu).",
+        "button": "Programează discovery call"
+      },
+      "meta": {
+        "title": "Servicii — Performance marketing & web | Green Pheonix",
+        "description": "6 servicii integrate sau independente: Meta Ads, Google Ads, Social Media, Web Development, Strategie & Audit, Content Production. Fără pachete impuse."
+      }
+    },
+    "metaAds": {
+      "eyebrow": "// SERVICIU 01",
+      "h1": "Meta Ads. Calibrate pentru Andromeda.",
+      "subHeadline": "Facebook + Instagram + Threads. Setup tracking complet, creative testat per cohort, optimizare săptămânală pe ce contează — nu pe ce arată bine în dashboard.",
+      "meta": {
+        "title": "Meta Ads — Facebook & Instagram Ads | Green Pheonix",
+        "description": "Campanii Meta calibrate pe Andromeda: creative-first, server-side tracking, optimizare pe cohorte. Audit gratuit al contului tău Meta."
+      },
+      "forWho": {
+        "heading": "Pentru cine funcționează",
+        "goodTitle": "Meta Ads e potrivit dacă ai:",
+        "good": [
+          "<strong>Produs sau serviciu validat</strong> — vinzi deja organic sau prin alte canale, nu lansezi de la zero",
+          "<strong>Buget media constant</strong> — minimum ce permite ieșirea din faza de învățare (Meta recomandă echivalent ~50 conversii/lună pe pixel)",
+          "<strong>Resurse pentru creative</strong> — fie producem noi conținut, fie ai asseturi proprii (UGC, lifestyle, demo produs)",
+          "<strong>Tracking funcțional</strong> — sau dispus să-l construim împreună (Pixel + CAPI + Conversions API)"
+        ],
+        "badTitle": "NU e potrivit dacă:",
+        "bad": [
+          "Vrei să testezi un produs pentru prima dată (mai întâi validare organică)",
+          "Bugetul tău e sub pragul de optimizare al platformei",
+          "Aștepți ROI în primele 14-21 zile (faza de învățare nu permite asta)"
+        ]
+      },
+      "approach": {
+        "eyebrow": "// APPROACH",
+        "heading": "Cum gândim Meta Ads în 2026",
+        "intro": "Algoritmul Meta a fost schimbat fundamental odată cu Andromeda. Reclamele care arată ca reclame mor — algoritmul detectează stilul „publicitar” și le reduce reach-ul. Conținutul care arată REAL (UGC, lifestyle natural, oameni reali) câștigă.",
+        "points": [
+          {
+            "title": "Creative-first thinking",
+            "body": "Înainte de targeting, gândim ce creative va funcționa. Targeting-ul îl rezolvă algoritmul (Advantage+ audiences, broad targeting), creative-ul rezolvă engagement-ul."
+          },
+          {
+            "title": "Multi-creative testing",
+            "body": "6-12 variante per ad set, rotație sistematică, decizii pe date după 7 zile (nu intuiții)."
+          },
+          {
+            "title": "Server-side tracking",
+            "body": "Pixel-ul singur nu mai e suficient (iOS 17+, ad blockers, GDPR). Setăm Conversions API pe server-side pentru date complete."
+          },
+          {
+            "title": "Cohort optimization",
+            "body": "Analizăm conversiile pe cohorte de 7/30/90 zile, nu pe rapoarte instant. ROAS real ≠ ROAS afișat în dashboard."
+          }
+        ]
+      },
+      "deliverables": {
+        "eyebrow": "// LIVRABILE",
+        "heading": "Ce primești concret",
+        "items": [
+          {
+            "num": "01",
+            "title": "Audit cont existent",
+            "bullets": [
+              "Analiza campaniilor active, structurii contului, tracking",
+              "Listă probleme prioritizate + plan de remediere"
+            ]
+          },
+          {
+            "num": "02",
+            "title": "Configurare tracking complet",
+            "bullets": [
+              "Meta Pixel + Conversions API server-side",
+              "Custom events pentru fiecare touchpoint relevant",
+              "Verificare data quality + match rate optimization"
+            ]
+          },
+          {
+            "num": "03",
+            "title": "Audience research bazat pe date",
+            "bullets": [
+              "Lookalike audiences din customer list",
+              "Interest stacks testate pe baza performanței istorice",
+              "Advantage+ audiences cu seed targeting precis"
+            ]
+          },
+          {
+            "num": "04",
+            "title": "Creative production sau review",
+            "bullets": [
+              "Dacă producem: 6-12 variante UGC-style, lifestyle, hook-driven",
+              "Dacă tu ai assets: review + recomandări de optimizare"
+            ]
+          },
+          {
+            "num": "05",
+            "title": "Setup campanii multi-strat",
+            "bullets": [
+              "Cold (broad + Advantage+)",
+              "Warm (engagement, video views, page visitors)",
+              "Hot (retargeting bazat pe behavior, abandoned cart)"
+            ]
+          },
+          {
+            "num": "06",
+            "title": "Optimizare săptămânală",
+            "bullets": [
+              "Decizii bazate pe regulile pe care le definim împreună",
+              "Pause/scale pe variantele cu performanță testată",
+              "Refresh creative la fiecare 2-3 săptămâni pentru fatigue"
+            ]
+          },
+          {
+            "num": "07",
+            "title": "Raport lunar cu analiză",
+            "bullets": [
+              "Nu dashboard auto-generat",
+              "Story-ul lunii: ce a funcționat, ce nu, ce schimbăm"
+            ]
+          }
+        ]
+      },
+      "kpi": {
+        "eyebrow": "// KPI",
+        "heading": "Cum măsurăm succesul",
+        "intro": "Urmărim metrici de impact real, nu de vanitate:",
+        "primaryTitle": "Primary (ce contează pentru tine)",
+        "primary": [
+          "<strong>ROAS</strong> — pe cohorte 7/30 zile",
+          "<strong>CAC</strong> — comparat cu LTV",
+          "<strong>Profit real per campanie</strong> (nu doar revenue brut)"
+        ],
+        "secondaryTitle": "Secondary (cum optimizăm)",
+        "secondary": [
+          "CPM (eficiență reach)",
+          "CTR (engagement creative)",
+          "CVR (conversion rate per landing)",
+          "Frequency (fatigue indicator)"
+        ],
+        "avoidTitle": "NU urmărim ca scop final",
+        "avoid": [
+          "Impressions sau reach absolute (vanity metrics)",
+          "Engagement rate fără context business",
+          "„Awareness lift” fără măsurare comportament real"
+        ]
+      },
+      "cta": {
+        "heading": "Vrei un audit gratuit al contului Meta?",
+        "body": "3-5 zile, document concret cu observații prioritizate. Gratuit dacă lucrăm împreună după. Al tău indiferent de decizie.",
+        "button": "Programează audit Meta"
+      }
+    },
+    "googleAds": {
+      "eyebrow": "// SERVICIU 02",
+      "h1": "Google Ads. Intent peste interest.",
+      "subHeadline": "Search + Performance Max + YouTube. Capturăm cererea existentă, nu o construim din zero. Mai eficient când produsul tău e căutat activ.",
+      "meta": {
+        "title": "Google Ads — Search, PMax & YouTube | Green Pheonix",
+        "description": "Campanii Google Ads intent-based: Search-first, negative keywords agresive, landing page alignment, conversion tracking enhanced. Audit gratuit."
+      },
+      "forWho": {
+        "heading": "Pentru cine funcționează",
+        "goodTitle": "Google Ads e potrivit dacă:",
+        "good": [
+          "<strong>Produsul tău e căutat activ</strong> — userii știu ce vor, caută cu intent (ex: „instalare aer condiționat Brașov”, „avocat divorț urgent”, „piatră naturală bucătărie”)",
+          "<strong>Ai marjă bună per vânzare</strong> — Google CPC e mai mare ca Meta, necesită ROAS-uri agresive",
+          "<strong>Site-ul tău e gata pentru conversie</strong> — landing page rapid, clear CTA, trust signals vizibile",
+          "<strong>Vrei volume previzibile</strong> — Search Ads scalează predictibil, mai puține surprize ca Meta"
+        ],
+        "badTitle": "NU e potrivit dacă:",
+        "bad": [
+          "Produsul tău nu are search demand (categorie nouă, lifestyle aspirational)",
+          "Buget media foarte mic — Search are CPC mediu 1-5 EUR în RO, necesită bani pentru testare semnificativă",
+          "Site-ul tău nu convertește (Google Ads scoate la suprafață problemele de UX/conversie mai brutal ca Meta)"
+        ]
+      },
+      "approach": {
+        "eyebrow": "// APPROACH",
+        "heading": "Strategia noastră Google Ads",
+        "points": [
+          {
+            "title": "Search-first, automation second",
+            "body": "Clienții buni încep cu campanii Search manuale (Manual CPC sau target CPA), nu cu Performance Max. Construim baseline de date înainte să dăm controlul la AI."
+          },
+          {
+            "title": "Negative keywords agresive",
+            "body": "30% din munca lunară e curățarea căutărilor irelevante. Buget aruncat în „căutări tangențiale” e pierderea #1 a campaniilor Google."
+          },
+          {
+            "title": "Landing page alignment",
+            "body": "Fiecare ad group are landing page dedicat. Mesajul ad-ului = mesajul de pe landing. Quality Score crescut = CPC redus."
+          },
+          {
+            "title": "Performance Max strategic, nu impulsiv",
+            "body": "Folosim PMax doar după ce avem baseline de Search clar. Construim asset groups pe semantic themes, nu bulk dump."
+          },
+          {
+            "title": "Conversion tracking enhanced",
+            "body": "Enhanced Conversions, server-side tracking, offline conversion import pentru B2B cu sales cycle lung."
+          }
+        ]
+      },
+      "deliverables": {
+        "eyebrow": "// LIVRABILE",
+        "heading": "Ce primești concret",
+        "items": [
+          {
+            "num": "01",
+            "title": "Keyword research profund",
+            "bullets": [
+              "Tool stack: Google Keyword Planner + Ahrefs + Semrush + AnswerThePublic",
+              "Cluster pe intent (informational vs commercial vs transactional)",
+              "Long-tail keywords cu CPC sustenabil"
+            ]
+          },
+          {
+            "num": "02",
+            "title": "Account structure curată",
+            "bullets": [
+              "Campaign separation pe goal (Search Brand / Search Generic / PMax / Display Retargeting)",
+              "Ad group structure thematic, NU keyword stuffing"
+            ]
+          },
+          {
+            "num": "03",
+            "title": "Ad copy testat",
+            "bullets": [
+              "Responsive Search Ads cu 15 headlines + 4 descriptions per ad group",
+              "Testare sistematică, decizii pe date după 14 zile",
+              "Aliniere mesaj ad ↔ landing page"
+            ]
+          },
+          {
+            "num": "04",
+            "title": "Setup tracking complet",
+            "bullets": [
+              "GA4 + Google Ads conversion tracking",
+              "Enhanced Conversions cu first-party data",
+              "Offline import dacă ai CRM (Hubspot, Salesforce, Pipedrive)"
+            ]
+          },
+          {
+            "num": "05",
+            "title": "Negative keywords management",
+            "bullets": [
+              "Listă inițială bazată pe research",
+              "Audit săptămânal Search Terms Report",
+              "Listă negative shared între campanii"
+            ]
+          },
+          {
+            "num": "06",
+            "title": "Performance Max strategic",
+            "bullets": [
+              "Asset groups pe semantic themes (nu bulk)",
+              "Audience signals pentru bootstrap",
+              "Brand exclusions clare"
+            ]
+          },
+          {
+            "num": "07",
+            "title": "Raport lunar cu analiză",
+            "bullets": [
+              "Performance pe ad group, nu doar campanii",
+              "Quality Score trends",
+              "Recomandări concrete pentru next month"
+            ]
+          }
+        ]
+      },
+      "kpi": {
+        "eyebrow": "// KPI",
+        "heading": "Cum măsurăm succesul",
+        "primaryTitle": "Primary",
+        "primary": [
+          "<strong>CPA</strong> — comparat cu LTV target",
+          "<strong>ROAS</strong> pe campanii e-commerce",
+          "<strong>Conversion volume calificat</strong> (NU clicks)",
+          "Profit margin după ad spend"
+        ],
+        "secondaryTitle": "Secondary",
+        "secondary": [
+          "Quality Score (target 7+ pe keywords primary)",
+          "Impression Share (search lost — budget vs rank)",
+          "CTR per ad group",
+          "Conversion rate per landing"
+        ],
+        "avoidTitle": "NU urmărim ca scop final",
+        "avoid": [
+          "Volume de clicks fără context conversion",
+          "Position absolute (poziția 1 nu = rentabil)",
+          "„Brand awareness” prin Search (pentru asta există Display)"
+        ]
+      },
+      "cta": {
+        "heading": "Vrei un audit gratuit al contului Google Ads?",
+        "body": "Analizăm contul tău existent (sau setup-ul curent dacă ești self-managed). Document cu observații, gratuit dacă lucrăm împreună.",
+        "button": "Programează audit Google"
+      }
+    },
+    "socialMedia": {
+      "eyebrow": "// SERVICIU 03",
+      "h1": "Social Media. Prezență organică care vinde.",
+      "subHeadline": "Reclamele singure nu vând. Construim împreună fundația organică care multiplică ROI-ul oricărei reclame ulterioare. Content calendar, production, community management.",
+      "meta": {
+        "title": "Social Media — Strategie, content & community | Green Pheonix",
+        "description": "Prezență organică care vinde: content pillars, 14-day production cycle, community management. Fundația organică care multiplică ROI-ul reclamelor."
+      },
+      "forWho": {
+        "heading": "Pentru cine funcționează",
+        "goodTitle": "Social Media management e potrivit dacă:",
+        "good": [
+          "<strong>Vrei să construiești o prezență de durată</strong>, nu doar reclame on-off",
+          "<strong>Înțelegi că rezultatele vin în 3-6 luni</strong>, nu peste noapte",
+          "<strong>Poți susține content production</strong> — fie producem noi, fie ai resurse interne",
+          "<strong>Ai un brand cu personalitate</strong> care merită amplificat (nu generic)"
+        ],
+        "badTitle": "NU e potrivit dacă:",
+        "bad": [
+          "Vrei doar „să postezi 3 ori pe săptămână ca să fii prezent” — asta e pierdere de bani, nu strategie",
+          "Aștepți ROI direct atribuibil per post (social organic e long-tail)",
+          "Refuzi să apari în fața camerei sau să-ți expui echipa (autenticitate e factor critic)"
+        ]
+      },
+      "approach": {
+        "eyebrow": "// APPROACH",
+        "heading": "De ce autenticitatea bate producția pompoasă",
+        "intro": "În 2026, algoritmii Meta și TikTok penalizează conținutul „publicitar”. Conținutul care performează e real (oameni reali, nu modele de stoc), imperfect (vertical iPhone footage, nu camera 4K cinematic), conversațional (vorbește direct cu audiența) și story-driven (beneficii prin context, nu liste de features).",
+        "points": [
+          {
+            "title": "Audit content existent",
+            "body": "Vedem ce a performat la tine istoric, ce nu, ce putem replica scalabil."
+          },
+          {
+            "title": "Content pillars definiție",
+            "body": "3-4 piloni tematici care acoperă authority + community + conversion."
+          },
+          {
+            "title": "14-day production cycle",
+            "body": "Calendar pe 2 săptămâni, producție batch, planificare consistentă."
+          },
+          {
+            "title": "Performance feedback loop",
+            "body": "La fiecare 30 zile evaluăm ce funcționează, ajustăm pillars/format/frequency."
+          }
+        ]
+      },
+      "deliverables": {
+        "eyebrow": "// LIVRABILE",
+        "heading": "Ce primești concret",
+        "items": [
+          {
+            "num": "01",
+            "title": "Strategy document inițial",
+            "bullets": [
+              "Audience persona definiție",
+              "Content pillars (3-4 teme)",
+              "Tone of voice guidelines",
+              "Competitor benchmark"
+            ]
+          },
+          {
+            "num": "02",
+            "title": "Content calendar 30 zile",
+            "bullets": [
+              "Pe platforme (Instagram, Facebook, TikTok, LinkedIn dacă aplicabil)",
+              "Mix authority / community / conversion",
+              "Hook + caption + visual brief"
+            ]
+          },
+          {
+            "num": "03",
+            "title": "Content production",
+            "bullets": [
+              "Reels production (2-3/săpt)",
+              "Carousels editorial (1-2/săpt)",
+              "Story templates reutilizabile",
+              "UGC sourcing dacă aplicabil"
+            ]
+          },
+          {
+            "num": "04",
+            "title": "Posting + community management",
+            "bullets": [
+              "Posting în slot-uri optime (data-driven)",
+              "Response la comments în max 12h",
+              "DM management pentru lead-uri calde",
+              "Crisis management dacă apare"
+            ]
+          },
+          {
+            "num": "05",
+            "title": "Hashtag strategy + Reels optimization",
+            "bullets": [
+              "Hashtag stacks rotation",
+              "Trending sounds research",
+              "Reels hook optimization (3 sec rule)"
+            ]
+          },
+          {
+            "num": "06",
+            "title": "Raport lunar",
+            "bullets": [
+              "Followers neti + engagement rate",
+              "Top performing posts cu analiză",
+              "Story-ul lunii + recomandări"
+            ]
+          }
+        ]
+      },
+      "kpi": {
+        "eyebrow": "// KPI",
+        "heading": "Cum măsurăm succesul",
+        "primaryTitle": "Primary",
+        "primary": [
+          "<strong>Engagement rate</strong> (lift față de industrie)",
+          "Profile visits + website clicks",
+          "Saves + shares (intent reali)",
+          "Conversions atribuibile (via UTM + last-click)"
+        ],
+        "secondaryTitle": "Secondary",
+        "secondary": [
+          "Follower growth net",
+          "Reach + impressions",
+          "Top performing content patterns"
+        ],
+        "avoidTitle": "NU urmărim ca scop final",
+        "avoid": [
+          "Vanity followers count",
+          "Like-uri totale (low intent signal)",
+          "Posting frequency pentru „să fim prezenți”"
+        ]
+      },
+      "caseStudy": {
+        "eyebrow": "// EXEMPLU CONCRET",
+        "heading": "Cum am crescut Kokoro Brașov organic",
+        "body": "Pentru Academia Kokoro Brașov, am construit fundația organică în 90 zile, fără un singur leu de Meta Ads:",
+        "metrics": [
+          "+595% impressions Instagram",
+          "+295% reach Instagram",
+          "+536% followers organici",
+          "+85% engagement Facebook"
+        ],
+        "outro": "Story-ul: 14-day content cycle bazat pe authority (lecții tehnice + palmares Adi Bogluț, campion mondial) + community (copii la antrenament) + conversion (giveaway + sesiuni demo).",
+        "linkLabel": "Vezi case study complet",
+        "linkSlug": "academia-kokoro-rebrand"
+      },
+      "cta": {
+        "heading": "Vrei un audit gratuit al prezenței tale social?",
+        "body": "Analizăm conturile tale, identificăm gap-uri și oportunități. Recomandare onestă: ești potrivit pentru social organic sau e mai bine să investești în reclame plătite.",
+        "button": "Programează audit social"
+      }
+    },
+    "webDev": {
+      "eyebrow": "// SERVICIU 04",
+      "h1": "Web Development. Site-uri care vând.",
+      "subHeadline": "Astro, WordPress și plugin-uri custom. Construim site-uri rapide, gândite pentru conversie. De la landing page la e-commerce custom — cu structură care durează.",
+      "meta": {
+        "title": "Web Development — Astro, WordPress & plugin-uri custom | Green Pheonix",
+        "description": "Site-uri rapide gândite pentru conversie: Astro pentru performanță, WordPress pentru content, plugin-uri custom. Core Web Vitals 95+, SEO și AEO ready."
+      },
+      "forWho": {
+        "heading": "Pentru cine funcționează",
+        "goodTitle": "Lucrăm pe web development dacă:",
+        "good": [
+          "<strong>Vrei un site care produce business</strong>, nu un portfolio decorativ",
+          "<strong>Înțelegi că performance contează</strong> — Core Web Vitals afectează SEO și conversie direct",
+          "<strong>Vrei ownership real</strong> — domain pe numele tău, hosting profesional, cod documentat",
+          "<strong>Ai context de afaceri clar</strong> — știi ce vinzi, cui vinzi, ce trebuie să facă vizitatorul"
+        ],
+        "badTitle": "NU lucrăm dacă:",
+        "bad": [
+          "Vrei „un site frumos cât mai ieftin” fără criterii business",
+          "Refuzi să investești în hosting profesional (sub 25 EUR/lună = performance compromis)",
+          "Aștepți să fie gata într-o săptămână cu scope nedefinit"
+        ]
+      },
+      "approach": {
+        "eyebrow": "// APPROACH",
+        "heading": "De ce alegem stack-urile pe care le folosim",
+        "intro": "Nu folosim un singur framework „pentru că asta știm”. Alegem stack-ul în funcție de nevoia ta concretă:",
+        "points": [
+          {
+            "title": "Astro 5 — site-uri statice, multilingve, optimizate AI",
+            "body": "Performance maxim (zero JS by default), Core Web Vitals 95+ implicit, SEO și AEO/GEO ready (schema markup nativ), multilingual fără plugin-uri externe, hosting ieftin (Cloudflare, Netlify, Vercel). <strong>Folosit pentru</strong>: marketing sites, landing pages, blog-uri profesionale."
+          },
+          {
+            "title": "WordPress — content management frecvent",
+            "body": "E-commerce complex prin WooCommerce, multi-author blog cu workflow editorial, forms și integrări CRM extensive, plugin-uri custom dezvoltate de noi. <strong>Folosit pentru</strong>: e-commerce, site-uri cu update zilnic, integrări business complex."
+          },
+          {
+            "title": "Plugin-uri WordPress custom — funcționalități unice",
+            "body": "Dezvoltate de la zero, nu adaptate din shelf. Cod documentat și menținut, admin panel propriu pentru control non-tehnic. <strong>Exemplu real</strong>: SBC Calculator pentru Lemet Stone (config piese piatră direct pe site, cotații automate, documentație tehnică pentru producție)."
+          }
+        ]
+      },
+      "deliverables": {
+        "eyebrow": "// LIVRABILE",
+        "heading": "Ce primești concret",
+        "items": [
+          {
+            "num": "01",
+            "title": "Discovery + Strategy",
+            "bullets": [
+              "Wireframes funcționale (NU template-uri prefabricate)",
+              "User flow mapping (cine vine, ce face, unde converte)",
+              "Conținut audit (ce ai, ce trebuie creat)"
+            ]
+          },
+          {
+            "num": "02",
+            "title": "Design system custom",
+            "bullets": [
+              "Paletă culori adaptată brand-ului",
+              "Typography rules (max 2 family fonts)",
+              "Components library reutilizabil",
+              "Mobile-first responsive"
+            ]
+          },
+          {
+            "num": "03",
+            "title": "Development",
+            "bullets": [
+              "Cod scris de la zero (NU template-uri tema)",
+              "Component-based architecture",
+              "Performance budget: Lighthouse 95+ pe toate paginile",
+              "Accessibility WCAG 2.1 AA compliant"
+            ]
+          },
+          {
+            "num": "04",
+            "title": "SEO + AEO/GEO Setup",
+            "bullets": [
+              "Schema markup complet (Organization, LocalBusiness, FAQPage, etc.)",
+              "Open Graph + Twitter Cards optimizate",
+              "Sitemap XML + robots.txt configurate",
+              "llms.txt pentru AI search engines",
+              "hreflang dacă e multilingv"
+            ]
+          },
+          {
+            "num": "05",
+            "title": "Integrări",
+            "bullets": [
+              "Forms cu CRM/email marketing (Mailerlite, ActiveCampaign, Hubspot)",
+              "Analytics (GA4 + Microsoft Clarity pentru heatmaps)",
+              "Pixel-uri tracking (Meta, Google, TikTok)",
+              "Payment processors dacă aplicabil (Stripe, Netopia, EuPlatesc)"
+            ]
+          },
+          {
+            "num": "06",
+            "title": "Hand-off + Training",
+            "bullets": [
+              "Documentație tehnică completă",
+              "Training video pentru admin panel (dacă WordPress)",
+              "Hosting setup recomandat (te ghidăm prin contractare)",
+              "30 zile suport post-lansare inclus"
+            ]
+          }
+        ]
+      },
+      "kpi": {
+        "eyebrow": "// KPI",
+        "heading": "Cum măsurăm succesul",
+        "primaryTitle": "Primary",
+        "primary": [
+          "<strong>Conversion rate</strong> (formular completat / vânzare / call booked)",
+          "Bounce rate (sub 50% landing, sub 60% bloguri)",
+          "Core Web Vitals scores (LCP, FID, CLS în „Good”)",
+          "Time to interactive (sub 3 sec)"
+        ],
+        "secondaryTitle": "Secondary",
+        "secondary": [
+          "Organic search traffic growth",
+          "Pages per session",
+          "Goal completions GA4"
+        ],
+        "avoidTitle": "NU urmărim ca scop final",
+        "avoid": [
+          "„Cât de frumos arată” (subiectiv, irelevant business)",
+          "Page views totale fără context conversion",
+          "Vanity awards (Awwwards, etc.)"
+        ]
+      },
+      "caseStudy": {
+        "eyebrow": "// EXEMPLU CONCRET",
+        "heading": "Plugin custom + WooCommerce — Lemet Stone",
+        "body": "Pentru Lemet Stone (Brașov, piatră naturală), am construit un plugin WordPress custom care a schimbat fundamental cum vinde compania. <strong>Problema</strong>: clienții trimiteau schițe desenate cu pixul pentru cotații. <strong>Soluția</strong>: plugin SBC Calculator cu 4 module (countertops, șeminee, pervaze, scări) — utilizatorii configurează piese direct pe site, primesc cotații instant, documentația tehnică ajunge direct în producție.",
+        "metrics": [
+          "0,46 RON Cost per Click",
+          "24.899 oameni atinși în 18 zile",
+          "855 vizite landing la 0,87 RON",
+          "13,86 RON CPM (vs media 25-50)"
+        ],
+        "linkLabel": "Vezi case study complet",
+        "linkSlug": "lemet-stone-plugin-marketing"
+      },
+      "cta": {
+        "heading": "Vrei să discuți despre site-ul tău?",
+        "body": "Discovery call gratuit. Îți spunem onest dacă ai nevoie de site nou, refactor, sau doar de mici îmbunătățiri. Nu vindem site-uri inutile.",
+        "button": "Programează discovery call"
+      }
+    },
+    "strategyAudit": {
+      "eyebrow": "// SERVICIU 05",
+      "h1": "Strategie & Audit. Înainte de execuție.",
+      "subHeadline": "Discovery + audit ecosistem + plan personalizat. Diferența între „agenție care apasă butoane” și „agenție care produce rezultate” începe aici.",
+      "meta": {
+        "title": "Strategie & Audit digital | Green Pheonix",
+        "description": "Audit ecosistem pe 5 axe (site, ads, organic, competiție, tracking), recomandări ICE, roadmap 3-6-12 luni. Discovery call gratuit."
+      },
+      "forWho": {
+        "heading": "Pentru cine funcționează",
+        "goodTitle": "Strategy & Audit e potrivit dacă:",
+        "good": [
+          "<strong>Vrei să iei decizii bazate pe date</strong>, nu pe intuiții sau presiune de vânzare",
+          "<strong>Te-ai săturat de propuneri generice</strong> primite de la alte agenții (același template, doar logo schimbat)",
+          "<strong>Ai un buget pe care vrei să-l investești cu cap</strong> — nu să-l împrăștii pe canale care nu funcționează",
+          "<strong>Operezi o afacere serioasă</strong> care merită analiză profesională, nu ghicit"
+        ],
+        "badTitle": "NU e potrivit dacă:",
+        "bad": [
+          "Vrei doar validare pentru o decizie deja luată („spune-mi că am dreptate”)",
+          "Refuzi să auzi feedback dur („dar competiția face X, de ce nu și eu”)",
+          "Aștepți „strategie” în 30 minute (analiza serioasă durează 1-2 săptămâni)"
+        ]
+      },
+      "approach": {
+        "eyebrow": "// APPROACH",
+        "heading": "Ce facem diferit de alte agenții",
+        "intro": "Auditurile generice pe care le primești sunt în mare parte content template + screenshot-uri din Lighthouse. NU asta facem noi.",
+        "points": [
+          {
+            "title": "Discovery call profund",
+            "body": "60-90 min, nu 30 — întrebări care demontează presupunerile, nu confirmă ce vrei să auzi."
+          },
+          {
+            "title": "Audit pe 5 axe paralele",
+            "body": "Site, Ads, Organic, Competition, Tracking. Fiecare cu metodologie clară."
+          },
+          {
+            "title": "Sinteză strategică",
+            "body": "Nu listă de „issues to fix” generic, ci prioritizare bazată pe ICE framework (Impact × Confidence × Ease)."
+          },
+          {
+            "title": "Roadmap personalizat",
+            "body": "Plan pe 3-6-12 luni cu milestone-uri concrete, nu „vom face marketing digital”."
+          },
+          {
+            "title": "Decision criteria documente",
+            "body": "Ce trebuie să fie adevărat ca să continuăm pe direcția X, ce semnale ne fac să pivotăm."
+          }
+        ]
+      },
+      "deliverables": {
+        "eyebrow": "// LIVRABILE",
+        "heading": "Ce primești concret",
+        "items": [
+          {
+            "num": "01",
+            "title": "Discovery document",
+            "bullets": [
+              "Sinteza conversației: ce vrei, ce ai, ce blochezi",
+              "Hypothese inițiale (testabile, nu vorbe goale)",
+              "Constrains (buget, timeline, resurse)"
+            ]
+          },
+          {
+            "num": "02",
+            "title": "Audit ecosistem complet (10-20 pagini)",
+            "bullets": [
+              "<strong>Site</strong>: performance, SEO on-page + technical, UX/CRO, accessibility, AEO/GEO readiness",
+              "<strong>Ads</strong>: structure conturi Meta + Google, audience strategy, creative inventory, tracking quality, budget allocation",
+              "<strong>Organic</strong>: social media, engagement vs benchmarks, content consistency, Google My Business + reviews",
+              "<strong>Competition</strong>: 3-5 competitori, ad spend visibility (Meta Ad Library), organic positioning, gaps",
+              "<strong>Tracking</strong>: GA4 verification, pixel-uri data quality, Conversions API status, GDPR compliance"
+            ]
+          },
+          {
+            "num": "03",
+            "title": "Recomandări prioritizate (ICE framework)",
+            "bullets": [
+              "Quick wins (high impact, low effort) — 5-10 acțiuni",
+              "Strategic moves (high impact, moderate effort) — 3-5 inițiative",
+              "Long-term plays (high impact, high effort) — 1-2 directives"
+            ]
+          },
+          {
+            "num": "04",
+            "title": "Roadmap 3-6-12 luni",
+            "bullets": [
+              "Milestone-uri concrete cu KPI",
+              "Budget recomandat per canal",
+              "Risk factors + mitigation strategies",
+              "Decision points clear (când evaluăm, când pivotăm)"
+            ]
+          },
+          {
+            "num": "05",
+            "title": "Strategy session live (90 min)",
+            "bullets": [
+              "Walk-through document",
+              "Întrebări de la tine, răspunsuri argumentate",
+              "Adjustment-uri pe baza priorităților tale"
+            ]
+          }
+        ]
+      },
+      "kpi": {
+        "eyebrow": "// KPI",
+        "heading": "Cum măsurăm succesul",
+        "intro": "Audit/Strategy nu produce direct revenue — produce decizii informate. Măsurarea succesului:",
+        "primaryTitle": "Criterii de calitate audit",
+        "primary": [
+          "Identifici minimum 3 oportunități pe care nu le vedeai înainte",
+          "Înțelegi de ce X canal funcționează/nu funcționează (nu doar CĂ)",
+          "Ai roadmap clear pe 6 luni cu decision points"
+        ],
+        "secondaryTitle": "ROI pe termen lung",
+        "secondary": [
+          "Decizii financiare informate (unde investești, unde tai)",
+          "Evitarea greșelilor scumpe (campanii prost gândite, site refacut de 3 ori)",
+          "Velocity de execuție crescut"
+        ],
+        "avoidTitle": "Ce NU e",
+        "avoid": [
+          "Validare pentru o decizie deja luată",
+          "Template generic cu logo schimbat",
+          "„Strategie” livrată în 30 minute"
+        ]
+      },
+      "format": {
+        "eyebrow": "// FORMAT",
+        "heading": "Cum se contractează",
+        "paragraphs": [
+          "<strong>Discovery call (30 min) — gratuit.</strong> Ascultăm întâi, evaluăm dacă suntem potriviți.",
+          "<strong>Audit standalone</strong> — proiect punctual. Document complet, livrabile concrete, fără obligație de continuare.",
+          "<strong>Audit gratuit dacă lucrăm împreună după.</strong> Dacă semnezi contract pentru implementare ulterioară, auditul e inclus.",
+          "Nu publicăm prețul pentru că depinde de scope: audit Meta Ads simplu ≠ audit ecosistem complet 5 axe; discovery 60 min ≠ workshop strategic 2 zile. Discutăm în discovery call. Spunem onest cât costă pentru cazul tău concret."
+        ]
+      },
+      "cta": {
+        "heading": "Vrei să începi cu un audit?",
+        "body": "Discovery call gratuit, 30 minute. Ne spui contextul, îți spunem ce am face și cât ar dura.",
+        "button": "Programează discovery"
+      }
+    },
+    "contentProduction": {
+      "eyebrow": "// SERVICIU 06",
+      "h1": "Content Production. Conținut care performează.",
+      "subHeadline": "Reels, UGC, carousels, fotografie de produs. Producem conținut autentic care funcționează pe algoritmii moderni — nu video-uri pompoase pe care nimeni nu le urmărește.",
+      "meta": {
+        "title": "Content Production — Reels, UGC & carousels | Green Pheonix",
+        "description": "Conținut autentic care performează pe algoritmii moderni: Reels, TikToks, carousels, UGC sourcing, fotografie produs. Production in-house, fără stock."
+      },
+      "forWho": {
+        "heading": "Pentru cine funcționează",
+        "goodTitle": "Content production e potrivit dacă:",
+        "good": [
+          "<strong>Vrei content cu personalitate</strong>, nu generic de stock",
+          "<strong>Ești dispus să apari în fața camerei</strong> (sau ai cineva din echipă) — autenticitatea bate producția",
+          "<strong>Înțelegi că procesul iterativ</strong> — primele Reels nu vor avea 1M views",
+          "<strong>Ai un produs/serviciu cu storyline</strong> care merită spus"
+        ],
+        "badTitle": "NU e potrivit dacă:",
+        "bad": [
+          "Vrei să rămâi 100% anonim (face brands au șansă redusă de a câștiga pe TikTok și Reels)",
+          "Aștepți „viral content guaranteed” — promisiunile astea sunt mereu false",
+          "Refuzi să-ți expui produsul real (UGC funcționează doar cu produs real)"
+        ]
+      },
+      "approach": {
+        "eyebrow": "// APPROACH",
+        "heading": "De ce content-ul de agenție clasic nu funcționează în 2026",
+        "intro": "Algoritmii Meta și TikTok detectează „content publicitar” prin: cinematic camera angles, stock music generic, color grading exagerat, voice-over fără personalitate, branding heavy, production value evident „agency-made”. Conținutul care câștigă e vertical iPhone footage, hook în primele 3 secunde, story-driven, person-led, music trending platform-native, casual voice-over.",
+        "points": [
+          {
+            "body": "Asta nu înseamnă „neglijent” — înseamnă „polished în direcția potrivită”. Producem cu cap, optimizăm pentru platformă, nu pentru reel showcase."
+          }
+        ]
+      },
+      "deliverables": {
+        "eyebrow": "// LIVRABILE",
+        "heading": "Ce producem concret",
+        "items": [
+          {
+            "num": "01",
+            "title": "Reels (Instagram + Facebook)",
+            "bullets": [
+              "8-15 secunde optimal pentru engagement",
+              "Hook în primele 3 secunde",
+              "Captions burned-in (audio off optimization)",
+              "Vertical 9:16, music trending platform-native",
+              "Production: 4-8 Reels/lună standard"
+            ]
+          },
+          {
+            "num": "02",
+            "title": "TikToks",
+            "bullets": [
+              "Format nativ TikTok (NU repost direct din Reels)",
+              "Trends research săptămânal",
+              "Sounds research pentru hook",
+              "Duet/stitch opportunities",
+              "Production: 6-12 TikToks/lună standard"
+            ]
+          },
+          {
+            "num": "03",
+            "title": "Carousels editoriale",
+            "bullets": [
+              "5-10 slide-uri pe topic specific",
+              "Hook puternic primul slide",
+              "Save-worthy content (educative, tips, frameworks)",
+              "Branded subtle, nu overwhelming",
+              "Production: 4-6 carousels/lună"
+            ]
+          },
+          {
+            "num": "04",
+            "title": "UGC sourcing & coaching",
+            "bullets": [
+              "Recrutare creators relevanți pentru nișa ta",
+              "Briefuri detaliate, NU „fă ce vrei”",
+              "Coaching pe hook + storyline",
+              "Review + feedback iterative",
+              "Production: 2-4 UGC/lună depending budget"
+            ]
+          },
+          {
+            "num": "05",
+            "title": "Fotografie produs (dacă e cazul)",
+            "bullets": [
+              "In-studio dacă ai produs fizic",
+              "Lifestyle photography pentru lookbook",
+              "Detail shots pentru e-commerce",
+              "Mockups pentru landing pages"
+            ]
+          },
+          {
+            "num": "06",
+            "title": "Strategy & coaching",
+            "bullets": [
+              "Content pillars definiție",
+              "Hook frameworks documentate",
+              "Voice & tone guide pentru consistency",
+              "Coaching pentru tine sau echipa ta"
+            ]
+          }
+        ]
+      },
+      "kpi": {
+        "eyebrow": "// KPI",
+        "heading": "Cum măsurăm succesul",
+        "primaryTitle": "Primary",
+        "primary": [
+          "Reach + impressions per post (vs baseline cont)",
+          "<strong>Engagement rate</strong> (lift față de benchmark)",
+          "Saves + shares (intent signal real)",
+          "Profile visits + website clicks (atribuibile)"
+        ],
+        "secondaryTitle": "Secondary",
+        "secondary": [
+          "Followers organici neti",
+          "Reels plays + completion rate",
+          "Comment quality (depth signal)"
+        ],
+        "avoidTitle": "NU urmărim ca scop final",
+        "avoid": [
+          "„Viral” video singular (efemer, irrepetabil)",
+          "Like-uri totale (low intent signal)",
+          "Production polish per se („funcționează” > „arată cinematic”)"
+        ]
+      },
+      "caseStudy": {
+        "eyebrow": "// EXEMPLU CONCRET",
+        "heading": "Cum am crescut Kokoro organic cu content authentic",
+        "body": "Pentru Academia Kokoro Brașov, content production a fost motorul creșterii organice. 14-day production cycle cu mix authority + community + conversion:",
+        "metrics": [
+          "+595% impressions Instagram în 90 zile",
+          "+295% reach — toate organice",
+          "+536% followers neti",
+          "Top Reel: Adi Bogluț, 4.032 reach organic"
+        ],
+        "outro": "Nu am rulat nici un leu de Meta Ads pe Kokoro. Doar content care trebuia produs.",
+        "linkLabel": "Vezi case study complet",
+        "linkSlug": "academia-kokoro-rebrand"
+      },
+      "cta": {
+        "heading": "Vrei să discutăm content strategy pentru brand-ul tău?",
+        "body": "Discovery call gratuit. Ne uităm la conținutul tău existent, la ce face competiția, la ce ai putea face diferit pentru a performa pe algoritmi moderni.",
+        "button": "Programează discovery"
+      }
+    }
   },
   "trustBar": {
     "header": "AU LUCRAT CU NOI",
@@ -121,11 +1085,26 @@
     "header": "CUM LUCRĂM",
     "subheader": "Un proces în 5 pași, fără surprize",
     "steps": [
-      { "title": "Discovery", "description": "Audit detaliat: business, conturi ads, site, tracking, competiție." },
-      { "title": "Strategie", "description": "Plan personalizat cu ICP, mesaje, canale, KPI și buget." },
-      { "title": "Implementare", "description": "Setup conturi, pixeli, conversii server-side, creative noi." },
-      { "title": "Optimizare", "description": "Iterăm săptămânal pe baza datelor: bid, audience, creative." },
-      { "title": "Scalare", "description": "Creștem bugetul controlat și lansăm canale noi când e momentul." }
+      {
+        "title": "Discovery",
+        "description": "Audit detaliat: business, conturi ads, site, tracking, competiție."
+      },
+      {
+        "title": "Strategie",
+        "description": "Plan personalizat cu ICP, mesaje, canale, KPI și buget."
+      },
+      {
+        "title": "Implementare",
+        "description": "Setup conturi, pixeli, conversii server-side, creative noi."
+      },
+      {
+        "title": "Optimizare",
+        "description": "Iterăm săptămânal pe baza datelor: bid, audience, creative."
+      },
+      {
+        "title": "Scalare",
+        "description": "Creștem bugetul controlat și lansăm canale noi când e momentul."
+      }
     ],
     "cta": "ÎNCEPE CU UN AUDIT GRATUIT"
   },
@@ -136,25 +1115,46 @@
   },
   "testimonials": {
     "header": "CE SPUN CLIENȚII",
-    "items": []
+    "items": [],
+    "viewCase": "Vezi cazul complet"
   },
   "faq": {
     "header": "ÎNTREBĂRI FRECVENTE",
     "items": [
       {
-        "question": "Care este bugetul minim recomandat pentru reclame?",
-        "answer": "Depinde de industrie și obiectiv. Ca regulă, recomandăm minim 1.500€/lună budget media + fee agenție, ca algoritmii să iasă din faza de învățare. Sub acest prag lucrăm întâi la ofertă, site și tracking."
+        "question": "Care e bugetul minim pentru a lucra cu voi?",
+        "answer": "Nu publicăm prețuri pentru că fiecare situație e diferită — o cafenea care vrea primii 50 clienți lunar are nevoie de altă investiție decât un brand care vrea să intre regional. Înainte de „cât costă”, noi întrebăm: ce vinzi, cui vinzi, ce ai încercat, ce funcționează, unde vrei să ajungi. Bugetul iese din răspunsuri. Dacă ce vrei să obții nu se potrivește cu ce poți investi, îți spunem direct — nu îți luăm bani pentru o campanie care nu poate da rezultate."
       },
       {
-        "question": "În cât timp apar rezultatele?",
-        "answer": "Primele semnale apar în 48–72h de la lansare. Optimizarea reală se vede în 2–4 săptămâni, după ce strângem suficiente date pentru decizii."
+        "question": "Cât durează până primesc site-ul?",
+        "answer": "Landing page de conversie: 7-14 zile lucrătoare după ce primim conținutul. Site complet (5-8 pagini, blog, integrări): 3-5 săptămâni. E-commerce custom sau plugin dedicat: 4-8 săptămâni. Termenul real depinde de viteza de feedback de la tine. Lucrăm în iterații săptămânale — primești prototip, ne dai feedback, ajustăm. Fără un client implicat, niciun site nu se termină la timp."
+      },
+      {
+        "question": "Care e workflow-ul de a lucra împreună?",
+        "answer": "În 5 pași: 1. Discovery call (30 min, gratuit). 2. Audit (3-5 zile, gratuit dacă lucrăm împreună după). 3. Propunere strategică (5-7 zile). 4. Implementare (durată variabilă, milestone-uri săptămânale). 5. Optimizare & raportare (raport lunar cu analiză, NU dashboard auto). Plătești când și dacă semnezi contractul."
+      },
+      {
+        "question": "De ce nu percepeți mentenanță lunară pentru site-uri?",
+        "answer": "Pentru că abonamentele de mentenanță fixă sunt cel mai des bani aruncați. Un site bine construit pe stack modern nu are nevoie de „mentenanță lunară” — nu se strică singur. Lucrăm altfel: site-ul e livrat funcțional, securizat, documentat. Când ai nevoie de modificări, percepem doar pentru munca efectivă. Plătești ce primești, nu un abonament permanent."
+      },
+      {
+        "question": "Care sunt costurile ascunse ale unui site?",
+        "answer": "Nu există în lucrul cu noi — primești ofertă cu tot ce intră în preț, clar pe linii. Atenție în general la: hosting nepotrivit (200-500 RON/lună retail vs ~25 EUR/lună profesional), domain ascuns la dezvoltator (verifică-l pe numele tău), plugin-uri premium plătite anual (60-300 EUR/an fiecare), modificări mici care ajung sute de euro fără structură clară, SSL plătit (e gratis de la Let's Encrypt — dacă cineva îți cere 200 RON/an, fugi)."
+      },
+      {
+        "question": "Pot lucra cu voi dacă rulez deja campanii pe alt cont?",
+        "answer": "Da. De fapt, asta e situația ideală — avem un punct de pornire real. Procesul: 1. Acces „Analyst” (read-only) la conturi Meta/Google/TikTok. 2. Audit 3-5 zile (gratuit dacă lucrăm împreună după). 3. Decizi dacă transferi managementul sau dacă lucrăm complementar. NU facem trash-talking despre munca anterioară. Uneori e bună, uneori nu. Spunem onest ce vedem."
+      },
+      {
+        "question": "Dacă rezultatele nu se văd în primele săptămâni, e ceva în neregulă?",
+        "answer": "Nu neapărat — și e exact tipul de întrebare care trebuie pusă onest înainte să semnăm. Algoritmii Meta și Google au nevoie de minimum 14-21 zile să iasă din faza de învățare. În primele 4 săptămâni evaluăm dacă direcția e corectă (cost per lead în scădere, calitate lead în creștere). Optimizarea reală vine în lunile 2-3. Singura situație în care îți spunem onest „nu suntem pe drumul bun”: cifrele sunt MULT sub benchmark-uri și nu vedem cum recuperăm. Atunci preferăm să rupem contractul decât să-ți consumăm bugetul."
       }
     ]
   },
   "aboutTeaser": {
     "header": "DESPRE NOI",
     "title": "O echipă mică, focusată pe rezultate",
-    "description": "Lucrăm cu antreprenori și companii care vor să crească digital fără bullshit. Filosofia noastră: date, nu păreri.",
+    "description": "Lucrăm cu antreprenori și companii care vor să crească digital fără promisiuni goale. Filosofia noastră: date, nu păreri.",
     "ctaText": "Mai multe despre noi"
   },
   "finalCta": {
@@ -163,7 +1163,7 @@
     "buttonText": "Programează audit"
   },
   "footer": {
-    "tagline": "Performance marketing fără bullshit.",
+    "tagline": "Performance marketing fără promisiuni goale.",
     "quickLinksHeader": "NAVIGARE",
     "legalHeader": "LEGAL",
     "contactHeader": "CONTACT",
@@ -171,7 +1171,9 @@
     "policy": "Politică de confidențialitate",
     "terms": "Termeni și condiții",
     "anpc": "ANPC",
-    "disclaimer": "Green Phoenix este marca comercială a Green Pheonix Concept SRL · CUI 45667331 · J2022000195397 · Brașov, România"
+    "disclaimer": "Green Pheonix este marca comercială a Green Pheonix Concept SRL · CUI 45667331 · J2022000195397 · Brașov, România",
+    "cookieSettings": "Setări cookies",
+    "cookiePolicy": "Politică Cookies"
   },
   "common": {
     "readMore": "Citește mai mult",
@@ -192,5 +1194,199 @@
       "analytics": "Analitice (GA4, Clarity)",
       "marketing": "Marketing (Meta Pixel)"
     }
+  },
+  "about": {
+    "meta": {
+      "title": "Despre Green Pheonix — Performance marketing fără promisiuni goale",
+      "description": "Sunt Laurentiu, fondatorul Green Pheonix Concept. Performance marketing onest, construit pe date, design și execuție — fără jargon, doar rezultate măsurabile. Brașov."
+    },
+    "h1": "Performance marketing fără promisiuni goale.",
+    "subHeadline": "Sunt Laurentiu, fondatorul Green Pheonix Concept. Lucrez la intersecția dintre date, design și execuție — fără jargon, fără pompă, doar rezultate măsurabile.",
+    "section1": {
+      "title": "De ce există Green Pheonix",
+      "p1": "Lucrez în marketing din 2024. Am început ca Marketing Specialist la The Family Butchers România, gestionând campanii Meta pentru două branduri FMCG naționale — Reinert și Martinel. În acea perioadă am acumulat experiență directă pe peste 1,1 milioane de afișări și 700.000 de oameni atinși prin campanii multi-platformă.",
+      "p2": "Dar am văzut și ce nu funcționează în industrie. Agenții care vând buzzwords. Site-uri pompoase care nu vând. Reclame frumoase făcute de agenții, dar care nu performează pentru că algoritmii Meta le detectează ca „publicitate” și le penalizează. Clienți tratați ca ID-uri într-un dashboard.",
+      "p3": "Green Pheonix a apărut din convingerea că marketingul performance se face altfel: gândim înainte să facem, măsurăm înainte să optimizăm, și suntem onești cu clienții — chiar și când nu vor să audă."
+    },
+    "section2": {
+      "title": "Cele 4 lucruri în care cred fundamental",
+      "belief1": {
+        "title": "Simplitate care vinde > complexitate decorativă",
+        "body": "Un site frumos care nu vinde e doar costum scump. Lucrez la site-uri clare, rapide, cu un singur drum spre acțiune. Designul nu e premiu de creație — e mecanism de încredere și conversie. Cele mai eficiente site-uri pe care le-am construit sunt și cele mai simple."
+      },
+      "belief2": {
+        "title": "Reclamele singure nu vând",
+        "body": "O reclamă bună mută trafic. Profilul tău organic decide dacă cumpără. Înainte de prima campanie, mă uit la ce găsește utilizatorul când ajunge la tine: arată profilul social activ? Există recenzii reale? Conținutul e autentic sau pare de stock? Fundația organică e investiția care multiplică ROI-ul oricărei reclame ulterioare."
+      },
+      "belief3": {
+        "title": "Autenticitatea contează pentru clienți și pentru algoritmi",
+        "body": "În 2026, reclamele care arată ca reclame mor. Meta a introdus Andromeda — un sistem de ML care favorizează creative care arată REAL: UGC, lifestyle natural, oameni care vorbesc despre un produs în loc să îl „vândă”. O persoană care apare în fața camerei și construiește o conexiune cu brandul = mai valoros decât 10 video-uri pompoase de agenție. Atât pentru consumatori, cât și pentru algoritmi."
+      },
+      "belief4": {
+        "title": "Strategie înainte de execuție",
+        "body": "Campaniile bune se gândesc, nu se improvizează. Înainte de prima reclamă: cine e clientul ideal, ce mesaj rezonează, ce obiecție trebuie demontată, ce traseu face de la click la cumpărare. Asta e diferența între „agenție care apasă butoane” și „agenție care produce rezultate”. Refuz contracte unde clientul vrea să sărim peste strategie. Nu pentru că nu pot — pentru că am văzut prea multe campanii arse pe execuție neîngrijită."
+      }
+    },
+    "section3": {
+      "title": "Cum lucrez",
+      "p1": "Lucrez direct cu tine. Nu există account manager intermediar care îți face hand-off de la dezvoltator. Tu vorbești cu mine — eu execut.",
+      "p2": "Lucrez cu un număr mic de clienți, nu cu un portofoliu de 30. Prefer 4-6 clienți serioși tratați cu atenție decât 30 tratați superficial.",
+      "p3": "Comunicăm pe canalul tău preferat — Slack, WhatsApp, email. Răspund în max 24 ore lucrătoare. Pentru urgențe reale (campanie căzută, site picat), răspund mai rapid.",
+      "p4": "Lucrez în 3 limbi: română, italiană, engleză. Asta deschide oportunități pentru clienți care vor să se adreseze diasporei românești din Italia sau Marea Britanie."
+    },
+    "section4": {
+      "title": "Background",
+      "bg1": "Marketing Specialist la The Family Butchers România (2024-prezent) — Reinert + Martinel brands, 1.1M+ afișări gestionate, 700K+ reach",
+      "bg2": "Marketing (ID), final year la UNITBV — Universitatea Transilvania Brașov",
+      "bg3": "Fondator Green Pheonix Concept SRL (din 2022) — agenție de performance marketing și dezvoltare web",
+      "bg4": "Specializări tehnice: Meta Ads (Andromeda), Google Ads, TikTok Ads, WordPress development custom, Astro static sites, schema markup și SEO pentru AI search engines"
+    },
+    "section5": {
+      "title": "Hai să vorbim",
+      "body": "Discovery call de 30 minute, gratuit. Nu vând nimic în primul call — ascult ce ai construit și-ți spun onest ce văd.",
+      "cta": "Programează discovery call"
+    }
+  },
+  "philosophy": {
+    "eyebrow": "4 LUCRURI ÎN CARE CREDEM",
+    "h2": "Marketing performance făcut cu cap.",
+    "card1": {
+      "num": "01",
+      "title": "Simplitate care vinde",
+      "body": "Un site care vinde > un site care impresionează. Designul nu e premiu de creație. E mecanism de încredere.",
+      "link": "Vezi servicii web"
+    },
+    "card2": {
+      "num": "02",
+      "title": "Fundație organică",
+      "body": "Reclamele mută trafic. Profilul tău decide dacă cumpără. Înainte de prima campanie, ne uităm la ce găsește utilizatorul.",
+      "link": "Vezi servicii"
+    },
+    "card3": {
+      "num": "03",
+      "title": "Autenticitate",
+      "body": "Algoritmii Meta penalizează reclamele care arată ca reclame. Conținutul real, cu oameni reali, vinde mai bine.",
+      "link": "Vezi content production"
+    },
+    "card4": {
+      "num": "04",
+      "title": "Strategie înainte de execuție",
+      "body": "Campaniile bune se gândesc. Nu se improvizează. Refuzăm contractele unde sărim peste audit.",
+      "link": "Vezi procesul"
+    }
+  },
+  "process": {
+    "meta": {
+      "title": "Cum lucrăm — Procesul în 5 pași | Green Pheonix",
+      "description": "Procesul nostru în 5 pași: discovery, audit, propunere strategică, implementare, optimizare. Disciplină care plătește, fără surprize."
+    },
+    "h1": "Cum lucrăm. 5 pași, fără surprize.",
+    "subHeadline": "Procesul nostru nu e o decorație de site. E mecanismul care ne permite să refuzăm proiectele greșite și să livrăm corect pe cele acceptate.",
+    "intro": {
+      "eyebrow": "// FILOZOFIE",
+      "heading": "De ce avem un proces strict",
+      "p1": "Majoritatea agențiilor pornesc execuția în săptămâna 1 după semnare. Noi pornim <em>gândirea</em> în săptămâna 1. E o diferență fundamentală.",
+      "p2": "Un proces solid te protejează de două riscuri reale:",
+      "risks": [
+        "Să plătești pentru execuție pe o strategie greșită (campanii care nu funcționează pentru produsul tău, site frumos care nu vinde)",
+        "Să nu poți măsura ce s-a întâmplat (tracking nu a fost gândit din start, KPI nedefinite, nu știi ce să optimizezi)"
+      ],
+      "p3": "Procesul nostru rezolvă ambele probleme. Nu e birocrație — e disciplină care plătește."
+    },
+    "steps": [
+      {
+        "num": "01",
+        "heading": "Ascultăm înainte să recomandăm",
+        "duration": "30 minute",
+        "cost": "Gratuit",
+        "body": "Primul contact e o conversație simplă, nu o prezentare de vânzare. Te întrebăm: Ce ai construit până acum? Unde vrei să ajungi în 6-12 luni? Ce ai încercat? Ce a funcționat, ce nu? Ce buget, timeline și echipă ai? Noi îți spunem dacă suntem potriviți sau nu. Dacă nu suntem, îți recomandăm pe cine să cauți. Dacă suntem, trecem la pasul 2.",
+        "deliverTitle": "Ce primești",
+        "deliver": [
+          "Conversație onestă fără pitch",
+          "Recomandare clară: ne potrivim / nu ne potrivim",
+          "Email follow-up cu rezumat"
+        ]
+      },
+      {
+        "num": "02",
+        "heading": "Analizăm ce e, nu presupunem",
+        "duration": "3-5 zile",
+        "cost": "Gratuit dacă lucrăm împreună după",
+        "body": "Înainte de orice propunere, ne uităm cu atenție la tot ecosistemul tău digital. NU presupunem nimic. Analizăm: Site (performance, UX, SEO, conversie), conturi ads existente (campanii, audience, creative, tracking), prezență organică (social media, Google My Business, recenzii), competiție directă (3-5 competitori), tracking (pixel-uri, conversii, atribuire).",
+        "deliverTitle": "Ce primești",
+        "deliver": [
+          "Document audit 10-20 pagini cu observații concrete",
+          "Listă probleme prioritizate (high impact / low effort first)",
+          "3-5 recomandări tactice pe care le poți implementa singur",
+          "Notă: auditul e separat de propunere. Dacă nu lucrăm împreună, păstrezi documentul."
+        ]
+      },
+      {
+        "num": "03",
+        "heading": "Plan concret, nu poezii",
+        "duration": "5-7 zile",
+        "cost": "Inclus dacă semnezi",
+        "body": "Pe baza auditului construim plan personalizat. NU folosim template-uri generice. Conține: obiective măsurabile pe 3-6 luni (numere concrete), strategie (ce canale, în ce ordine, cu ce raționament), KPI pentru fiecare canal, livrabile detaliate pe milestones, timeline realist, buget clar pe linii, punct de decizie ROI.",
+        "deliverTitle": "Ce facem împreună",
+        "deliver": [
+          "1-2 sesiuni de revizuire",
+          "Ajustăm pe baza feedback-ului",
+          "Negociem onest unde apar discrepanțe",
+          "Plătești când și dacă semnezi. Propunerea rămâne a ta indiferent de decizie."
+        ]
+      },
+      {
+        "num": "04",
+        "heading": "Execuție pe milestone-uri, fără surprize",
+        "duration": "Variabil",
+        "cost": "Conform contract",
+        "body": "Aici se vede dacă agenția face față. Noi lucrăm transparent — vezi în timp real ce facem. Cum lucrăm zilnic: canal comunicare la alegerea ta (Slack/WhatsApp/email), răspuns în max 24h zile lucrătoare, milestone-uri săptămânale, acces continuu la conturi (Editor role), documentație live (Notion shared).",
+        "deliverTitle": "Ce NU facem",
+        "deliver": [
+          "Dashboard-uri auto-generate fără analiză",
+          "Invocăm „algoritmul” ca scuză",
+          "Schimbăm strategia la fiecare 2 săptămâni",
+          "Scope creep neaprobat"
+        ]
+      },
+      {
+        "num": "05",
+        "heading": "Raportăm ce contează, nu ce arată bine",
+        "duration": "Lunar",
+        "cost": "Inclus în retainer",
+        "body": "Raportarea noastră nu e dashboard auto. E analiză personală cu context și recomandări. Ce primești lunar: cifre brute (metrici relevante, nu vanity), tendințe (lună-pe-lună), story (ce s-a întâmplat, de ce, ce înseamnă), win-uri și loss-uri (onestitate), recomandări (3-5 acțiuni concrete next month).",
+        "deliverTitle": "Ritm",
+        "deliver": [
+          "Raport scris până ziua 5 a lunii",
+          "Sync lunar Zoom 30-60 min",
+          "Quarterly review cu strategy reset dacă necesar"
+        ]
+      }
+    ],
+    "cta": {
+      "heading": "Pregătit să începem cu pasul 1?",
+      "body": "Discovery call de 30 minute. Fără pitch, fără presiune. Doar o conversație onestă despre ce încerci să construiești.",
+      "button": "Programează discovery call"
+    }
+  },
+  "proofBar": {
+    "eyebrow": "// REZULTATE REALE",
+    "items": [
+      {
+        "value": "1,1M+",
+        "label": "afișări gestionate",
+        "context": "Reinert + Martinel (The Family Butchers RO)"
+      },
+      {
+        "value": "+595%",
+        "label": "impressions Instagram",
+        "context": "Kokoro — 90 zile, organic pur"
+      },
+      {
+        "value": "0,46 RON",
+        "label": "Cost per Click Meta",
+        "context": "Lemet — sub media industriei"
+      }
+    ]
   }
 }

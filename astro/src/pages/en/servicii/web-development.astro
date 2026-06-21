@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import ServiceDetail from '../../../components/ServiceDetail.astro';
+import { type Locale, t, localizedPath } from '../../../utils/i18n';
+
+const locale: Locale = 'en';
+const meta = t<{ title: string; description: string }>(locale, 'services.webDev.meta');
+
+const breadcrumbs = [
+  { name: 'Services', href: localizedPath(locale, '/servicii') },
+  { name: "Web Development", href: localizedPath(locale, '/servicii/web-development') },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': 'https://greenpheonixconcept.com/en/servicii/web-development#service',
+  name: "Web Development — Astro, WordPress and Custom Plugins",
+  provider: { '@id': 'https://greenpheonixconcept.com/#organization' },
+  serviceType: "Web Development",
+  category: "Web Development",
+  description: meta.description,
+  areaServed: [
+    { '@type': 'Country', name: 'Romania' },
+    { '@type': 'Country', name: 'Italy' },
+  ],
+  audience: {
+    '@type': 'BusinessAudience',
+    audienceType: 'Small and medium businesses',
+  },
+  offers: {
+    '@type': 'Offer',
+    availability: 'https://schema.org/InStock',
+    priceCurrency: 'EUR',
+    priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'EUR' },
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: "Web Development Services",
+    itemListElement: ["Discovery și design system","Development performance-first","SEO + AEO/GEO setup","Integrări CRM și analytics"].map((n) => ({
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Service', name: n },
+    })),
+  },
+};
+---
+
+<BaseLayout title={meta.title} description={meta.description} locale={locale} breadcrumbs={breadcrumbs} jsonLd={[serviceSchema]}>
+  <Breadcrumbs locale={locale} items={breadcrumbs} />
+  <ServiceDetail locale={locale} service="webDev" />
+</BaseLayout>

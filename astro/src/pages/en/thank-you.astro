@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { localizedPath } from '../../utils/i18n';
+
+const meta = {
+  title: 'Thank you! | Green Pheonix',
+  description: 'Your message has been sent. We reply within 24 business hours.',
+};
+---
+
+<BaseLayout title={meta.title} description={meta.description} locale="en" noindex hideCookieBanner hreflangPaths={{ ro: '/multumim', en: '/en/thank-you', it: '/it/grazie' }}>
+  <section class="relative min-h-[60vh] border-b border-gpc-border bg-gpc-white">
+    <div class="scanline pointer-events-none absolute inset-0" aria-hidden="true"></div>
+    <div class="relative mx-auto max-w-3xl px-6 py-24 text-center">
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// TRANSMISSION_OK</p>
+      <h1 class="mt-4 font-display text-4xl leading-tight md:text-6xl">
+        <span class="glow-green">Thank you, your message reached us</span>
+      </h1>
+      <p class="mx-auto mt-6 max-w-xl font-sans text-base leading-relaxed text-gpc-ink/85 md:text-lg">
+        We reply within <span class="text-gpc-green">24 business hours</span> (Mon–Fri), to the email address you gave us — usually much sooner.
+      </p>
+      <p class="mx-auto mt-3 max-w-xl font-mono text-sm text-gpc-ink/60">
+        In the meantime, if you'd rather talk right away, we're on WhatsApp.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <a
+          href={localizedPath('en', '/')}
+          class="border border-gpc-green bg-gpc-green/10 px-6 py-3 font-mono text-sm uppercase tracking-widest text-gpc-green transition-colors hover:bg-gpc-green hover:text-gpc-ink"
+        >
+          Back home →
+        </a>
+        <a
+          href={localizedPath('en', '/servicii')}
+          class="border border-gpc-border/40 px-6 py-3 font-mono text-sm uppercase tracking-widest text-gpc-ink transition-colors hover:border-gpc-green hover:text-gpc-green"
+        >
+          Explore services
+        </a>
+        <a
+          href="https://wa.me/40793650902"
+          target="_blank"
+          rel="noopener"
+          class="border border-gpc-border/40 px-6 py-3 font-mono text-sm uppercase tracking-widest text-gpc-ink transition-colors hover:border-gpc-green hover:text-gpc-green"
+        >
+          Message us on WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

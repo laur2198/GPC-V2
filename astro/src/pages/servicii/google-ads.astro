@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ServiceDetail from '../../components/ServiceDetail.astro';
+import { type Locale, t, localizedPath } from '../../utils/i18n';
+
+const locale: Locale = 'ro';
+const meta = t<{ title: string; description: string }>(locale, 'services.googleAds.meta');
+
+const breadcrumbs = [
+  { name: 'Servicii', href: localizedPath(locale, '/servicii') },
+  { name: "Google Ads", href: localizedPath(locale, '/servicii/google-ads') },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': 'https://greenpheonixconcept.com/servicii/google-ads#service',
+  name: "Google Ads — Search, Performance Max și YouTube",
+  provider: { '@id': 'https://greenpheonixconcept.com/#organization' },
+  serviceType: "Performance Marketing",
+  category: "Digital Advertising",
+  description: meta.description,
+  areaServed: [
+    { '@type': 'Country', name: 'Romania' },
+    { '@type': 'Country', name: 'Italy' },
+  ],
+  audience: {
+    '@type': 'BusinessAudience',
+    audienceType: 'Small and medium businesses',
+  },
+  offers: {
+    '@type': 'Offer',
+    availability: 'https://schema.org/InStock',
+    priceCurrency: 'EUR',
+    priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'EUR' },
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: "Google Ads Services",
+    itemListElement: ["Keyword research și structurare cont","Campanii Search și Performance Max","Negative keywords management","Conversion tracking enhanced"].map((n) => ({
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Service', name: n },
+    })),
+  },
+};
+---
+
+<BaseLayout title={meta.title} description={meta.description} locale={locale} breadcrumbs={breadcrumbs} jsonLd={[serviceSchema]}>
+  <Breadcrumbs locale={locale} items={breadcrumbs} />
+  <ServiceDetail locale={locale} service="googleAds" />
+</BaseLayout>

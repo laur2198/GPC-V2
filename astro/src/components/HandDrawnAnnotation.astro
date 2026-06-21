@@ -1,0 +1,90 @@
+---
+/**
+ * HandDrawnAnnotation
+ *
+ * A restrained, hand-drawn SVG marginalia (Stripe Press / Basecamp style)
+ * placed next to a metric. Three preset marks — an imperfect ellipse, a
+ * zig-zag underline, and a small curved arrow — each drawn on scroll via
+ * stroke-dashoffset. Optional micro-label in mono.
+ *
+ * Props:
+ *   type     — 'circle' | 'underline' | 'arrow'  (default 'circle')
+ *   position — 'right' | 'below' | 'above'       (default 'right')
+ *   text     — optional micro-label
+ */
+interface Props {
+  type?: 'circle' | 'underline' | 'arrow';
+  position?: 'right' | 'below' | 'above';
+  text?: string;
+}
+const { type = 'circle', position = 'right', text } = Astro.props;
+
+// Slightly distorted, intentionally imperfect paths.
+const paths: Record<string, { vb: string; d: string; cls: string }> = {
+  circle: {
+    vb: '0 0 160 90',
+    // hand-drawn ellipse that doesn't quite close
+    d: 'M 30 46 C 18 20, 92 8, 132 26 C 158 40, 140 78, 92 82 C 44 86, 16 70, 26 44',
+    cls: 'h-[5.5rem] w-[10rem]',
+  },
+  underline: {
+    vb: '0 0 200 24',
+    // zig-zag-ish underline
+    d: 'M 6 14 C 30 6, 44 20, 70 12 C 96 4, 110 20, 140 12 C 168 5, 182 18, 196 12',
+    cls: 'h-6 w-[12rem]',
+  },
+  arrow: {
+    vb: '0 0 120 80',
+    // short curved arrow pointing up-left toward the metric
+    d: 'M 110 70 C 70 64, 36 50, 20 18 M 20 18 L 12 36 M 20 18 L 38 22',
+    cls: 'h-20 w-28',
+  },
+};
+const p = paths[type];
+
+const wrapPos =
+  position === 'below'
+    ? 'left-0 top-full mt-1'
+    : position === 'above'
+      ? 'left-0 bottom-full mb-1'
+      : 'left-full top-1/2 ml-2 -translate-y-1/2';
+---
+
+<span class:list={['pointer-events-none absolute select-none', wrapPos]} aria-hidden="true">
+  <svg
+    class:list={['hand-drawn overflow-visible', p.cls]}
+    viewBox={p.vb}
+    fill="none"
+    stroke="var(--gpc-green)"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d={p.d} style="opacity:0.7" />
+  </svg>
+  {text && (
+    <span class="mt-1 block font-mono text-[10px] uppercase tracking-[0.15em] text-gpc-green/80">
+      {text}
+    </span>
+  )}
+</span>
+
+<style>
+  .hand-drawn path {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+  }
+  /* Drawn when an ancestor with .reveal becomes visible (or immediately
+     on no-JS / reduced-motion via the fallback below). */
+  :global(.is-revealed) .hand-drawn path,
+  .hand-drawn.drawn path {
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hand-drawn path {
+      stroke-dashoffset: 0;
+      transition: none;
+    }
+  }
+</style>

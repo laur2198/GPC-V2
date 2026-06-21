@@ -18,11 +18,17 @@ import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
-import { type Locale, locales, switchLocalePath } from '../utils/i18n';
+import CustomCursor from '../components/CustomCursor.astro';
+import { type Locale, locales, switchLocalePath, localizedPath } from '../utils/i18n';
 
 interface FaqEntry {
   question: string;
   answer: string;
+}
+
+interface BreadcrumbItem {
+  name: string;
+  href: string;
 }
 
 interface Props {
@@ -36,6 +42,12 @@ interface Props {
   hideCookieBanner?: boolean;
   /** override OG type, e.g. 'article' on blog detail */
   ogType?: 'website' | 'article';
+  /** breadcrumb trail (excluding Home, which is prepended automatically) */
+  breadcrumbs?: BreadcrumbItem[];
+  /** extra JSON-LD blocks (e.g. Service, Article) emitted in <head> */
+  jsonLd?: unknown[];
+  /** explicit per-locale paths when slugs differ across languages (legal pages) */
+  hreflangPaths?: Partial<Record<Locale, string>>;
 }
 
 const {
@@ -47,50 +59,211 @@ const {
   faqSchema,
   hideCookieBanner = false,
   ogType = 'website',
+  breadcrumbs,
+  jsonLd,
+  hreflangPaths,
 } = Astro.props;
 
 const site = Astro.site ?? new URL('https://greenpheonixconcept.com');
 const canonical = new URL(Astro.url.pathname, site).toString();
-const ogImage = image.startsWith('http') ? image : new URL(image, site).toString();
+
+// Routes (locale-agnostic) that have a programmatically-generated OG image.
+// RO masters live at /og/<route>.png; en/it variants at /og/<locale>/<route>.png
+// — see src/pages/og/[...route].ts.
+const OG_ROUTES = new Set([
+  'index', 'servicii', 'despre', 'procesul', 'contact', 'portofoliu',
+  'servicii/meta-ads', 'servicii/google-ads', 'servicii/social-media',
+  'servicii/web-development', 'servicii/strategie-audit', 'servicii/content-production',
+  'portofoliu/academia-kokoro-rebrand', 'portofoliu/lemet-stone-plugin-marketing',
+]);
+// Split the locale prefix off the path but keep it, so en/it pages point at
+// their own localized OG card instead of the RO master. Key matches the OG
+// endpoint: '<route>' for ro, '<locale>/<route>' for en/it.
+const ogSegments = Astro.url.pathname.replace(/^\/|\/$/g, '').split('/').filter(Boolean);
+const ogLocale = ogSegments[0] === 'en' || ogSegments[0] === 'it' ? ogSegments[0] : null;
+const ogKey = (ogLocale ? ogSegments.slice(1) : ogSegments).join('/') || 'index';
+// astro-og-canvas collapses a localized home key ('en/index') to /og/<locale>.png
+// (the trailing /index is dropped); the RO home stays /og/index.png. Everything
+// else mirrors the key path: /og/<route>.png (ro) or /og/<locale>/<route>.png.
+let generatedOg: string | null = null;
+if (OG_ROUTES.has(ogKey)) {
+  if (!ogLocale) generatedOg = `/og/${ogKey}.png`;
+  else if (ogKey === 'index') generatedOg = `/og/${ogLocale}.png`;
+  else generatedOg = `/og/${ogLocale}/${ogKey}.png`;
+}
+
+const ogSource = image !== '/og-image.jpg' ? image : (generatedOg ?? image);
+const ogImage = ogSource.startsWith('http') ? ogSource : new URL(ogSource, site).toString();
 
 const alternates = locales.map((l) => ({
   hreflang: l,
-  href: new URL(switchLocalePath(Astro.url, l), site).toString(),
+  href: new URL(hreflangPaths?.[l] ?? switchLocalePath(Astro.url, l), site).toString(),
 }));
+
+const orgId = `${site.origin}/#organization`;
+const personId = `${site.origin}/despre#person`;
+const homeLabel = locale === 'en' ? 'Home' : locale === 'it' ? 'Home' : 'Acasă';
+
+// Legal registered address (CUI / J-number) — Organization only.
+const legalAddress = {
+  '@type': 'PostalAddress',
+  streetAddress: 'Str. Principală Nr. 174',
+  addressLocality: 'Gura Calitei',
+  addressRegion: 'Vrancea',
+  postalCode: '627160',
+  addressCountry: 'RO',
+};
+// Operational location (remote consultant — no fixed visitable office).
+const operationalAddress = {
+  '@type': 'PostalAddress',
+  addressLocality: 'Brașov',
+  addressRegion: 'Brașov',
+  addressCountry: 'RO',
+};
+// Only real, verified profiles. LinkedIn omitted until the URL is confirmed.
+const sameAs = [
+  'https://www.facebook.com/profile.php?id=100079698837895',
+  'https://www.instagram.com/green_pheonix_',
+  'https://www.tiktok.com/@green.pheonix.concept',
+];
 
 const localBusinessSchema = {
   '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  name: 'Green Phoenix',
-  legalName: 'GREEN PHEONIX CONCEPT S.R.L.',
-  image: new URL('/logo_gpc.svg', site).toString(),
-  '@id': site.origin,
-  url: site.origin,
-  telephone: '+40793650902',
-  priceRange: '€€',
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Brașov',
-    postalCode: '500000',
-    addressCountry: 'RO',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: 45.6579,
-    longitude: 25.6012,
-  },
-  openingHoursSpecification: {
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-    opens: '09:00',
-    closes: '18:00',
-  },
-  sameAs: [
-    'https://www.facebook.com/profile.php?id=100079698837895',
-    'https://www.instagram.com/green_pheonix_/',
-    'https://www.tiktok.com/@green.pheonix.concept',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': orgId,
+      name: 'Green Pheonix Concept',
+      legalName: 'GREEN PHEONIX CONCEPT S.R.L.',
+      url: site.origin,
+      logo: new URL('/logo_gpc.svg', site).toString(),
+      image: new URL('/logo_gpc.svg', site).toString(),
+      description:
+        'Agenție de performance marketing din Brașov. Construim sisteme de marketing care aduc clienți reali, nu doar vanity metrics. Meta Ads, Google Ads, social media organic, websites care convertesc.',
+      foundingDate: '2022',
+      founder: {
+        '@id': personId,
+        '@type': 'Person',
+        name: 'Laurențiu Bogdan',
+        legalName: 'Bogdan Laurențiu',
+      },
+      address: legalAddress,
+      taxID: 'RO45667331',
+      vatID: 'RO45667331',
+      identifier: 'J2022000195397',
+      email: 'contact@greenpheonixconcept.com',
+      telephone: '+40793650902',
+      areaServed: [
+        { '@type': 'Country', name: 'Romania' },
+        { '@type': 'Country', name: 'Italy' },
+        { '@type': 'AdministrativeArea', name: 'European Union' },
+      ],
+      knowsLanguage: ['ro', 'en', 'it'],
+      knowsAbout: [
+        'Meta Ads',
+        'Facebook Ads',
+        'Instagram Ads',
+        'Google Ads',
+        'Performance Marketing',
+        'Social Media Marketing',
+        'Web Development',
+        'WordPress',
+        'Astro Framework',
+        'Marketing Strategy',
+        'SEO',
+        'Conversion Rate Optimization',
+      ],
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          telephone: '+40793650902',
+          email: 'contact@greenpheonixconcept.com',
+          contactType: 'customer service',
+          availableLanguage: ['Romanian', 'English', 'Italian'],
+          areaServed: ['RO', 'IT', 'EU'],
+        },
+      ],
+      sameAs,
+    },
+    {
+      '@type': 'ProfessionalService',
+      '@id': `${site.origin}/#localbusiness`,
+      name: 'Green Pheonix Concept',
+      url: site.origin,
+      image: new URL('/logo_gpc.svg', site).toString(),
+      telephone: '+40793650902',
+      email: 'contact@greenpheonixconcept.com',
+      priceRange: '€€',
+      // Remote consultant — operational locality only, no street/postal,
+      // and no fixed geo coordinates (not a visitable office).
+      address: operationalAddress,
+      areaServed: [
+        { '@type': 'City', name: 'Brașov' },
+        { '@type': 'Country', name: 'Romania' },
+        { '@type': 'Country', name: 'Italia' },
+        { '@type': 'AdministrativeArea', name: 'European Union' },
+      ],
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          opens: '09:00',
+          closes: '18:00',
+        },
+      ],
+      sameAs,
+    },
+    {
+      '@type': 'Person',
+      '@id': personId,
+      name: 'Laurențiu Bogdan',
+      alternateName: 'Bogdan Laurențiu',
+      jobTitle: 'Founder & Performance Marketing Strategist',
+      worksFor: { '@id': orgId },
+      url: `${site.origin}/despre`,
+      knowsAbout: [
+        'Meta Ads',
+        'Google Ads',
+        'Performance Marketing',
+        'Marketing Strategy',
+        'Web Development',
+        'Astro Framework',
+        'WordPress',
+        'Python',
+        'Django',
+        'JavaScript',
+        'TypeScript',
+        'Figma',
+        'HTML/CSS',
+        'SEO',
+        'Conversion Rate Optimization',
+      ],
+      alumniOf: {
+        '@type': 'EducationalOrganization',
+        name: 'Universitatea Transilvania din Brașov',
+        department: 'Marketing',
+      },
+    },
   ],
 };
+
+// BreadcrumbList — Home is always position 1; passed items follow.
+const breadcrumbSchema =
+  breadcrumbs && breadcrumbs.length
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: homeLabel, item: new URL(localizedPath(locale, '/'), site).toString() },
+          ...breadcrumbs.map((b, i) => ({
+            '@type': 'ListItem',
+            position: i + 2,
+            name: b.name,
+            item: new URL(b.href, site).toString(),
+          })),
+        ],
+      }
+    : null;
 
 const faqJsonLd = faqSchema && faqSchema.length
   ? {
@@ -109,12 +282,20 @@ const faqJsonLd = faqSchema && faqSchema.length
 ---
 
 <!doctype html>
-<html lang={locale} class="bg-phoenix-black scroll-smooth">
+<html lang={locale} class="bg-gpc-white scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
+    {/* Favicon: green phoenix mark at 32px+, legible circle+G fallback at 16px. */}
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    {/* Flag JS as available so `.reveal` elements start hidden only when
+        we can actually animate them in (no-JS / crawlers see full content). */}
+    <script is:inline>document.documentElement.classList.add('js');</script>
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -124,14 +305,16 @@ const faqJsonLd = faqSchema && faqSchema.length
     {alternates.map((a) => (
       <link rel="alternate" hreflang={a.hreflang} href={a.href} />
     ))}
-    <link rel="alternate" hreflang="x-default" href={new URL(switchLocalePath(Astro.url, 'ro'), site).toString()} />
+    <link rel="alternate" hreflang="x-default" href={new URL(hreflangPaths?.ro ?? switchLocalePath(Astro.url, 'ro'), site).toString()} />
 
     <meta property="og:type" content={ogType} />
-    <meta property="og:site_name" content="Green Phoenix" />
+    <meta property="og:site_name" content="Green Pheonix" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content={locale === 'ro' ? 'ro_RO' : locale === 'it' ? 'it_IT' : 'en_US'} />
 
     <meta name="twitter:card" content="summary_large_image" />
@@ -139,93 +322,109 @@ const faqJsonLd = faqSchema && faqSchema.length
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    <meta name="theme-color" content="#0A0A0A" />
+    <meta name="theme-color" content="#FFFFFF" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <!--
-      Preload critical font weights so first paint isn't blocked by the
-      Google Fonts CSS round-trip. URLs come from the woff2 references
-      inside the css2 endpoint and are stable for the requested family.
-    -->
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="https://fonts.gstatic.com/s/spacemono/v13/i7dPIFZifjKcF5UAWdDRYEF8RXi4EwQ.woff2" />
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="https://fonts.gstatic.com/s/spacemono/v13/i7dMIFZifjKcF5UAWdDRYER8QHi4EwSrUMw.woff2" />
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" />
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7.woff2" />
-
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
-    />
+    {/* Preload only the critical above-the-fold faces: Oswald 700 (hero
+        display headline) + Inter 400 (body). The rest load via @font-face
+        on demand. Fonts are self-hosted (GDPR — no Google CDN). */}
+    <link rel="preload" href="/fonts/oswald-v57-latin_latin-ext-700.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-v20-latin_latin-ext-regular.woff2" as="font" type="font/woff2" crossorigin />
 
     <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
     {faqJsonLd && (
       <script is:inline type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
     )}
+    {breadcrumbSchema && (
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    )}
+    {jsonLd && jsonLd.map((block) => (
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(block)} />
+    ))}
 
     {/*
-      INSTRUCTIONS — Analytics: înlocuiește `G-XXXXXXXXXX`, `XXXXXXXXXXXXXXXX`
-      și `cccccccccc` cu ID-urile reale și apoi *uncomment* secțiunea de mai
-      jos. Scripturile se vor încărca doar după ce userul acceptă consimțământul
-      (CookieConsent setează `html.consent-given`). Până atunci sunt complet
-      inerte.
+      Consent-gated tracking. Nothing loads until the CookieConsent banner
+      dispatches `gpc:cookie-consent` with { analytics, marketing }. The
+      listeners are registered in <head> (parsed before the banner runs at
+      body-end), so a returning visitor's stored consent replays correctly.
+      Analytics → GA4 + Clarity. Marketing → Meta + TikTok.
     */}
-    {/*
-      <!-- Google Analytics 4 -->
-      <script is:inline>
-        document.addEventListener('gpc:cookie-consent', function (e) {
-          if (!e.detail || !e.detail.analytics) return;
-          if (window.__ga4Loaded) return;
-          window.__ga4Loaded = true;
-          var s = document.createElement('script');
-          s.async = true;
-          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
-          document.head.appendChild(s);
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
-        });
-      </script>
+    <!-- Google Analytics 4 (analytics) -->
+    <script is:inline>
+      document.addEventListener('gpc:cookie-consent', function (e) {
+        if (!e.detail || !e.detail.analytics) return;
+        if (window.__ga4Loaded) return;
+        window.__ga4Loaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-BP0J2SJTP1';
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-BP0J2SJTP1', { anonymize_ip: true });
+      });
+    </script>
 
-      <!-- Meta Pixel -->
-      <script is:inline>
-        document.addEventListener('gpc:cookie-consent', function (e) {
-          if (!e.detail || !e.detail.marketing) return;
-          if (window.__metaPixelLoaded) return;
-          window.__metaPixelLoaded = true;
-          !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-          n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-          n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-          t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-          document,'script','https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', 'XXXXXXXXXXXXXXXX');
-          fbq('track', 'PageView');
-        });
-      </script>
+    <!-- Microsoft Clarity (analytics) -->
+    <script is:inline>
+      document.addEventListener('gpc:cookie-consent', function (e) {
+        if (!e.detail || !e.detail.analytics) return;
+        if (window.__clarityLoaded) return;
+        window.__clarityLoaded = true;
+        (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, 'clarity', 'script', 'x0mayh28j0');
+      });
+    </script>
 
-      <!-- Microsoft Clarity -->
-      <script is:inline>
-        document.addEventListener('gpc:cookie-consent', function (e) {
-          if (!e.detail || !e.detail.analytics) return;
-          if (window.__clarityLoaded) return;
-          window.__clarityLoaded = true;
-          (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-          })(window, document, 'clarity', 'script', 'cccccccccc');
-        });
-      </script>
-    */}
+    <!-- Meta Pixel (marketing) -->
+    <script is:inline>
+      document.addEventListener('gpc:cookie-consent', function (e) {
+        if (!e.detail || !e.detail.marketing) return;
+        if (window.__metaPixelLoaded) return;
+        window.__metaPixelLoaded = true;
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1250834263629342');
+        fbq('track', 'PageView');
+      });
+    </script>
+
+    <!-- TikTok Pixel (marketing) -->
+    <script is:inline>
+      document.addEventListener('gpc:cookie-consent', function (e) {
+        if (!e.detail || !e.detail.marketing) return;
+        if (window.__tiktokPixelLoaded) return;
+        window.__tiktokPixelLoaded = true;
+        !function (w, d, t) {
+          w.TiktokAnalyticsObject = t;
+          var ttq = w[t] = w[t] || [];
+          ttq.methods = ["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
+          ttq.setAndDefer = function (t, e) { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))); }; };
+          for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
+          ttq.instance = function (t) { for (var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++) ttq.setAndDefer(e, ttq.methods[n]); return e; };
+          ttq.load = function (e, n) {
+            var r = "https://analytics.tiktok.com/i18n/pixel/events.js", o = n && n.partner;
+            ttq._i = ttq._i || {}; ttq._i[e] = []; ttq._i[e]._u = r;
+            ttq._t = ttq._t || {}; ttq._t[e] = +new Date;
+            ttq._o = ttq._o || {}; ttq._o[e] = n || {};
+            n = document.createElement("script"); n.type = "text/javascript"; n.async = !0; n.src = r + "?sdkid=" + e + "&lib=" + t;
+            e = document.getElementsByTagName("script")[0]; e.parentNode.insertBefore(n, e);
+          };
+          ttq.load('D64F6T3C77U69UNGKT30');
+          ttq.page();
+        }(window, document, 'ttq');
+      });
+    </script>
   </head>
-  <body class="min-h-screen bg-phoenix-black text-phoenix-light antialiased">
-    <Navbar locale={locale} />
+  <body class="min-h-screen bg-gpc-white text-gpc-ink antialiased">
+    <Navbar locale={locale} hreflangPaths={hreflangPaths} />
     <main>
       <slot />
     </main>
@@ -233,16 +432,62 @@ const faqJsonLd = faqSchema && faqSchema.length
 
     {!hideCookieBanner && <CookieConsent locale={locale} />}
 
+    {/* Reveal-on-scroll: add `.is-revealed` when a `.reveal` element enters
+        the viewport (threshold 0.1), then stop observing it. */}
+    <script is:inline>
+      (function () {
+        var els = document.querySelectorAll('.reveal');
+        if (!els.length) return;
+        if (!('IntersectionObserver' in window)) {
+          for (var i = 0; i < els.length; i++) els[i].classList.add('is-revealed');
+          return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        els.forEach(function (el) { io.observe(el); });
+      })();
+    </script>
+
     <a
       href="https://wa.me/40793650902"
       target="_blank"
       rel="noopener"
       aria-label="WhatsApp"
-      class="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full border border-phoenix-green bg-phoenix-black text-phoenix-green shadow-[0_0_20px_rgba(0,255,148,0.4)] transition-transform hover:scale-110"
+      class="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-gpc-green text-white shadow-lg shadow-gpc-green/30 transition-transform hover:scale-110"
     >
       <svg viewBox="0 0 24 24" class="h-7 w-7" fill="currentColor" aria-hidden="true">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.296-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.464 3.488"/>
       </svg>
     </a>
+
+    {/* Magnetic buttons: subtle pull toward the cursor, spring back on
+        leave. Disabled on touch + prefers-reduced-motion. */}
+    <script is:inline>
+      (function () {
+        if (!window.matchMedia) return;
+        if (window.matchMedia('(pointer: coarse)').matches) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var btns = document.querySelectorAll('.magnetic, .btn-main, .pill-btn');
+        btns.forEach(function (btn) {
+          btn.addEventListener('mousemove', function (e) {
+            var rect = btn.getBoundingClientRect();
+            var x = e.clientX - rect.left - rect.width / 2;
+            var y = e.clientY - rect.top - rect.height / 2;
+            btn.style.transform = 'translate(' + x * 0.15 + 'px, ' + y * 0.15 + 'px)';
+          });
+          btn.addEventListener('mouseleave', function () {
+            btn.style.transform = 'translate(0, 0)';
+          });
+        });
+      })();
+    </script>
+
+    <CustomCursor />
   </body>
 </html>

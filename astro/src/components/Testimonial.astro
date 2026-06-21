@@ -23,23 +23,23 @@ const { quote, author, role, company, rating = 5 } = Astro.props;
 const stars = Math.max(0, Math.min(5, Math.round(rating)));
 ---
 
-<figure class="relative border border-phoenix-gray bg-phoenix-gray/30 p-8 md:p-10">
+<figure class="reveal relative border border-gpc-border bg-gpc-card/30 p-8 md:p-10">
   <span
     aria-hidden="true"
-    class="absolute -top-2 left-6 font-display text-7xl leading-none text-phoenix-green/80"
-    style="text-shadow: 0 0 12px rgba(0,255,148,0.6);"
+    class="absolute -top-2 left-6 font-display text-7xl leading-none text-gpc-green/80"
+    style=""
   >
     "
   </span>
 
-  <blockquote class="relative font-display text-xl leading-relaxed text-phoenix-light md:text-2xl">
+  <blockquote class="relative font-sans text-[1.1rem] italic leading-relaxed text-gpc-ink md:text-[1.25rem]">
     {quote}
   </blockquote>
 
   <span
     aria-hidden="true"
-    class="absolute -bottom-8 right-6 font-display text-7xl leading-none text-phoenix-green/80"
-    style="text-shadow: 0 0 12px rgba(0,255,148,0.6);"
+    class="absolute -bottom-8 right-6 font-display text-7xl leading-none text-gpc-green/80"
+    style=""
   >
     "
   </span>
@@ -50,7 +50,7 @@ const stars = Math.max(0, Math.min(5, Math.round(rating)));
         viewBox="0 0 24 24"
         class:list={[
           'h-5 w-5 transition-all',
-          i < stars ? 'text-phoenix-green drop-shadow-[0_0_6px_rgba(0,255,148,0.6)]' : 'text-phoenix-gray',
+          i < stars ? 'text-gpc-green drop-shadow-sm' : 'text-gpc-text-muted',
         ]}
         fill={i < stars ? 'currentColor' : 'none'}
         stroke="currentColor"
@@ -66,9 +66,9 @@ const stars = Math.max(0, Math.min(5, Math.round(rating)));
   </div>
 
   <figcaption class="mt-6 font-mono text-sm">
-    <span class="text-phoenix-green">{author}</span>
+    <span class="text-gpc-green">{author}</span>
     {(role || company) && (
-      <span class="text-phoenix-light/60">
+      <span class="text-gpc-ink/60">
         {' — '}
         {role}{role && company ? ', ' : ''}{company}
       </span>

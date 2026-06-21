@@ -2,14 +2,86 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+/* ============================================================
+   Self-hosted fonts (GDPR-friendly — no Google CDN requests).
+   woff2, subsets latin + latin-ext (RO diacritics: ă â î ș ț).
+   Files live in /public/fonts. font-display: swap avoids FOIT.
+   Only weights actually used by the site are shipped:
+     Inter   400 / 500 / 600 / 700   (body, font-medium, prose)
+     Oswald  400 / 700               (headings; 900 usages resolve
+                                       to 700 — Oswald has no 900)
+     Space Mono 400 / 700            (eyebrows / mono labels)
+   ============================================================ */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/inter-v20-latin_latin-ext-regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/inter-v20-latin_latin-ext-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/inter-v20-latin_latin-ext-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/inter-v20-latin_latin-ext-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/oswald-v57-latin_latin-ext-regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/oswald-v57-latin_latin-ext-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/space-mono-v17-latin_latin-ext-regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/space-mono-v17-latin_latin-ext-700.woff2') format('woff2');
+}
 
 :root {
-  --phoenix-black: #0A0A0A;
-  --phoenix-green: #00FF94;
-  --phoenix-cyan: #00E5FF;
-  --phoenix-gray: #1A1A1A;
-  --phoenix-light: #E5E5E5;
+  --gpc-white: #FFFFFF;
+  --gpc-card: #F4F4F5;
+  --gpc-surface: #E4E4E7;
+  --gpc-border: #E0E0E0;
+  --gpc-ink: #050505;
+  --gpc-text-secondary: #52525B;
+  --gpc-text-muted: #71717A;
+  --gpc-green: #43A047;
+  --gpc-green-dark: #2E7D32;
+  --gpc-green-light: #66BB6A;
+  --gpc-red: #FF0033;
+  --gpc-red-dark: #CC0029;
 }
 
 *, *::before, *::after {
@@ -19,15 +91,18 @@
 html, body {
   margin: 0;
   padding: 0;
-  background-color: var(--phoenix-black);
-  color: var(--phoenix-light);
+  background-color: var(--gpc-white);
+  color: var(--gpc-ink);
   font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Space Mono', monospace;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  line-height: 1;
   margin: 0;
 }
 
@@ -44,67 +119,20 @@ img, svg, video {
   height: auto;
 }
 
-@keyframes scanline {
-  0%   { transform: translateY(-100%); }
-  100% { transform: translateY(100vh); }
-}
-
 @keyframes marquee {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-@keyframes glow-pulse {
-  0%, 100% {
-    text-shadow:
-      0 0 4px var(--phoenix-green),
-      0 0 8px var(--phoenix-green);
-    opacity: 1;
-  }
-  50% {
-    text-shadow:
-      0 0 12px var(--phoenix-green),
-      0 0 24px var(--phoenix-green);
-    opacity: 0.85;
-  }
+@keyframes pulse-green {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.5; transform: scale(0.8); }
 }
 
-.glow-green {
-  color: var(--phoenix-green);
-  text-shadow:
-    0 0 8px rgba(0, 255, 148, 0.6),
-    0 0 16px rgba(0, 255, 148, 0.3);
-  animation: glow-pulse 2.4s ease-in-out infinite;
-}
-
+.accent-line,
+.glow-green,
 .glow-cyan {
-  color: var(--phoenix-cyan);
-  text-shadow:
-    0 0 8px rgba(0, 229, 255, 0.6),
-    0 0 16px rgba(0, 229, 255, 0.3);
-}
-
-.scanline {
-  position: relative;
-  overflow: hidden;
-}
-
-.scanline::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    var(--phoenix-green) 50%,
-    transparent 100%
-  );
-  opacity: 0.6;
-  animation: scanline 4s linear infinite;
-  pointer-events: none;
+  color: var(--gpc-green);
 }
 
 .marquee-track {
@@ -113,24 +141,265 @@ img, svg, video {
   animation: marquee 30s linear infinite;
 }
 
+.pulsing-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: var(--gpc-green);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--gpc-green);
+  animation: pulse-green 2s infinite;
+}
+
+/* Noise overlay — subtle print-like grain over coloured sections.
+   Inline SVG fractal noise (cheaper than a PNG). The host element must be
+   positioned (relative/absolute) and ideally overflow-hidden. */
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* Phoenix hero — mouse parallax + a draw-on-load decorative stroke accent.
+   The logo itself is a raster-backed SVG (can't be stroke-drawn), so the
+   "draw" effect lives on a thin orbital ring stroked around it. */
+.phoenix-parallax {
+  transition: transform 0.3s ease-out;
+  will-change: transform;
+}
+.phoenix-ring circle {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+}
+.phoenix-ring.phoenix-drawn circle {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .phoenix-parallax {
+    transition: none;
+    transform: none !important;
+  }
+  .phoenix-ring circle {
+    stroke-dashoffset: 0;
+  }
+  .phoenix-ring.phoenix-drawn circle {
+    transition: none;
+  }
+}
+
+/* Custom cursor — restored from the live HTML `.cursor-dot` /
+   `.cursor-outline`. The dot is solid brand green; the outline is a
+   thin green ring that trails the pointer. Over interactive elements
+   (body.hovering) both invert to red and the ring grows. `cursor: none`
+   is applied ONLY when JS has confirmed a fine pointer and added
+   `.has-custom-cursor`, so no-JS / touch / keyboard users keep a normal
+   cursor. */
+.cursor-dot,
+.cursor-outline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10005;
+  pointer-events: none;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--gpc-green);
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--gpc-green);
+  opacity: 0.5;
+  transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s;
+}
+.has-custom-cursor,
+.has-custom-cursor a,
+.has-custom-cursor button,
+.has-custom-cursor .pill-btn {
+  cursor: none;
+}
+body.hovering .cursor-outline {
+  width: 65px;
+  height: 65px;
+  background-color: rgba(67, 160, 71, 0.1);
+  border-color: var(--gpc-red);
+}
+body.hovering .cursor-dot {
+  background-color: var(--gpc-red);
+}
+/* Touch devices: never show the custom cursor, keep native pointer. */
+@media (pointer: coarse) {
+  .cursor-dot,
+  .cursor-outline {
+    display: none !important;
+  }
+  .has-custom-cursor,
+  .has-custom-cursor a,
+  .has-custom-cursor button {
+    cursor: auto;
+  }
+}
+/* Keyboard navigation takes priority — hide the cursor while a
+   focus-visible element is present. */
+body:has(:focus-visible) .cursor-dot,
+body:has(:focus-visible) .cursor-outline {
+  display: none;
+}
+
+/* Magnetic buttons — the button is "pulled" subtly toward the cursor
+   (JS sets an inline translate) and springs back on mouseleave. Easing
+   matches the live HTML physical-element curve. The JS is gated on a
+   fine pointer + no reduced-motion (see BaseLayout); this is just the
+   spring. */
+.magnetic {
+  transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .magnetic {
+    transition: none;
+    transform: none !important;
+  }
+}
+
+/* Reveal-on-scroll — restored from the live HTML `.reveal` behaviour.
+   Sections start translated down + transparent and ease in (expo-out)
+   when they enter the viewport (IntersectionObserver, threshold 0.1).
+   Gated behind `html.js` so that without JavaScript (or for crawlers)
+   the content is always visible — no hidden-content SEO penalty. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1),
+    transform 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+  will-change: opacity, transform;
+}
+.js .reveal.is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* Text-outline: hollow / stroked headline word — signature treatment on
+   accent words like "VÂND". Stroke thickened to 1.5px and coloured brand
+   green for readability (was 1px transparent-ink, hard to read at a glance). */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--gpc-green);
+  paint-order: stroke fill;
+}
+/* Fallback / alternative: solid green accent word, no outline.
+   Swap `.text-outline` → `.text-filled` on the accent word if a fully
+   filled treatment is preferred over the hollow one. */
+.text-filled {
+  color: var(--gpc-green);
+}
+/* White stroke for use on dark backgrounds (footer, dark cards). */
+.text-outline-white {
+  color: transparent;
+  -webkit-text-stroke: 1px #ffffff;
+}
+
+/* Footer giant typographic poster — restored from the live HTML
+   `.footer-giant-text` (Oswald 700, ~13.5vw, line-height 0.8,
+   white that eases to brand green on hover). Decorative, not a link. */
+.footer-giant-text {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  /* Tempered from clamp(2rem, 13.5vw, 12rem) — most aggressive level,
+     reduced so it reads as a statement, not a shout dominating the footer. */
+  font-size: clamp(1.85rem, 12vw, 11.25rem);
+  line-height: 0.8;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: #ffffff;
+  cursor: default;
+  transition: color 0.5s ease;
+}
+.footer-giant-text:hover {
+  color: var(--gpc-green);
+}
+.footer-giant-text sup {
+  font-size: 0.25em;
+  vertical-align: super;
+}
+@media (max-width: 768px) {
+  .footer-giant-text {
+    font-size: clamp(1.85rem, 16vw, 5.5rem);
+  }
+}
+
+/* Sophisticated headline — restored from the live HTML hero.
+   Each .line-1/.line-2/.line-3 is a flex item so they stack
+   vertically. .line-2 carries the editorial indent + brand color. */
+.sophisticated-headline {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 900;
+  /* Tempered ~7% from clamp(3.5rem, 7vw, 7rem) for quieter authority. */
+  font-size: clamp(3.25rem, 6.5vw, 6.5rem);
+  line-height: 0.82;
+  /* Relaxed tracking from -1.5px toward neutral (Oswald is condensed). */
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Heavy hero treatment for page-title h1s (compact hero + interior
+   pages). Oswald 900, tighter line-height + negative tracking — the
+   "smash" statement weight, scoped to heroes only. */
+.hero-heavy {
+  font-weight: 900;
+  line-height: 0.85;
+  /* Relaxed tracking from -1.5px toward neutral. */
+  letter-spacing: -0.5px;
+}
+.sophisticated-headline .line-1,
+.sophisticated-headline .line-3 {
+  color: var(--gpc-ink);
+}
+.sophisticated-headline .line-2 {
+  color: var(--gpc-green);
+  margin-left: 40px;
+}
+@media (max-width: 768px) {
+  .sophisticated-headline {
+    font-size: clamp(2.35rem, 10.5vw, 4.2rem);
+    letter-spacing: -0.5px;
+  }
+  .sophisticated-headline .line-2 { margin-left: 0; }
+}
+
+::selection { background: var(--gpc-green); color: #ffffff; }
+
 /* WCAG 2.4.7 — visible focus for keyboard users */
 *:focus-visible {
-  outline: 2px solid var(--phoenix-green, #00FF94);
+  outline: 2px solid var(--gpc-green);
   outline-offset: 2px;
   border-radius: 2px;
 }
 
 button:focus-visible,
 a:focus-visible {
-  box-shadow: 0 0 0 3px rgba(0, 255, 148, 0.3);
+  box-shadow: 0 0 0 3px rgba(67, 160, 71, 0.25);
 }
 
-/* Form inputs already swap border on focus — keep their tighter ring */
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
   outline-offset: 0;
-  box-shadow: 0 0 0 2px rgba(0, 255, 148, 0.45);
+  box-shadow: 0 0 0 2px rgba(67, 160, 71, 0.4);
 }
 
 /* WCAG 2.3.3 — respect prefers-reduced-motion */
@@ -144,10 +413,14 @@ textarea:focus-visible {
     scroll-behavior: auto !important;
   }
 
-  .scanline,
-  .scanline::after,
-  .marquee-track,
-  .glow-green {
+  .marquee-track {
     animation: none !important;
+  }
+
+  /* Reveal-on-scroll: show instantly, no slide/fade. */
+  .js .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }

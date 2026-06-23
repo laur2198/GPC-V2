@@ -71,7 +71,7 @@ const canonical = new URL(Astro.url.pathname, site).toString();
 // RO masters live at /og/<route>.png; en/it variants at /og/<locale>/<route>.png
 // — see src/pages/og/[...route].ts.
 const OG_ROUTES = new Set([
-  'index', 'servicii', 'despre', 'procesul', 'contact', 'portofoliu',
+  'index', 'servicii', 'preturi', 'despre', 'procesul', 'contact', 'portofoliu',
   'servicii/meta-ads', 'servicii/google-ads', 'servicii/social-media',
   'servicii/web-development', 'servicii/strategie-audit', 'servicii/content-production',
   'portofoliu/academia-kokoro-rebrand', 'portofoliu/lemet-stone-plugin-marketing',
@@ -274,7 +274,7 @@ const faqJsonLd = faqSchema && faqSchema.length
         name: f.question,
         acceptedAnswer: {
           '@type': 'Answer',
-          text: f.answer,
+          text: f.answer.replace(/<[^>]+>/g, ''),
         },
       })),
     }

@@ -7,7 +7,8 @@
     "blog": "Blog",
     "about": "About",
     "contact": "Contact",
-    "services": "Services"
+    "services": "Services",
+    "prices": "Pricing"
   },
   "hero": {
     "eyebrow": {
@@ -889,8 +890,8 @@
         "paragraphs": [
           "<strong>Discovery call (30 min) — free.</strong> We listen first, then assess whether we are a good fit.",
           "<strong>Standalone audit</strong> — a one-off project. A complete document, concrete deliverables, with no obligation to continue.",
-          "<strong>Free audit if we work together afterwards.</strong> If you sign a contract for subsequent implementation, the audit is included.",
-          "We do not publish the price because it depends on scope: a simple Meta Ads audit is not the same as a complete 5-axis ecosystem audit; a 60-min discovery is not the same as a 2-day strategic workshop. We discuss it in the discovery call. We tell you honestly what it costs for your specific case."
+          "<strong>Full audit — €150, creditable.</strong> Delivered in 48h (video + written report). The €150 is fully credited against your first invoice if you sign a contract for subsequent implementation.",
+          "Indicative ranges are on our <a href=\"/en/preturi\" class=\"text-gpc-green underline hover:no-underline\">Pricing</a> page. The final price for implementation we set after the audit, because it depends on scope: a simple Meta Ads audit is not the same as a complete 5-axis ecosystem audit. We tell you honestly what it costs for your specific case."
         ]
       },
       "cta": {
@@ -1122,8 +1123,8 @@
     "header": "FREQUENTLY ASKED QUESTIONS",
     "items": [
       {
-        "question": "What is the minimum budget to work with you?",
-        "answer": "We do not publish prices because every situation is different — a coffee shop that wants its first 50 clients a month needs a different investment than a brand that wants to enter a region. Before \"how much does it cost,\" we ask: what do you sell, who do you sell to, what have you tried, what works, where do you want to be. The budget comes out of the answers. If what you want to achieve does not match what you can invest, we tell you directly — we do not take your money for a campaign that cannot deliver results."
+        "question": "How much does it cost to work with you?",
+        "answer": "We have clear ranges on our <a href=\"/en/preturi\" class=\"text-gpc-green underline hover:no-underline\">Pricing</a> page — from landing pages to premium websites and monthly marketing retainers. The final price, though, we set after a short audit, because it depends on what you sell, to whom, what you've tried and where you want to be. The ranges give you an honest orientation; the audit gives you the exact figure. If what you want to achieve doesn't match what you can invest, we tell you directly."
       },
       {
         "question": "How long until I get my website?",
@@ -1131,7 +1132,7 @@
       },
       {
         "question": "What is the workflow for working together?",
-        "answer": "In 5 steps: 1. Discovery call (30 min, free). 2. Audit (3-5 days, free if we work together afterwards). 3. Strategic proposal (5-7 days). 4. Implementation (variable duration, weekly milestones). 5. Optimization & reporting (a monthly report with analysis, NOT an auto dashboard). You pay when and if you sign the contract."
+        "answer": "In 5 steps: 1. Discovery call (30 min, free). 2. Full audit (48h, video + written report — €150, credited against your first invoice if we work together). 3. Strategic proposal (5-7 days). 4. Implementation (variable duration, weekly milestones). 5. Optimization & reporting (a monthly report with analysis, NOT an auto dashboard). You pay when and if you sign the contract."
       },
       {
         "question": "Why don't you charge a monthly maintenance fee for websites?",
@@ -1143,7 +1144,7 @@
       },
       {
         "question": "Can I work with you if I already run campaigns on another account?",
-        "answer": "Yes. In fact, that is the ideal situation — we have a real starting point. The process: 1. \"Analyst\" access (read-only) to Meta/Google/TikTok accounts. 2. A 3-5 day audit (free if we work together afterwards). 3. You decide whether to transfer management or whether we work in a complementary way. We do NOT trash-talk previous work. Sometimes it is good, sometimes it is not. We tell you honestly what we see."
+        "answer": "Yes. In fact, that is the ideal situation — we have a real starting point. The process: 1. \"Analyst\" access (read-only) to Meta/Google/TikTok accounts. 2. A full 48h audit (€150, credited against your first invoice if we work together). 3. You decide whether to transfer management or whether we work in a complementary way. We do NOT trash-talk previous work. Sometimes it is good, sometimes it is not. We tell you honestly what we see."
       },
       {
         "question": "If results don't show in the first few weeks, is something wrong?",
@@ -1159,8 +1160,175 @@
   },
   "finalCta": {
     "heading": "Ready to grow together?",
-    "subtext": "Book a free 30-minute audit. You leave with a concrete plan, whether we work together or not.",
-    "buttonText": "Book audit"
+    "subtext": "Book a free 30-minute discovery call. You leave with a concrete plan, whether we work together or not.",
+    "buttonText": "Book a discovery call"
+  },
+  "pricing": {
+    "_todo": "PROVISIONAL PRICES (all € values) — calibrated by Claude, to be confirmed by Laurentiu before publishing",
+    "meta": {
+      "title": "Web Design & Marketing Pricing | Green Pheonix Concept",
+      "description": "Clear pricing with ranges: websites from €500, marketing retainers from €250/month. No surprises — we set the final price after a short audit."
+    },
+    "breadcrumb": "Pricing",
+    "hero": {
+      "eyebrow": "INVESTMENT",
+      "h1": "Clear pricing. No surprises at the end.",
+      "subtitle": "We don't sell websites or ads as isolated products. We sell a system that brings clients: a site built to convert + campaigns optimized for results. Below are the indicative ranges for whatever stage you're at.",
+      "microcopy": ["Installment payments available", "An audit before any quote", "2-3 new projects per month"]
+    },
+    "web": {
+      "eyebrow": "WEBSITES",
+      "title": "Websites that sell, not just look good",
+      "intro": "A website isn't a cost, it's a sales tool. Built on a modern stack (Astro / WordPress / Shopify), optimized for speed, mobile and conversion.",
+      "priceModelLabel": "one-time payment",
+      "forLabel": "For",
+      "includesLabel": "Includes",
+      "notForLabel": "Not for",
+      "cards": [
+        {
+          "num": "01",
+          "name": "Conversion landing",
+          "price": "from €500",
+          "priceMeta": "one-time payment",
+          "for": "a single offer or service page, built to turn visitors into clients. Ideal for a campaign, a launch, or as a first step online.",
+          "includes": [
+            "Complete landing page, delivered in 5-7 working days",
+            "Custom design on your brand (no recycled themes)",
+            "Conversion-oriented structure (CTA, form, proof)",
+            "Optimized for mobile, Google and AI",
+            "Tracking configured (GA4, Meta Pixel)",
+            "Form with guaranteed delivery + WhatsApp/call button"
+          ],
+          "notFor": "businesses that need multiple pages, a blog or complex functionality. For that, see the next package."
+        },
+        {
+          "num": "02",
+          "name": "Presentation website",
+          "badge": "MOST CHOSEN",
+          "price": "€1,200 – €1,800",
+          "priceMeta": "one-time or in installments",
+          "for": "the business that wants a complete, professional presence — services, portfolio, contact, blog. The site you introduce yourself with, proudly.",
+          "includes": [
+            "5-8 pages, delivered in 2-3 weeks",
+            "100% custom design, multilingual if you need it (RO/EN/IT)",
+            "Technical SEO, 95+ Lighthouse speed, security configured",
+            "Blog/news section included",
+            "Full tracking + Google Search Console",
+            "Email on your domain + handover with all access"
+          ],
+          "notFor": "those who only want one page (see landing) or need e-commerce/custom functionality (see premium)."
+        },
+        {
+          "num": "03",
+          "name": "Premium / custom website",
+          "price": "from €2,500",
+          "priceMeta": "depending on complexity",
+          "for": "the growing business that wants a site that actively works — e-commerce, configurators, integrations, a premium experience that builds trust and brings clients.",
+          "includes": [
+            "100% custom, delivered in 4-6 weeks",
+            "CRO strategy + conversion-oriented structure",
+            "Custom functionality (booking, e-commerce, 3D configurators, integrations)",
+            "Strategy session + competitor analysis",
+            "Complete onboarding at handover"
+          ],
+          "notFor": "those looking for the lowest price or who don't want to be involved in the process."
+        }
+      ]
+    },
+    "retainer": {
+      "eyebrow": "MARKETING — MONTHLY SUBSCRIPTION",
+      "title": "Ads managed monthly, optimized for results",
+      "intro": "Continuous campaign management (Meta, Google, TikTok) with clean setup, server-side conversions and weekly optimization. The 3 tiers cover different growth stages. The ad budget (what you pay the platforms) is separate from the management fee.",
+      "priceModelLabel": "monthly subscription",
+      "forLabel": "For",
+      "includesLabel": "Includes",
+      "cards": [
+        {
+          "num": "01",
+          "name": "START",
+          "price": "€250",
+          "priceMeta": "/ month",
+          "for": "businesses just starting with ads, who want one channel (Meta OR Google) managed properly.",
+          "includes": [
+            "1 platform (Meta or Google)",
+            "Account, pixel, server-side conversions setup",
+            "Weekly ROAS/CPL optimization",
+            "Monthly report with analysis (not an auto dashboard)"
+          ]
+        },
+        {
+          "num": "02",
+          "name": "GROWTH",
+          "badge": "MOST CHOSEN",
+          "price": "€400",
+          "priceMeta": "/ month",
+          "for": "businesses already running ads who want to scale across more channels.",
+          "includes": [
+            "Everything in Start, on 2 platforms",
+            "New creative recommended monthly",
+            "A/B testing on audience + creative",
+            "Priority communication"
+          ]
+        },
+        {
+          "num": "03",
+          "name": "SCALE",
+          "price": "€650",
+          "priceMeta": "/ month",
+          "for": "high-volume businesses that want full multi-platform management + strategy.",
+          "includes": [
+            "Everything in Growth, on 3 platforms (Meta + Google + TikTok)",
+            "Budget scaling strategy",
+            "Advanced optimization + detailed reporting",
+            "Monthly strategy call"
+          ]
+        }
+      ]
+    },
+    "integrated": {
+      "eyebrow": "RECOMMENDED — THE COMPLETE SYSTEM",
+      "title": "Website + Marketing. One system that sells.",
+      "body": "This is the real difference. A site we build isn't just \"pretty\" — it's built from the start for the campaigns we run: correct tracking, conversion pages, everything measurable. When you take them together, the site and the ads work as one system, not as two separate services.",
+      "offerLabel": "The offer",
+      "offer": "Any website (from the packages above) + a monthly marketing retainer → the first 2 months of the retainer at half price.",
+      "cta": "Let's talk about your project"
+    },
+    "terms": {
+      "title": "How the final price is set",
+      "intro": "The ranges above cover most standard projects. We set the final price after a short audit, based on complexity, the number of pages, the languages needed and the functionality requested. No surprises: you get an itemized quote before we start.",
+      "items": [
+        "<strong>Payment:</strong> 50% upfront on signing the contract, 50% on completion. For retainers, monthly in advance.",
+        "<strong>Installments:</strong> available for web projects (we discuss at the quote stage).",
+        "<strong>Discounts:</strong> up to 10% for annual prepayment, up to 15% on a 12-month contract. That's it — we don't work on big discounts that devalue the work.",
+        "<strong>Full paid audit:</strong> €150, delivered in 48h (video + written report). Fully credited against your first invoice if we work together afterwards."
+      ]
+    },
+    "addons": {
+      "title": "Add-on services",
+      "items": [
+        {
+          "name": "Audit of an existing site/account",
+          "price": "€150",
+          "desc": "delivered in 48h. A concrete report on what you're losing now and what needs to change. Creditable if we work together afterwards."
+        },
+        {
+          "name": "Extra landing page",
+          "price": "from €300",
+          "desc": "delivered in 1-2 days. A new page on your existing site, for a campaign or launch."
+        },
+        {
+          "name": "On-demand changes/development",
+          "price": "on request",
+          "desc": "billed on actual work. We don't charge a fixed maintenance subscription — a well-built site doesn't break on its own. You pay for what you get."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Not sure what fits you?",
+      "body": "Book a free 30-minute discovery call. You leave with a concrete plan and an honest recommendation, whether we work together or not.",
+      "scarcity": "We only take on 2-3 new projects per month.",
+      "button": "Book a discovery call"
+    }
   },
   "footer": {
     "tagline": "Performance marketing without the fluff.",

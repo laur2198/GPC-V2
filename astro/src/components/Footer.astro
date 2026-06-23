@@ -55,6 +55,7 @@ const legalSlugs = {
 const quickLinks = [
   { href: localizedPath(locale, '/'), label: nav.home },
   { href: localizedPath(locale, '/servicii'), label: (nav as { services?: string }).services ?? 'Servicii' },
+  { href: localizedPath(locale, '/preturi'), label: (nav as { prices?: string }).prices ?? 'Prețuri' },
   { href: localizedPath(locale, '/portofoliu'), label: nav.portfolio },
   { href: localizedPath(locale, '/blog'), label: nav.blog },
   { href: localizedPath(locale, '/despre'), label: nav.about },

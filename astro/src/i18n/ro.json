@@ -7,7 +7,8 @@
     "blog": "Blog",
     "about": "Despre",
     "contact": "Contact",
-    "services": "Servicii"
+    "services": "Servicii",
+    "prices": "Prețuri"
   },
   "hero": {
     "eyebrow": {
@@ -889,8 +890,8 @@
         "paragraphs": [
           "<strong>Discovery call (30 min) — gratuit.</strong> Ascultăm întâi, evaluăm dacă suntem potriviți.",
           "<strong>Audit standalone</strong> — proiect punctual. Document complet, livrabile concrete, fără obligație de continuare.",
-          "<strong>Audit gratuit dacă lucrăm împreună după.</strong> Dacă semnezi contract pentru implementare ulterioară, auditul e inclus.",
-          "Nu publicăm prețul pentru că depinde de scope: audit Meta Ads simplu ≠ audit ecosistem complet 5 axe; discovery 60 min ≠ workshop strategic 2 zile. Discutăm în discovery call. Spunem onest cât costă pentru cazul tău concret."
+          "<strong>Audit complet — 150€, creditabil.</strong> Livrare 48h (raport video + scris). Cei 150€ se scad integral din prima factură dacă semnezi contract pentru implementare ulterioară.",
+          "Intervale orientative pe pagina de <a href=\"/preturi\" class=\"text-gpc-green underline hover:no-underline\">Prețuri</a>. Prețul final pentru implementare îl stabilim după audit, pentru că depinde de scope: audit Meta Ads simplu ≠ audit ecosistem complet 5 axe. Spunem onest cât costă pentru cazul tău concret."
         ]
       },
       "cta": {
@@ -1122,8 +1123,8 @@
     "header": "ÎNTREBĂRI FRECVENTE",
     "items": [
       {
-        "question": "Care e bugetul minim pentru a lucra cu voi?",
-        "answer": "Nu publicăm prețuri pentru că fiecare situație e diferită — o cafenea care vrea primii 50 clienți lunar are nevoie de altă investiție decât un brand care vrea să intre regional. Înainte de „cât costă”, noi întrebăm: ce vinzi, cui vinzi, ce ai încercat, ce funcționează, unde vrei să ajungi. Bugetul iese din răspunsuri. Dacă ce vrei să obții nu se potrivește cu ce poți investi, îți spunem direct — nu îți luăm bani pentru o campanie care nu poate da rezultate."
+        "question": "Cât costă să lucrez cu voi?",
+        "answer": "Avem intervale clare pe pagina de <a href=\"/preturi\" class=\"text-gpc-green underline hover:no-underline\">Prețuri</a> — de la landing-uri la site-uri premium și retainere lunare de marketing. Prețul final îl stabilim însă după un audit scurt, pentru că depinde de ce vinzi, cui, ce ai încercat și unde vrei să ajungi. Intervalele îți dau o orientare onestă; auditul îți dă cifra exactă. Dacă ce vrei să obții nu se potrivește cu ce poți investi, îți spunem direct."
       },
       {
         "question": "Cât durează până primesc site-ul?",
@@ -1131,7 +1132,7 @@
       },
       {
         "question": "Care e workflow-ul de a lucra împreună?",
-        "answer": "În 5 pași: 1. Discovery call (30 min, gratuit). 2. Audit (3-5 zile, gratuit dacă lucrăm împreună după). 3. Propunere strategică (5-7 zile). 4. Implementare (durată variabilă, milestone-uri săptămânale). 5. Optimizare & raportare (raport lunar cu analiză, NU dashboard auto). Plătești când și dacă semnezi contractul."
+        "answer": "În 5 pași: 1. Discovery call (30 min, gratuit). 2. Audit complet (48h, raport video+scris — 150€, creditabil din prima factură dacă lucrăm împreună). 3. Propunere strategică (5-7 zile). 4. Implementare (durată variabilă, milestone-uri săptămânale). 5. Optimizare & raportare (raport lunar cu analiză, NU dashboard auto). Plătești când și dacă semnezi contractul."
       },
       {
         "question": "De ce nu percepeți mentenanță lunară pentru site-uri?",
@@ -1143,7 +1144,7 @@
       },
       {
         "question": "Pot lucra cu voi dacă rulez deja campanii pe alt cont?",
-        "answer": "Da. De fapt, asta e situația ideală — avem un punct de pornire real. Procesul: 1. Acces „Analyst” (read-only) la conturi Meta/Google/TikTok. 2. Audit 3-5 zile (gratuit dacă lucrăm împreună după). 3. Decizi dacă transferi managementul sau dacă lucrăm complementar. NU facem trash-talking despre munca anterioară. Uneori e bună, uneori nu. Spunem onest ce vedem."
+        "answer": "Da. De fapt, asta e situația ideală — avem un punct de pornire real. Procesul: 1. Acces „Analyst” (read-only) la conturi Meta/Google/TikTok. 2. Audit complet 48h (150€, creditabil din prima factură dacă lucrăm împreună). 3. Decizi dacă transferi managementul sau dacă lucrăm complementar. NU facem trash-talking despre munca anterioară. Uneori e bună, uneori nu. Spunem onest ce vedem."
       },
       {
         "question": "Dacă rezultatele nu se văd în primele săptămâni, e ceva în neregulă?",
@@ -1159,8 +1160,175 @@
   },
   "finalCta": {
     "heading": "Pregătit să creștem împreună?",
-    "subtext": "Programează un audit gratuit de 30 de minute. Iei un plan concret, indiferent dacă lucrăm sau nu împreună.",
-    "buttonText": "Programează audit"
+    "subtext": "Programează un discovery call gratuit de 30 de minute. Iei un plan concret, indiferent dacă lucrăm sau nu împreună.",
+    "buttonText": "Programează discovery call"
+  },
+  "pricing": {
+    "_todo": "PREȚURI PROVIZORII (toate valorile €) — calibrate de Claude, de confirmat de Laurentiu înainte de publicare",
+    "meta": {
+      "title": "Prețuri Web Design & Marketing | Green Pheonix Concept",
+      "description": "Prețuri clare, cu intervale: site-uri de la 500€, retainere de marketing de la 250€/lună. Fără surprize — prețul final îl stabilim după un audit scurt."
+    },
+    "breadcrumb": "Prețuri",
+    "hero": {
+      "eyebrow": "INVESTIȚIE",
+      "h1": "Prețuri clare. Fără surprize la final.",
+      "subtitle": "Nu vindem site-uri sau reclame ca produse izolate. Vindem un sistem care aduce clienți: site construit să convertească + campanii optimizate pe rezultate. Mai jos vezi intervalele orientative pentru fiecare etapă în care poți fi.",
+      "microcopy": ["Plată în rate disponibilă", "Audit înainte de orice ofertă", "2-3 proiecte noi pe lună"]
+    },
+    "web": {
+      "eyebrow": "SITE-URI",
+      "title": "Site-uri care vând, nu doar arată bine",
+      "intro": "Un site nu e un cost, e un instrument de vânzare. Construite pe stack modern (Astro / WordPress / Shopify), optimizate pentru viteză, mobil și conversie.",
+      "priceModelLabel": "plată unică",
+      "forLabel": "Pentru",
+      "includesLabel": "Include",
+      "notForLabel": "Nu e pentru",
+      "cards": [
+        {
+          "num": "01",
+          "name": "Landing de conversie",
+          "price": "de la 500€",
+          "priceMeta": "plată unică",
+          "for": "o singură pagină de ofertă sau serviciu, construită să transforme vizitatori în clienți. Ideală pentru o campanie, o lansare, sau ca prim pas online.",
+          "includes": [
+            "Landing page complet, livrat în 5-7 zile lucrătoare",
+            "Design personalizat pe brandul tău (fără teme reciclate)",
+            "Structură orientată pe conversie (CTA, formular, dovezi)",
+            "Optimizat pentru mobil, Google și AI",
+            "Tracking configurat (GA4, Meta Pixel)",
+            "Formular cu livrare garantată + buton WhatsApp/apel"
+          ],
+          "notFor": "business-uri care au nevoie de mai multe pagini, blog sau funcționalități complexe. Pentru asta, vezi pachetul următor."
+        },
+        {
+          "num": "02",
+          "name": "Site de prezentare",
+          "badge": "CEL MAI ALES",
+          "price": "1.200 – 1.800€",
+          "priceMeta": "plată unică sau în rate",
+          "for": "afacerea care vrea o prezență completă și profesională — servicii, portofoliu, contact, blog. Site-ul cu care te prezinți cu mândrie.",
+          "includes": [
+            "5-8 pagini, livrate în 2-3 săptămâni",
+            "Design 100% personalizat, multilingv dacă ai nevoie (RO/EN/IT)",
+            "SEO tehnic, viteză 95+ Lighthouse, securitate configurate",
+            "Blog/secțiune noutăți inclus",
+            "Tracking complet + Google Search Console",
+            "Email pe domeniu + predare cu toate accesele"
+          ],
+          "notFor": "cei care vor doar o pagină (vezi landing) sau au nevoie de e-commerce/funcționalități custom (vezi premium)."
+        },
+        {
+          "num": "03",
+          "name": "Site premium / custom",
+          "price": "de la 2.500€",
+          "priceMeta": "în funcție de complexitate",
+          "for": "business-ul în creștere care vrea un site care lucrează activ — e-commerce, configuratoare, integrări, experiență premium care construiește încredere și aduce clienți.",
+          "includes": [
+            "100% personalizat, livrare 4-6 săptămâni",
+            "Strategie CRO + structură orientată pe conversii",
+            "Funcționalități custom (booking, e-commerce, configuratoare 3D, integrări)",
+            "Sesiune de strategie + analiză competitori",
+            "Onboarding complet la predare"
+          ],
+          "notFor": "cei care caută cel mai mic preț sau nu vor să fie implicați în proces."
+        }
+      ]
+    },
+    "retainer": {
+      "eyebrow": "MARKETING — ABONAMENT LUNAR",
+      "title": "Reclame gestionate lunar, optimizate pe rezultate",
+      "intro": "Management continuu de campanii (Meta, Google, TikTok) cu setup curat, conversii server-side și optimizare săptămânală. Cele 3 niveluri acoperă etape diferite de creștere. Bugetul de reclame (ce plătești platformelor) e separat de fee-ul de management.",
+      "priceModelLabel": "abonament lunar",
+      "forLabel": "Pentru",
+      "includesLabel": "Include",
+      "cards": [
+        {
+          "num": "01",
+          "name": "START",
+          "price": "250€",
+          "priceMeta": "/ lună",
+          "for": "afaceri la început cu reclamele, care vor un canal (Meta SAU Google) gestionat corect.",
+          "includes": [
+            "1 platformă (Meta sau Google)",
+            "Setup conturi, pixel, conversii server-side",
+            "Optimizare săptămânală pe ROAS/CPL",
+            "Raport lunar cu analiză (nu dashboard auto)"
+          ]
+        },
+        {
+          "num": "02",
+          "name": "GROWTH",
+          "badge": "CEL MAI ALES",
+          "price": "400€",
+          "priceMeta": "/ lună",
+          "for": "afaceri care rulează deja reclame și vor să scaleze pe mai multe canale.",
+          "includes": [
+            "Tot din Start, pe 2 platforme",
+            "Creative noi recomandate lunar",
+            "A/B testing pe audience + creative",
+            "Prioritate la comunicare"
+          ]
+        },
+        {
+          "num": "03",
+          "name": "SCALE",
+          "price": "650€",
+          "priceMeta": "/ lună",
+          "for": "afaceri cu volum, care vor management complet multi-platformă + strategie.",
+          "includes": [
+            "Tot din Growth, pe 3 platforme (Meta + Google + TikTok)",
+            "Strategie de scalare a bugetului",
+            "Optimizare avansată + raportare detaliată",
+            "Call lunar de strategie"
+          ]
+        }
+      ]
+    },
+    "integrated": {
+      "eyebrow": "RECOMANDAT — SISTEMUL COMPLET",
+      "title": "Site + Marketing. Un singur sistem care vinde.",
+      "body": "Aici e diferența reală. Un site făcut de noi nu e doar „frumos” — e construit din start pentru campaniile pe care le rulăm: tracking corect, pagini de conversie, totul măsurabil. Când le iei împreună, site-ul și reclamele lucrează ca un sistem, nu ca două servicii separate.",
+      "offerLabel": "Oferta",
+      "offer": "Orice site (din pachetele de mai sus) + retainer lunar de marketing → primele 2 luni de retainer la jumătate de preț.",
+      "cta": "Hai să discutăm proiectul"
+    },
+    "terms": {
+      "title": "Cum se stabilește prețul final",
+      "intro": "Intervalele de mai sus acoperă majoritatea proiectelor standard. Prețul final îl stabilim după un audit scurt, în funcție de complexitate, numărul de pagini, limbile necesare și funcționalitățile cerute. Fără surprize: primești o ofertă pe linii clare înainte să începem.",
+      "items": [
+        "<strong>Plată:</strong> 50% avans la semnarea contractului, 50% la final. Pentru retainere, lunar în avans.",
+        "<strong>Rate:</strong> disponibile pentru proiectele web (discutăm la ofertă).",
+        "<strong>Reduceri:</strong> până la 10% la plată anuală anticipată, până la 15% la contract pe 12 luni. Atât — nu lucrăm pe discounturi mari care devalorizează munca.",
+        "<strong>Audit complet plătit:</strong> 150€, livrare 48h (raport video + scris). Se scade integral din prima factură dacă lucrăm împreună după."
+      ]
+    },
+    "addons": {
+      "title": "Servicii adiționale",
+      "items": [
+        {
+          "name": "Audit site/cont existent",
+          "price": "150€",
+          "desc": "livrare 48h. Raport concret cu ce pierzi acum și ce trebuie schimbat. Creditabil dacă lucrăm după."
+        },
+        {
+          "name": "Landing page extra",
+          "price": "de la 300€",
+          "desc": "livrare 1-2 zile. O pagină nouă pe site-ul existent, pentru o campanie sau lansare."
+        },
+        {
+          "name": "Modificări/dezvoltare la cerere",
+          "price": "la cerere",
+          "desc": "tarifate pe munca efectivă. Nu percepem abonament fix de mentenanță — un site bine construit nu se strică singur. Plătești ce primești."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Nu ești sigur ce ți se potrivește?",
+      "body": "Programează un discovery call gratuit de 30 de minute. Iei un plan concret și o recomandare onestă, indiferent dacă lucrăm sau nu împreună.",
+      "scarcity": "Acceptăm doar 2-3 proiecte noi pe lună.",
+      "button": "Programează discovery call"
+    }
   },
   "footer": {
     "tagline": "Performance marketing fără promisiuni goale.",

@@ -148,7 +148,7 @@ export const privacy: LegalDocData = {
         { type: 'ul', items: [
           'Legge applicabile: legge rumena.',
           'Per i consumatori dell\'UE prevale la loro legge nazionale per le questioni imperative.',
-          'Fori competenti: B2B — Brașov; B2C — foro del consumatore (residenza del consumatore).',
+          'Fori competenti: B2B — Focșani; B2C — foro del consumatore (residenza del consumatore).',
         ] },
       ],
     },
@@ -261,7 +261,7 @@ export const terms: LegalDocData = {
       blocks: [
         { type: 'ul', items: [
           'Negoziazione amichevole (30 giorni), poi mediazione (facoltativa).',
-          'B2B: i fori di Brașov. B2C: il foro del consumatore (residenza del consumatore).',
+          'B2B: i fori di Focșani. B2C: il foro del consumatore (residenza del consumatore).',
           'ADR UE: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>.',
           'ANPC: <a href="https://anpc.ro" target="_blank" rel="noopener">anpc.ro</a>. SAL: <a href="https://www.salro.ro" target="_blank" rel="noopener">salro.ro</a>.',
         ] },

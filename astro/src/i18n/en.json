@@ -1061,7 +1061,7 @@
         "description": "360° analysis on ads, site, tracking and competition. Concrete 7-day action plan with KPIs and a realistic budget.",
         "ctaText": "View details",
         "accentTag": "STRATEGY",
-        "link": "/servicii-ads"
+        "link": "/servicii/strategie-audit"
       },
       {
         "number": "02",
@@ -1069,7 +1069,7 @@
         "description": "Landing pages and full websites on Astro, WordPress or Shopify. 95+ Lighthouse and UX built on data.",
         "ctaText": "View web services",
         "accentTag": "WEB",
-        "link": "/servicii-web"
+        "link": "/servicii/web-development"
       },
       {
         "number": "03",
@@ -1077,7 +1077,7 @@
         "description": "Google, Meta and TikTok ads with clean setup, server-side conversions and weekly ROAS optimization.",
         "ctaText": "View ads services",
         "accentTag": "ADS",
-        "link": "/servicii-ads"
+        "link": "/servicii/meta-ads"
       }
     ]
   },
@@ -1171,7 +1171,7 @@
     "policy": "Privacy policy",
     "terms": "Terms & conditions",
     "anpc": "ANPC",
-    "disclaimer": "Green Pheonix is the commercial brand of Green Pheonix Concept SRL · VAT 45667331 · J2022000195397 · Brașov, Romania",
+    "disclaimer": "Green Pheonix is the commercial brand of Green Pheonix Concept SRL · VAT 45667331 · J2022000195397 · Gura Calitei, Vrancea County, Romania",
     "cookieSettings": "Cookie settings",
     "cookiePolicy": "Cookie Policy"
   },

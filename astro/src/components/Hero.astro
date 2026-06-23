@@ -15,7 +15,7 @@
  * Props:
  *   locale       — 'ro' | 'en' | 'it' (required for full hero)
  *   ctaPrimary   — { label, href } override; defaults to i18n + /contact
- *   ctaSecondary — { label, href } override; defaults to i18n + /servicii-ads
+ *   ctaSecondary — { label, href } override; defaults to i18n + /servicii
  *   variant      — 'full' (default) | 'compact'
  *   title        — overrides h1 (compact only)
  *   subtitle     — overrides paragraph
@@ -71,7 +71,7 @@ const hero = t<HeroStrings>(locale, 'hero');
 const marquee = t<string[]>(locale, 'marquee');
 
 const cta1 = ctaPrimary ?? { label: hero.ctaPrimary, href: localizedPath(locale, '/contact') };
-const cta2 = ctaSecondary ?? { label: hero.ctaSecondary, href: localizedPath(locale, '/servicii-ads') };
+const cta2 = ctaSecondary ?? { label: hero.ctaSecondary, href: localizedPath(locale, '/servicii') };
 
 const marqueeRow = [...marquee, ...marquee];
 ---

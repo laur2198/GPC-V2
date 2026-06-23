@@ -170,7 +170,7 @@ export const privacy: LegalDocData = {
         { type: 'ul', items: [
           'Lege aplicabilă: legea română.',
           'Pentru consumatorii din UE prevalează legea lor națională pentru chestiuni imperative.',
-          'Instanțe competente: B2B — Brașov; B2C — instanța rezidenței consumatorului.',
+          'Instanțe competente: B2B — Focșani; B2C — instanța rezidenței consumatorului.',
         ] },
       ],
     },
@@ -283,7 +283,7 @@ export const terms: LegalDocData = {
       blocks: [
         { type: 'ul', items: [
           'Negociere amiabilă (30 zile), apoi mediere (opțional).',
-          'B2B: instanțele din Brașov. B2C: instanța rezidenței consumatorului.',
+          'B2B: instanțele din Focșani. B2C: instanța rezidenței consumatorului.',
           'ADR UE: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>.',
           'ANPC: <a href="https://anpc.ro" target="_blank" rel="noopener">anpc.ro</a>. SAL: <a href="https://www.salro.ro" target="_blank" rel="noopener">salro.ro</a>.',
         ] },

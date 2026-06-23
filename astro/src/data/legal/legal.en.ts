@@ -148,7 +148,7 @@ export const privacy: LegalDocData = {
         { type: 'ul', items: [
           'Applicable law: Romanian law.',
           'For EU consumers, their national law prevails on mandatory matters.',
-          'Competent courts: B2B — Brașov; B2C — the court of the consumer\'s residence.',
+          'Competent courts: B2B — Focșani; B2C — the court of the consumer\'s residence.',
         ] },
       ],
     },
@@ -261,7 +261,7 @@ export const terms: LegalDocData = {
       blocks: [
         { type: 'ul', items: [
           'Amicable negotiation (30 days), then mediation (optional).',
-          'B2B: the courts of Brașov. B2C: the court of the consumer\'s residence.',
+          'B2B: the courts of Focșani. B2C: the court of the consumer\'s residence.',
           'EU ADR: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>.',
           'ANPC: <a href="https://anpc.ro" target="_blank" rel="noopener">anpc.ro</a>. SAL: <a href="https://www.salro.ro" target="_blank" rel="noopener">salro.ro</a>.',
         ] },

@@ -32,9 +32,9 @@ const block = t<{
   card4: Card;
 }>(locale, 'philosophy');
 
-// card1/2 point at the new umbrella sub-pages (old /servicii-web|ads are
-// now redirects); card3 (authenticity) → content-production instead of the
-// de-promoted blog; card4 → process anchor.
+// card1/2 point at the canonical /servicii/<slug> sub-pages (the old flat
+// /servicii-web|ads paths were removed); card3 (authenticity) → content-production
+// instead of the de-promoted blog; card4 → process anchor.
 const cards = [
   { ...block.card1, href: localizedPath(locale, '/servicii/web-development') },
   { ...block.card2, href: localizedPath(locale, '/servicii/meta-ads') },

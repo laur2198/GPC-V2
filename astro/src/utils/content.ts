@@ -33,14 +33,6 @@ export const copy: Record<Locale, LocaleCopy> = {
       ],
       cta: { title: 'Pregătit să creștem împreună?', description: 'Programează un audit gratuit de 30 de minute.', ctaLabel: 'Contactează-ne' },
     },
-    'servicii-ads': {
-      meta: { title: 'Servicii Ads — Green Pheonix', description: 'Campanii Google Ads, Meta Ads și TikTok Ads pentru rezultate măsurabile.' },
-      hero: { title: 'Campanii ads care aduc clienți', subtitle: 'Google, Meta, TikTok — strategie, execuție și optimizare.', ctaLabel: 'Cere ofertă' },
-    },
-    'servicii-web': {
-      meta: { title: 'Servicii Web — Green Pheonix', description: 'Site-uri și landing pages performante, optimizate pentru conversie.' },
-      hero: { title: 'Site-uri web care convertesc', subtitle: 'Design rapid, SEO tehnic și UX bazat pe date.', ctaLabel: 'Solicită proiect' },
-    },
     despre: {
       meta: { title: 'Despre noi — Green Pheonix', description: 'Cine suntem și de ce facem ce facem.' },
       hero: { title: 'Despre Green Pheonix', subtitle: 'O echipă focusată pe rezultate, nu pe vanity metrics.', ctaLabel: 'Vorbește cu noi' },
@@ -83,14 +75,6 @@ export const copy: Record<Locale, LocaleCopy> = {
       ],
       cta: { title: 'Ready to grow together?', description: 'Book a free 30-minute audit.', ctaLabel: 'Contact us' },
     },
-    'servicii-ads': {
-      meta: { title: 'Ads Services — Green Pheonix', description: 'Google Ads, Meta Ads and TikTok Ads campaigns with measurable results.' },
-      hero: { title: 'Ad campaigns that bring clients', subtitle: 'Google, Meta, TikTok — strategy, execution and optimization.', ctaLabel: 'Request a quote' },
-    },
-    'servicii-web': {
-      meta: { title: 'Web Services — Green Pheonix', description: 'High-performance websites and landing pages optimized for conversion.' },
-      hero: { title: 'Websites that convert', subtitle: 'Fast design, technical SEO and data-driven UX.', ctaLabel: 'Start a project' },
-    },
     despre: {
       meta: { title: 'About — Green Pheonix', description: 'Who we are and why we do what we do.' },
       hero: { title: 'About Green Pheonix', subtitle: 'A team focused on results, not vanity metrics.', ctaLabel: 'Talk to us' },
@@ -132,14 +116,6 @@ export const copy: Record<Locale, LocaleCopy> = {
         { q: 'In quanto tempo vedrò risultati?', a: 'Primi insight entro 2 settimane; ottimizzazione costante dopo 30-45 giorni.' },
       ],
       cta: { title: 'Pronto a crescere insieme?', description: 'Prenota un audit gratuito di 30 minuti.', ctaLabel: 'Contattaci' },
-    },
-    'servicii-ads': {
-      meta: { title: 'Servizi Ads — Green Pheonix', description: 'Campagne Google Ads, Meta Ads e TikTok Ads con risultati misurabili.' },
-      hero: { title: 'Campagne ads che portano clienti', subtitle: 'Google, Meta, TikTok — strategia, esecuzione e ottimizzazione.', ctaLabel: 'Richiedi un preventivo' },
-    },
-    'servicii-web': {
-      meta: { title: 'Servizi Web — Green Pheonix', description: 'Siti e landing page ad alte performance ottimizzati per la conversione.' },
-      hero: { title: 'Siti che convertono', subtitle: 'Design veloce, SEO tecnica e UX basata sui dati.', ctaLabel: 'Avvia un progetto' },
     },
     despre: {
       meta: { title: 'Chi siamo — Green Pheonix', description: 'Chi siamo e perché facciamo quello che facciamo.' },

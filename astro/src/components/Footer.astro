@@ -11,7 +11,7 @@
  * accent against the light Swiss body.
  */
 import { Image } from 'astro:assets';
-import { type Locale, t, localizedPath } from '../utils/i18n';
+import { type Locale, t, localizedPath, legalRouteKeys, routePath } from '../utils/i18n';
 import phoenixMark from '../assets/phoenix-mark.png';
 
 interface Props {
@@ -45,12 +45,12 @@ interface FooterStrings {
 }
 const f = t<FooterStrings>(locale, 'footer');
 
-// Legal page slugs differ per locale.
+// Legal page slugs differ per locale — resolved from the route registry.
 const legalSlugs = {
-  ro: { privacy: '/politica-confidentialitate', terms: '/termeni-conditii', cookies: '/politica-cookies' },
-  en: { privacy: '/en/privacy-policy', terms: '/en/terms-of-service', cookies: '/en/cookie-policy' },
-  it: { privacy: '/it/informativa-privacy', terms: '/it/termini-condizioni', cookies: '/it/politica-cookies' },
-}[locale];
+  privacy: routePath(locale, legalRouteKeys.privacy),
+  terms: routePath(locale, legalRouteKeys.terms),
+  cookies: routePath(locale, legalRouteKeys.cookies),
+};
 
 const quickLinks = [
   { href: localizedPath(locale, '/'), label: nav.home },

@@ -11,24 +11,24 @@
  * page in the chosen language, and `hreflang` is set on each link
  * for crawlers.
  */
-import { type Locale, locales, localeLabels, switchLocalePath } from '../utils/i18n';
+import { type Locale, locales, localeLabels, localeAlternates } from '../utils/i18n';
 
 interface Props {
   locale: Locale;
   /**
-   * Explicit per-locale paths for pages whose slug differs across
-   * languages (legal docs, thank-you). Mirrors BaseLayout's hreflang
-   * logic: prefer the mapped slug, fall back to the same-slug swap.
-   * Without it the switcher would naively prepend /en//it/ to the
-   * current slug and 404 on translated-slug pages.
+   * Escape hatch for pages with no route registry entry (404). Translated
+   * slugs no longer need it — the registry resolves them, and an unresolved
+   * path falls back to the target locale homepage rather than to a naive
+   * /en + current-slug concatenation that would 404.
    */
   hreflangPaths?: Partial<Record<Locale, string>>;
 }
 const { locale, hreflangPaths } = Astro.props;
+const alternatePaths = localeAlternates(Astro.url, hreflangPaths);
 const targets = locales.map((l) => ({
   locale: l,
   label: localeLabels[l],
-  href: hreflangPaths?.[l] ?? switchLocalePath(Astro.url, l),
+  href: alternatePaths[l],
 }));
 ---
 

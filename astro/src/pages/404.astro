@@ -2,6 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { localizedPath } from '../utils/i18n';
 
+// The 404 page exists in Romanian only and has no translated equivalent, so
+// its hreflang alternates point at the three homepages. That is a genuine
+// escape-hatch case, not a slug mapping — it stays out of the route registry
+// on purpose (see src/i18n/routes.ts).
 const meta = {
   title: '404 — Pagină inexistentă | Green Pheonix',
   description: 'Resursa pe care o cauți nu există în sistem. Întoarce-te la pagina principală sau contactează-ne.',

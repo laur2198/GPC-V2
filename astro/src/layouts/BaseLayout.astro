@@ -19,7 +19,7 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 import CustomCursor from '../components/CustomCursor.astro';
-import { type Locale, locales, switchLocalePath, localizedPath } from '../utils/i18n';
+import { type Locale, locales, localeAlternates, localizedPath } from '../utils/i18n';
 
 interface FaqEntry {
   question: string;
@@ -95,9 +95,13 @@ if (OG_ROUTES.has(ogKey)) {
 const ogSource = image !== '/og-image.jpg' ? image : (generatedOg ?? image);
 const ogImage = ogSource.startsWith('http') ? ogSource : new URL(ogSource, site).toString();
 
+// Per-locale equivalents of this page. Resolution goes through the route
+// registry (src/i18n/routes.ts); `hreflangPaths` stays as an escape hatch for
+// pages with no registry entry, such as 404.
+const alternatePaths = localeAlternates(Astro.url, hreflangPaths);
 const alternates = locales.map((l) => ({
   hreflang: l,
-  href: new URL(hreflangPaths?.[l] ?? switchLocalePath(Astro.url, l), site).toString(),
+  href: new URL(alternatePaths[l], site).toString(),
 }));
 
 const orgId = `${site.origin}/#organization`;
@@ -305,7 +309,7 @@ const faqJsonLd = faqSchema && faqSchema.length
     {alternates.map((a) => (
       <link rel="alternate" hreflang={a.hreflang} href={a.href} />
     ))}
-    <link rel="alternate" hreflang="x-default" href={new URL(hreflangPaths?.ro ?? switchLocalePath(Astro.url, 'ro'), site).toString()} />
+    <link rel="alternate" hreflang="x-default" href={new URL(alternatePaths.ro, site).toString()} />
 
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content="Green Pheonix" />

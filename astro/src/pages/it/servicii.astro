@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CTA from '../../components/CTA.astro';
-import { type Locale, t, localizedPath } from '../../utils/i18n';
+import { type Locale, type ServiceSlug, t, localizedPath } from '../../utils/i18n';
 
 const locale: Locale = 'it';
 const breadcrumbs = [{ name: 'Servizi', href: localizedPath(locale, '/servicii') }];
@@ -13,7 +13,7 @@ interface UmbrellaCard {
   subtitle: string;
   description: string;
   cta: string;
-  slug: string;
+  slug: ServiceSlug;
 }
 interface Umbrella {
   eyebrow: string;

@@ -19,7 +19,7 @@
  * Props:
  *   locale — 'ro' | 'en' | 'it' (default 'ro')
  */
-import { type Locale, t, localizedPath } from '../utils/i18n';
+import { type Locale, type RouteKey, t, localizedPath } from '../utils/i18n';
 
 interface ServiceItem {
   number: string;
@@ -27,7 +27,7 @@ interface ServiceItem {
   description: string;
   ctaText: string;
   accentTag: string;
-  link: string;
+  link: RouteKey;
 }
 interface Props {
   locale?: Locale;

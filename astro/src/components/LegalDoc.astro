@@ -8,34 +8,34 @@
  *
  * Props:
  *   locale — 'ro' | 'en' | 'it'
+ *   docKey — 'privacy' | 'terms' | 'cookies' (route registry key)
  *   doc    — LegalDocData
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from './Breadcrumbs.astro';
-import { type Locale, localizedPath } from '../utils/i18n';
+import {
+  type Locale,
+  type LegalDocKey,
+  legalRouteKeys,
+  routeAlternates,
+  routePath,
+} from '../utils/i18n';
 import type { LegalDocData } from '../data/legal/legal.ro';
 
 interface Props {
   locale: Locale;
+  /** Which legal document this is — resolves to a route registry key. */
+  docKey: LegalDocKey;
   doc: LegalDocData;
 }
-const { locale, doc } = Astro.props;
+const { locale, docKey, doc } = Astro.props;
 
 const SITE = 'https://greenpheonixconcept.com';
-const path = `/${doc.slug}`;
-const breadcrumbs = [{ name: doc.breadcrumb, href: localizedPath(locale, path) }];
-
-// Legal docs have different slugs per locale → explicit hreflang map.
-const SLUGS: Record<string, Record<Locale, string>> = {
-  privacy: { ro: '/politica-confidentialitate', en: '/en/privacy-policy', it: '/it/informativa-privacy' },
-  terms: { ro: '/termeni-conditii', en: '/en/terms-of-service', it: '/it/termini-condizioni' },
-  cookies: { ro: '/politica-cookies', en: '/en/cookie-policy', it: '/it/politica-cookies' },
-};
-const docKey =
-  doc.slug.includes('privacy') || doc.slug.includes('confidential') ? 'privacy'
-  : doc.slug.includes('term') ? 'terms'
-  : 'cookies';
-const hreflangPaths = SLUGS[docKey];
+// Slugs differ per locale; the route registry owns that mapping, so both the
+// breadcrumb and the hreflang alternates come from the same source.
+const routeKey = legalRouteKeys[docKey];
+const breadcrumbs = [{ name: doc.breadcrumb, href: routePath(locale, routeKey) }];
+const hreflangPaths = routeAlternates(routeKey);
 
 const webPageSchema = {
   '@context': 'https://schema.org',

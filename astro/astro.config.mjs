@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import { loadBlogPosts, buildClusters, hreflangPathsFor, blogPostPath } from './src/utils/blog-clusters.mjs';
+import { legalClusterFor } from './src/utils/legal-routes.mjs';
 
 const SITE = 'https://greenpheonixconcept.com';
 
@@ -16,6 +17,13 @@ const blogAlternates = new Map(
     Object.entries(hreflangPathsFor(post, blogClusters)).map(([lang, path]) => ({ lang, url: SITE + path })),
   ])
 );
+
+// Legal pages have per-locale slugs too; their clusters come from the same
+// route map LegalDoc uses for the page head.
+function legalAlternates(url) {
+  const cluster = legalClusterFor(new URL(url).pathname);
+  return cluster && Object.entries(cluster).map(([lang, path]) => ({ lang, url: SITE + path }));
+}
 
 export default defineConfig({
   site: SITE,
@@ -41,7 +49,7 @@ export default defineConfig({
         !page.endsWith('/404') &&
         !page.endsWith('/404/'),
       serialize(item) {
-        const links = blogAlternates.get(item.url) ?? item.links;
+        const links = blogAlternates.get(item.url) ?? legalAlternates(item.url) ?? item.links;
         // x-default follows the page head: it points at the RO version, and a
         // cluster without RO gets none.
         const ro = links?.find((link) => link.lang === 'ro');

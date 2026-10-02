@@ -13,6 +13,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from './Breadcrumbs.astro';
 import { type Locale, localizedPath } from '../utils/i18n';
+import { legalClusterFor } from '../utils/legal-routes.mjs';
 import type { LegalDocData } from '../data/legal/legal.ro';
 
 interface Props {
@@ -25,17 +26,12 @@ const SITE = 'https://greenpheonixconcept.com';
 const path = `/${doc.slug}`;
 const breadcrumbs = [{ name: doc.breadcrumb, href: localizedPath(locale, path) }];
 
-// Legal docs have different slugs per locale → explicit hreflang map.
-const SLUGS: Record<string, Record<Locale, string>> = {
-  privacy: { ro: '/politica-confidentialitate', en: '/en/privacy-policy', it: '/it/informativa-privacy' },
-  terms: { ro: '/termeni-conditii', en: '/en/terms-of-service', it: '/it/termini-condizioni' },
-  cookies: { ro: '/politica-cookies', en: '/en/cookie-policy', it: '/it/politica-cookies' },
-};
-const docKey =
-  doc.slug.includes('privacy') || doc.slug.includes('confidential') ? 'privacy'
-  : doc.slug.includes('term') ? 'terms'
-  : 'cookies';
-const hreflangPaths = SLUGS[docKey];
+// Legal docs have different slugs per locale; the cluster comes from the
+// shared route map, matched on this page's exact path.
+const hreflangPaths = legalClusterFor(Astro.url.pathname);
+if (!hreflangPaths) {
+  throw new Error(`LegalDoc: ${Astro.url.pathname} is not in LEGAL_PATHS (src/utils/legal-routes.mjs)`);
+}
 
 const webPageSchema = {
   '@context': 'https://schema.org',

@@ -12,6 +12,7 @@
  */
 import { Image } from 'astro:assets';
 import { type Locale, t, localizedPath } from '../utils/i18n';
+import { LEGAL_PATHS } from '../utils/legal-routes.mjs';
 import phoenixMark from '../assets/phoenix-mark.png';
 
 interface Props {
@@ -45,12 +46,12 @@ interface FooterStrings {
 }
 const f = t<FooterStrings>(locale, 'footer');
 
-// Legal page slugs differ per locale.
+// Legal page slugs differ per locale; the shared route map has them.
 const legalSlugs = {
-  ro: { privacy: '/politica-confidentialitate', terms: '/termeni-conditii', cookies: '/politica-cookies' },
-  en: { privacy: '/en/privacy-policy', terms: '/en/terms-of-service', cookies: '/en/cookie-policy' },
-  it: { privacy: '/it/informativa-privacy', terms: '/it/termini-condizioni', cookies: '/it/politica-cookies' },
-}[locale];
+  privacy: LEGAL_PATHS.privacy[locale],
+  terms: LEGAL_PATHS.terms[locale],
+  cookies: LEGAL_PATHS.cookies[locale],
+};
 
 const quickLinks = [
   { href: localizedPath(locale, '/'), label: nav.home },

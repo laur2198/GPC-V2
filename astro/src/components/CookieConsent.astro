@@ -16,6 +16,7 @@
  * Hides itself once a choice is recorded. Cyberpunk dark + neon green.
  */
 import { type Locale, t } from '../utils/i18n';
+import { LEGAL_PATHS } from '../utils/legal-routes.mjs';
 
 interface Props {
   locale?: Locale;
@@ -33,11 +34,8 @@ interface Strings {
   categories: { essential: string; analytics: string; marketing: string };
 }
 const c = t<Strings>(locale, 'cookies');
-const policyHref = {
-  ro: '/politica-cookies',
-  en: '/en/cookie-policy',
-  it: '/it/politica-cookies',
-}[locale];
+// Straight to the canonical URL: a consent link should not bounce through a redirect.
+const policyHref = LEGAL_PATHS.cookies[locale];
 ---
 
 <aside

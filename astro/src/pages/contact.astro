@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import { type Locale } from '../utils/i18n';
+import { LEGAL_PATHS } from '../utils/legal-routes.mjs';
 
 const locale: Locale = 'ro';
 
@@ -229,7 +230,7 @@ const interests = [
             />
             <span>
               Sunt de acord cu prelucrarea datelor personale conform
-              <a href="/politica" class="text-gpc-green underline-offset-2 hover:underline">
+              <a href={LEGAL_PATHS.privacy.ro} class="text-gpc-green underline-offset-2 hover:underline">
                 politicii de confidențialitate
               </a>. Datele tale nu sunt partajate cu terți și pot fi șterse oricând.
             </span>

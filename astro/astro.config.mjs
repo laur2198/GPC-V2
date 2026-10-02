@@ -41,8 +41,11 @@ export default defineConfig({
         !page.endsWith('/404') &&
         !page.endsWith('/404/'),
       serialize(item) {
-        const links = blogAlternates.get(item.url);
-        if (links) item.links = links;
+        const links = blogAlternates.get(item.url) ?? item.links;
+        // x-default follows the page head: it points at the RO version, and a
+        // cluster without RO gets none.
+        const ro = links?.find((link) => link.lang === 'ro');
+        if (links) item.links = ro ? [...links, { lang: 'x-default', url: ro.url }] : links;
         return item;
       },
     }),

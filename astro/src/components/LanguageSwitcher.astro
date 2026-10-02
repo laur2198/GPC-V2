@@ -31,8 +31,21 @@ const targets = targetLocales.map((l) => ({
   label: localeLabels[l],
   href: hreflangPaths?.[l] ?? switchLocalePath(Astro.url, l),
 }));
+// A page that exists in one language has nothing to switch to: show the
+// language as a plain label, so the control doesn't promise a choice. Driven
+// by the count alone — a page grows back into a dropdown when its
+// translations appear.
+const hasChoice = targets.length > 1;
 ---
 
+{!hasChoice ? (
+  <span
+    lang={locale}
+    class="flex min-h-[44px] items-center border border-gpc-border px-3 py-2 font-mono text-xs uppercase tracking-widest text-gpc-ink"
+  >
+    <span class="glow-green">{localeLabels[locale]}</span>
+  </span>
+) : (
 <div class="relative" data-lang-switcher>
   <button
     type="button"
@@ -72,6 +85,7 @@ const targets = targetLocales.map((l) => ({
     ))}
   </ul>
 </div>
+)}
 
 <script>
   document.querySelectorAll('[data-lang-switcher]').forEach((root) => {

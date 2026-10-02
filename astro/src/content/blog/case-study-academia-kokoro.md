@@ -7,6 +7,7 @@ category: "Case Study"
 tags: ["case-study", "crestere-organica", "cluburi-sportive", "branding", "social-media"]
 heroImage: "/og/blog/case-study-academia-kokoro.png"
 language: "ro"
+translationKey: "case-study-academia-kokoro"
 draft: false
 ---
 

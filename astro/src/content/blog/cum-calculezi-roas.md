@@ -7,6 +7,7 @@ category: "Performance Marketing"
 tags: ["roas", "tracking", "ga4", "meta-ads"]
 heroImage: "/og/blog/cum-calculezi-roas.png"
 language: "ro"
+translationKey: "cum-calculezi-roas"
 ---
 
 ## ROAS-ul "din platformă" e o iluzie

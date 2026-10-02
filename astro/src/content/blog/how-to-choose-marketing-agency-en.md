@@ -8,6 +8,7 @@ category: "Strategy"
 tags: ["agentie-marketing", "marketing-digital", "afaceri-mici", "cum-alegi"]
 heroImage: "/og/blog/how-to-choose-marketing-agency.png"
 language: "en"
+translationKey: "cum-alegi-agentie-marketing"
 draft: false
 ---
 

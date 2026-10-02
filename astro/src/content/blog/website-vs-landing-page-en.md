@@ -8,6 +8,7 @@ category: "Web & UX"
 tags: ["landing-page", "site-de-prezentare", "web-design", "conversii", "afaceri-mici"]
 heroImage: "/og/blog/website-vs-landing-page.png"
 language: "en"
+translationKey: "site-de-prezentare-vs-landing-page"
 draft: false
 ---
 

@@ -13,6 +13,10 @@ const blog = defineCollection({
     tags: z.array(z.string()).default([]),
     heroImage: z.string().optional(),
     language,
+    // Posts sharing a translationKey are translations of one another and form
+    // one hreflang cluster. Convention: the RO slug. A post alone under its key
+    // is a cluster of one.
+    translationKey: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });

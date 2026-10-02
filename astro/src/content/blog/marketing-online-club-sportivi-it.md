@@ -8,6 +8,7 @@ category: "Performance Marketing"
 tags: ["promovare-cluburi-sportive", "marketing-sali-fitness", "arte-martiale", "facebook-ads", "afaceri-locale"]
 heroImage: "/og/blog/marketing-online-club-sportivi.png"
 language: "it"
+translationKey: "promovare-online-cluburi-sportive"
 draft: false
 ---
 

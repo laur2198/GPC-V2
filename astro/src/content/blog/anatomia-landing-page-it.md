@@ -8,6 +8,7 @@ category: "Web & UX"
 tags: ["landing-page", "cro", "ux", "copywriting"]
 heroImage: "/og/blog/anatomia-landing-page.png"
 language: "it"
+translationKey: "landing-page-care-converteste"
 ---
 
 ## Cos'è una buona landing page?

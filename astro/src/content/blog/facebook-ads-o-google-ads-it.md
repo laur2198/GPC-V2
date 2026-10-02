@@ -8,6 +8,7 @@ category: "Performance Marketing"
 tags: ["google-ads", "facebook-ads", "meta-ads", "publicitate-online", "afaceri-mici"]
 heroImage: "/og/blog/facebook-ads-o-google-ads.png"
 language: "it"
+translationKey: "facebook-ads-sau-google-ads"
 draft: false
 ---
 

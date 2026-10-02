@@ -7,6 +7,7 @@ category: "Web & UX"
 tags: ["landing-page", "cro", "ux", "copywriting"]
 heroImage: "/og/blog/landing-page-care-converteste.png"
 language: "ro"
+translationKey: "landing-page-care-converteste"
 ---
 
 ## Ce e un landing page bun?

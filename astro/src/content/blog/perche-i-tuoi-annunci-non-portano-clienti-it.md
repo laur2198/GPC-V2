@@ -8,6 +8,7 @@ category: "Performance Marketing"
 tags: ["google-ads", "facebook-ads", "landing-page", "conversii", "publicitate-online"]
 heroImage: "/og/blog/perche-i-tuoi-annunci-non-portano-clienti.png"
 language: "it"
+translationKey: "de-ce-reclamele-nu-aduc-clienti"
 draft: false
 ---
 

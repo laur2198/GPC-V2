@@ -8,6 +8,7 @@ category: "Web & UX"
 tags: ["landing-page", "site-de-prezentare", "web-design", "conversii", "afaceri-mici"]
 heroImage: "/og/blog/sito-vetrina-vs-landing-page.png"
 language: "it"
+translationKey: "site-de-prezentare-vs-landing-page"
 draft: false
 ---
 

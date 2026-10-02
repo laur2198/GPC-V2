@@ -7,6 +7,7 @@ category: "Performance Marketing"
 tags: ["google-ads", "facebook-ads", "landing-page", "conversii", "publicitate-online"]
 heroImage: "/og/blog/de-ce-reclamele-nu-aduc-clienti.png"
 language: "ro"
+translationKey: "de-ce-reclamele-nu-aduc-clienti"
 draft: false
 ---
 

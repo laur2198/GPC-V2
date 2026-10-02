@@ -7,6 +7,7 @@ category: "Strategy"
 tags: ["agentie-marketing", "marketing-digital", "afaceri-mici", "cum-alegi"]
 heroImage: "/og/blog/cum-alegi-agentie-marketing.png"
 language: "ro"
+translationKey: "cum-alegi-agentie-marketing"
 draft: false
 ---
 

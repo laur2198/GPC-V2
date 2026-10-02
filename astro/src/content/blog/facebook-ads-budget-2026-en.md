@@ -8,6 +8,7 @@ category: "Performance Marketing"
 tags: ["meta-ads", "facebook-ads", "budget", "strategy"]
 heroImage: "/og/blog/facebook-ads-budget-2026.png"
 language: "en"
+translationKey: "buget-facebook-ads-2026"
 ---
 
 ## The question I get every week

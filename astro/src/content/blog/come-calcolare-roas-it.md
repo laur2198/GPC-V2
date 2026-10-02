@@ -8,6 +8,7 @@ category: "Performance Marketing"
 tags: ["roas", "tracking", "ga4", "meta-ads"]
 heroImage: "/og/blog/come-calcolare-roas.png"
 language: "it"
+translationKey: "cum-calculezi-roas"
 ---
 
 ## Il ROAS "in piattaforma" è un'illusione

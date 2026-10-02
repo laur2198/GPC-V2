@@ -7,6 +7,7 @@ category: "Performance Marketing"
 tags: ["meta-ads", "facebook-ads", "buget", "strategy"]
 heroImage: "/og/blog/buget-facebook-ads-2026.png"
 language: "ro"
+translationKey: "buget-facebook-ads-2026"
 ---
 
 ## Întrebarea pe care o primesc săptămânal

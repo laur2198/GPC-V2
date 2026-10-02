@@ -20,7 +20,19 @@ const knownRoutes = [
 ];
 ---
 
-<BaseLayout title={meta.title} description={meta.description} locale="ro" noindex hreflangPaths={{ ro: '/', en: '/en/', it: '/it/' }}>
+{/* 404 is noindex, nofollow and absent from the sitemap: it belongs to no
+    hreflang set and is served at whatever URL was missing, so it declares
+    neither alternates nor a canonical. hreflangPaths stays so the language
+    switcher still offers the three homepages as a way out. */}
+<BaseLayout
+  title={meta.title}
+  description={meta.description}
+  locale="ro"
+  noindex
+  noAlternates
+  noCanonical
+  hreflangPaths={{ ro: '/', en: '/en/', it: '/it/' }}
+>
   <section class="relative min-h-[70vh] overflow-hidden border-b border-gpc-border bg-gpc-white">
     <div
       class="pointer-events-none absolute inset-0 opacity-30"

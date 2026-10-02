@@ -19,7 +19,7 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 import CustomCursor from '../components/CustomCursor.astro';
-import { type Locale, locales, switchLocalePath, localizedPath } from '../utils/i18n';
+import { type Locale, locales, switchLocalePath, localizedPath, withTrailingSlash } from '../utils/i18n';
 
 interface FaqEntry {
   question: string;
@@ -53,6 +53,18 @@ interface Props {
    * without `ro`. When omitted, every locale falls back to the same-slug swap.
    */
   hreflangPaths?: Partial<Record<Locale, string>>;
+  /**
+   * Drop the <link rel="alternate"> block, x-default included, while
+   * hreflangPaths keeps feeding the language switcher (Navbar reads the same
+   * prop, so emptying hreflangPaths would empty the switcher too). For a page
+   * in no hreflang set that must stay navigable: the 404.
+   */
+  noAlternates?: boolean;
+  /**
+   * Drop <link rel="canonical"> and og:url. For the 404, which is served at
+   * whatever URL was missing and has no address of its own to declare.
+   */
+  noCanonical?: boolean;
 }
 
 const {
@@ -67,6 +79,8 @@ const {
   breadcrumbs,
   jsonLd,
   hreflangPaths,
+  noAlternates = false,
+  noCanonical = false,
 } = Astro.props;
 
 const site = Astro.site ?? new URL('https://greenpheonixconcept.com');
@@ -100,12 +114,16 @@ if (OG_ROUTES.has(ogKey)) {
 const ogSource = image !== '/og-image.jpg' ? image : (generatedOg ?? image);
 const ogImage = ogSource.startsWith('http') ? ogSource : new URL(ogSource, site).toString();
 
-const clusterLocales = hreflangPaths ? locales.filter((l) => hreflangPaths[l]) : locales;
+const clusterLocales = noAlternates
+  ? []
+  : hreflangPaths
+    ? locales.filter((l) => hreflangPaths[l])
+    : locales;
 const alternates = clusterLocales.map((l) => ({
   hreflang: l,
   href: new URL(hreflangPaths?.[l] ?? switchLocalePath(Astro.url, l), site).toString(),
 }));
-const xDefaultPath = hreflangPaths ? hreflangPaths.ro : switchLocalePath(Astro.url, 'ro');
+const xDefaultPath = noAlternates ? undefined : hreflangPaths ? hreflangPaths.ro : switchLocalePath(Astro.url, 'ro');
 const xDefault = xDefaultPath ? new URL(xDefaultPath, site).toString() : undefined;
 
 const orgId = `${site.origin}/#organization`;
@@ -228,7 +246,7 @@ const localBusinessSchema = {
       alternateName: 'Bogdan Laurențiu',
       jobTitle: 'Founder & Performance Marketing Strategist',
       worksFor: { '@id': orgId },
-      url: `${site.origin}/despre`,
+      url: `${site.origin}/despre/`,
       knowsAbout: [
         'Meta Ads',
         'Google Ads',
@@ -267,7 +285,7 @@ const breadcrumbSchema =
             '@type': 'ListItem',
             position: i + 2,
             name: b.name,
-            item: new URL(b.href, site).toString(),
+            item: new URL(withTrailingSlash(b.href), site).toString(),
           })),
         ],
       }
@@ -309,7 +327,7 @@ const faqJsonLd = faqSchema && faqSchema.length
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
 
-    <link rel="canonical" href={canonical} />
+    {!noCanonical && <link rel="canonical" href={canonical} />}
     {alternates.map((a) => (
       <link rel="alternate" hreflang={a.hreflang} href={a.href} />
     ))}
@@ -319,7 +337,7 @@ const faqJsonLd = faqSchema && faqSchema.length
     <meta property="og:site_name" content="Green Pheonix" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical} />
+    {!noCanonical && <meta property="og:url" content={canonical} />}
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />

@@ -34,9 +34,20 @@ export function stripLocaleFromPath(pathname: string): string {
   return '/' + parts.join('/') + (pathname.endsWith('/') && parts.length ? '/' : '');
 }
 
+/**
+ * Canonical directory form for a page path: a trailing slash before any
+ * ?query or #hash. Paths ending in a file extension (assets, feeds) and
+ * paths already ending in '/' are returned unchanged.
+ */
+export function withTrailingSlash(path: string): string {
+  const [, pathname, suffix] = path.match(/^([^?#]*)(.*)$/s)!;
+  if (pathname.endsWith('/') || /\.[a-z0-9]+$/i.test(pathname)) return path;
+  return `${pathname}/${suffix}`;
+}
+
 export function localizedPath(locale: Locale, path: string): string {
-  const clean = path.startsWith('/') ? path : `/${path}`;
-  if (locale === defaultLocale) return clean === '/' ? '/' : clean;
+  const clean = withTrailingSlash(path.startsWith('/') ? path : `/${path}`);
+  if (locale === defaultLocale) return clean;
   return clean === '/' ? `/${locale}/` : `/${locale}${clean}`;
 }
 

@@ -46,7 +46,12 @@ interface Props {
   breadcrumbs?: BreadcrumbItem[];
   /** extra JSON-LD blocks (e.g. Service, Article) emitted in <head> */
   jsonLd?: unknown[];
-  /** explicit per-locale paths when slugs differ across languages (legal pages) */
+  /**
+   * Explicit per-locale paths when slugs differ across languages (legal pages,
+   * blog posts). When given, it is the whole cluster: a locale missing from it
+   * is absent, not guessed — no alternate, no switcher entry, and no x-default
+   * without `ro`. When omitted, every locale falls back to the same-slug swap.
+   */
   hreflangPaths?: Partial<Record<Locale, string>>;
 }
 
@@ -95,10 +100,13 @@ if (OG_ROUTES.has(ogKey)) {
 const ogSource = image !== '/og-image.jpg' ? image : (generatedOg ?? image);
 const ogImage = ogSource.startsWith('http') ? ogSource : new URL(ogSource, site).toString();
 
-const alternates = locales.map((l) => ({
+const clusterLocales = hreflangPaths ? locales.filter((l) => hreflangPaths[l]) : locales;
+const alternates = clusterLocales.map((l) => ({
   hreflang: l,
   href: new URL(hreflangPaths?.[l] ?? switchLocalePath(Astro.url, l), site).toString(),
 }));
+const xDefaultPath = hreflangPaths ? hreflangPaths.ro : switchLocalePath(Astro.url, 'ro');
+const xDefault = xDefaultPath ? new URL(xDefaultPath, site).toString() : undefined;
 
 const orgId = `${site.origin}/#organization`;
 const personId = `${site.origin}/despre#person`;
@@ -305,7 +313,7 @@ const faqJsonLd = faqSchema && faqSchema.length
     {alternates.map((a) => (
       <link rel="alternate" hreflang={a.hreflang} href={a.href} />
     ))}
-    <link rel="alternate" hreflang="x-default" href={new URL(hreflangPaths?.ro ?? switchLocalePath(Astro.url, 'ro'), site).toString()} />
+    {xDefault && <link rel="alternate" hreflang="x-default" href={xDefault} />}
 
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content="Green Pheonix" />

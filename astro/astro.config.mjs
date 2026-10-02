@@ -17,7 +17,7 @@ export default defineConfig({
     sitemap({
       i18n: {
         defaultLocale: 'ro',
-        locales: { ro: 'ro-RO', en: 'en-US', it: 'it-IT' },
+        locales: { ro: 'ro', en: 'en', it: 'it' },
       },
       filter: (page) =>
         !page.includes('/multumim') &&

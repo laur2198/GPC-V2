@@ -17,15 +17,16 @@ interface Props {
   locale: Locale;
   /**
    * Explicit per-locale paths for pages whose slug differs across
-   * languages (legal docs, thank-you). Mirrors BaseLayout's hreflang
-   * logic: prefer the mapped slug, fall back to the same-slug swap.
-   * Without it the switcher would naively prepend /en//it/ to the
-   * current slug and 404 on translated-slug pages.
+   * languages (legal docs, thank-you, blog posts). Mirrors BaseLayout's
+   * hreflang logic: when given, it is the whole set of languages the page
+   * exists in, and a missing locale is not offered. Without it the switcher
+   * falls back to the same-slug swap for every locale.
    */
   hreflangPaths?: Partial<Record<Locale, string>>;
 }
 const { locale, hreflangPaths } = Astro.props;
-const targets = locales.map((l) => ({
+const targetLocales = hreflangPaths ? locales.filter((l) => hreflangPaths[l]) : locales;
+const targets = targetLocales.map((l) => ({
   locale: l,
   label: localeLabels[l],
   href: hreflangPaths?.[l] ?? switchLocalePath(Astro.url, l),

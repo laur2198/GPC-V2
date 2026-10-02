@@ -95,9 +95,9 @@ const interests = [
       </aside>
 
       <div class="lg:col-span-8">
-        <form id="contact-form" data-redirect="/en/thank-you" data-sending="Sending…" data-ok="Message sent ✓" data-err="Something went wrong. Try again or email us at contact@greenpheonixconcept.com." action="https://formspree.io/f/mjgznoda" method="POST" novalidate class="space-y-6 border border-gpc-border bg-gpc-card/20 p-6 md:p-8">
+        <form id="contact-form" data-redirect="/en/thank-you/" data-sending="Sending…" data-ok="Message sent ✓" data-err="Something went wrong. Try again or email us at contact@greenpheonixconcept.com." action="https://formspree.io/f/mjgznoda" method="POST" novalidate class="space-y-6 border border-gpc-border bg-gpc-card/20 p-6 md:p-8">
           <input type="hidden" name="_subject" value="New contact from greenpheonixconcept.com EN" />
-          <input type="hidden" name="_next" value="https://greenpheonixconcept.com/en/thank-you" />
+          <input type="hidden" name="_next" value="https://greenpheonixconcept.com/en/thank-you/" />
           <input type="hidden" name="_language" value="en" />
           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
           <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// QUOTE REQUEST</p>
@@ -188,7 +188,7 @@ const interests = [
       var sendingLabel = form.getAttribute('data-sending') || 'Sending…';
       var okLabel = form.getAttribute('data-ok') || 'Message sent ✓';
       var errLabel = form.getAttribute('data-err') || 'Something went wrong. Try again or email us at contact@greenpheonixconcept.com.';
-      var redirect = form.getAttribute('data-redirect') || '/en/thank-you';
+      var redirect = form.getAttribute('data-redirect') || '/en/thank-you/';
       function setStatus(msg, ok) { if (!status) return; status.hidden = false; status.textContent = msg; status.style.color = ok ? 'var(--gpc-green)' : 'var(--gpc-red)'; }
       function fireConversions() {
         try { if (typeof window.gtag !== 'undefined') window.gtag('event', 'form_submit', { event_category: 'engagement', event_label: 'contact_form' }); } catch (e) {}

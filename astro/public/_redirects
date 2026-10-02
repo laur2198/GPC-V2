@@ -38,5 +38,11 @@
 /it/servicii-web               /it/servicii/web-development/           301
 /it/politica                   /it/informativa-privacy/                301
 
+# Thank-you duplicates (EN/IT used to have a /multumim copy of their own page)
+/en/multumim                   /en/thank-you/                          301
+/en/multumim/                  /en/thank-you/                          301
+/it/multumim                   /it/grazie/                             301
+/it/multumim/                  /it/grazie/                             301
+
 # Sitemap alias (@astrojs/sitemap emits sitemap-index.xml)
 /sitemap.xml                   /sitemap-index.xml                      301

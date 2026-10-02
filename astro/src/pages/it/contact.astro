@@ -100,9 +100,9 @@ const interests = [
           Sostituisci [FORM_ID_PLACEHOLDER] in `action` con l'ID reale da
           formspree.io. Honeypot, _next, _subject e _language sono già pronti.
         */}
-        <form id="contact-form" data-redirect="/it/grazie" data-sending="Invio…" data-ok="Messaggio inviato ✓" data-err="Qualcosa è andato storto. Riprova o scrivici a contact@greenpheonixconcept.com." action="https://formspree.io/f/mjgznoda" method="POST" novalidate class="space-y-6 border border-gpc-border bg-gpc-card/20 p-6 md:p-8">
+        <form id="contact-form" data-redirect="/it/grazie/" data-sending="Invio…" data-ok="Messaggio inviato ✓" data-err="Qualcosa è andato storto. Riprova o scrivici a contact@greenpheonixconcept.com." action="https://formspree.io/f/mjgznoda" method="POST" novalidate class="space-y-6 border border-gpc-border bg-gpc-card/20 p-6 md:p-8">
           <input type="hidden" name="_subject" value="New contact from greenpheonixconcept.com IT" />
-          <input type="hidden" name="_next" value="https://greenpheonixconcept.com/it/grazie" />
+          <input type="hidden" name="_next" value="https://greenpheonixconcept.com/it/grazie/" />
           <input type="hidden" name="_language" value="it" />
           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
           <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// RICHIESTA PREVENTIVO</p>
@@ -193,7 +193,7 @@ const interests = [
       var sendingLabel = form.getAttribute('data-sending') || 'Invio…';
       var okLabel = form.getAttribute('data-ok') || 'Messaggio inviato ✓';
       var errLabel = form.getAttribute('data-err') || 'Qualcosa è andato storto. Riprova o scrivici a contact@greenpheonixconcept.com.';
-      var redirect = form.getAttribute('data-redirect') || '/it/grazie';
+      var redirect = form.getAttribute('data-redirect') || '/it/grazie/';
       function setStatus(msg, ok) { if (!status) return; status.hidden = false; status.textContent = msg; status.style.color = ok ? 'var(--gpc-green)' : 'var(--gpc-red)'; }
       function fireConversions() {
         try { if (typeof window.gtag !== 'undefined') window.gtag('event', 'form_submit', { event_category: 'engagement', event_label: 'contact_form' }); } catch (e) {}

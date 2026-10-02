@@ -104,14 +104,14 @@ const interests = [
       <div class="lg:col-span-8">
         <form
           id="contact-form"
-          data-redirect="/multumim"
+          data-redirect="/multumim/"
           action="https://formspree.io/f/mjgznoda"
           method="POST"
           novalidate
           class="space-y-6 border border-gpc-border bg-gpc-card/20 p-6 md:p-8"
         >
           <input type="hidden" name="_subject" value="New contact from greenpheonixconcept.com RO" />
-          <input type="hidden" name="_next" value="https://greenpheonixconcept.com/multumim" />
+          <input type="hidden" name="_next" value="https://greenpheonixconcept.com/multumim/" />
           <input type="hidden" name="_language" value="ro" />
           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
           <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">// CERERE OFERTĂ</p>
@@ -266,7 +266,7 @@ const interests = [
       var sendingLabel = form.getAttribute('data-sending') || 'Se trimite…';
       var okLabel = form.getAttribute('data-ok') || 'Mesaj trimis ✓';
       var errLabel = form.getAttribute('data-err') || 'Ceva n-a mers. Încearcă din nou sau scrie-ne direct la contact@greenpheonixconcept.com.';
-      var redirect = form.getAttribute('data-redirect') || '/multumim';
+      var redirect = form.getAttribute('data-redirect') || '/multumim/';
 
       function setStatus(msg, ok) {
         if (!status) return;

@@ -1,9 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /api/
-Disallow: /multumim
-Disallow: /en/multumim
-Disallow: /it/multumim
 
 User-agent: Bytespider
 Disallow: /

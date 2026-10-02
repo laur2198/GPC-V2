@@ -7,13 +7,41 @@
  * join a cluster.
  *
  * Plain JS on purpose: the blog [slug] pages feed it from getCollection(), and
- * the sitemap serializer in astro.config.mjs feeds it from disk, where
- * astro:content is not available. Both sides pass plain objects:
+ * the sitemap serializer in astro.config.mjs feeds it from disk through
+ * loadBlogPosts(), where astro:content is not available. Both sides pass plain
+ * objects:
  *
  *   { slug: string, language: 'ro' | 'en' | 'it', translationKey?: string, draft?: boolean }
  */
+import { readdirSync, readFileSync } from 'node:fs';
+import { parse } from 'yaml';
 
 const DEFAULT_LOCALE = 'ro';
+const LOCALES = ['ro', 'en', 'it'];
+
+/**
+ * Read every blog post's frontmatter from disk, for callers outside Astro's
+ * content layer (the sitemap). The URL slug follows Astro's rule: the
+ * frontmatter `slug` when set — most EN/IT posts have one, e.g.
+ * calculate-roas-correctly-en.md → calculate-roas-correctly — else the file
+ * name without its extension.
+ */
+export function loadBlogPosts(dir = new URL('../content/blog/', import.meta.url)) {
+  return readdirSync(dir)
+    .filter((file) => /\.mdx?$/.test(file))
+    .map((file) => {
+      const source = readFileSync(new URL(file, dir), 'utf8');
+      const frontmatter = source.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+      if (!frontmatter) throw new Error(`blog-clusters: no frontmatter in ${file}`);
+      const data = parse(frontmatter[1]);
+      return {
+        slug: data.slug ?? file.replace(/\.mdx?$/, ''),
+        language: data.language,
+        translationKey: data.translationKey,
+        draft: data.draft === true,
+      };
+    });
+}
 
 /** Root-relative URL of a post, in its canonical trailing-slash form. */
 export function blogPostPath(language, slug) {
@@ -50,7 +78,8 @@ export function buildClusters(posts) {
 export function hreflangPathsFor(post, clusters) {
   const self = { [post.language]: blogPostPath(post.language, post.slug) };
   if (post.draft) return self;
-  return { ...(clusters.get(clusterKey(post)) ?? self) };
+  const cluster = clusters.get(clusterKey(post)) ?? self;
+  return Object.fromEntries(LOCALES.filter((l) => cluster[l]).map((l) => [l, cluster[l]]));
 }
 
 function clusterKey(post) {

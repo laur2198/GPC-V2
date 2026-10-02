@@ -1,9 +1,24 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
+import { loadBlogPosts, buildClusters, hreflangPathsFor, blogPostPath } from './src/utils/blog-clusters.mjs';
+
+const SITE = 'https://greenpheonixconcept.com';
+
+// The sitemap's i18n pairing matches URLs by locale prefix, which can't see
+// that /blog/cum-calculezi-roas/ and /en/blog/calculate-roas-correctly/ are one
+// article. Blog alternates come from the same clusters the pages use instead.
+const blogPosts = loadBlogPosts().filter((post) => !post.draft);
+const blogClusters = buildClusters(blogPosts);
+const blogAlternates = new Map(
+  blogPosts.map((post) => [
+    SITE + blogPostPath(post.language, post.slug),
+    Object.entries(hreflangPathsFor(post, blogClusters)).map(([lang, path]) => ({ lang, url: SITE + path })),
+  ])
+);
 
 export default defineConfig({
-  site: 'https://greenpheonixconcept.com',
+  site: SITE,
   trailingSlash: 'always',
   i18n: {
     defaultLocale: 'ro',
@@ -25,6 +40,11 @@ export default defineConfig({
         !page.includes('/grazie') &&
         !page.endsWith('/404') &&
         !page.endsWith('/404/'),
+      serialize(item) {
+        const links = blogAlternates.get(item.url);
+        if (links) item.links = links;
+        return item;
+      },
     }),
   ],
   compressHTML: true,

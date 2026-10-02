@@ -1,6 +1,8 @@
 // Legal documents — Romanian master. EN/IT mirror this structure.
 // NOTE: professional GDPR-aligned templates, not a lawyer's legal advice.
 
+import { LEGAL_PATHS } from '../../utils/legal-routes.mjs';
+
 export interface LegalBlock {
   type: 'p' | 'ul' | 'ol' | 'h3' | 'table';
   html?: string;
@@ -14,7 +16,6 @@ export interface LegalSection {
   blocks: LegalBlock[];
 }
 export interface LegalDocData {
-  slug: string;
   metaTitle: string;
   metaDescription: string;
   title: string;
@@ -31,7 +32,6 @@ const DISCLAIMER =
   'ACEASTĂ POLITICĂ ESTE UN DOCUMENT INFORMATIV BAZAT PE TEMPLATE-URI PROFESIONALE GDPR-CONFORME. Nu constituie consultanță juridică. Pentru situații specifice sau contracte complexe, recomandăm consultarea unui avocat. Green Pheonix Concept SRL își rezervă dreptul de a actualiza această politică conform evoluției legislației.';
 
 export const privacy: LegalDocData = {
-  slug: 'politica-confidentialitate',
   metaTitle: 'Politica de Confidențialitate — Green Pheonix Concept',
   metaDescription:
     'Politica de confidențialitate Green Pheonix Concept SRL: ce date colectăm, temei legal, destinatari, transferuri, retenție și drepturile tale GDPR.',
@@ -138,7 +138,7 @@ export const privacy: LegalDocData = {
     {
       heading: '9. Cookies',
       blocks: [
-        { type: 'p', html: 'Pentru detalii complete despre cookies, vezi <a href="/politica-cookies">Politica de Cookies</a>.' },
+        { type: 'p', html: `Pentru detalii complete despre cookies, vezi <a href="${LEGAL_PATHS.cookies.ro}">Politica de Cookies</a>.` },
       ],
     },
     {
@@ -188,7 +188,6 @@ export const privacy: LegalDocData = {
 };
 
 export const terms: LegalDocData = {
-  slug: 'termeni-conditii',
   metaTitle: 'Termeni și Condiții — Green Pheonix Concept',
   metaDescription:
     'Termenii și condițiile de utilizare a site-ului și serviciilor Green Pheonix Concept SRL: contractare, prețuri, proprietate intelectuală, răspundere, litigii.',
@@ -325,7 +324,6 @@ export const terms: LegalDocData = {
 };
 
 export const cookies: LegalDocData = {
-  slug: 'politica-cookies',
   metaTitle: 'Politica de Cookies — Green Pheonix Concept',
   metaDescription:
     'Ce cookies folosim pe greenpheonixconcept.com: necesare, analitice (GA4, Clarity) și marketing (Meta, TikTok), durată, temei legal și cum le gestionezi.',

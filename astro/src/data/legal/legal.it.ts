@@ -2,6 +2,7 @@
 // NOTE: professional GDPR-aligned templates, not a lawyer's legal advice.
 
 import type { LegalDocData } from './legal.ro';
+import { LEGAL_PATHS } from '../../utils/legal-routes.mjs';
 
 const COMPANY =
   'GREEN PHEONIX CONCEPT S.R.L., CUI 45667331 (P.IVA RO45667331), Reg. Imprese J2022000195397, sede Str. Principală Nr. 174, Gura Calitei, Vrancea, 627160, Romania';
@@ -9,7 +10,6 @@ const DISCLAIMER =
   '⚠️ QUESTA POLITICA È UN DOCUMENTO INFORMATIVO BASATO SU TEMPLATE PROFESSIONALI GDPR-CONFORMI. Non costituisce consulenza legale. Per situazioni specifiche o contratti complessi, consigliamo la consultazione di un avvocato. Green Pheonix Concept SRL si riserva il diritto di aggiornare questa politica in linea con l\'evoluzione normativa.';
 
 export const privacy: LegalDocData = {
-  slug: 'informativa-privacy',
   metaTitle: 'Informativa sulla Privacy — Green Pheonix Concept',
   metaDescription:
     'Informativa sulla privacy di Green Pheonix Concept SRL: quali dati raccogliamo, base giuridica, destinatari, trasferimenti, conservazione e i tuoi diritti GDPR.',
@@ -116,7 +116,7 @@ export const privacy: LegalDocData = {
     {
       heading: '9. Cookie',
       blocks: [
-        { type: 'p', html: 'Per dettagli completi sui cookie, consulta la <a href="/it/politica-cookies">Politica sui Cookie</a>.' },
+        { type: 'p', html: `Per dettagli completi sui cookie, consulta la <a href="${LEGAL_PATHS.cookies.it}">Politica sui Cookie</a>.` },
       ],
     },
     {
@@ -166,7 +166,6 @@ export const privacy: LegalDocData = {
 };
 
 export const terms: LegalDocData = {
-  slug: 'termini-condizioni',
   metaTitle: 'Termini e Condizioni — Green Pheonix Concept',
   metaDescription:
     'I termini e le condizioni di utilizzo del sito e dei servizi di Green Pheonix Concept SRL: contrattualizzazione, prezzi, proprietà intellettuale, responsabilità, controversie.',
@@ -303,7 +302,6 @@ export const terms: LegalDocData = {
 };
 
 export const cookies: LegalDocData = {
-  slug: 'politica-cookies',
   metaTitle: 'Politica sui Cookie — Green Pheonix Concept',
   metaDescription:
     'Quali cookie utilizziamo su greenpheonixconcept.com: necessari, analitici (GA4, Clarity) e di marketing (Meta, TikTok), durata, base giuridica e come gestirli.',

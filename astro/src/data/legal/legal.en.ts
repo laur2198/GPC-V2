@@ -2,6 +2,7 @@
 // NOTE: professional GDPR-aligned templates, not a lawyer's legal advice.
 
 import type { LegalDocData } from './legal.ro';
+import { LEGAL_PATHS } from '../../utils/legal-routes.mjs';
 
 const COMPANY =
   'GREEN PHEONIX CONCEPT S.R.L., CUI 45667331 (VAT RO45667331), Trade Register No. J2022000195397, registered office Str. Principală Nr. 174, Gura Calitei, Vrancea, 627160, Romania';
@@ -9,7 +10,6 @@ const DISCLAIMER =
   '⚠️ THIS POLICY IS AN INFORMATIVE DOCUMENT BASED ON PROFESSIONAL GDPR-COMPLIANT TEMPLATES. It does not constitute legal advice. For specific situations or complex contracts, we recommend consulting a lawyer. Green Pheonix Concept SRL reserves the right to update this policy in line with regulatory evolution.';
 
 export const privacy: LegalDocData = {
-  slug: 'privacy-policy',
   metaTitle: 'Privacy Policy — Green Pheonix Concept',
   metaDescription:
     'Green Pheonix Concept SRL privacy policy: what data we collect, legal basis, recipients, transfers, retention and your GDPR rights.',
@@ -116,7 +116,7 @@ export const privacy: LegalDocData = {
     {
       heading: '9. Cookies',
       blocks: [
-        { type: 'p', html: 'For full details about cookies, see the <a href="/en/cookie-policy">Cookie Policy</a>.' },
+        { type: 'p', html: `For full details about cookies, see the <a href="${LEGAL_PATHS.cookies.en}">Cookie Policy</a>.` },
       ],
     },
     {
@@ -166,7 +166,6 @@ export const privacy: LegalDocData = {
 };
 
 export const terms: LegalDocData = {
-  slug: 'terms-of-service',
   metaTitle: 'Terms of Service — Green Pheonix Concept',
   metaDescription:
     'Terms and conditions for using the website and services of Green Pheonix Concept SRL: contracting, pricing, intellectual property, liability, disputes.',
@@ -303,7 +302,6 @@ export const terms: LegalDocData = {
 };
 
 export const cookies: LegalDocData = {
-  slug: 'cookie-policy',
   metaTitle: 'Cookie Policy — Green Pheonix Concept',
   metaDescription:
     'What cookies we use on greenpheonixconcept.com: necessary, analytics (GA4, Clarity) and marketing (Meta, TikTok), duration, legal basis and how to manage them.',

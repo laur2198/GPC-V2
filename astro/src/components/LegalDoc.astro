@@ -12,7 +12,7 @@
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from './Breadcrumbs.astro';
-import { type Locale, localizedPath } from '../utils/i18n';
+import { type Locale } from '../utils/i18n';
 import { legalClusterFor } from '../utils/legal-routes.mjs';
 import type { LegalDocData } from '../data/legal/legal.ro';
 
@@ -23,15 +23,14 @@ interface Props {
 const { locale, doc } = Astro.props;
 
 const SITE = 'https://greenpheonixconcept.com';
-const path = `/${doc.slug}`;
-const breadcrumbs = [{ name: doc.breadcrumb, href: localizedPath(locale, path) }];
-
 // Legal docs have different slugs per locale; the cluster comes from the
-// shared route map, matched on this page's exact path.
+// shared route map, matched on this page's exact path. The page's own URL,
+// for the breadcrumb, comes from the same map.
 const hreflangPaths = legalClusterFor(Astro.url.pathname);
 if (!hreflangPaths) {
   throw new Error(`LegalDoc: ${Astro.url.pathname} is not in LEGAL_PATHS (src/utils/legal-routes.mjs)`);
 }
+const breadcrumbs = [{ name: doc.breadcrumb, href: hreflangPaths[locale] }];
 
 const webPageSchema = {
   '@context': 'https://schema.org',

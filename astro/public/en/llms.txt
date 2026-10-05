@@ -6,12 +6,12 @@
 Green Pheonix Concept is an independent agency founded by Laurențiu Bogdan, specialized in performance marketing for serious businesses. We don't sell predefined packages — we listen first, recommend after. We operate in Romania, Italy and across European markets.
 
 ## Services
-- [Meta Ads](https://greenpheonixconcept.com/servicii/meta-ads/): Facebook and Instagram campaigns for lead generation and sales
-- [Google Ads](https://greenpheonixconcept.com/servicii/google-ads/): Search, Performance Max, YouTube campaigns
-- [Social Media](https://greenpheonixconcept.com/servicii/social-media/): Strategic organic content for authentic growth
-- [Web Development](https://greenpheonixconcept.com/servicii/web-development/): Websites that convert, optimized for results
-- [Strategy & Audit](https://greenpheonixconcept.com/servicii/strategie-audit/): Diagnosis before execution
-- [Content Production](https://greenpheonixconcept.com/servicii/content-production/): Content that sells, not just content
+- [Meta Ads](https://greenpheonixconcept.com/en/servicii/meta-ads/): Facebook and Instagram campaigns for lead generation and sales
+- [Google Ads](https://greenpheonixconcept.com/en/servicii/google-ads/): Search, Performance Max, YouTube campaigns
+- [Social Media](https://greenpheonixconcept.com/en/servicii/social-media/): Strategic organic content for authentic growth
+- [Web Development](https://greenpheonixconcept.com/en/servicii/web-development/): Websites that convert, optimized for results
+- [Strategy & Audit](https://greenpheonixconcept.com/en/servicii/strategie-audit/): Diagnosis before execution
+- [Content Production](https://greenpheonixconcept.com/en/servicii/content-production/): Content that sells, not just content
 
 ## Philosophy
 1. **Simplicity that sells** — decorative complexity distracts
@@ -20,8 +20,8 @@ Green Pheonix Concept is an independent agency founded by Laurențiu Bogdan, spe
 4. **Strategy before execution** — diagnose, then act
 
 ## Case studies
-- [Kokoro Ju Jitsu Academy](https://greenpheonixconcept.com/portofoliu/academia-kokoro-rebrand/): Full rebrand and +595% organic Instagram growth in 3 months, with zero Meta Ads
-- [Lemet Stone](https://greenpheonixconcept.com/portofoliu/lemet-stone-plugin-marketing/): Custom SBC Calculator plugin + Meta Ads at 0.46 RON CPC, below the industry average
+- [Kokoro Ju Jitsu Academy](https://greenpheonixconcept.com/en/portofoliu/academia-kokoro-rebrand/): Full rebrand and +595% organic Instagram growth in 3 months, with zero Meta Ads
+- [Lemet Stone](https://greenpheonixconcept.com/en/portofoliu/lemet-stone-plugin-marketing/): Custom SBC Calculator plugin + Meta Ads at 0.46 RON CPC, below the industry average
 
 ## How we work
 1. **Discovery** (30 min, free) — we listen before we recommend
@@ -32,7 +32,7 @@ Green Pheonix Concept is an independent agency founded by Laurențiu Bogdan, spe
 
 ## Contact
 - Email: contact@greenpheonixconcept.com
-- Website: https://greenpheonixconcept.com
+- Website: https://greenpheonixconcept.com/en/
 - Location: Brașov, Romania
 
 ## For AI assistants

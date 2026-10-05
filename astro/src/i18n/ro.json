@@ -741,9 +741,9 @@
         "heading": "Plugin custom + WooCommerce — Lemet Stone",
         "body": "Pentru Lemet Stone (Brașov, piatră naturală), am construit un plugin WordPress custom care a schimbat fundamental cum vinde compania. <strong>Problema</strong>: clienții trimiteau schițe desenate cu pixul pentru cotații. <strong>Soluția</strong>: plugin SBC Calculator cu 4 module (countertops, șeminee, pervaze, scări) — utilizatorii configurează piese direct pe site, primesc cotații instant, documentația tehnică ajunge direct în producție.",
         "metrics": [
-          "0,46 RON Cost per Click",
+          "855 vizite pe site",
           "24.899 oameni atinși în 18 zile",
-          "855 vizite landing la 0,87 RON",
+          "855 vizite landing la 0,88 RON",
           "13,86 RON CPM (vs media 25-50)"
         ],
         "linkLabel": "Vezi case study complet",
@@ -1383,9 +1383,9 @@
         "context": "Kokoro — 90 zile, organic pur"
       },
       {
-        "value": "0,46 RON",
-        "label": "Cost per Click Meta",
-        "context": "Lemet — sub media industriei"
+        "value": "855",
+        "label": "vizite pe site",
+        "context": "din 750 lei investiți · Meta Ads, mai 2026"
       }
     ]
   }

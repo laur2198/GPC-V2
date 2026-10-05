@@ -37,7 +37,6 @@ const period = d.period ?? d.duration;
 
 // Hand-drawn marginalia next to the hero metric, keyed by slug.
 const annotationMap: Record<string, { type: 'circle' | 'underline' | 'arrow'; position: 'right' | 'below'; text: string }> = {
-  'lemet-stone-plugin-marketing': { type: 'circle', position: 'right', text: 'sub media' },
   'academia-kokoro-rebrand': { type: 'underline', position: 'below', text: 'fără ads' },
 };
 const annotation = annotationMap[cleanSlug];

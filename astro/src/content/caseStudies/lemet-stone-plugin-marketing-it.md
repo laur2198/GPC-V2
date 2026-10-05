@@ -11,32 +11,27 @@ draft: false
 featured: true
 order: 1
 heroMetric:
-  value: "0,46 RON"
-  label: "Cost per Click Meta"
-  context: "Sotto la media di settore (0,80-1,50 RON)"
+  value: "855"
+  label: "visite al sito · maggio 2026"
+  context: "con 750 RON investiti · Meta Ads"
 secondaryMetrics:
   - value: "24.899"
     label: "Persone raggiunte"
     context: "In 18 giorni di pilot"
   - value: "855"
     label: "Visite alla landing"
-    context: "Costo per visita 0,87 RON"
+    context: "Costo per visita 0,88 RON"
   - value: "927"
     label: "View Content events"
     context: "Interesse confermato nel prodotto"
-  - value: "2,02%"
+  - value: "2,03%"
     label: "CTR sul link"
-    context: "Sopra la media B2B locale"
 services:
   - "Plugin custom WordPress (SBC Calculator)"
   - "Integrazione WooCommerce"
   - "Admin panel pricing dinamico"
   - "Meta Ads pilot"
   - "SEO locale Brașov"
-testimonial:
-  quote: "Il pilot Meta Ads ha validato tecnicamente la capacità di portare traffico qualificato a un costo sostenibile: 0,46 RON Cost per Click, 855 visite alla landing a 0,87 RON ciascuna — sotto la media di settore in ogni metrica misurata."
-  author: "Dati Meta Ads Manager"
-  role: "Pilot 1-18 maggio 2026 · Campagna AS1_Broad_Advantage"
 images:
   hero: "/case-studies/lemet/blat-granit-bucatarie.jpg"
   product: "/case-studies/lemet/blat-marmura.jpg"
@@ -109,7 +104,7 @@ Il risultato: ciò che prima richiedeva ore ora si fa in minuti. Il team Lemet r
 
 ### Meta Ads pilot — validazione del costo di acquisizione
 
-Prima di scalare il budget, abbiamo lanciato un pilot di 18 giorni (1-18 maggio 2026) sulla campagna `AS1_Broad_Advantage` con targeting Advantage+. Obiettivo: misurare il costo reale di acquisizione di traffico qualificato su piatra-naturala.ro.
+Prima di scalare il budget, abbiamo lanciato un pilot di 18 giorni (1-18 maggio 2026) sulla campagna `PN_Traffic_Mai2026_1400RON` con targeting Advantage+. Obiettivo: misurare il costo reale di acquisizione di traffico qualificato su piatra-naturala.ro.
 
 ## Risultati pilot Meta Ads — dati ufficiali Ads Manager
 
@@ -122,12 +117,12 @@ Prima di scalare il budget, abbiamo lanciato un pilot di 18 giorni (1-18 maggio 
 | Click sul link | 1.097 | 4,4% click-to-reach |
 | Visite alla landing page | 855 | 78% click-to-landing |
 | View Content events | 927 | Engagement post-click |
-| **Cost per Click** | **0,46 RON** | **Sotto la media (0,80-1,50)** |
+| **Visite al sito** | **855** | **0,88 RON per visita** |
 | **CPM** | **13,86 RON** | **Eccellente (settore 25-50)** |
-| **CTR link** | **2,02%** | Sopra la media B2B locale |
-| Costo per landing view | 0,87 RON | Molto efficiente |
+| **CTR link** | **2,03%** | 1.097 clic su 54.145 impression |
+| Costo per landing view | 0,88 RON | Molto efficiente |
 
-**Conclusione pilot**: validato. Il costo reale di acquisizione di traffico qualificato è sotto la media di settore. Lemet può scalare il budget senza perdere l'efficienza dei costi.
+**Conclusione pilot**: validato. Lemet può scalare il budget senza perdere l'efficienza dei costi.
 
 ## Cosa succede ora
 

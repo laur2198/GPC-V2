@@ -11,32 +11,27 @@ draft: false
 featured: true
 order: 1
 heroMetric:
-  value: "0.46 RON"
-  label: "Meta Cost per Click"
-  context: "Below industry average (0.80-1.50 RON)"
+  value: "855"
+  label: "site visits · May 2026"
+  context: "from 750 RON spent · Meta Ads"
 secondaryMetrics:
   - value: "24,899"
     label: "People reached"
     context: "Across an 18-day pilot"
   - value: "855"
     label: "Landing page visits"
-    context: "Cost per visit 0.87 RON"
+    context: "Cost per visit 0.88 RON"
   - value: "927"
     label: "View Content events"
     context: "Confirmed product interest"
-  - value: "2.02%"
+  - value: "2.03%"
     label: "Link CTR"
-    context: "Above local B2B average"
 services:
   - "Custom WordPress plugin (SBC Calculator)"
   - "WooCommerce integration"
   - "Dynamic pricing admin panel"
   - "Meta Ads pilot"
   - "Local SEO Brașov"
-testimonial:
-  quote: "The Meta Ads pilot technically validated the ability to drive qualified traffic at a sustainable cost: 0.46 RON Cost per Click, 855 landing page visits at 0.87 RON each — below the industry average on every metric measured."
-  author: "Meta Ads Manager data"
-  role: "Pilot 1-18 May 2026 · AS1_Broad_Advantage campaign"
 images:
   hero: "/case-studies/lemet/blat-granit-bucatarie.jpg"
   product: "/case-studies/lemet/blat-marmura.jpg"
@@ -109,7 +104,7 @@ The result: what used to take hours is now done in minutes. The Lemet team recei
 
 ### Meta Ads Pilot — acquisition cost validation
 
-Before scaling the budget, we ran an 18-day pilot (1-18 May 2026) on the `AS1_Broad_Advantage` campaign with Advantage+ targeting. Objective: measure the real cost of driving qualified traffic to piatra-naturala.ro.
+Before scaling the budget, we ran an 18-day pilot (1-18 May 2026) on the `PN_Traffic_Mai2026_1400RON` campaign with Advantage+ targeting. Objective: measure the real cost of driving qualified traffic to piatra-naturala.ro.
 
 ## Meta Ads Pilot Results — official Ads Manager data
 
@@ -122,12 +117,12 @@ Before scaling the budget, we ran an 18-day pilot (1-18 May 2026) on the `AS1_Br
 | Link clicks | 1,097 | 4.4% click-to-reach |
 | Landing page visits | 855 | 78% click-to-landing |
 | View Content events | 927 | Post-click engagement |
-| **Cost per Click** | **0.46 RON** | **Below average (0.80-1.50)** |
+| **Site visits** | **855** | **0.88 RON per visit** |
 | **CPM** | **13.86 RON** | **Excellent (industry 25-50)** |
-| **Link CTR** | **2.02%** | Above local B2B average |
-| Cost per landing view | 0.87 RON | Highly efficient |
+| **Link CTR** | **2.03%** | 1,097 clicks from 54,145 impressions |
+| Cost per landing view | 0.88 RON | Highly efficient |
 
-**Pilot conclusion**: validated. The real cost of driving qualified traffic is below the industry average. Lemet can scale the budget without losing cost efficiency.
+**Pilot conclusion**: validated. Lemet can scale the budget without losing cost efficiency.
 
 ## What's Next
 

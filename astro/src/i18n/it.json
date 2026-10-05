@@ -890,7 +890,7 @@
         "paragraphs": [
           "<strong>Discovery call (30 min) — gratuita.</strong> Ascoltiamo prima, valutiamo se siamo adatti.",
           "<strong>Audit standalone</strong> — progetto puntuale. Documento completo, deliverable concreti, senza obbligo di prosecuzione.",
-          "<strong>Audit completo — 150€, creditabile.</strong> Consegna in 48h (report video + scritto). I 150€ vengono interamente scalati dalla prima fattura se firma un contratto per l'implementazione successiva.",
+          "<strong>Audit completo — 150€, creditabile.</strong> Report PDF in cinque sezioni più una call di presentazione, consegna in 5 giorni lavorativi. I 150€ vengono interamente scalati dalla prima fattura se firma un contratto per l'implementazione successiva.",
           "Intervalli indicativi sulla nostra pagina <a href=\"/it/preturi\" class=\"text-gpc-green underline hover:no-underline\">Prezzi</a>. Il prezzo finale per l'implementazione lo stabiliamo dopo l'audit, perché dipende dallo scope: un audit Meta Ads semplice ≠ un audit dell'ecosistema completo su 5 assi. Le diciamo onestamente quanto costa per il Suo caso concreto."
         ]
       },
@@ -1164,7 +1164,6 @@
     "buttonText": "Prenota una discovery call"
   },
   "pricing": {
-    "_todo": "PREZZI PROVVISORI (tutti i valori in €) — calibrati da Claude, da confermare da Laurentiu prima della pubblicazione",
     "meta": {
       "title": "Prezzi Web Design e Marketing | Green Pheonix Concept",
       "description": "Prezzi chiari con intervalli: siti da 500€, retainer di marketing da 250€/mese. Nessuna sorpresa — il prezzo finale lo stabiliamo dopo un audit breve."
@@ -1174,7 +1173,7 @@
       "eyebrow": "INVESTIMENTO",
       "h1": "Prezzi chiari. Nessuna sorpresa alla fine.",
       "subtitle": "Non vendiamo siti o annunci come prodotti isolati. Vendiamo un sistema che porta clienti: un sito costruito per convertire + campagne ottimizzate sui risultati. Qui sotto trova gli intervalli indicativi per ogni fase in cui può trovarsi.",
-      "microcopy": ["Pagamento rateale disponibile", "Un audit prima di ogni preventivo", "2-3 nuovi progetti al mese"]
+      "microcopy": ["Pagamento rateale disponibile", "Preventivo dopo la discovery call", "Massimo 3 progetti in parallelo"]
     },
     "web": {
       "eyebrow": "SITI",
@@ -1210,8 +1209,8 @@
           "for": "l'azienda che vuole una presenza completa e professionale — servizi, portfolio, contatti, blog. Il sito con cui si presenta con orgoglio.",
           "includes": [
             "5-8 pagine, consegnate in 2-3 settimane",
-            "Design 100% personalizzato, multilingue se serve (RO/EN/IT)",
-            "SEO tecnica, velocità 95+ Lighthouse, sicurezza configurate",
+            "Design 100% personalizzato sul Suo brand",
+            "SEO tecnica, ottimizzazione della velocità e sicurezza",
             "Blog/sezione novità inclusa",
             "Tracking completo + Google Search Console",
             "Email sul dominio + consegna con tutti gli accessi"
@@ -1238,7 +1237,7 @@
     "retainer": {
       "eyebrow": "MARKETING — ABBONAMENTO MENSILE",
       "title": "Annunci gestiti mensilmente, ottimizzati sui risultati",
-      "intro": "Gestione continua delle campagne (Meta, Google, TikTok) con setup pulito, conversioni server-side e ottimizzazione settimanale. I 3 livelli coprono fasi di crescita diverse. Il budget pubblicitario (ciò che paga alle piattaforme) è separato dal fee di gestione.",
+      "intro": "Gestione continua delle campagne (Meta, Google, TikTok) con setup pulito, conversioni server-side e ottimizzazione settimanale. I 3 livelli si differenziano per il numero di piattaforme gestite. Il budget pubblicitario e la produzione dei materiali si quotano a parte.",
       "priceModelLabel": "abbonamento mensile",
       "forLabel": "Per",
       "includesLabel": "Include",
@@ -1265,7 +1264,7 @@
           "for": "aziende che già fanno annunci e vogliono scalare su più canali.",
           "includes": [
             "Tutto di Start, su 2 piattaforme",
-            "Nuovi creative consigliati ogni mese",
+            "Raccomandazioni creative mensili (la produzione si quota a parte)",
             "A/B testing su audience + creative",
             "Priorità nella comunicazione"
           ]
@@ -1290,17 +1289,17 @@
       "title": "Sito + Marketing. Un solo sistema che vende.",
       "body": "Qui sta la differenza vera. Un sito fatto da noi non è solo «bello» — è costruito fin dall'inizio per le campagne che gestiamo: tracking corretto, pagine di conversione, tutto misurabile. Quando li prende insieme, il sito e gli annunci lavorano come un sistema, non come due servizi separati.",
       "offerLabel": "L'offerta",
-      "offer": "Qualsiasi sito (dai pacchetti qui sopra) + un retainer mensile di marketing → i primi 2 mesi di retainer a metà prezzo.",
+      "offer": "Qualsiasi sito dai pacchetti qui sopra + un retainer mensile → i primi 2 mesi di retainer a metà prezzo, con contratto di almeno 6 mesi.",
       "cta": "Parliamo del Suo progetto"
     },
     "terms": {
       "title": "Come si stabilisce il prezzo finale",
-      "intro": "Gli intervalli qui sopra coprono la maggior parte dei progetti standard. Il prezzo finale lo stabiliamo dopo un audit breve, in base alla complessità, al numero di pagine, alle lingue necessarie e alle funzionalità richieste. Nessuna sorpresa: riceve un preventivo dettagliato prima di iniziare.",
+      "intro": "Gli intervalli qui sopra coprono la maggior parte dei progetti standard. Il prezzo finale lo stabiliamo dopo la discovery call, in base alla complessità, al numero di pagine, alle lingue necessarie e alle funzionalità richieste. Riceve un preventivo dettagliato prima di iniziare.",
       "items": [
         "<strong>Pagamento:</strong> 50% di anticipo alla firma del contratto, 50% alla consegna. Per i retainer, mensile in anticipo.",
         "<strong>Rate:</strong> disponibili per i progetti web (ne parliamo in fase di preventivo).",
-        "<strong>Sconti:</strong> fino al 10% per pagamento annuale anticipato, fino al 15% su contratto di 12 mesi. Tutto qui — non lavoriamo su sconti elevati che svalutano il lavoro.",
-        "<strong>Audit completo a pagamento:</strong> 150€, consegna in 48h (report video + scritto). Interamente scalato dalla prima fattura se lavoriamo insieme dopo."
+        "<strong>Sconti:</strong> fino al 10% per pagamento annuale anticipato, fino al 15% su contratto di 12 mesi. Lo sconto del pacchetto integrato richiede un contratto di almeno 6 mesi. Tutto qui — non lavoriamo con sconti di listino.",
+        "<strong>Audit completo a pagamento:</strong> 150€, report PDF in cinque sezioni più una call di presentazione, consegna in 5 giorni lavorativi. Interamente scalato dalla prima fattura se lavoriamo insieme dopo. Non è necessario per ricevere un preventivo."
       ]
     },
     "addons": {
@@ -1309,7 +1308,17 @@
         {
           "name": "Audit di un sito/account esistente",
           "price": "150€",
-          "desc": "consegna in 48h. Un report concreto su cosa sta perdendo ora e cosa va cambiato. Creditabile se lavoriamo insieme dopo."
+          "desc": "report PDF in cinque sezioni più una call, consegna in 5 giorni lavorativi. Cosa sta perdendo ora e cosa va cambiato, in ordine di priorità. Creditabile se lavoriamo insieme dopo."
+        },
+        {
+          "name": "Versione in un'altra lingua",
+          "price": "+40%",
+          "desc": "traduzione adattata, hreflang, sitemap multilingue. Non traduzione automatica."
+        },
+        {
+          "name": "Produzione di contenuti social",
+          "price": "da 250€ / mese",
+          "desc": "4 post con grafica e testo. Pacchetti più ampi su richiesta. Separata dalla gestione delle campagne."
         },
         {
           "name": "Landing page extra",
@@ -1325,8 +1334,8 @@
     },
     "finalCta": {
       "title": "Non è sicuro di cosa fa per Lei?",
-      "body": "Prenoti una discovery call gratuita di 30 minuti. Esce con un piano concreto e una raccomandazione onesta, che lavoriamo insieme o no.",
-      "scarcity": "Accettiamo solo 2-3 nuovi progetti al mese.",
+      "body": "Prenoti una discovery call gratuita di 30 minuti. Le dico direttamente se posso aiutarLa e in quale fascia di prezzo rientra — che lavoriamo insieme o no.",
+      "scarcity": "Lavoro con al massimo 3 progetti in parallelo.",
       "button": "Prenoti una discovery call"
     }
   },

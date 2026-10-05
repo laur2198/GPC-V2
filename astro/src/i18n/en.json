@@ -890,7 +890,7 @@
         "paragraphs": [
           "<strong>Discovery call (30 min) — free.</strong> We listen first, then assess whether we are a good fit.",
           "<strong>Standalone audit</strong> — a one-off project. A complete document, concrete deliverables, with no obligation to continue.",
-          "<strong>Full audit — €150, creditable.</strong> Delivered in 48h (video + written report). The €150 is fully credited against your first invoice if you sign a contract for subsequent implementation.",
+          "<strong>Full audit — €150, creditable.</strong> A five-section PDF report plus a walkthrough call, delivered in 5 business days. The €150 is fully credited against your first invoice if you sign a contract for subsequent implementation.",
           "Indicative ranges are on our <a href=\"/en/preturi\" class=\"text-gpc-green underline hover:no-underline\">Pricing</a> page. The final price for implementation we set after the audit, because it depends on scope: a simple Meta Ads audit is not the same as a complete 5-axis ecosystem audit. We tell you honestly what it costs for your specific case."
         ]
       },
@@ -1164,7 +1164,6 @@
     "buttonText": "Book a discovery call"
   },
   "pricing": {
-    "_todo": "PROVISIONAL PRICES (all € values) — calibrated by Claude, to be confirmed by Laurentiu before publishing",
     "meta": {
       "title": "Web Design & Marketing Pricing | Green Pheonix Concept",
       "description": "Clear pricing with ranges: websites from €500, marketing retainers from €250/month. No surprises — we set the final price after a short audit."
@@ -1174,7 +1173,7 @@
       "eyebrow": "INVESTMENT",
       "h1": "Clear pricing. No surprises at the end.",
       "subtitle": "We don't sell websites or ads as isolated products. We sell a system that brings clients: a site built to convert + campaigns optimized for results. Below are the indicative ranges for whatever stage you're at.",
-      "microcopy": ["Installment payments available", "An audit before any quote", "2-3 new projects per month"]
+      "microcopy": ["Installment payments available", "Quote after a discovery call", "No more than 3 projects at a time"]
     },
     "web": {
       "eyebrow": "WEBSITES",
@@ -1210,8 +1209,8 @@
           "for": "the business that wants a complete, professional presence — services, portfolio, contact, blog. The site you introduce yourself with, proudly.",
           "includes": [
             "5-8 pages, delivered in 2-3 weeks",
-            "100% custom design, multilingual if you need it (RO/EN/IT)",
-            "Technical SEO, 95+ Lighthouse speed, security configured",
+            "100% custom design, built around your brand",
+            "Technical SEO, speed optimization and security",
             "Blog/news section included",
             "Full tracking + Google Search Console",
             "Email on your domain + handover with all access"
@@ -1238,7 +1237,7 @@
     "retainer": {
       "eyebrow": "MARKETING — MONTHLY SUBSCRIPTION",
       "title": "Ads managed monthly, optimized for results",
-      "intro": "Continuous campaign management (Meta, Google, TikTok) with clean setup, server-side conversions and weekly optimization. The 3 tiers cover different growth stages. The ad budget (what you pay the platforms) is separate from the management fee.",
+      "intro": "Ongoing campaign management (Meta, Google, TikTok) with clean setup, server-side conversions and weekly optimization. The 3 tiers differ in how many platforms are managed. Ad spend and creative production are quoted separately.",
       "priceModelLabel": "monthly subscription",
       "forLabel": "For",
       "includesLabel": "Includes",
@@ -1265,7 +1264,7 @@
           "for": "businesses already running ads who want to scale across more channels.",
           "includes": [
             "Everything in Start, on 2 platforms",
-            "New creative recommended monthly",
+            "Monthly creative recommendations (production quoted separately)",
             "A/B testing on audience + creative",
             "Priority communication"
           ]
@@ -1290,17 +1289,17 @@
       "title": "Website + Marketing. One system that sells.",
       "body": "This is the real difference. A site we build isn't just \"pretty\" — it's built from the start for the campaigns we run: correct tracking, conversion pages, everything measurable. When you take them together, the site and the ads work as one system, not as two separate services.",
       "offerLabel": "The offer",
-      "offer": "Any website (from the packages above) + a monthly marketing retainer → the first 2 months of the retainer at half price.",
+      "offer": "Any website from the packages above + a monthly retainer → the first 2 months of the retainer at half price, on a minimum 6-month contract.",
       "cta": "Let's talk about your project"
     },
     "terms": {
       "title": "How the final price is set",
-      "intro": "The ranges above cover most standard projects. We set the final price after a short audit, based on complexity, the number of pages, the languages needed and the functionality requested. No surprises: you get an itemized quote before we start.",
+      "intro": "The ranges above cover most standard projects. We set the final price after the discovery call, based on complexity, the number of pages, the languages needed and the functionality requested. You get an itemized quote before we start.",
       "items": [
         "<strong>Payment:</strong> 50% upfront on signing the contract, 50% on completion. For retainers, monthly in advance.",
         "<strong>Installments:</strong> available for web projects (we discuss at the quote stage).",
-        "<strong>Discounts:</strong> up to 10% for annual prepayment, up to 15% on a 12-month contract. That's it — we don't work on big discounts that devalue the work.",
-        "<strong>Full paid audit:</strong> €150, delivered in 48h (video + written report). Fully credited against your first invoice if we work together afterwards."
+        "<strong>Discounts:</strong> up to 10% for annual prepayment, up to 15% on a 12-month contract. The integrated-package discount requires a contract of at least 6 months. That's it — we don't do list-price discounting.",
+        "<strong>Full paid audit:</strong> €150, a five-section PDF report plus a walkthrough call, delivered in 5 business days. Fully credited against your first invoice if we work together afterwards. You don't need it to get a quote."
       ]
     },
     "addons": {
@@ -1309,7 +1308,17 @@
         {
           "name": "Audit of an existing site/account",
           "price": "€150",
-          "desc": "delivered in 48h. A concrete report on what you're losing now and what needs to change. Creditable if we work together afterwards."
+          "desc": "five-section PDF report plus a call, delivered in 5 business days. What you're losing now and what needs to change, in order of priority. Creditable if we work together afterwards."
+        },
+        {
+          "name": "Version in another language",
+          "price": "+40%",
+          "desc": "adapted translation, hreflang, multilingual sitemap. Not machine translation."
+        },
+        {
+          "name": "Social content production",
+          "price": "from €250 / month",
+          "desc": "4 posts with graphics and copy. Larger packages on request. Separate from campaign management."
         },
         {
           "name": "Extra landing page",
@@ -1325,8 +1334,8 @@
     },
     "finalCta": {
       "title": "Not sure what fits you?",
-      "body": "Book a free 30-minute discovery call. You leave with a concrete plan and an honest recommendation, whether we work together or not.",
-      "scarcity": "We only take on 2-3 new projects per month.",
+      "body": "Book a free 30-minute discovery call. I'll tell you straight whether I can help and which price range you fall into — whether we work together or not.",
+      "scarcity": "I work on no more than 3 projects at a time.",
       "button": "Book a discovery call"
     }
   },

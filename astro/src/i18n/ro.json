@@ -890,7 +890,7 @@
         "paragraphs": [
           "<strong>Discovery call (30 min) — gratuit.</strong> Ascultăm întâi, evaluăm dacă suntem potriviți.",
           "<strong>Audit standalone</strong> — proiect punctual. Document complet, livrabile concrete, fără obligație de continuare.",
-          "<strong>Audit complet — 150€, creditabil.</strong> Livrare 48h (raport video + scris). Cei 150€ se scad integral din prima factură dacă semnezi contract pentru implementare ulterioară.",
+          "<strong>Audit complet — 150€, creditabil.</strong> Raport PDF pe cinci secțiuni plus apel de prezentare, livrare 5 zile lucrătoare. Cei 150€ se scad integral din prima factură dacă semnezi contract pentru implementare ulterioară.",
           "Intervale orientative pe pagina de <a href=\"/preturi\" class=\"text-gpc-green underline hover:no-underline\">Prețuri</a>. Prețul final pentru implementare îl stabilim după audit, pentru că depinde de scope: audit Meta Ads simplu ≠ audit ecosistem complet 5 axe. Spunem onest cât costă pentru cazul tău concret."
         ]
       },
@@ -1164,7 +1164,6 @@
     "buttonText": "Programează discovery call"
   },
   "pricing": {
-    "_todo": "PREȚURI PROVIZORII (toate valorile €) — calibrate de Claude, de confirmat de Laurentiu înainte de publicare",
     "meta": {
       "title": "Prețuri Web Design & Marketing | Green Pheonix Concept",
       "description": "Prețuri clare, cu intervale: site-uri de la 500€, retainere de marketing de la 250€/lună. Fără surprize — prețul final îl stabilim după un audit scurt."
@@ -1174,7 +1173,7 @@
       "eyebrow": "INVESTIȚIE",
       "h1": "Prețuri clare. Fără surprize la final.",
       "subtitle": "Nu vindem site-uri sau reclame ca produse izolate. Vindem un sistem care aduce clienți: site construit să convertească + campanii optimizate pe rezultate. Mai jos vezi intervalele orientative pentru fiecare etapă în care poți fi.",
-      "microcopy": ["Plată în rate disponibilă", "Audit înainte de orice ofertă", "2-3 proiecte noi pe lună"]
+      "microcopy": ["Plată în rate disponibilă", "Ofertă după discovery call", "Maximum 3 proiecte în paralel"]
     },
     "web": {
       "eyebrow": "SITE-URI",
@@ -1210,8 +1209,8 @@
           "for": "afacerea care vrea o prezență completă și profesională — servicii, portofoliu, contact, blog. Site-ul cu care te prezinți cu mândrie.",
           "includes": [
             "5-8 pagini, livrate în 2-3 săptămâni",
-            "Design 100% personalizat, multilingv dacă ai nevoie (RO/EN/IT)",
-            "SEO tehnic, viteză 95+ Lighthouse, securitate configurate",
+            "Design 100% personalizat pe brandul tău",
+            "SEO tehnic, optimizare de viteză și securitate",
             "Blog/secțiune noutăți inclus",
             "Tracking complet + Google Search Console",
             "Email pe domeniu + predare cu toate accesele"
@@ -1238,7 +1237,7 @@
     "retainer": {
       "eyebrow": "MARKETING — ABONAMENT LUNAR",
       "title": "Reclame gestionate lunar, optimizate pe rezultate",
-      "intro": "Management continuu de campanii (Meta, Google, TikTok) cu setup curat, conversii server-side și optimizare săptămânală. Cele 3 niveluri acoperă etape diferite de creștere. Bugetul de reclame (ce plătești platformelor) e separat de fee-ul de management.",
+      "intro": "Management continuu de campanii (Meta, Google, TikTok) cu setup curat, conversii server-side și optimizare săptămânală. Cele 3 niveluri diferă prin numărul de platforme gestionate. Bugetul de reclame și producția de materiale se cotează separat.",
       "priceModelLabel": "abonament lunar",
       "forLabel": "Pentru",
       "includesLabel": "Include",
@@ -1265,7 +1264,7 @@
           "for": "afaceri care rulează deja reclame și vor să scaleze pe mai multe canale.",
           "includes": [
             "Tot din Start, pe 2 platforme",
-            "Creative noi recomandate lunar",
+            "Recomandări de creative lunare (producția se cotează separat)",
             "A/B testing pe audience + creative",
             "Prioritate la comunicare"
           ]
@@ -1290,17 +1289,17 @@
       "title": "Site + Marketing. Un singur sistem care vinde.",
       "body": "Aici e diferența reală. Un site făcut de noi nu e doar „frumos” — e construit din start pentru campaniile pe care le rulăm: tracking corect, pagini de conversie, totul măsurabil. Când le iei împreună, site-ul și reclamele lucrează ca un sistem, nu ca două servicii separate.",
       "offerLabel": "Oferta",
-      "offer": "Orice site (din pachetele de mai sus) + retainer lunar de marketing → primele 2 luni de retainer la jumătate de preț.",
+      "offer": "Orice site din pachetele de mai sus + retainer lunar → primele 2 luni de retainer la jumătate de preț, la contract de minimum 6 luni.",
       "cta": "Hai să discutăm proiectul"
     },
     "terms": {
       "title": "Cum se stabilește prețul final",
-      "intro": "Intervalele de mai sus acoperă majoritatea proiectelor standard. Prețul final îl stabilim după un audit scurt, în funcție de complexitate, numărul de pagini, limbile necesare și funcționalitățile cerute. Fără surprize: primești o ofertă pe linii clare înainte să începem.",
+      "intro": "Intervalele de mai sus acoperă majoritatea proiectelor standard. Prețul final îl stabilim după discovery call, în funcție de complexitate, numărul de pagini, limbile necesare și funcționalitățile cerute. Primești o ofertă pe linii clare înainte să începem.",
       "items": [
         "<strong>Plată:</strong> 50% avans la semnarea contractului, 50% la final. Pentru retainere, lunar în avans.",
         "<strong>Rate:</strong> disponibile pentru proiectele web (discutăm la ofertă).",
-        "<strong>Reduceri:</strong> până la 10% la plată anuală anticipată, până la 15% la contract pe 12 luni. Atât — nu lucrăm pe discounturi mari care devalorizează munca.",
-        "<strong>Audit complet plătit:</strong> 150€, livrare 48h (raport video + scris). Se scade integral din prima factură dacă lucrăm împreună după."
+        "<strong>Reduceri:</strong> până la 10% la plată anuală anticipată, până la 15% la contract pe 12 luni. Reducerea din pachetul integrat e condiționată de contract pe minimum 6 luni. Atât — nu lucrăm pe discounturi de listă.",
+        "<strong>Audit complet plătit:</strong> 150€, raport PDF pe cinci secțiuni plus apel de prezentare, livrare 5 zile lucrătoare. Se scade integral din prima factură dacă lucrăm împreună după. Nu e necesar ca să primești o ofertă."
       ]
     },
     "addons": {
@@ -1309,7 +1308,17 @@
         {
           "name": "Audit site/cont existent",
           "price": "150€",
-          "desc": "livrare 48h. Raport concret cu ce pierzi acum și ce trebuie schimbat. Creditabil dacă lucrăm după."
+          "desc": "raport PDF pe cinci secțiuni plus apel, livrare 5 zile lucrătoare. Ce pierzi acum și ce trebuie schimbat, pe priorități. Creditabil dacă lucrăm după."
+        },
+        {
+          "name": "Versiune în altă limbă",
+          "price": "+40%",
+          "desc": "traducere adaptată, hreflang, sitemap multilingv. Nu traducere automată."
+        },
+        {
+          "name": "Producție de conținut social",
+          "price": "de la 250€ / lună",
+          "desc": "4 postări cu grafică și text. Pachete mai mari la cerere. Separat de managementul campaniilor."
         },
         {
           "name": "Landing page extra",
@@ -1325,8 +1334,8 @@
     },
     "finalCta": {
       "title": "Nu ești sigur ce ți se potrivește?",
-      "body": "Programează un discovery call gratuit de 30 de minute. Iei un plan concret și o recomandare onestă, indiferent dacă lucrăm sau nu împreună.",
-      "scarcity": "Acceptăm doar 2-3 proiecte noi pe lună.",
+      "body": "Programează un discovery call gratuit de 30 de minute. Îți spun direct dacă te pot ajuta și în ce interval de preț te încadrezi — indiferent dacă lucrăm sau nu împreună.",
+      "scarcity": "Lucrez cu maximum 3 proiecte în paralel.",
       "button": "Programează discovery call"
     }
   },

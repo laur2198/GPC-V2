@@ -1,20 +1,23 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { localizedPath } from '../utils/i18n';
+import { LEGAL_PATHS } from '../utils/legal-routes.mjs';
 
 const meta = {
   title: '404 — Pagină inexistentă | Green Pheonix',
   description: 'Resursa pe care o cauți nu există în sistem. Întoarce-te la pagina principală sau contactează-ne.',
 };
 
+// Shown as a directory listing, so every entry must be a page that exists,
+// in its canonical form. The privacy policy comes from the shared route map.
 const knownRoutes = [
   '/',
-  '/servicii',
-  '/portofoliu',
-  '/blog',
-  '/despre',
-  '/contact',
-  '/politica',
+  '/servicii/',
+  '/portofoliu/',
+  '/blog/',
+  '/despre/',
+  '/contact/',
+  LEGAL_PATHS.privacy.ro,
   '/en/',
   '/it/',
 ];

@@ -14,9 +14,9 @@ heroMetric:
   label: "vizite pe site · mai 2026"
   context: "din 750 lei investiți · Meta Ads"
 secondaryMetrics:
-  - value: "24.899"
+  - value: "24.039"
     label: "Oameni atinși"
-    context: "În 18 zile pilot"
+    context: "mai 2026"
   - value: "1.097"
     label: "Click-uri pe link"
   - value: "927"
@@ -106,16 +106,16 @@ Rezultatul: ce dura înainte ore acum se face în minute. Echipa Lemet primește
 
 ## Rezultate Meta Ads pilot — date oficiale Ads Manager
 
-**Buget media: 750,70 RON. Durată: 18 zile.**
+**Buget media: 750,70 RON. Perioadă: mai 2026.**
 
-| Metric | Valoare | Context industrie |
+| Metric | Valoare | Context |
 |---|---|---|
-| Oameni atinși | 24.899 | Pilot mic, validare |
-| Impresii totale | 54.145 | Frecvență 2,17 |
-| Click-uri pe link | 1.097 | 4,4% click-to-reach |
+| Oameni atinși | 24.039 | Pilot mic, validare |
+| Impresii totale | 54.145 | Frecvență 2,25 |
+| Click-uri pe link | 1.097 | 4,6% click-to-reach |
 | Vizite landing page | 855 | 78% click-to-landing |
 | View Content events | 927 | Engagement post-click |
-| **Cost per click pe link** | **0,68 RON** | **1.097 click-uri** |
+| **Cost per click pe link** | **0,68 RON** | **750,70 RON / 1.097** |
 | **CPM** | **13,86 RON** | per 1.000 afișări |
 | **CTR link** | **2,03%** | 1.097 click-uri din 54.145 afișări |
 | Cost per landing view | 0,88 RON | Foarte eficient |

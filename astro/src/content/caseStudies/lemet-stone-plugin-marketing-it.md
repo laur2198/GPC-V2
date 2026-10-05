@@ -15,9 +15,9 @@ heroMetric:
   label: "visite al sito · maggio 2026"
   context: "con 750 RON investiti · Meta Ads"
 secondaryMetrics:
-  - value: "24.899"
+  - value: "24.039"
     label: "Persone raggiunte"
-    context: "In 18 giorni di pilot"
+    context: "maggio 2026"
   - value: "1.097"
     label: "Clic sul link"
   - value: "927"
@@ -107,16 +107,16 @@ Prima di scalare il budget, abbiamo lanciato un pilot Meta Ads a maggio 2026. Ob
 
 ## Risultati pilot Meta Ads — dati ufficiali Ads Manager
 
-**Budget media: 750,70 RON. Durata: 18 giorni.**
+**Budget media: 750,70 RON. Periodo: maggio 2026.**
 
-| Metrica | Valore | Contesto di settore |
+| Metrica | Valore | Contesto |
 |---|---|---|
-| Persone raggiunte | 24.899 | Pilot piccolo, validazione |
-| Impression totali | 54.145 | Frequenza 2,17 |
-| Click sul link | 1.097 | 4,4% click-to-reach |
+| Persone raggiunte | 24.039 | Pilot piccolo, validazione |
+| Impression totali | 54.145 | Frequenza 2,25 |
+| Click sul link | 1.097 | 4,6% click-to-reach |
 | Visite alla landing page | 855 | 78% click-to-landing |
 | View Content events | 927 | Engagement post-click |
-| **Costo per clic sul link** | **0,68 RON** | **1.097 clic** |
+| **Costo per clic sul link** | **0,68 RON** | **750,70 RON / 1.097** |
 | **CPM** | **13,86 RON** | ogni 1.000 impression |
 | **CTR link** | **2,03%** | 1.097 clic su 54.145 impression |
 | Costo per landing view | 0,88 RON | Molto efficiente |

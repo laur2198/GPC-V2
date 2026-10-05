@@ -18,9 +18,8 @@ secondaryMetrics:
   - value: "24,899"
     label: "People reached"
     context: "Across an 18-day pilot"
-  - value: "855"
-    label: "Landing page visits"
-    context: "Cost per visit 0.88 RON"
+  - value: "1,097"
+    label: "Link clicks"
   - value: "927"
     label: "View Content events"
     context: "Confirmed product interest"
@@ -104,7 +103,7 @@ The result: what used to take hours is now done in minutes. The Lemet team recei
 
 ### Meta Ads Pilot — acquisition cost validation
 
-Before scaling the budget, we ran an 18-day pilot (1-18 May 2026) on the `PN_Traffic_Mai2026_1400RON` campaign with Advantage+ targeting. Objective: measure the real cost of driving qualified traffic to piatra-naturala.ro.
+Before scaling the budget, we ran a Meta Ads pilot in May 2026. Objective: measure the real cost of driving qualified traffic to piatra-naturala.ro.
 
 ## Meta Ads Pilot Results — official Ads Manager data
 
@@ -117,8 +116,8 @@ Before scaling the budget, we ran an 18-day pilot (1-18 May 2026) on the `PN_Tra
 | Link clicks | 1,097 | 4.4% click-to-reach |
 | Landing page visits | 855 | 78% click-to-landing |
 | View Content events | 927 | Post-click engagement |
-| **Site visits** | **855** | **0.88 RON per visit** |
-| **CPM** | **13.86 RON** | **Excellent (industry 25-50)** |
+| **Cost per link click** | **0.68 RON** | **1,097 clicks** |
+| **CPM** | **13.86 RON** | per 1,000 impressions |
 | **Link CTR** | **2.03%** | 1,097 clicks from 54,145 impressions |
 | Cost per landing view | 0.88 RON | Highly efficient |
 

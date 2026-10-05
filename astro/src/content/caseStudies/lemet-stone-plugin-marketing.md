@@ -17,9 +17,8 @@ secondaryMetrics:
   - value: "24.899"
     label: "Oameni atinși"
     context: "În 18 zile pilot"
-  - value: "855"
-    label: "Vizite landing"
-    context: "Cost per vizită 0,88 RON"
+  - value: "1.097"
+    label: "Click-uri pe link"
   - value: "927"
     label: "View Content events"
     context: "Interes confirmat în produs"
@@ -103,7 +102,7 @@ Rezultatul: ce dura înainte ore acum se face în minute. Echipa Lemet primește
 
 ### Meta Ads pilot — validare cost de achiziție
 
-Înainte de a scala bugetul, am rulat un pilot de 18 zile (1-18 mai 2026) pe campania `PN_Traffic_Mai2026_1400RON` cu Advantage+ targeting. Obiectiv: măsurarea costului real de aducere trafic calificat pe piatra-naturala.ro.
+Înainte de a scala bugetul, am rulat un pilot Meta Ads în mai 2026. Obiectiv: măsurarea costului real de aducere trafic calificat pe piatra-naturala.ro.
 
 ## Rezultate Meta Ads pilot — date oficiale Ads Manager
 
@@ -116,8 +115,8 @@ Rezultatul: ce dura înainte ore acum se face în minute. Echipa Lemet primește
 | Click-uri pe link | 1.097 | 4,4% click-to-reach |
 | Vizite landing page | 855 | 78% click-to-landing |
 | View Content events | 927 | Engagement post-click |
-| **Vizite pe site** | **855** | **0,88 RON per vizită** |
-| **CPM** | **13,86 RON** | **Excelent (industrie 25-50)** |
+| **Cost per click pe link** | **0,68 RON** | **1.097 click-uri** |
+| **CPM** | **13,86 RON** | per 1.000 afișări |
 | **CTR link** | **2,03%** | 1.097 click-uri din 54.145 afișări |
 | Cost per landing view | 0,88 RON | Foarte eficient |
 

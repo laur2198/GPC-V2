@@ -36,7 +36,7 @@ Prima di firmare, fai esattamente queste domande. Le risposte ti dicono più di 
 
 1. **"Quale risultato concreto puntiamo a ottenere e come lo misuriamo?"** Una risposta seria suona come lead, richieste, costo per acquisizione — non come "visibilità" e "awareness" senza numeri.
 
-2. **"Cosa rendiconti, ogni quanto e cosa vedo io esattamente?"** Vuoi accesso ai tuoi account pubblicitari e un report che capisci, non un PDF mensile pieno di like.
+2. **"Cosa rendiconti, ogni quanto e cosa vedo io esattamente?"** Vuoi accesso ai tuoi account pubblicitari e un report che capisci, non un PDF mensile pieno di like. Cosa chiedere esattamente in un report l'ho scritto a parte: [Il tuo report mensile ha cinque righe](/it/blog/cosa-chiedere-nel-report-ads/).
 
 3. **"Gli account pubblicitari e il sito sono a mio nome?"** Essenziale. Se l'agenzia possiede l'account Google Ads o il dominio, sei prigioniero. Tutto dev'essere intestato alla tua azienda.
 

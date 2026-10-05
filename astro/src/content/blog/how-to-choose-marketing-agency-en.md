@@ -36,7 +36,7 @@ Before signing, ask exactly these questions. The answers tell you more than any 
 
 1. **"What concrete result are we after, and how do we measure it?"** A serious answer sounds like leads, inquiries, cost per acquisition — not "visibility" and "awareness" without numbers.
 
-2. **"What do you report, how often, and what exactly do I see?"** You want access to your own ad accounts and a report you understand, not a monthly PDF full of likes.
+2. **"What do you report, how often, and what exactly do I see?"** You want access to your own ad accounts and a report you understand, not a monthly PDF full of likes. I've written separately about what exactly to ask for in a report: [Your monthly ad report has five rows](/en/blog/what-to-ask-for-in-your-ads-report/).
 
 3. **"Are the ad accounts and the website in my name?"** Essential. If the agency owns the Google Ads account or the domain, you're a prisoner. Everything has to be under your company.
 

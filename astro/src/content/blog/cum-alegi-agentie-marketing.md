@@ -35,7 +35,7 @@ Pentru că majoritatea antreprenorilor aleg pe baza prețului sau a unei recoman
 
 1. **„Ce rezultat concret urmărim și cum îl măsurăm?"** Un răspuns serios sună a lead-uri, cereri de ofertă, cost pe achiziție — nu a „vizibilitate" și „awareness" fără cifre.
 
-2. **„Ce raportezi, cât de des și ce văd eu mai exact?"** Vrei acces la conturile tale de ads și un raport pe care îl înțelegi, nu un PDF lunar cu like-uri.
+2. **„Ce raportezi, cât de des și ce văd eu mai exact?"** Vrei acces la conturile tale de ads și un raport pe care îl înțelegi, nu un PDF lunar cu like-uri. Ce anume să ceri într-un raport am scris separat: [Raportul tău lunar are cinci rânduri](/blog/raport-ads-ce-sa-ceri-agentiei/).
 
 3. **„Conturile de publicitate și site-ul sunt pe numele meu?"** Esențial. Dacă agenția deține contul de Google Ads sau domeniul, ești prizonier. Totul trebuie să fie pe firma ta.
 

@@ -30,7 +30,7 @@ const faqJsonLd = schema && items.length
       mainEntity: items.map((f) => ({
         '@type': 'Question',
         name: f.question,
-        acceptedAnswer: { '@type': 'Answer', text: f.answer },
+        acceptedAnswer: { '@type': 'Answer', text: f.answer.replace(/<[^>]+>/g, '') },
       })),
     }
   : null;
@@ -62,9 +62,7 @@ const faqJsonLd = schema && items.length
             class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out group-open:grid-rows-[1fr]"
           >
             <div class="overflow-hidden">
-              <p class="px-6 pb-6 font-sans text-sm leading-relaxed text-gpc-ink/75">
-                {item.answer}
-              </p>
+              <p class="px-6 pb-6 font-sans text-sm leading-relaxed text-gpc-ink/75" set:html={item.answer}></p>
             </div>
           </div>
         </details>

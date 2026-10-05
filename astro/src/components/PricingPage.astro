@@ -1,0 +1,309 @@
+---
+/**
+ * PricingPage
+ *
+ * Single source for the /preturi page, rendered per locale (ro/en/it) from
+ * the `pricing` i18n block. Thin locale page files just do
+ * `<PricingPage locale="xx" />`.
+ *
+ * Layout follows the brand system used on servicii.astro / ServiceDetail:
+ * bordered cards with a giant "num" watermark + green hover. Two payment
+ * models are kept visually separate, never mixed in one grid:
+ *   • BLOC A — Websites    → one-time payment
+ *   • BLOC B — Marketing   → monthly retainer
+ *   • BLOC C — Integrated  → highlight card (the star)
+ *
+ * ⚠️ PRICES ARE PROVISIONAL. They live in i18n/{ro,en,it}.json under
+ *    `pricing.web.cards[].price` and `pricing.retainer.cards[].price`
+ *    (also `pricing.terms` / `pricing.addons`). Each is flagged there with a
+ *    `_todo` note. Laurentiu replaces them with real figures before publishing.
+ *    See // TODO markers below for the OfferCatalog numeric mirror.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { type Locale, t, localizedPath } from '../utils/i18n';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+
+interface PriceCard {
+  num: string;
+  name: string;
+  badge?: string;
+  price: string;
+  priceMeta: string;
+  for: string;
+  includes: string[];
+  notFor?: string;
+}
+interface PricingBlock {
+  meta: { title: string; description: string };
+  breadcrumb: string;
+  hero: { eyebrow: string; h1: string; subtitle: string; microcopy: string[] };
+  web: {
+    eyebrow: string; title: string; intro: string; priceModelLabel: string;
+    forLabel: string; includesLabel: string; notForLabel: string; cards: PriceCard[];
+  };
+  retainer: {
+    eyebrow: string; title: string; intro: string; priceModelLabel: string;
+    forLabel: string; includesLabel: string; cards: PriceCard[];
+  };
+  integrated: { eyebrow: string; title: string; body: string; offerLabel: string; offer: string; cta: string };
+  terms: { title: string; intro: string; items: string[] };
+  addons: { title: string; items: { name: string; price: string; desc: string }[] };
+  finalCta: { title: string; body: string; scarcity: string; button: string };
+}
+const p = t<PricingBlock>(locale, 'pricing');
+
+const breadcrumbs = [{ name: p.breadcrumb, href: localizedPath(locale, '/preturi') }];
+
+// --- JSON-LD OfferCatalog ---------------------------------------------------
+// TODO: preț provizoriu — these numbers mirror the i18n prices; update both
+// together when Laurentiu confirms real figures.
+const site = Astro.site ?? new URL('https://greenpheonixconcept.com');
+const pageUrl = new URL(localizedPath(locale, '/preturi'), site).toString();
+// Pull the first numeric group out of a price label ("de la 1.200€" -> 1200).
+const minPrice = (label: string): number | null => {
+  const m = label.replace(/ /g, ' ').match(/[\d.]+/);
+  if (!m) return null;
+  const n = parseInt(m[0].replace(/\./g, ''), 10);
+  return Number.isFinite(n) ? n : null;
+};
+const toOffer = (c: PriceCard, recurring: boolean) => {
+  const price = minPrice(c.price);
+  return {
+    '@type': 'Offer',
+    name: c.name,
+    ...(price !== null && {
+      priceSpecification: {
+        '@type': recurring ? 'UnitPriceSpecification' : 'PriceSpecification',
+        price,
+        priceCurrency: 'EUR',
+        ...(recurring && { billingIncrement: 1, unitCode: 'MON' }),
+      },
+    }),
+  };
+};
+const offerCatalog = {
+  '@context': 'https://schema.org',
+  '@type': 'OfferCatalog',
+  name: p.meta.title,
+  url: pageUrl,
+  itemListElement: [
+    ...p.web.cards.map((c) => toOffer(c, false)),
+    ...p.retainer.cards.map((c) => toOffer(c, true)),
+  ],
+};
+---
+
+<BaseLayout
+  title={p.meta.title}
+  description={p.meta.description}
+  locale={locale}
+  breadcrumbs={breadcrumbs}
+  jsonLd={[offerCatalog]}
+>
+  <Breadcrumbs locale={locale} items={breadcrumbs} />
+
+  <!-- HERO -->
+  <header class="relative overflow-hidden border-b border-gpc-border bg-gpc-white pt-8">
+    <div
+      class="pointer-events-none absolute inset-0 opacity-40"
+      style="background-image: linear-gradient(rgba(5,5,5,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(5,5,5,0.04) 1px, transparent 1px); background-size: 48px 48px;"
+      aria-hidden="true"
+    ></div>
+    <div class="relative mx-auto max-w-5xl px-6 py-16 lg:py-20">
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">{p.hero.eyebrow}</p>
+      <h1 class="mt-4 max-w-4xl hero-heavy font-display text-4xl md:text-5xl lg:text-6xl">
+        <span class="glow-green">{p.hero.h1}</span>
+      </h1>
+      <p class="mt-6 max-w-2xl font-sans text-base leading-relaxed text-gpc-text-secondary md:text-lg">
+        {p.hero.subtitle}
+      </p>
+      <ul class="mt-8 flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-widest text-gpc-ink/70">
+        {p.hero.microcopy.map((m) => (
+          <li class="inline-flex items-center gap-2">
+            <span class="h-1.5 w-1.5 rounded-full bg-gpc-green" aria-hidden="true"></span>{m}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </header>
+
+  <!-- BLOC A — WEBSITES (one-time) -->
+  <section class="reveal border-b border-gpc-border bg-gpc-white">
+    <div class="mx-auto max-w-7xl px-6 py-16">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div class="max-w-2xl">
+          <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">{p.web.eyebrow}</p>
+          <h2 class="mt-3 font-display text-3xl text-gpc-ink md:text-4xl">{p.web.title}</h2>
+          <p class="mt-4 font-sans text-base leading-relaxed text-gpc-ink/80">{p.web.intro}</p>
+        </div>
+        <span class="border border-gpc-border px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-gpc-ink/60">
+          {p.web.priceModelLabel}
+        </span>
+      </div>
+
+      <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {p.web.cards.map((card) => (
+          <article
+            class:list={[
+              'group relative flex h-full flex-col border bg-gpc-card/30 p-6 transition-all duration-300 md:p-8',
+              card.badge ? 'border-gpc-green shadow-sm' : 'border-gpc-border hover:border-gpc-green hover:bg-gpc-card/60',
+            ]}
+          >
+            {card.badge && (
+              <span class="absolute -top-3 left-6 bg-gpc-green px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-gpc-ink">
+                {card.badge}
+              </span>
+            )}
+            <span
+              aria-hidden="true"
+              class="pointer-events-none absolute right-5 top-4 font-display text-6xl leading-none text-gpc-ink/5"
+            >{card.num}</span>
+            <h3 class="font-display text-2xl uppercase text-gpc-ink" style="letter-spacing:-0.5px;">{card.name}</h3>
+            <p class="mt-4 font-display text-3xl text-gpc-green">{card.price}</p>
+            <p class="mt-1 font-mono text-xs uppercase tracking-widest text-gpc-ink/50">{card.priceMeta}</p>
+            <p class="mt-5 font-sans text-sm leading-relaxed text-gpc-text-secondary">
+              <span class="font-mono text-[11px] uppercase tracking-widest text-gpc-ink/60">{p.web.forLabel}: </span>{card.for}
+            </p>
+            <p class="mt-5 font-mono text-[11px] uppercase tracking-widest text-gpc-ink/60">{p.web.includesLabel}</p>
+            <ul class="mt-2 flex-1 space-y-2">
+              {card.includes.map((inc) => (
+                <li class="flex gap-2 font-sans text-sm leading-relaxed text-gpc-ink/80">
+                  <span class="text-gpc-green" aria-hidden="true">✓</span><span>{inc}</span>
+                </li>
+              ))}
+            </ul>
+            {card.notFor && (
+              <p class="mt-5 border-t border-gpc-border pt-4 font-sans text-xs leading-relaxed text-gpc-ink/55">
+                <span class="font-mono uppercase tracking-widest text-gpc-red/70">{p.web.notForLabel}: </span>{card.notFor}
+              </p>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOC B — MARKETING (monthly retainer) -->
+  <section class="reveal border-b border-gpc-border bg-gpc-card/10">
+    <div class="mx-auto max-w-7xl px-6 py-16">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div class="max-w-2xl">
+          <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">{p.retainer.eyebrow}</p>
+          <h2 class="mt-3 font-display text-3xl text-gpc-ink md:text-4xl">{p.retainer.title}</h2>
+          <p class="mt-4 font-sans text-base leading-relaxed text-gpc-ink/80">{p.retainer.intro}</p>
+        </div>
+        <span class="border border-gpc-border px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-gpc-ink/60">
+          {p.retainer.priceModelLabel}
+        </span>
+      </div>
+
+      <div class="mt-12 grid gap-6 md:grid-cols-3">
+        {p.retainer.cards.map((card) => (
+          <article
+            class:list={[
+              'group relative flex h-full flex-col border bg-gpc-white p-6 transition-all duration-300 md:p-8',
+              card.badge ? 'border-gpc-green shadow-sm' : 'border-gpc-border hover:border-gpc-green',
+            ]}
+          >
+            {card.badge && (
+              <span class="absolute -top-3 left-6 bg-gpc-green px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-gpc-ink">
+                {card.badge}
+              </span>
+            )}
+            <h3 class="font-display text-xl uppercase tracking-wide text-gpc-ink">{card.name}</h3>
+            <p class="mt-4 font-display text-4xl text-gpc-green">
+              {card.price}<span class="ml-1 font-mono text-sm uppercase tracking-widest text-gpc-ink/50">{card.priceMeta}</span>
+            </p>
+            <p class="mt-5 font-sans text-sm leading-relaxed text-gpc-text-secondary">
+              <span class="font-mono text-[11px] uppercase tracking-widest text-gpc-ink/60">{p.retainer.forLabel}: </span>{card.for}
+            </p>
+            <p class="mt-5 font-mono text-[11px] uppercase tracking-widest text-gpc-ink/60">{p.retainer.includesLabel}</p>
+            <ul class="mt-2 flex-1 space-y-2">
+              {card.includes.map((inc) => (
+                <li class="flex gap-2 font-sans text-sm leading-relaxed text-gpc-ink/80">
+                  <span class="text-gpc-green" aria-hidden="true">✓</span><span>{inc}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOC C — INTEGRATED (highlight) -->
+  <section class="reveal border-b border-gpc-border bg-gpc-white">
+    <div class="mx-auto max-w-7xl px-6 py-16">
+      <div class="noise-overlay relative overflow-hidden border border-gpc-green bg-gpc-ink p-8 text-white md:p-12">
+        <span
+          class="pointer-events-none absolute right-6 -bottom-6 font-display text-[10rem] leading-none text-gpc-green/10"
+          aria-hidden="true"
+        >+</span>
+        <div class="relative max-w-3xl">
+          <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">{p.integrated.eyebrow}</p>
+          <h2 class="mt-3 font-display text-3xl md:text-4xl">{p.integrated.title}</h2>
+          <p class="mt-5 font-sans text-base leading-relaxed text-white/80">{p.integrated.body}</p>
+          <div class="mt-6 border-l-4 border-gpc-green bg-white/5 p-5">
+            <p class="font-mono text-[11px] uppercase tracking-widest text-gpc-green">{p.integrated.offerLabel}</p>
+            <p class="mt-2 font-sans text-base leading-relaxed text-white">{p.integrated.offer}</p>
+          </div>
+          <a
+            href={localizedPath(locale, '/contact')}
+            class="mt-8 inline-flex items-center gap-2 bg-gpc-green px-7 py-3 font-display text-sm uppercase tracking-widest text-gpc-ink transition-transform hover:-translate-y-0.5"
+          >
+            {p.integrated.cta} <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TERMS + ADD-ONS -->
+  <section class="reveal border-b border-gpc-border bg-gpc-card/10">
+    <div class="mx-auto grid max-w-6xl gap-12 px-6 py-16 lg:grid-cols-2">
+      <div>
+        <h2 class="font-display text-2xl text-gpc-ink md:text-3xl">{p.terms.title}</h2>
+        <p class="mt-4 font-sans text-base leading-relaxed text-gpc-ink/80">{p.terms.intro}</p>
+        <ul class="mt-6 space-y-3">
+          {p.terms.items.map((item) => (
+            <li class="border-l-2 border-gpc-green/40 pl-4 font-sans text-sm leading-relaxed text-gpc-ink/80" set:html={item} />
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h2 class="font-display text-2xl text-gpc-ink md:text-3xl">{p.addons.title}</h2>
+        <ul class="mt-6 divide-y divide-gpc-border border border-gpc-border bg-gpc-white">
+          {p.addons.items.map((a) => (
+            <li class="p-5">
+              <div class="flex items-baseline justify-between gap-4">
+                <span class="font-display text-base uppercase tracking-wide text-gpc-ink">{a.name}</span>
+                <span class="font-display text-lg text-gpc-green">{a.price}</span>
+              </div>
+              <p class="mt-2 font-sans text-sm leading-relaxed text-gpc-ink/70">{a.desc}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA + scarcity -->
+  <section class="reveal bg-gpc-white">
+    <div class="mx-auto max-w-3xl px-6 py-20 text-center">
+      <h2 class="font-display text-3xl text-gpc-ink md:text-4xl">{p.finalCta.title}</h2>
+      <p class="mt-5 font-sans text-base leading-relaxed text-gpc-ink/80">{p.finalCta.body}</p>
+      <a
+        href={localizedPath(locale, '/contact')}
+        class="mt-8 inline-flex items-center gap-2 bg-gpc-red px-8 py-4 font-display text-sm uppercase tracking-widest text-white transition-all hover:-translate-y-0.5 hover:bg-gpc-red-dark"
+      >
+        {p.finalCta.button} <span aria-hidden="true">→</span>
+      </a>
+      <p class="mt-5 font-mono text-xs uppercase tracking-widest text-gpc-ink/55">{p.finalCta.scarcity}</p>
+    </div>
+  </section>
+</BaseLayout>

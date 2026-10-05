@@ -7,7 +7,8 @@
     "blog": "Blog",
     "about": "Chi siamo",
     "contact": "Contatti",
-    "services": "Servizi"
+    "services": "Servizi",
+    "prices": "Prezzi"
   },
   "hero": {
     "eyebrow": {
@@ -889,8 +890,8 @@
         "paragraphs": [
           "<strong>Discovery call (30 min) — gratuita.</strong> Ascoltiamo prima, valutiamo se siamo adatti.",
           "<strong>Audit standalone</strong> — progetto puntuale. Documento completo, deliverable concreti, senza obbligo di prosecuzione.",
-          "<strong>Audit gratuito se lavoriamo insieme dopo.</strong> Se firma un contratto per l'implementazione successiva, l'audit è incluso.",
-          "Non pubblichiamo il prezzo perché dipende dallo scope: un audit Meta Ads semplice ≠ un audit dell'ecosistema completo su 5 assi; una discovery di 60 min ≠ un workshop strategico di 2 giorni. Ne parliamo nella discovery call. Le diciamo onestamente quanto costa per il Suo caso concreto."
+          "<strong>Audit completo — 150€, creditabile.</strong> Consegna in 48h (report video + scritto). I 150€ vengono interamente scalati dalla prima fattura se firma un contratto per l'implementazione successiva.",
+          "Intervalli indicativi sulla nostra pagina <a href=\"/it/preturi\" class=\"text-gpc-green underline hover:no-underline\">Prezzi</a>. Il prezzo finale per l'implementazione lo stabiliamo dopo l'audit, perché dipende dallo scope: un audit Meta Ads semplice ≠ un audit dell'ecosistema completo su 5 assi. Le diciamo onestamente quanto costa per il Suo caso concreto."
         ]
       },
       "cta": {
@@ -1122,8 +1123,8 @@
     "header": "DOMANDE FREQUENTI",
     "items": [
       {
-        "question": "Qual è il budget minimo per lavorare con voi?",
-        "answer": "Non pubblichiamo prezzi perché ogni situazione è diversa — un bar che vuole i primi 50 clienti al mese ha bisogno di un investimento diverso rispetto a un brand che vuole entrare a livello regionale. Prima di «quanto costa», noi chiediamo: cosa vende, a chi vende, cosa ha provato, cosa funziona, dove vuole arrivare. Il budget esce dalle risposte. Se ciò che vuole ottenere non si concilia con ciò che può investire, glielo diciamo direttamente — non Le prendiamo soldi per una campagna che non può dare risultati."
+        "question": "Quanto costa lavorare con voi?",
+        "answer": "Abbiamo intervalli chiari sulla nostra pagina <a href=\"/it/preturi\" class=\"text-gpc-green underline hover:no-underline\">Prezzi</a> — dalle landing ai siti premium e ai retainer mensili di marketing. Il prezzo finale, però, lo stabiliamo dopo un audit breve, perché dipende da cosa vende, a chi, cosa ha provato e dove vuole arrivare. Gli intervalli Le danno un orientamento onesto; l'audit Le dà la cifra esatta. Se ciò che vuole ottenere non si concilia con ciò che può investire, glielo diciamo direttamente."
       },
       {
         "question": "Quanto ci vuole prima di ricevere il sito?",
@@ -1131,7 +1132,7 @@
       },
       {
         "question": "Qual è il workflow per lavorare insieme?",
-        "answer": "In 5 passi: 1. Discovery call (30 min, gratuita). 2. Audit (3-5 giorni, gratuito se lavoriamo insieme dopo). 3. Proposta strategica (5-7 giorni). 4. Implementazione (durata variabile, milestone settimanali). 5. Ottimizzazione e reporting (report mensile con analisi, NON dashboard automatica). Paga quando e se firma il contratto."
+        "answer": "In 5 passi: 1. Discovery call (30 min, gratuita). 2. Audit completo (48h, report video + scritto — 150€, scalato dalla prima fattura se lavoriamo insieme). 3. Proposta strategica (5-7 giorni). 4. Implementazione (durata variabile, milestone settimanali). 5. Ottimizzazione e reporting (report mensile con analisi, NON dashboard automatica). Paga quando e se firma il contratto."
       },
       {
         "question": "Perché non addebitate una manutenzione mensile per i siti?",
@@ -1143,7 +1144,7 @@
       },
       {
         "question": "Posso lavorare con voi se gestisco già campagne su un altro account?",
-        "answer": "Sì. Anzi, è la situazione ideale — abbiamo un punto di partenza reale. Il processo: 1. Accesso «Analyst» (read-only) agli account Meta/Google/TikTok. 2. Audit di 3-5 giorni (gratuito se lavoriamo insieme dopo). 3. Decide se trasferire il management o se lavorare in modo complementare. NON facciamo trash-talking sul lavoro precedente. A volte è buono, a volte no. Diciamo onestamente ciò che vediamo."
+        "answer": "Sì. Anzi, è la situazione ideale — abbiamo un punto di partenza reale. Il processo: 1. Accesso «Analyst» (read-only) agli account Meta/Google/TikTok. 2. Audit completo di 48h (150€, scalato dalla prima fattura se lavoriamo insieme). 3. Decide se trasferire il management o se lavorare in modo complementare. NON facciamo trash-talking sul lavoro precedente. A volte è buono, a volte no. Diciamo onestamente ciò che vediamo."
       },
       {
         "question": "Se i risultati non si vedono nelle prime settimane, c'è qualcosa che non va?",
@@ -1159,8 +1160,175 @@
   },
   "finalCta": {
     "heading": "Pronto a crescere insieme?",
-    "subtext": "Prenota un audit gratuito di 30 minuti. Esci con un piano concreto, anche se non lavoriamo insieme.",
-    "buttonText": "Prenota audit"
+    "subtext": "Prenota una discovery call gratuita di 30 minuti. Esci con un piano concreto, anche se non lavoriamo insieme.",
+    "buttonText": "Prenota una discovery call"
+  },
+  "pricing": {
+    "_todo": "PREZZI PROVVISORI (tutti i valori in €) — calibrati da Claude, da confermare da Laurentiu prima della pubblicazione",
+    "meta": {
+      "title": "Prezzi Web Design e Marketing | Green Pheonix Concept",
+      "description": "Prezzi chiari con intervalli: siti da 500€, retainer di marketing da 250€/mese. Nessuna sorpresa — il prezzo finale lo stabiliamo dopo un audit breve."
+    },
+    "breadcrumb": "Prezzi",
+    "hero": {
+      "eyebrow": "INVESTIMENTO",
+      "h1": "Prezzi chiari. Nessuna sorpresa alla fine.",
+      "subtitle": "Non vendiamo siti o annunci come prodotti isolati. Vendiamo un sistema che porta clienti: un sito costruito per convertire + campagne ottimizzate sui risultati. Qui sotto trova gli intervalli indicativi per ogni fase in cui può trovarsi.",
+      "microcopy": ["Pagamento rateale disponibile", "Un audit prima di ogni preventivo", "2-3 nuovi progetti al mese"]
+    },
+    "web": {
+      "eyebrow": "SITI",
+      "title": "Siti che vendono, non solo belli da vedere",
+      "intro": "Un sito non è un costo, è uno strumento di vendita. Costruiti su stack moderno (Astro / WordPress / Shopify), ottimizzati per velocità, mobile e conversione.",
+      "priceModelLabel": "pagamento una tantum",
+      "forLabel": "Per",
+      "includesLabel": "Include",
+      "notForLabel": "Non è per",
+      "cards": [
+        {
+          "num": "01",
+          "name": "Landing di conversione",
+          "price": "da 500€",
+          "priceMeta": "pagamento una tantum",
+          "for": "una singola pagina di offerta o servizio, costruita per trasformare i visitatori in clienti. Ideale per una campagna, un lancio, o come primo passo online.",
+          "includes": [
+            "Landing page completa, consegnata in 5-7 giorni lavorativi",
+            "Design personalizzato sul Suo brand (niente temi riciclati)",
+            "Struttura orientata alla conversione (CTA, form, prove)",
+            "Ottimizzata per mobile, Google e AI",
+            "Tracking configurato (GA4, Meta Pixel)",
+            "Form con consegna garantita + pulsante WhatsApp/chiamata"
+          ],
+          "notFor": "aziende che hanno bisogno di più pagine, un blog o funzionalità complesse. Per questo, veda il pacchetto successivo."
+        },
+        {
+          "num": "02",
+          "name": "Sito vetrina",
+          "badge": "PIÙ SCELTO",
+          "price": "1.200 – 1.800€",
+          "priceMeta": "una tantum o a rate",
+          "for": "l'azienda che vuole una presenza completa e professionale — servizi, portfolio, contatti, blog. Il sito con cui si presenta con orgoglio.",
+          "includes": [
+            "5-8 pagine, consegnate in 2-3 settimane",
+            "Design 100% personalizzato, multilingue se serve (RO/EN/IT)",
+            "SEO tecnica, velocità 95+ Lighthouse, sicurezza configurate",
+            "Blog/sezione novità inclusa",
+            "Tracking completo + Google Search Console",
+            "Email sul dominio + consegna con tutti gli accessi"
+          ],
+          "notFor": "chi vuole solo una pagina (veda landing) o ha bisogno di e-commerce/funzionalità custom (veda premium)."
+        },
+        {
+          "num": "03",
+          "name": "Sito premium / custom",
+          "price": "da 2.500€",
+          "priceMeta": "in base alla complessità",
+          "for": "l'azienda in crescita che vuole un sito che lavora attivamente — e-commerce, configuratori, integrazioni, un'esperienza premium che costruisce fiducia e porta clienti.",
+          "includes": [
+            "100% personalizzato, consegna in 4-6 settimane",
+            "Strategia CRO + struttura orientata alle conversioni",
+            "Funzionalità custom (booking, e-commerce, configuratori 3D, integrazioni)",
+            "Sessione di strategia + analisi della concorrenza",
+            "Onboarding completo alla consegna"
+          ],
+          "notFor": "chi cerca il prezzo più basso o non vuole essere coinvolto nel processo."
+        }
+      ]
+    },
+    "retainer": {
+      "eyebrow": "MARKETING — ABBONAMENTO MENSILE",
+      "title": "Annunci gestiti mensilmente, ottimizzati sui risultati",
+      "intro": "Gestione continua delle campagne (Meta, Google, TikTok) con setup pulito, conversioni server-side e ottimizzazione settimanale. I 3 livelli coprono fasi di crescita diverse. Il budget pubblicitario (ciò che paga alle piattaforme) è separato dal fee di gestione.",
+      "priceModelLabel": "abbonamento mensile",
+      "forLabel": "Per",
+      "includesLabel": "Include",
+      "cards": [
+        {
+          "num": "01",
+          "name": "START",
+          "price": "250€",
+          "priceMeta": "/ mese",
+          "for": "aziende agli inizi con gli annunci, che vogliono un canale (Meta O Google) gestito correttamente.",
+          "includes": [
+            "1 piattaforma (Meta o Google)",
+            "Setup account, pixel, conversioni server-side",
+            "Ottimizzazione settimanale su ROAS/CPL",
+            "Report mensile con analisi (non dashboard automatica)"
+          ]
+        },
+        {
+          "num": "02",
+          "name": "GROWTH",
+          "badge": "PIÙ SCELTO",
+          "price": "400€",
+          "priceMeta": "/ mese",
+          "for": "aziende che già fanno annunci e vogliono scalare su più canali.",
+          "includes": [
+            "Tutto di Start, su 2 piattaforme",
+            "Nuovi creative consigliati ogni mese",
+            "A/B testing su audience + creative",
+            "Priorità nella comunicazione"
+          ]
+        },
+        {
+          "num": "03",
+          "name": "SCALE",
+          "price": "650€",
+          "priceMeta": "/ mese",
+          "for": "aziende con volume, che vogliono gestione completa multi-piattaforma + strategia.",
+          "includes": [
+            "Tutto di Growth, su 3 piattaforme (Meta + Google + TikTok)",
+            "Strategia di scaling del budget",
+            "Ottimizzazione avanzata + reporting dettagliato",
+            "Call mensile di strategia"
+          ]
+        }
+      ]
+    },
+    "integrated": {
+      "eyebrow": "CONSIGLIATO — IL SISTEMA COMPLETO",
+      "title": "Sito + Marketing. Un solo sistema che vende.",
+      "body": "Qui sta la differenza vera. Un sito fatto da noi non è solo «bello» — è costruito fin dall'inizio per le campagne che gestiamo: tracking corretto, pagine di conversione, tutto misurabile. Quando li prende insieme, il sito e gli annunci lavorano come un sistema, non come due servizi separati.",
+      "offerLabel": "L'offerta",
+      "offer": "Qualsiasi sito (dai pacchetti qui sopra) + un retainer mensile di marketing → i primi 2 mesi di retainer a metà prezzo.",
+      "cta": "Parliamo del Suo progetto"
+    },
+    "terms": {
+      "title": "Come si stabilisce il prezzo finale",
+      "intro": "Gli intervalli qui sopra coprono la maggior parte dei progetti standard. Il prezzo finale lo stabiliamo dopo un audit breve, in base alla complessità, al numero di pagine, alle lingue necessarie e alle funzionalità richieste. Nessuna sorpresa: riceve un preventivo dettagliato prima di iniziare.",
+      "items": [
+        "<strong>Pagamento:</strong> 50% di anticipo alla firma del contratto, 50% alla consegna. Per i retainer, mensile in anticipo.",
+        "<strong>Rate:</strong> disponibili per i progetti web (ne parliamo in fase di preventivo).",
+        "<strong>Sconti:</strong> fino al 10% per pagamento annuale anticipato, fino al 15% su contratto di 12 mesi. Tutto qui — non lavoriamo su sconti elevati che svalutano il lavoro.",
+        "<strong>Audit completo a pagamento:</strong> 150€, consegna in 48h (report video + scritto). Interamente scalato dalla prima fattura se lavoriamo insieme dopo."
+      ]
+    },
+    "addons": {
+      "title": "Servizi aggiuntivi",
+      "items": [
+        {
+          "name": "Audit di un sito/account esistente",
+          "price": "150€",
+          "desc": "consegna in 48h. Un report concreto su cosa sta perdendo ora e cosa va cambiato. Creditabile se lavoriamo insieme dopo."
+        },
+        {
+          "name": "Landing page extra",
+          "price": "da 300€",
+          "desc": "consegna in 1-2 giorni. Una nuova pagina sul Suo sito esistente, per una campagna o un lancio."
+        },
+        {
+          "name": "Modifiche/sviluppo su richiesta",
+          "price": "su richiesta",
+          "desc": "fatturati sul lavoro effettivo. Non applichiamo un abbonamento fisso di manutenzione — un sito ben costruito non si rompe da solo. Paga ciò che riceve."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Non è sicuro di cosa fa per Lei?",
+      "body": "Prenoti una discovery call gratuita di 30 minuti. Esce con un piano concreto e una raccomandazione onesta, che lavoriamo insieme o no.",
+      "scarcity": "Accettiamo solo 2-3 nuovi progetti al mese.",
+      "button": "Prenoti una discovery call"
+    }
   },
   "footer": {
     "tagline": "Performance marketing senza fronzoli.",

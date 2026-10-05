@@ -27,6 +27,7 @@ interface NavStrings {
   ads: string;
   web: string;
   services?: string;
+  prices?: string;
   portfolio: string;
   blog: string;
   about: string;
@@ -40,6 +41,7 @@ const nav = t<NavStrings>(locale, 'nav');
 const links = [
   { href: localizedPath(locale, '/'), label: nav.home },
   { href: localizedPath(locale, '/servicii'), label: nav.services ?? 'Servicii' },
+  { href: localizedPath(locale, '/preturi'), label: nav.prices ?? 'Prețuri' },
   { href: localizedPath(locale, '/portofoliu'), label: nav.portfolio },
   { href: localizedPath(locale, '/blog'), label: nav.blog },
   { href: localizedPath(locale, '/despre'), label: nav.about },

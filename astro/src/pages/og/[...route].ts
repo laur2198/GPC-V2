@@ -93,6 +93,11 @@ const standardPages: Record<string, Record<Locale, OGPage>> = {
     en: { title: 'Real projects, quantified results', description: '// PORTFOLIO' },
     it: { title: 'Progetti reali, risultati quantificati', description: '// PORTFOLIO' },
   },
+  preturi: {
+    ro: { title: 'Prețuri clare. Fără surprize la final', description: '// INVESTIȚIE' },
+    en: { title: 'Clear pricing. No surprises at the end', description: '// INVESTMENT' },
+    it: { title: 'Prezzi chiari. Nessuna sorpresa alla fine', description: '// INVESTIMENTO' },
+  },
 };
 
 const pages: Record<string, OGPage> = {};

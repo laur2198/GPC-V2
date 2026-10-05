@@ -12,12 +12,6 @@
  *   • BLOC A — Websites    → one-time payment
  *   • BLOC B — Marketing   → monthly retainer
  *   • BLOC C — Integrated  → highlight card (the star)
- *
- * ⚠️ PRICES ARE PROVISIONAL. They live in i18n/{ro,en,it}.json under
- *    `pricing.web.cards[].price` and `pricing.retainer.cards[].price`
- *    (also `pricing.terms` / `pricing.addons`). Each is flagged there with a
- *    `_todo` note. Laurentiu replaces them with real figures before publishing.
- *    See // TODO markers below for the OfferCatalog numeric mirror.
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
@@ -60,15 +54,15 @@ const p = t<PricingBlock>(locale, 'pricing');
 const breadcrumbs = [{ name: p.breadcrumb, href: localizedPath(locale, '/preturi') }];
 
 // --- JSON-LD OfferCatalog ---------------------------------------------------
-// TODO: preț provizoriu — these numbers mirror the i18n prices; update both
-// together when Laurentiu confirms real figures.
 const site = Astro.site ?? new URL('https://greenpheonixconcept.com');
 const pageUrl = new URL(localizedPath(locale, '/preturi'), site).toString();
-// Pull the first numeric group out of a price label ("de la 1.200€" -> 1200).
+// Pull the first number out of a price label, reading "." or "," before a
+// group of exactly three digits as a thousands separator, so RO/IT "1.200"
+// and EN "1,200" both give 1200 ("de la 2.500€" -> 2500, "€250" -> 250).
 const minPrice = (label: string): number | null => {
-  const m = label.replace(/ /g, ' ').match(/[\d.]+/);
+  const m = label.match(/\d[\d.,]*/);
   if (!m) return null;
-  const n = parseInt(m[0].replace(/\./g, ''), 10);
+  const n = parseInt(m[0].replace(/[.,](?=\d{3}(?!\d))/g, ''), 10);
   return Number.isFinite(n) ? n : null;
 };
 const toOffer = (c: PriceCard, recurring: boolean) => {

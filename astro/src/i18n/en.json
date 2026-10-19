@@ -1053,7 +1053,7 @@
   },
   "homeServices": {
     "header": "WHAT WE DO",
-    "subheader": "Three directions, one goal: measurable results",
+    "subheader": "Four directions, one goal: measurable results",
     "items": [
       {
         "number": "01",
@@ -1078,6 +1078,14 @@
         "ctaText": "View ads services",
         "accentTag": "ADS",
         "link": "/servicii/meta-ads"
+      },
+      {
+        "number": "04",
+        "title": "Social Media & Content",
+        "description": "Content strategy, in-house video and photo production, and community management. The organic foundation that ads scale on.",
+        "ctaText": "See social media",
+        "accentTag": "SOCIAL",
+        "link": "/servicii/social-media"
       }
     ]
   },

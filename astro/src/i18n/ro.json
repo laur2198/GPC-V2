@@ -1053,7 +1053,7 @@
   },
   "homeServices": {
     "header": "CE FACEM",
-    "subheader": "Trei direcții, un singur obiectiv: rezultate măsurabile",
+    "subheader": "Patru direcții, un singur obiectiv: rezultate măsurabile",
     "items": [
       {
         "number": "01",
@@ -1078,6 +1078,14 @@
         "ctaText": "Vezi servicii ads",
         "accentTag": "ADS",
         "link": "/servicii/meta-ads"
+      },
+      {
+        "number": "04",
+        "title": "Social Media & Conținut",
+        "description": "Strategie de conținut, producție video și foto in-house și community management. Fundația organică pe care reclamele scalează.",
+        "ctaText": "Vezi social media",
+        "accentTag": "SOCIAL",
+        "link": "/servicii/social-media"
       }
     ]
   },

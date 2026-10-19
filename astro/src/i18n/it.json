@@ -1053,7 +1053,7 @@
   },
   "homeServices": {
     "header": "COSA FACCIAMO",
-    "subheader": "Tre direzioni, un obiettivo: risultati misurabili",
+    "subheader": "Quattro direzioni, un obiettivo: risultati misurabili",
     "items": [
       {
         "number": "01",
@@ -1078,6 +1078,14 @@
         "ctaText": "Vedi servizi ads",
         "accentTag": "ADS",
         "link": "/servicii/meta-ads"
+      },
+      {
+        "number": "04",
+        "title": "Social Media & Contenuti",
+        "description": "Strategia dei contenuti, produzione video e foto in-house e community management. Le fondamenta organiche su cui scalano gli annunci.",
+        "ctaText": "Vedi social media",
+        "accentTag": "SOCIAL",
+        "link": "/servicii/social-media"
       }
     ]
   },

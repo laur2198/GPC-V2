@@ -1124,7 +1124,14 @@
   "testimonials": {
     "header": "CE SPUN CLIENȚII",
     "items": [],
-    "viewCase": "Vezi cazul complet"
+    "viewCase": "Vezi cazul complet",
+    "google": {
+      "rating": "5,0",
+      "count": 3,
+      "label": "recenzii pe Google",
+      "cta": "Vezi toate pe Google",
+      "url": "https://share.google/JuSIROGAQGOPtQjOE"
+    }
   },
   "faq": {
     "header": "ÎNTREBĂRI FRECVENTE",

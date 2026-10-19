@@ -1124,7 +1124,14 @@
   "testimonials": {
     "header": "COSA DICONO I CLIENTI",
     "items": [],
-    "viewCase": "Vedi il caso completo"
+    "viewCase": "Vedi il caso completo",
+    "google": {
+      "rating": "5,0",
+      "count": 3,
+      "label": "recensioni su Google",
+      "cta": "Vedi tutte su Google",
+      "url": "https://share.google/JuSIROGAQGOPtQjOE"
+    }
   },
   "faq": {
     "header": "DOMANDE FREQUENTI",

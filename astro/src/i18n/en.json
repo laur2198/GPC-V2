@@ -1124,7 +1124,14 @@
   "testimonials": {
     "header": "WHAT CLIENTS SAY",
     "items": [],
-    "viewCase": "See the full case"
+    "viewCase": "See the full case",
+    "google": {
+      "rating": "5.0",
+      "count": 3,
+      "label": "Google reviews",
+      "cta": "See all on Google",
+      "url": "https://share.google/JuSIROGAQGOPtQjOE"
+    }
   },
   "faq": {
     "header": "FREQUENTLY ASKED QUESTIONS",

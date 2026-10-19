@@ -31,7 +31,7 @@ const byOrder = (a, b) => (a.data.order ?? 999) - (b.data.order ?? 999);
 const allCs = (await getCollection('caseStudies', ({ data }) =>
   data.language === locale && (showDrafts || !data.draft)
 )).sort(byOrder);
-const previewCs = allCs.slice(0, 2);
+const previewCs = allCs.slice(0, 3);
 
 // Real client testimonials sourced from case studies. We only show quotes
 // from real named people — entries that are data-source attributions

@@ -61,7 +61,7 @@ The artistic value was already there: excellent reviews, live videos, a repertoi
 
 In the Romanian wedding band market, the decision happens in three steps: couples search by city or county, compare prices, then message on WhatsApp. The website had to win all three.
 
-1. **Local visibility outside Bucharest.** The band travels within roughly 300 km. Every county served needed a page answering searches like "wedding band Pitești" or "folk singer Brașov".
+1. **Local visibility outside Bucharest.** The band travels within roughly 340 km. Every county served needed a page answering searches like "wedding band Pitești" or "folk singer Brașov".
 2. **Premium pricing, justified.** The packages sit at the top of the market. Without context, a high price scares people off; hidden, it sends couples to competitors.
 3. **Conversion on the right channel.** Classic contact forms get ignored in this niche. Couples want a fast answer, on their phone.
 

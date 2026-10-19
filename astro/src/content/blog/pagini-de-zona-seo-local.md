@@ -13,7 +13,7 @@ draft: false
 
 Dacă afacerea ta lucrează în mai multe orașe sau județe, ai o problemă pe care un site „de prezentare” nu o rezolvă: clientul din Pitești nu caută numele tău. Caută „ce-ai tu de vândut” plus „Pitești”. Dacă nu ai o pagină care să răspundă exact la căutarea asta, Google arată pe altcineva.
 
-Soluția clasică sunt paginile de zonă. Soluția greșită, și cea mai răspândită, sunt paginile de zonă clonate. Mai jos îți arăt diferența pe un proiect real: site-ul [ioana-balan.ro](https://www.ioana-balan.ro/), pentru o solistă de muzică populară cu formație din București, care cântă pe o rază de circa 300 km.
+Soluția clasică sunt paginile de zonă. Soluția greșită, și cea mai răspândită, sunt paginile de zonă clonate. Mai jos îți arăt diferența pe un proiect real: site-ul [ioana-balan.ro](https://www.ioana-balan.ro/), pentru o solistă de muzică populară cu formație din București, care cântă pe o rază de circa 340 km.
 
 ## De ce pagini de zonă și nu doar „deservim toată țara”
 

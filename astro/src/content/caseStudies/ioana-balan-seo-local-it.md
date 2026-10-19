@@ -61,7 +61,7 @@ Il valore artistico c'era già: recensioni eccellenti, video live, un repertorio
 
 Nel mercato romeno delle band per matrimoni, la decisione avviene in tre passaggi: gli sposi cercano per città o provincia, confrontano i prezzi, poi scrivono su WhatsApp. Il sito doveva vincere su tutti e tre.
 
-1. **Visibilità locale fuori Bucarest.** La band si sposta in un raggio di circa 300 km. Ogni provincia servita aveva bisogno di una pagina che rispondesse a ricerche come "band matrimonio Pitești" o "cantante popolare Brașov".
+1. **Visibilità locale fuori Bucarest.** La band si sposta in un raggio di circa 340 km. Ogni provincia servita aveva bisogno di una pagina che rispondesse a ricerche come "band matrimonio Pitești" o "cantante popolare Brașov".
 2. **Prezzo premium, giustificato.** I pacchetti sono nella fascia alta del mercato. Senza contesto, un prezzo alto spaventa; nascosto, manda gli sposi dalla concorrenza.
 3. **Conversione sul canale giusto.** In questa nicchia i moduli di contatto classici vengono ignorati. Gli sposi vogliono una risposta rapida, sul telefono.
 

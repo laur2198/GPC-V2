@@ -14,7 +14,7 @@ draft: false
 
 If your business works across several towns or regions, you have a problem a plain brochure website won't solve: the customer in the next city isn't searching for your name. They search for what you sell, plus their city. If you don't have a page answering exactly that search, Google shows someone else.
 
-The classic fix is service-area pages. The wrong fix, and the most common one, is cloned service-area pages. Below I show the difference on a real project: [ioana-balan.ro](https://www.ioana-balan.ro/), the website of a Bucharest folk singer with a full band who performs within roughly 300 km.
+The classic fix is service-area pages. The wrong fix, and the most common one, is cloned service-area pages. Below I show the difference on a real project: [ioana-balan.ro](https://www.ioana-balan.ro/), the website of a Bucharest folk singer with a full band who performs within roughly 340 km.
 
 ## Why area pages, not just "we cover the whole country"
 

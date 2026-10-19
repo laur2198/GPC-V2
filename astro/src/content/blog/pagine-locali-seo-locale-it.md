@@ -14,7 +14,7 @@ draft: false
 
 Se la tua attività lavora in più città o province, hai un problema che un semplice sito vetrina non risolve: il cliente della città vicina non cerca il tuo nome. Cerca quello che vendi, più la sua città. Se non hai una pagina che risponde esattamente a quella ricerca, Google mostra qualcun altro.
 
-La soluzione classica sono le pagine locali. La soluzione sbagliata, e la più diffusa, sono le pagine locali clonate. Qui sotto ti mostro la differenza su un progetto reale: [ioana-balan.ro](https://www.ioana-balan.ro/), il sito di una cantante di musica popolare di Bucarest con band completa, che si esibisce in un raggio di circa 300 km.
+La soluzione classica sono le pagine locali. La soluzione sbagliata, e la più diffusa, sono le pagine locali clonate. Qui sotto ti mostro la differenza su un progetto reale: [ioana-balan.ro](https://www.ioana-balan.ro/), il sito di una cantante di musica popolare di Bucarest con band completa, che si esibisce in un raggio di circa 340 km.
 
 ## Perché pagine locali e non solo "copriamo tutto il Paese"
 

@@ -60,7 +60,7 @@ Valoarea artistică exista deja: recenzii excelente, videoclipuri live, un reper
 
 Pe piața formațiilor de nuntă, decizia se ia în trei pași: mirii caută după oraș sau județ, compară prețuri, apoi scriu pe WhatsApp. Site-ul trebuia să câștige la toți trei.
 
-1. **Vizibilitate locală în afara Bucureștiului.** Formația cântă pe o rază de circa 300 km. Fiecare județ deservit avea nevoie de o pagină care să răspundă căutărilor de tipul „formație nuntă Pitești” sau „solistă muzică populară Brașov”.
+1. **Vizibilitate locală în afara Bucureștiului.** Formația cântă pe o rază de circa 340 km. Fiecare județ deservit avea nevoie de o pagină care să răspundă căutărilor de tipul „formație nuntă Pitești” sau „solistă muzică populară Brașov”.
 2. **Preț premium, justificat.** Pachetele sunt în zona de sus a pieței. Fără context, un preț mare sperie; ascuns, îi trimite pe miri la concurență.
 3. **Conversie pe canalul potrivit.** Formularele clasice sunt ignorate în nișa asta. Mirii vor un răspuns rapid, pe telefon.
 

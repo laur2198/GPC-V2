@@ -3,7 +3,7 @@
 > Agenție de performance marketing din Brașov, România. Construim sisteme de marketing care aduc clienți reali — Meta Ads, Google Ads, social media organic, websites care convertesc.
 
 ## Despre
-Green Pheonix Concept este o agenție independentă fondată de Laurențiu Bogdan, specializată în performance marketing pentru companii serioase. Nu vindem pachete predefinite — ascultăm întâi, recomandăm după. Operăm în România, Italia și pe piețe europene.
+Green Pheonix Concept este o agenție independentă fondată de Laurențiu Bogdan, specializată în performance marketing pentru companii serioase. Prețurile de pornire sunt publice, pe pagina de [Prețuri](https://greenpheonixconcept.com/preturi/); pachetul final îl stabilim individual, în ofertă — îți recomandăm doar ce funcționează pentru contextul tău. Operăm în România, Italia și pe piețe europene.
 
 ## Servicii
 - [Meta Ads](https://greenpheonixconcept.com/servicii/meta-ads/): Campanii Facebook și Instagram pentru lead generation și vânzări
@@ -12,6 +12,15 @@ Green Pheonix Concept este o agenție independentă fondată de Laurențiu Bogda
 - [Web Development](https://greenpheonixconcept.com/servicii/web-development/): Site-uri care convertesc, optimizate pentru rezultate
 - [Strategie & Audit](https://greenpheonixconcept.com/servicii/strategie-audit/): Diagnoză înainte de execuție
 - [Content Production](https://greenpheonixconcept.com/servicii/content-production/): Conținut care vinde, nu doar conținut
+
+## Prețuri de pornire
+Prețuri orientative, „de la”; pachetul exact se stabilește individual, în ofertă. Detalii: [Prețuri](https://greenpheonixconcept.com/preturi/)
+- Social Media Management: de la 250 €/lună
+- Social Media + Reclame: de la 500 €/lună (bugetul de reclame se plătește separat, direct către Meta)
+- Personalizat (filmări și producție video, Google sau TikTok Ads, funnel-uri, mai multe platforme): la cerere
+- Site de prezentare: de la 500 € (plată unică)
+- Site complex / custom: la cerere
+- Prețurile sunt finale — Green Pheonix Concept nu este plătitor de TVA.
 
 ## Filozofie
 1. **Simplitate care vinde** — complexitatea decorativă distrage
@@ -24,8 +33,8 @@ Green Pheonix Concept este o agenție independentă fondată de Laurențiu Bogda
 - [Lemet Stone](https://greenpheonixconcept.com/portofoliu/lemet-stone-plugin-marketing/): Plugin custom SBC Calculator + Meta Ads: 855 vizite pe site din 750 RON, mai 2026
 
 ## Cum lucrăm
-1. **Discovery** (30 min, gratuit) — ascultăm înainte să recomandăm
-2. **Audit** (3-5 zile) — analizăm ce funcționează și ce nu
+1. **Discovery call** (30 min, gratuit) — ascultăm înainte să recomandăm
+2. **Audit complet** (150 €, livrare 48h) — analizăm ce funcționează și ce nu; se scade integral din prima factură dacă lucrăm împreună
 3. **Strategie** (5-7 zile) — recomandare clară de drum
 4. **Implementare** (variabil) — setup tehnic și creativ pe milestone-uri
 5. **Optimizare & raportare** (lunar) — iterăm pe ce funcționează

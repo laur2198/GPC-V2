@@ -39,7 +39,7 @@ const block = t<{ header: string; subheader: string; items: ServiceItem[] }>(
   'homeServices'
 );
 
-const variants = ['card-audit', 'card-web', 'card-ads'] as const;
+const variants = ['card-audit', 'card-web', 'card-paid'] as const;
 const cards = block.items.slice(0, 3).map((item, i) => ({
   ...item,
   variant: variants[i] ?? 'card-audit',
@@ -91,7 +91,7 @@ const cards = block.items.slice(0, 3).map((item, i) => ({
     box-shadow: 0 -10px 40px rgba(5, 5, 5, 0.18);
   }
 
-  /* Colour variants (live HTML: card-audit / card-web / card-ads). */
+  /* Colour variants (live HTML: card-audit / card-web / card-paid). */
   .card-audit {
     background-color: #111111;
     color: #ffffff;
@@ -100,7 +100,7 @@ const cards = block.items.slice(0, 3).map((item, i) => ({
     background-color: var(--gpc-green);
     color: #050505;
   }
-  .card-ads {
+  .card-paid {
     background-color: var(--gpc-red);
     color: #ffffff;
   }

@@ -84,7 +84,7 @@
     "umbrella": {
       "eyebrow": "// WHAT WE DO",
       "h1": "Services that deliver measurable results.",
-      "subHeadline": "6 services, integrated or standalone. You choose what you need, you pay for what you get. No forced packages, no useless upsells.",
+      "subHeadline": "6 services, integrated or standalone. You choose what you need, you pay for what you get. Transparent entry prices, no useless upsells.",
       "backLabel": "All services",
       "intro": {
         "p1": "We work with serious businesses that want to grow digitally with a clear head. We do not sell \"online presence\" or \"holistic branding\" — we sell concrete services that deliver concrete numbers.",
@@ -142,14 +142,8 @@
       ],
       "philosophy": {
         "eyebrow": "// PHILOSOPHY",
-        "heading": "Why we don't sell predefined packages",
-        "intro": "\"Starter / Growth / Scale\" packages are convenient for agencies, but rarely a good fit for clients. The reality is that:",
-        "bullets": [
-          "A local coffee shop with 300 Instagram followers does not need \"Performance Max + Email Marketing + Influencer outreach\" — it needs a single hyper-targeted Meta campaign plus solid content production",
-          "An e-commerce store with steady traffic and a good AOV does not need \"rebranding + social media strategy + landing page redesign\" — it just needs Meta scaling + Google Shopping optimization",
-          "A B2B SaaS with a long sales cycle does not need \"volume campaigns\" — it needs LinkedIn Ads + retargeting + content marketing"
-        ],
-        "outro": "Standardized packages force clients to buy what they don't need. We choose the opposite: we recommend only what works for your specific context."
+        "heading": "An offer tailored to your needs",
+        "body": "Our entry prices are public, on the <a href=\"/en/preturi/\">Pricing</a> page. We set the final package individually, in your quote: we recommend only what works for your specific context, not services you don't need."
       },
       "cta": {
         "heading": "Not sure where to start?",
@@ -158,7 +152,7 @@
       },
       "meta": {
         "title": "Services — Performance marketing & web | Green Pheonix",
-        "description": "6 services, integrated or standalone: Meta Ads, Google Ads, Social Media, Web Development, Strategy & Audit, Content Production. No forced packages."
+        "description": "6 services, integrated or standalone: Meta Ads, Google Ads, Social Media, Web Development, Strategy & Audit, Content Production. Transparent entry prices, an offer tailored to your needs."
       }
     },
     "metaAds": {

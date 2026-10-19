@@ -84,7 +84,7 @@
     "umbrella": {
       "eyebrow": "// COSA FACCIAMO",
       "h1": "Servizi che producono risultati misurabili.",
-      "subHeadline": "6 servizi integrati o indipendenti. Sceglie ciò di cui ha bisogno, paga per ciò che riceve. Niente pacchetti imposti, niente upsell inutili.",
+      "subHeadline": "6 servizi integrati o indipendenti. Sceglie ciò di cui ha bisogno, paga per ciò che riceve. Prezzi di partenza trasparenti, niente upsell inutili.",
       "backLabel": "Tutti i servizi",
       "intro": {
         "p1": "Lavoriamo con aziende serie che vogliono crescere nel digitale con criterio. Non vendiamo «presenza online» o «branding olistico» — vendiamo servizi concreti che producono numeri concreti.",
@@ -142,14 +142,8 @@
       ],
       "philosophy": {
         "eyebrow": "// FILOSOFIA",
-        "heading": "Perché non vendiamo pacchetti predefiniti",
-        "intro": "I pacchetti «Starter / Growth / Scale» sono comodi per le agenzie, ma raramente adatti ai clienti. La realtà è che:",
-        "bullets": [
-          "Un bar locale con 300 follower su Instagram non ha bisogno di «Performance Max + Email Marketing + Influencer outreach» — ha bisogno di una sola campagna Meta iper-targetizzata più una solida content production",
-          "Un e-commerce con traffico costante e un buon AOV non ha bisogno di «rebranding + social media strategy + landing page redesign» — ha bisogno solo di scaling Meta + ottimizzazione Google Shopping",
-          "Un B2B SaaS con un sales cycle lungo non ha bisogno di «campagne volume» — ha bisogno di LinkedIn Ads + retargeting + content marketing"
-        ],
-        "outro": "I pacchetti standardizzati costringono i clienti a comprare ciò che non serve loro. Noi scegliamo l'opposto: Le consigliamo solo ciò che funziona per il Suo contesto specifico."
+        "heading": "Un'offerta su misura per le Sue esigenze",
+        "body": "I nostri prezzi di partenza sono pubblici, sulla pagina <a href=\"/it/preturi/\">Prezzi</a>. Il pacchetto finale lo definiamo individualmente, nell'offerta: Le consigliamo solo ciò che funziona per il Suo contesto specifico, non servizi di cui non ha bisogno."
       },
       "cta": {
         "heading": "Non sa da dove iniziare?",
@@ -158,7 +152,7 @@
       },
       "meta": {
         "title": "Servizi — Performance marketing e web | Green Pheonix",
-        "description": "6 servizi integrati o indipendenti: Meta Ads, Google Ads, Social Media, Web Development, Strategia e Audit, Content Production. Niente pacchetti imposti."
+        "description": "6 servizi integrati o indipendenti: Meta Ads, Google Ads, Social Media, Web Development, Strategia e Audit, Content Production. Prezzi di partenza trasparenti, un'offerta su misura per le Sue esigenze."
       }
     },
     "metaAds": {

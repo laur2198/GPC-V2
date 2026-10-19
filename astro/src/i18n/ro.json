@@ -84,7 +84,7 @@
     "umbrella": {
       "eyebrow": "// CE FACEM",
       "h1": "Servicii care produc rezultate măsurabile.",
-      "subHeadline": "6 servicii integrate sau independente. Alegi ce ai nevoie, plătești pentru ce primești. Fără pachete impuse, fără upsell-uri inutile.",
+      "subHeadline": "6 servicii integrate sau independente. Alegi ce ai nevoie, plătești pentru ce primești. Prețuri de pornire transparente, fără upsell-uri inutile.",
       "backLabel": "Toate serviciile",
       "intro": {
         "p1": "Lucrăm cu afaceri serioase care vor să crească digital cu cap. Nu vindem „prezență online” sau „branding holistic” — vindem servicii concrete care produc cifre concrete.",
@@ -142,14 +142,8 @@
       ],
       "philosophy": {
         "eyebrow": "// FILOZOFIE",
-        "heading": "De ce nu vindem pachete predefinite",
-        "intro": "Pachetele „Starter / Growth / Scale” sunt convenabile pentru agenții, dar rar potrivite pentru clienți. Realitatea e că:",
-        "bullets": [
-          "O cafenea locală cu 300 followers Instagram nu are nevoie de „Performance Max + Email Marketing + Influencer outreach” — are nevoie de o singură campanie Meta hyper-targetată plus content production solid",
-          "Un e-commerce cu trafic constant și AOV bun nu are nevoie de „rebranding + social media strategy + landing page redesign” — are nevoie doar de scaling Meta + optimizare Google Shopping",
-          "Un B2B SaaS cu sales cycle lung nu are nevoie de „campanii volume” — are nevoie de LinkedIn Ads + retargeting + content marketing"
-        ],
-        "outro": "Pachetele standardizate forțează clienții să cumpere ce nu le trebuie. Noi alegem opusul: îți recomandăm doar ce funcționează pentru contextul tău specific."
+        "heading": "Ofertă ajustată pe nevoile tale",
+        "body": "Prețurile de pornire sunt publice, pe pagina de <a href=\"/preturi/\">Prețuri</a>. Pachetul final îl stabilim individual, în ofertă: îți recomandăm doar ce funcționează pentru contextul tău, nu servicii de care nu ai nevoie."
       },
       "cta": {
         "heading": "Nu știi de unde să începi?",
@@ -158,7 +152,7 @@
       },
       "meta": {
         "title": "Servicii — Performance marketing & web | Green Pheonix",
-        "description": "6 servicii integrate sau independente: Meta Ads, Google Ads, Social Media, Web Development, Strategie & Audit, Content Production. Fără pachete impuse."
+        "description": "6 servicii integrate sau independente: Meta Ads, Google Ads, Social Media, Web Development, Strategie & Audit, Content Production. Prețuri de pornire transparente, ofertă ajustată pe nevoile tale."
       }
     },
     "metaAds": {

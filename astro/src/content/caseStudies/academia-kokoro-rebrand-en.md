@@ -41,12 +41,20 @@ testimonial:
   role: "Founder, Kokoro Ju Jitsu Academy Brașov"
 images:
   hero: "/case-studies/kokoro/adi-portrait.png"
+  siteDesktop: "/case-studies/kokoro/site-desktop.webp"
+  siteMobile: "/case-studies/kokoro/site-mobile.webp"
   adi: "/case-studies/kokoro/adi-portrait-wide.png"
   sensei: "/case-studies/kokoro/sensei-lucian.png"
   sempaiTeam: "/case-studies/kokoro/sempai-adrian.png"
   logo: "/case-studies/kokoro/logo.png"
 imageAlt: "Adi Bogluț, ju jitsu world champion, brand ambassador for Kokoro Academy"
 imageMeta:
+  siteDesktop:
+    alt: "The kokoro.ro homepage on desktop"
+    caption: "Custom kokoro.ro website"
+  siteMobile:
+    alt: "The kokoro.ro homepage on mobile"
+    caption: "Mobile-first"
   adi:
     alt: "Adi Bogluț, ju jitsu world champion, brand ambassador for Kokoro Academy"
     caption: "Adi Bogluț — world champion"

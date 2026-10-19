@@ -32,6 +32,8 @@ services:
   - "SEO local Brașov"
 images:
   hero: "/case-studies/lemet/blat-granit-bucatarie.jpg"
+  siteDesktop: "/case-studies/lemet/site-desktop.webp"
+  siteCalculator: "/case-studies/lemet/site-calculator.webp"
   product: "/case-studies/lemet/blat-marmura.jpg"
   productAlt: "/case-studies/lemet/blat-quartz.jpg"
   showroom: "/case-studies/lemet/showroom-cement-ash.jpg"
@@ -43,6 +45,12 @@ images:
   logo: "/case-studies/lemet/logo.png"
 imageAlt: "Blat de bucătărie din granit, Lemet Stone Brașov"
 imageMeta:
+  siteDesktop:
+    alt: "Pagina principală piatra-naturala.ro pe desktop"
+    caption: "piatra-naturala.ro"
+  siteCalculator:
+    alt: "Calculatorul SBC pe piatra-naturala.ro"
+    caption: "Plugin custom SBC Calculator"
   product:
     alt: "Blat de bucătărie din marmură, Lemet Stone Brașov"
     caption: "Blat marmură"

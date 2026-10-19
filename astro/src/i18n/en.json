@@ -21,7 +21,7 @@
     "h1Line3Prefix": "WEBSITES THAT",
     "h1Line3Accent": "SELL",
     "sub": "We help businesses get more clients through online ads and websites built to convert. No jargon, no luck — just measurable results.",
-    "ctaPrimary": "Book an audit",
+    "ctaPrimary": "Book a discovery call",
     "ctaSecondary": "View services"
   },
   "marquee": [
@@ -88,7 +88,7 @@
       "backLabel": "All services",
       "intro": {
         "p1": "We work with serious businesses that want to grow digitally with a clear head. We do not sell \"online presence\" or \"holistic branding\" — we sell concrete services that deliver concrete numbers.",
-        "p2": "Each service below can be contracted on its own or integrated into your overall strategy. Our recommendation: start with a free audit, and we work out together what you really need."
+        "p2": "Each service below can be contracted on its own or integrated into your overall strategy. Our recommendation: start with a free 30-minute discovery call, and we work out together what you really need."
       },
       "cards": [
         {
@@ -161,7 +161,7 @@
       "subHeadline": "Facebook + Instagram + Threads. Full tracking setup, creative tested per cohort, weekly optimization on what matters — not on what looks good in a dashboard.",
       "meta": {
         "title": "Meta Ads — Facebook & Instagram Ads | Green Pheonix",
-        "description": "Meta campaigns calibrated for Andromeda: creative-first, server-side tracking, cohort optimization. Free audit of your Meta account."
+        "description": "Meta campaigns calibrated for Andromeda: creative-first, server-side tracking, cohort optimization. Free 30-minute discovery call."
       },
       "forWho": {
         "heading": "Who it works for",
@@ -293,9 +293,9 @@
         ]
       },
       "cta": {
-        "heading": "Want a free audit of your Meta account?",
-        "body": "3-5 days, a concrete document with prioritized findings. Free if we work together afterwards. Yours regardless of your decision.",
-        "button": "Book a Meta audit"
+        "heading": "Want to start with your Meta account?",
+        "body": "Free 30-minute discovery call. If you want the full analysis: a €150 audit, delivered in 48h, a concrete document with prioritized findings. Fully deducted from your first invoice if we work together, and yours regardless of your decision.",
+        "button": "Book a discovery call"
       }
     },
     "googleAds": {
@@ -304,7 +304,7 @@
       "subHeadline": "Search + Performance Max + YouTube. We capture existing demand, we do not build it from scratch. More efficient when your product is actively searched for.",
       "meta": {
         "title": "Google Ads — Search, PMax & YouTube | Green Pheonix",
-        "description": "Intent-based Google Ads campaigns: Search-first, aggressive negative keywords, landing page alignment, enhanced conversion tracking. Free audit."
+        "description": "Intent-based Google Ads campaigns: Search-first, aggressive negative keywords, landing page alignment, enhanced conversion tracking. Free 30-minute discovery call."
       },
       "forWho": {
         "heading": "Who it works for",
@@ -441,9 +441,9 @@
         ]
       },
       "cta": {
-        "heading": "Want a free audit of your Google Ads account?",
-        "body": "We analyze your existing account (or your current setup if you are self-managed). A document with findings, free if we work together.",
-        "button": "Book a Google audit"
+        "heading": "Want to start with your Google Ads account?",
+        "body": "Free 30-minute discovery call. For a full analysis of your existing account (or your current setup if you are self-managed): a €150 audit, delivered in 48h, fully deducted from your first invoice if we work together.",
+        "button": "Book a discovery call"
       }
     },
     "socialMedia": {
@@ -594,9 +594,9 @@
         "linkSlug": "academia-kokoro-rebrand"
       },
       "cta": {
-        "heading": "Want a free audit of your social presence?",
-        "body": "We analyze your accounts, identify gaps and opportunities. An honest recommendation: whether you are a good fit for organic social, or whether it is better to invest in paid ads.",
-        "button": "Book a social audit"
+        "heading": "Want to talk about your social presence?",
+        "body": "Free 30-minute discovery call. We look at your accounts, identify gaps and opportunities, and tell you honestly whether you are a good fit for organic social or whether it is better to invest in paid ads.",
+        "button": "Book a discovery call"
       }
     },
     "webDev": {
@@ -882,9 +882,9 @@
         "eyebrow": "// FORMAT",
         "heading": "How it is contracted",
         "paragraphs": [
-          "<strong>Discovery call (30 min) — free.</strong> We listen first, then assess whether we are a good fit.",
+          "<strong>30-minute discovery call — free.</strong> We listen first, then assess whether we are a good fit.",
           "<strong>Standalone audit</strong> — a one-off project. A complete document, concrete deliverables, with no obligation to continue.",
-          "<strong>Free audit if we work together afterwards.</strong> If you sign a contract for subsequent implementation, the audit is included.",
+          "<strong>Full audit — €150, delivered in 48h.</strong> Fully deducted from your first invoice if we work together.",
           "Entry prices are on the <a href=\"/en/preturi/\">Pricing</a> page. We set the final price after the discovery call, because it depends on scope: a simple Meta Ads audit is not the same as a complete 5-axis ecosystem audit; a 60-min discovery is not the same as a 2-day strategic workshop. We tell you honestly what it costs for your specific case."
         ]
       },
@@ -1109,7 +1109,7 @@
         "description": "Controlled budget growth and new channels when ready."
       }
     ],
-    "cta": "START WITH A FREE AUDIT"
+    "cta": "START WITH A FREE DISCOVERY CALL"
   },
   "caseStudies": {
     "header": "CASE STUDIES",
@@ -1141,7 +1141,7 @@
       },
       {
         "question": "What is the workflow for working together?",
-        "answer": "In 5 steps: 1. Discovery call (30 min, free). 2. Audit (3-5 days, free if we work together afterwards). 3. Strategic proposal (5-7 days). 4. Implementation (variable duration, weekly milestones). 5. Optimization & reporting (a monthly report with analysis, NOT an auto dashboard). You pay when and if you sign the contract."
+        "answer": "In 5 steps: 1. 30-minute discovery call (free). 2. Full audit (€150, delivered in 48h, fully deducted from your first invoice if we work together). 3. Strategic proposal (5-7 days). 4. Implementation (variable duration, weekly milestones). 5. Optimization & reporting (a monthly report with analysis, NOT an auto dashboard). You pay for implementation only if you sign the contract."
       },
       {
         "question": "Why don't you charge a monthly maintenance fee for websites?",
@@ -1153,7 +1153,7 @@
       },
       {
         "question": "Can I work with you if I already run campaigns on another account?",
-        "answer": "Yes. In fact, that is the ideal situation — we have a real starting point. The process: 1. \"Analyst\" access (read-only) to Meta/Google/TikTok accounts. 2. A 3-5 day audit (free if we work together afterwards). 3. You decide whether to transfer management or whether we work in a complementary way. We do NOT trash-talk previous work. Sometimes it is good, sometimes it is not. We tell you honestly what we see."
+        "answer": "Yes. In fact, that is the ideal situation — we have a real starting point. The process: 1. \"Analyst\" access (read-only) to Meta/Google/TikTok accounts. 2. A full audit (€150, delivered in 48h, fully deducted from your first invoice if we work together). 3. You decide whether to transfer management or whether we work in a complementary way. We do NOT trash-talk previous work. Sometimes it is good, sometimes it is not. We tell you honestly what we see."
       },
       {
         "question": "If results don't show in the first few weeks, is something wrong?",
@@ -1169,8 +1169,8 @@
   },
   "finalCta": {
     "heading": "Ready to grow together?",
-    "subtext": "Book a free 30-minute audit. You leave with a concrete plan, whether we work together or not.",
-    "buttonText": "Book audit"
+    "subtext": "Book a free 30-minute discovery call. You leave with a concrete plan, whether we work together or not.",
+    "buttonText": "Book a discovery call"
   },
   "pricing": {
     "meta": {
@@ -1275,7 +1275,7 @@
         "<strong>Payment:</strong> 50% upfront on signing the contract, 50% on completion. For subscriptions, billed monthly in advance.",
         "<strong>Installments:</strong> available for web projects (we discuss at the quote stage).",
         "<strong>Discounts:</strong> up to 10% for annual prepayment, up to 15% on a 12-month contract. That's it — we don't work on big discounts that devalue the work.",
-        "<strong>Full paid audit:</strong> €150, delivered in 48h (video + written report). Fully credited against your first invoice if we work together afterwards.",
+        "<strong>Full audit:</strong> €150, delivered in 48h (video + written report). Fully deducted from your first invoice if we work together.",
         "<strong>No VAT:</strong> Prices are final — Green Pheonix Concept is not VAT-registered."
       ]
     },
@@ -1285,7 +1285,7 @@
         {
           "name": "Audit of an existing site/account",
           "price": "€150",
-          "desc": "delivered in 48h. A concrete report on what you're losing now and what needs to change. Creditable if we work together afterwards."
+          "desc": "delivered in 48h. A concrete report on what you're losing now and what needs to change. Fully deducted from your first invoice if we work together."
         },
         {
           "name": "Extra landing page",
@@ -1454,8 +1454,8 @@
       {
         "num": "02",
         "heading": "We analyze what is there, we do not assume",
-        "duration": "3-5 days",
-        "cost": "Free if we work together afterwards",
+        "duration": "48h",
+        "cost": "€150, fully deducted from your first invoice if we work together",
         "body": "Before any proposal, we look carefully at your entire digital ecosystem. We assume NOTHING. We analyze: Website (performance, UX, SEO, conversion), existing ad accounts (campaigns, audiences, creative, tracking), organic presence (social media, Google My Business, reviews), direct competition (3-5 competitors), tracking (pixels, conversions, attribution).",
         "deliverTitle": "What you get",
         "deliver": [

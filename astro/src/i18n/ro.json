@@ -21,7 +21,7 @@
     "h1Line3Prefix": "SITE-URI CARE",
     "h1Line3Accent": "VÂND",
     "sub": "Ajutăm afacerile să obțină mai mulți clienți prin reclame online și site-uri optimizate pentru vânzare. Fără jargon, fără noroc — doar rezultate măsurabile.",
-    "ctaPrimary": "Programează un audit",
+    "ctaPrimary": "Programează un discovery call",
     "ctaSecondary": "Vezi servicii"
   },
   "marquee": [
@@ -88,7 +88,7 @@
       "backLabel": "Toate serviciile",
       "intro": {
         "p1": "Lucrăm cu afaceri serioase care vor să crească digital cu cap. Nu vindem „prezență online” sau „branding holistic” — vindem servicii concrete care produc cifre concrete.",
-        "p2": "Fiecare serviciu de mai jos poate fi contractat singur sau integrat în strategia ta totală. Recomandarea noastră: începe cu un audit gratuit, vedem împreună de ce ai nevoie cu adevărat."
+        "p2": "Fiecare serviciu de mai jos poate fi contractat singur sau integrat în strategia ta totală. Recomandarea noastră: începe cu un discovery call gratuit de 30 de minute, vedem împreună de ce ai nevoie cu adevărat."
       },
       "cards": [
         {
@@ -161,7 +161,7 @@
       "subHeadline": "Facebook + Instagram + Threads. Setup tracking complet, creative testat per cohort, optimizare săptămânală pe ce contează — nu pe ce arată bine în dashboard.",
       "meta": {
         "title": "Meta Ads — Facebook & Instagram Ads | Green Pheonix",
-        "description": "Campanii Meta calibrate pe Andromeda: creative-first, server-side tracking, optimizare pe cohorte. Audit gratuit al contului tău Meta."
+        "description": "Campanii Meta calibrate pe Andromeda: creative-first, server-side tracking, optimizare pe cohorte. Discovery call gratuit de 30 de minute."
       },
       "forWho": {
         "heading": "Pentru cine funcționează",
@@ -293,9 +293,9 @@
         ]
       },
       "cta": {
-        "heading": "Vrei un audit gratuit al contului Meta?",
-        "body": "3-5 zile, document concret cu observații prioritizate. Gratuit dacă lucrăm împreună după. Al tău indiferent de decizie.",
-        "button": "Programează audit Meta"
+        "heading": "Vrei să începem cu contul tău Meta?",
+        "body": "Discovery call gratuit de 30 de minute. Dacă vrei analiza completă: audit 150 €, livrare 48h, document concret cu observații prioritizate. Se scade integral din prima factură dacă lucrăm împreună și rămâne al tău indiferent de decizie.",
+        "button": "Programează discovery call"
       }
     },
     "googleAds": {
@@ -304,7 +304,7 @@
       "subHeadline": "Search + Performance Max + YouTube. Capturăm cererea existentă, nu o construim din zero. Mai eficient când produsul tău e căutat activ.",
       "meta": {
         "title": "Google Ads — Search, PMax & YouTube | Green Pheonix",
-        "description": "Campanii Google Ads intent-based: Search-first, negative keywords agresive, landing page alignment, conversion tracking enhanced. Audit gratuit."
+        "description": "Campanii Google Ads intent-based: Search-first, negative keywords agresive, landing page alignment, conversion tracking enhanced. Discovery call gratuit de 30 de minute."
       },
       "forWho": {
         "heading": "Pentru cine funcționează",
@@ -441,9 +441,9 @@
         ]
       },
       "cta": {
-        "heading": "Vrei un audit gratuit al contului Google Ads?",
-        "body": "Analizăm contul tău existent (sau setup-ul curent dacă ești self-managed). Document cu observații, gratuit dacă lucrăm împreună.",
-        "button": "Programează audit Google"
+        "heading": "Vrei să începem cu contul tău Google Ads?",
+        "body": "Discovery call gratuit de 30 de minute. Pentru analiza completă a contului existent (sau a setup-ului curent, dacă îl gestionezi singur): audit 150 €, livrare 48h, se scade integral din prima factură dacă lucrăm împreună.",
+        "button": "Programează discovery call"
       }
     },
     "socialMedia": {
@@ -594,9 +594,9 @@
         "linkSlug": "academia-kokoro-rebrand"
       },
       "cta": {
-        "heading": "Vrei un audit gratuit al prezenței tale social?",
-        "body": "Analizăm conturile tale, identificăm gap-uri și oportunități. Recomandare onestă: ești potrivit pentru social organic sau e mai bine să investești în reclame plătite.",
-        "button": "Programează audit social"
+        "heading": "Vrei să discutăm despre prezența ta social?",
+        "body": "Discovery call gratuit de 30 de minute. Ne uităm la conturile tale, identificăm gap-uri și oportunități și îți spunem onest dacă ești potrivit pentru social organic sau dacă e mai bine să investești în reclame plătite.",
+        "button": "Programează discovery call"
       }
     },
     "webDev": {
@@ -882,9 +882,9 @@
         "eyebrow": "// FORMAT",
         "heading": "Cum se contractează",
         "paragraphs": [
-          "<strong>Discovery call (30 min) — gratuit.</strong> Ascultăm întâi, evaluăm dacă suntem potriviți.",
+          "<strong>Discovery call de 30 de minute — gratuit.</strong> Ascultăm întâi, evaluăm dacă suntem potriviți.",
           "<strong>Audit standalone</strong> — proiect punctual. Document complet, livrabile concrete, fără obligație de continuare.",
-          "<strong>Audit gratuit dacă lucrăm împreună după.</strong> Dacă semnezi contract pentru implementare ulterioară, auditul e inclus.",
+          "<strong>Audit complet — 150 €, livrare 48h.</strong> Se scade integral din prima factură dacă lucrăm împreună.",
           "Prețurile de pornire sunt pe pagina de <a href=\"/preturi/\">Prețuri</a>. Prețul final îl stabilim după discovery call, pentru că depinde de scope: audit Meta Ads simplu ≠ audit ecosistem complet 5 axe; discovery 60 min ≠ workshop strategic 2 zile. Spunem onest cât costă pentru cazul tău concret."
         ]
       },
@@ -1109,7 +1109,7 @@
         "description": "Creștem bugetul controlat și lansăm canale noi când e momentul."
       }
     ],
-    "cta": "ÎNCEPE CU UN AUDIT GRATUIT"
+    "cta": "ÎNCEPE CU UN DISCOVERY CALL GRATUIT"
   },
   "caseStudies": {
     "header": "STUDII DE CAZ",
@@ -1141,7 +1141,7 @@
       },
       {
         "question": "Care e workflow-ul de a lucra împreună?",
-        "answer": "În 5 pași: 1. Discovery call (30 min, gratuit). 2. Audit (3-5 zile, gratuit dacă lucrăm împreună după). 3. Propunere strategică (5-7 zile). 4. Implementare (durată variabilă, milestone-uri săptămânale). 5. Optimizare & raportare (raport lunar cu analiză, NU dashboard auto). Plătești când și dacă semnezi contractul."
+        "answer": "În 5 pași: 1. Discovery call de 30 de minute (gratuit). 2. Audit complet (150 €, livrare 48h, se scade integral din prima factură dacă lucrăm împreună). 3. Propunere strategică (5-7 zile). 4. Implementare (durată variabilă, milestone-uri săptămânale). 5. Optimizare & raportare (raport lunar cu analiză, NU dashboard auto). Implementarea o plătești doar dacă semnezi contractul."
       },
       {
         "question": "De ce nu percepeți mentenanță lunară pentru site-uri?",
@@ -1153,7 +1153,7 @@
       },
       {
         "question": "Pot lucra cu voi dacă rulez deja campanii pe alt cont?",
-        "answer": "Da. De fapt, asta e situația ideală — avem un punct de pornire real. Procesul: 1. Acces „Analyst” (read-only) la conturi Meta/Google/TikTok. 2. Audit 3-5 zile (gratuit dacă lucrăm împreună după). 3. Decizi dacă transferi managementul sau dacă lucrăm complementar. NU facem trash-talking despre munca anterioară. Uneori e bună, uneori nu. Spunem onest ce vedem."
+        "answer": "Da. De fapt, asta e situația ideală — avem un punct de pornire real. Procesul: 1. Acces „Analyst” (read-only) la conturi Meta/Google/TikTok. 2. Audit complet (150 €, livrare 48h, se scade integral din prima factură dacă lucrăm împreună). 3. Decizi dacă transferi managementul sau dacă lucrăm complementar. NU facem trash-talking despre munca anterioară. Uneori e bună, uneori nu. Spunem onest ce vedem."
       },
       {
         "question": "Dacă rezultatele nu se văd în primele săptămâni, e ceva în neregulă?",
@@ -1169,8 +1169,8 @@
   },
   "finalCta": {
     "heading": "Pregătit să creștem împreună?",
-    "subtext": "Programează un audit gratuit de 30 de minute. Iei un plan concret, indiferent dacă lucrăm sau nu împreună.",
-    "buttonText": "Programează audit"
+    "subtext": "Programează un discovery call gratuit de 30 de minute. Iei un plan concret, indiferent dacă lucrăm sau nu împreună.",
+    "buttonText": "Programează discovery call"
   },
   "pricing": {
     "meta": {
@@ -1275,7 +1275,7 @@
         "<strong>Plată:</strong> 50% avans la semnarea contractului, 50% la final. Pentru abonamente, lunar în avans.",
         "<strong>Rate:</strong> disponibile pentru proiectele web (discutăm la ofertă).",
         "<strong>Reduceri:</strong> până la 10% la plată anuală anticipată, până la 15% la contract pe 12 luni. Atât — nu lucrăm pe discounturi mari care devalorizează munca.",
-        "<strong>Audit complet plătit:</strong> 150 €, livrare 48h (raport video + scris). Se scade integral din prima factură dacă lucrăm împreună după.",
+        "<strong>Audit complet:</strong> 150 €, livrare 48h (raport video + scris). Se scade integral din prima factură dacă lucrăm împreună.",
         "<strong>Fără TVA:</strong> prețurile sunt finale — Green Pheonix Concept nu este plătitor de TVA."
       ]
     },
@@ -1285,7 +1285,7 @@
         {
           "name": "Audit site/cont existent",
           "price": "150 €",
-          "desc": "livrare 48h. Raport concret cu ce pierzi acum și ce trebuie schimbat. Creditabil dacă lucrăm după."
+          "desc": "livrare 48h. Raport concret cu ce pierzi acum și ce trebuie schimbat. Se scade integral din prima factură dacă lucrăm împreună."
         },
         {
           "name": "Landing page extra",
@@ -1454,8 +1454,8 @@
       {
         "num": "02",
         "heading": "Analizăm ce e, nu presupunem",
-        "duration": "3-5 zile",
-        "cost": "Gratuit dacă lucrăm împreună după",
+        "duration": "48h",
+        "cost": "150 €, se scade integral din prima factură dacă lucrăm împreună",
         "body": "Înainte de orice propunere, ne uităm cu atenție la tot ecosistemul tău digital. NU presupunem nimic. Analizăm: Site (performance, UX, SEO, conversie), conturi ads existente (campanii, audience, creative, tracking), prezență organică (social media, Google My Business, recenzii), competiție directă (3-5 competitori), tracking (pixel-uri, conversii, atribuire).",
         "deliverTitle": "Ce primești",
         "deliver": [

@@ -199,7 +199,7 @@ export const terms: LegalDocData = {
       blocks: [
         { type: 'p', html: 'Il modulo di contatto <strong>non</strong> costituisce contratto. Il contratto si conclude dopo:' },
         { type: 'ol', items: [
-          'Audit gratuito / colloquio iniziale.',
+          'Discovery call gratuita di 30 minuti / colloquio iniziale.',
           'Offerta scritta.',
           'Accettazione del cliente (firma + pagamento dell\'acconto).',
         ] },

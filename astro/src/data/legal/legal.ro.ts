@@ -221,7 +221,7 @@ export const terms: LegalDocData = {
       blocks: [
         { type: 'p', html: 'Formularul de contact <strong>nu</strong> constituie contract. Contractul se încheie după:' },
         { type: 'ol', items: [
-          'Audit gratuit / discuție inițială.',
+          'Discovery call gratuit de 30 de minute / discuție inițială.',
           'Ofertă scrisă.',
           'Acceptarea clientului (semnătură + plată avans).',
         ] },

@@ -21,7 +21,7 @@
     "h1Line3Prefix": "SITI CHE",
     "h1Line3Accent": "VENDONO",
     "sub": "Aiutiamo le aziende ad acquisire più clienti tramite ads online e siti ottimizzati per la conversione. Niente gergo, niente fortuna — solo risultati misurabili.",
-    "ctaPrimary": "Prenota un audit",
+    "ctaPrimary": "Prenota una discovery call",
     "ctaSecondary": "Vedi servizi"
   },
   "marquee": [
@@ -88,7 +88,7 @@
       "backLabel": "Tutti i servizi",
       "intro": {
         "p1": "Lavoriamo con aziende serie che vogliono crescere nel digitale con criterio. Non vendiamo «presenza online» o «branding olistico» — vendiamo servizi concreti che producono numeri concreti.",
-        "p2": "Ogni servizio qui sotto può essere attivato singolarmente o integrato nella Sua strategia complessiva. Il nostro consiglio: inizi con un audit gratuito, vediamo insieme di cosa ha davvero bisogno."
+        "p2": "Ogni servizio qui sotto può essere attivato singolarmente o integrato nella Sua strategia complessiva. Il nostro consiglio: inizi con una discovery call gratuita di 30 minuti, vediamo insieme di cosa ha davvero bisogno."
       },
       "cards": [
         {
@@ -161,7 +161,7 @@
       "subHeadline": "Facebook + Instagram + Threads. Setup tracking completo, creative testate per coorte, ottimizzazione settimanale su ciò che conta — non su ciò che appare bene in dashboard.",
       "meta": {
         "title": "Meta Ads — Facebook e Instagram Ads | Green Pheonix",
-        "description": "Campagne Meta calibrate su Andromeda: creative-first, server-side tracking, ottimizzazione per coorti. Audit gratuito del Suo account Meta."
+        "description": "Campagne Meta calibrate su Andromeda: creative-first, server-side tracking, ottimizzazione per coorti. Discovery call gratuita di 30 minuti."
       },
       "forWho": {
         "heading": "Per chi funziona",
@@ -293,9 +293,9 @@
         ]
       },
       "cta": {
-        "heading": "Vuole un audit gratuito dell'account Meta?",
-        "body": "3-5 giorni, un documento concreto con osservazioni prioritizzate. Gratuito se lavoriamo insieme dopo. Resta Suo a prescindere dalla decisione.",
-        "button": "Prenoti un audit Meta"
+        "heading": "Vuole iniziare dal Suo account Meta?",
+        "body": "Discovery call gratuita di 30 minuti. Se vuole l'analisi completa: audit a 150 €, consegna in 48h, un documento concreto con osservazioni prioritizzate. Scalato interamente dalla prima fattura se lavoriamo insieme, e resta Suo a prescindere dalla decisione.",
+        "button": "Prenoti una discovery call"
       }
     },
     "googleAds": {
@@ -304,7 +304,7 @@
       "subHeadline": "Search + Performance Max + YouTube. Catturiamo la domanda esistente, non la costruiamo da zero. Più efficiente quando il Suo prodotto è cercato attivamente.",
       "meta": {
         "title": "Google Ads — Search, PMax e YouTube | Green Pheonix",
-        "description": "Campagne Google Ads intent-based: Search-first, negative keywords aggressive, landing page alignment, conversion tracking enhanced. Audit gratuito."
+        "description": "Campagne Google Ads intent-based: Search-first, negative keywords aggressive, landing page alignment, conversion tracking enhanced. Discovery call gratuita di 30 minuti."
       },
       "forWho": {
         "heading": "Per chi funziona",
@@ -441,9 +441,9 @@
         ]
       },
       "cta": {
-        "heading": "Vuole un audit gratuito dell'account Google Ads?",
-        "body": "Analizziamo il Suo account esistente (o il setup attuale se è self-managed). Un documento con osservazioni, gratuito se lavoriamo insieme.",
-        "button": "Prenoti un audit Google"
+        "heading": "Vuole iniziare dal Suo account Google Ads?",
+        "body": "Discovery call gratuita di 30 minuti. Per l'analisi completa del Suo account esistente (o del setup attuale, se è self-managed): audit a 150 €, consegna in 48h, scalato interamente dalla prima fattura se lavoriamo insieme.",
+        "button": "Prenoti una discovery call"
       }
     },
     "socialMedia": {
@@ -594,9 +594,9 @@
         "linkSlug": "academia-kokoro-rebrand"
       },
       "cta": {
-        "heading": "Vuole un audit gratuito della Sua presenza social?",
-        "body": "Analizziamo i Suoi account, individuiamo gap e opportunità. Raccomandazione onesta: è adatto al social organico oppure è meglio investire negli annunci a pagamento.",
-        "button": "Prenoti un audit social"
+        "heading": "Vuole parlare della Sua presenza social?",
+        "body": "Discovery call gratuita di 30 minuti. Guardiamo i Suoi account, individuiamo gap e opportunità e Le diciamo onestamente se è adatto al social organico oppure se è meglio investire negli annunci a pagamento.",
+        "button": "Prenoti una discovery call"
       }
     },
     "webDev": {
@@ -882,9 +882,9 @@
         "eyebrow": "// FORMAT",
         "heading": "Come si attiva",
         "paragraphs": [
-          "<strong>Discovery call (30 min) — gratuita.</strong> Ascoltiamo prima, valutiamo se siamo adatti.",
+          "<strong>Discovery call di 30 minuti — gratuita.</strong> Ascoltiamo prima, valutiamo se siamo adatti.",
           "<strong>Audit standalone</strong> — progetto puntuale. Documento completo, deliverable concreti, senza obbligo di prosecuzione.",
-          "<strong>Audit gratuito se lavoriamo insieme dopo.</strong> Se firma un contratto per l'implementazione successiva, l'audit è incluso.",
+          "<strong>Audit completo — 150 €, consegna in 48h.</strong> Scalato interamente dalla prima fattura se lavoriamo insieme.",
           "I prezzi di partenza sono sulla pagina <a href=\"/it/preturi/\">Prezzi</a>. Il prezzo finale lo stabiliamo dopo la discovery call, perché dipende dallo scope: un audit Meta Ads semplice ≠ un audit dell'ecosistema completo su 5 assi; una discovery di 60 min ≠ un workshop strategico di 2 giorni. Le diciamo onestamente quanto costa per il Suo caso concreto."
         ]
       },
@@ -1109,7 +1109,7 @@
         "description": "Aumentiamo i budget in modo controllato e apriamo nuovi canali."
       }
     ],
-    "cta": "INIZIA CON UN AUDIT GRATUITO"
+    "cta": "INIZIA CON UNA DISCOVERY CALL GRATUITA"
   },
   "caseStudies": {
     "header": "CASE STUDY",
@@ -1141,7 +1141,7 @@
       },
       {
         "question": "Qual è il workflow per lavorare insieme?",
-        "answer": "In 5 passi: 1. Discovery call (30 min, gratuita). 2. Audit (3-5 giorni, gratuito se lavoriamo insieme dopo). 3. Proposta strategica (5-7 giorni). 4. Implementazione (durata variabile, milestone settimanali). 5. Ottimizzazione e reporting (report mensile con analisi, NON dashboard automatica). Paga quando e se firma il contratto."
+        "answer": "In 5 passi: 1. Discovery call di 30 minuti (gratuita). 2. Audit completo (150 €, consegna in 48h, scalato interamente dalla prima fattura se lavoriamo insieme). 3. Proposta strategica (5-7 giorni). 4. Implementazione (durata variabile, milestone settimanali). 5. Ottimizzazione e reporting (report mensile con analisi, NON dashboard automatica). L'implementazione la paga solo se firma il contratto."
       },
       {
         "question": "Perché non addebitate una manutenzione mensile per i siti?",
@@ -1153,7 +1153,7 @@
       },
       {
         "question": "Posso lavorare con voi se gestisco già campagne su un altro account?",
-        "answer": "Sì. Anzi, è la situazione ideale — abbiamo un punto di partenza reale. Il processo: 1. Accesso «Analyst» (read-only) agli account Meta/Google/TikTok. 2. Audit di 3-5 giorni (gratuito se lavoriamo insieme dopo). 3. Decide se trasferire il management o se lavorare in modo complementare. NON facciamo trash-talking sul lavoro precedente. A volte è buono, a volte no. Diciamo onestamente ciò che vediamo."
+        "answer": "Sì. Anzi, è la situazione ideale — abbiamo un punto di partenza reale. Il processo: 1. Accesso «Analyst» (read-only) agli account Meta/Google/TikTok. 2. Audit completo (150 €, consegna in 48h, scalato interamente dalla prima fattura se lavoriamo insieme). 3. Decide se trasferire il management o se lavorare in modo complementare. NON facciamo trash-talking sul lavoro precedente. A volte è buono, a volte no. Diciamo onestamente ciò che vediamo."
       },
       {
         "question": "Se i risultati non si vedono nelle prime settimane, c'è qualcosa che non va?",
@@ -1169,8 +1169,8 @@
   },
   "finalCta": {
     "heading": "Pronto a crescere insieme?",
-    "subtext": "Prenota un audit gratuito di 30 minuti. Esci con un piano concreto, anche se non lavoriamo insieme.",
-    "buttonText": "Prenota audit"
+    "subtext": "Prenota una discovery call gratuita di 30 minuti. Esci con un piano concreto, anche se non lavoriamo insieme.",
+    "buttonText": "Prenota una discovery call"
   },
   "pricing": {
     "meta": {
@@ -1275,7 +1275,7 @@
         "<strong>Pagamento:</strong> 50% di anticipo alla firma del contratto, 50% alla consegna. Per gli abbonamenti, mensile in anticipo.",
         "<strong>Rate:</strong> disponibili per i progetti web (ne parliamo in fase di preventivo).",
         "<strong>Sconti:</strong> fino al 10% per pagamento annuale anticipato, fino al 15% su contratto di 12 mesi. Tutto qui — non lavoriamo su sconti elevati che svalutano il lavoro.",
-        "<strong>Audit completo a pagamento:</strong> 150 €, consegna in 48h (report video + scritto). Interamente scalato dalla prima fattura se lavoriamo insieme dopo.",
+        "<strong>Audit completo:</strong> 150 €, consegna in 48h (report video + scritto). Scalato interamente dalla prima fattura se lavoriamo insieme.",
         "<strong>Senza IVA:</strong> I prezzi sono finali — Green Pheonix Concept non è soggetta a IVA."
       ]
     },
@@ -1285,7 +1285,7 @@
         {
           "name": "Audit di un sito/account esistente",
           "price": "150 €",
-          "desc": "consegna in 48h. Un report concreto su cosa sta perdendo ora e cosa va cambiato. Creditabile se lavoriamo insieme dopo."
+          "desc": "consegna in 48h. Un report concreto su cosa sta perdendo ora e cosa va cambiato. Scalato interamente dalla prima fattura se lavoriamo insieme."
         },
         {
           "name": "Landing page extra",
@@ -1454,8 +1454,8 @@
       {
         "num": "02",
         "heading": "Analizziamo ciò che c'è, non presupponiamo",
-        "duration": "3-5 giorni",
-        "cost": "Gratuito se lavoriamo insieme dopo",
+        "duration": "48h",
+        "cost": "150 €, scalato interamente dalla prima fattura se lavoriamo insieme",
         "body": "Prima di qualsiasi proposta, guardiamo con attenzione tutto il Suo ecosistema digitale. NON presupponiamo nulla. Analizziamo: il sito (performance, UX, SEO, conversione), gli account ads esistenti (campagne, audience, creative, tracking), la presenza organica (social media, Google My Business, recensioni), la concorrenza diretta (3-5 competitor), il tracking (pixel, conversioni, attribuzione).",
         "deliverTitle": "Cosa riceve",
         "deliver": [

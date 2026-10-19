@@ -53,7 +53,7 @@ interface PricingBlock {
   web: PriceSection;
   terms: { title: string; intro: string; items: string[] };
   addons: { title: string; items: { name: string; price: string; desc: string }[] };
-  finalCta: { title: string; body: string; scarcity: string; button: string };
+  finalCta: { title: string; body: string; button: string };
 }
 const p = t<PricingBlock>(locale, 'pricing');
 
@@ -229,7 +229,6 @@ const sections = [
       >
         {p.finalCta.button} <span aria-hidden="true">→</span>
       </a>
-      <p class="mt-5 font-mono text-xs uppercase tracking-widest text-gpc-ink/55">{p.finalCta.scarcity}</p>
     </div>
   </section>
 </BaseLayout>

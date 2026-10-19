@@ -1302,7 +1302,6 @@
     "finalCta": {
       "title": "Not sure what fits you?",
       "body": "Book a free 30-minute discovery call. You leave with a concrete plan and an honest recommendation, whether we work together or not.",
-      "scarcity": "We only take on 2-3 new projects per month.",
       "button": "Book a discovery call"
     }
   },
@@ -1374,7 +1373,6 @@
     "section3": {
       "title": "How I work",
       "p1": "You work directly with me. There's no intermediary account manager handing you off to a developer. You talk to me — I execute.",
-      "p2": "I work with a small number of clients, not a portfolio of 30. I'd rather have 4-6 serious clients handled with care than 30 handled superficially.",
       "p3": "We communicate on your preferred channel — Slack, WhatsApp, email. I reply within 24 working hours. For real emergencies (a campaign down, a site crashed), I reply faster.",
       "p4": "I work in three languages: Romanian, Italian, English. That opens up opportunities for clients who want to reach the Romanian diaspora in Italy or the UK."
     },

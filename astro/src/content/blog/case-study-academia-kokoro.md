@@ -55,9 +55,9 @@ Cifra de impresii e validată de client și publicată ca atare. Important de su
 
 ## În cuvintele clientului
 
-> „Laurențiu nu a venit să ne vândă servicii, ci să înțeleagă ce înseamnă Kokoro și unde vrem să ajungem. A construit împreună cu noi un brand digital care reflectă identitatea reală a academiei — disciplină, tradiție japoneză, performanță sportivă. Rezultatele organice extraordinare sunt consecința strategiei corecte, nu a unor trucuri de marketing."
+> „Seriozitate, Profesionalism, Implicare. Recomand cu drag”
 >
-> — **Sensei Lucian Bogluț**, Fondator, Kokoro Ju Jitsu Academy Brașov
+> — **Lucian Florin Bogluț**, fondator Kokoro Ju Jitsu Academy · [recenzie Google](https://share.google/JuSIROGAQGOPtQjOE)
 
 ## Ce poți lua de aici
 

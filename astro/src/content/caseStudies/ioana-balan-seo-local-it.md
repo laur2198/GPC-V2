@@ -33,6 +33,10 @@ services:
   - "SEO locale: 20 pagine per provincia"
   - "AEO: FAQ costruite sulle domande reali degli sposi"
   - "Accessibilità e conformità GDPR / tutela consumatori"
+testimonial:
+  quote: "Abbiamo collaborato molto bene e in modo piacevole con il team di Green Phoenix Concept. Una squadra giovane, con molte idee innovative e allo stesso tempo molto attenta a ciò che dovevamo realizzare. Consiglio questa squadra con fiducia!"
+  author: "Grand Music Events"
+  role: "Band per matrimoni · recensione Google, tradotta dal rumeno"
 images:
   hero: "/case-studies/ioana-balan/desktop-home.webp"
   mobile: "/case-studies/ioana-balan/mobile-home.webp"

@@ -32,6 +32,10 @@ services:
   - "SEO local: 20 de pagini de zonă"
   - "AEO: FAQ structurat pe întrebările reale ale mirilor"
   - "Accesibilitate și conformitate GDPR / ANPC"
+testimonial:
+  quote: "Am colaborat foarte bine și într-un mod plăcut cu cei de la Green Phoenix Concept. O echipă tânără cu multe idei inovatoare și tot odată foarte atenți la ceea ce am am avut de realizat. Recomand cu încredere această echipă!"
+  author: "Grand Music Events"
+  role: "Formație de nuntă · recenzie Google"
 images:
   hero: "/case-studies/ioana-balan/desktop-home.webp"
   mobile: "/case-studies/ioana-balan/mobile-home.webp"

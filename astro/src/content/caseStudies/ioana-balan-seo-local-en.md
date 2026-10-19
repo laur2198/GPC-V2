@@ -33,6 +33,10 @@ services:
   - "Local SEO: 20 county pages"
   - "AEO: FAQ built on couples' real questions"
   - "Accessibility and GDPR / consumer-law compliance"
+testimonial:
+  quote: "We worked very well and pleasantly with the team at Green Phoenix Concept. A young team with lots of innovative ideas and, at the same time, very attentive to what we needed to get done. I confidently recommend this team!"
+  author: "Grand Music Events"
+  role: "Wedding band · Google review, translated from Romanian"
 images:
   hero: "/case-studies/ioana-balan/desktop-home.webp"
   mobile: "/case-studies/ioana-balan/mobile-home.webp"

@@ -36,9 +36,9 @@ services:
   - "Campagna giveaway"
   - "14-day enrollment planner"
 testimonial:
-  quote: "Laurentiu non è venuto a venderci dei servizi, ma a capire cosa significa Kokoro e dove vogliamo arrivare. Ha costruito insieme a noi un brand digitale che riflette l'identità reale dell'accademia — disciplina, tradizione giapponese, performance sportiva. Gli straordinari risultati organici sono la conseguenza di una strategia corretta, non di trucchi di marketing."
-  author: "Sensei Lucian Bogluț"
-  role: "Fondatore, Kokoro Ju Jitsu Academy Brașov"
+  quote: "Serietà, professionalità, impegno. Li consiglio con piacere."
+  author: "Lucian Florin Bogluț"
+  role: "Fondatore, Kokoro Ju Jitsu Academy · recensione Google, tradotta dal rumeno"
 images:
   hero: "/case-studies/kokoro/adi-portrait.png"
   siteDesktop: "/case-studies/kokoro/site-desktop.webp"

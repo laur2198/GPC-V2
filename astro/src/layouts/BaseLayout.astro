@@ -300,7 +300,7 @@ const faqJsonLd = faqSchema && faqSchema.length
         name: f.question,
         acceptedAnswer: {
           '@type': 'Answer',
-          text: f.answer,
+          text: f.answer.replace(/<[^>]+>/g, ''),
         },
       })),
     }

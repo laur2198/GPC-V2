@@ -22,7 +22,11 @@ const faq = t<{ header: string; items: { question: string; answer: string }[] }>
 
 const finalCta = t<{ heading: string; subtext: string; buttonText: string }>(locale, 'finalCta');
 
-const testimonialsUi = t<{ header: string; viewCase: string }>(locale, 'testimonials');
+const testimonialsUi = t<{
+  header: string;
+  viewCase: string;
+  google?: { rating: string; count: number; label: string; cta: string; url: string };
+}>(locale, 'testimonials');
 
 const aboutTeaser = t<{ header: string; title: string; description: string; ctaText: string }>(locale, 'aboutTeaser');
 
@@ -38,7 +42,7 @@ if (allCs.length === 0) {
     data.language === 'ro' && publishable({ data, ...rest })
   )).sort(byOrder);
 }
-const previewCs = allCs.slice(0, 2);
+const previewCs = allCs.slice(0, 3);
 
 // Real client testimonials sourced from case studies. We only show quotes
 // from real named people — entries that are data-source attributions
@@ -118,6 +122,19 @@ const realTestimonials = allCs
     <section class="reveal border-t border-gpc-border bg-gpc-white">
       <div class="mx-auto max-w-3xl px-6 py-20 text-center">
         <p class="font-mono text-xs uppercase tracking-[0.3em] text-gpc-green">{testimonialsUi.header}</p>
+        {testimonialsUi.google && (
+          <a
+            href={testimonialsUi.google.url}
+            target="_blank"
+            rel="noopener"
+            class="mt-4 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-gpc-ink/70 hover:text-gpc-green"
+          >
+            <span class="text-gpc-green" aria-hidden="true">★★★★★</span>
+            <span>{testimonialsUi.google.rating} · {testimonialsUi.google.count} {testimonialsUi.google.label}</span>
+            <span aria-hidden="true">↗</span>
+            <span class="sr-only">{testimonialsUi.google.cta}</span>
+          </a>
+        )}
         <div class="mt-10 space-y-10">
           {realTestimonials.map((tm) => (
             <figure class="border-l-4 border-gpc-green bg-gpc-card/20 p-8 text-left md:p-10">

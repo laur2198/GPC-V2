@@ -3,7 +3,7 @@
  * StickyStackServices
  *
  * Signature "scrollytelling" stack restored from the live HTML
- * (.stack-scroll-wrapper / .sticky-card). Three large colour-coded
+ * (.stack-scroll-wrapper / .sticky-card). Four large colour-coded
  * cards that stack on top of each other as you scroll: each card is
  * `position: sticky` with an incremental `top`, so the previous card
  * stays pinned while the next slides up over it.
@@ -11,6 +11,7 @@
  *   Card 01 — Strategie & Audit : dark   (#111111, white text)
  *   Card 02 — Web Dev           : green  (gpc-green, ink text)
  *   Card 03 — Reclame Ads       : red    (gpc-red,  white text)
+ *   Card 04 — Social Media      : light  (#EDEDE6, ink text)
  *
  * Reads the same `homeServices` i18n block the old 3-col grid used,
  * so RO/EN/IT copy is shared. On mobile the stack collapses to plain
@@ -39,8 +40,8 @@ const block = t<{ header: string; subheader: string; items: ServiceItem[] }>(
   'homeServices'
 );
 
-const variants = ['card-audit', 'card-web', 'card-ads'] as const;
-const cards = block.items.slice(0, 3).map((item, i) => ({
+const variants = ['card-audit', 'card-web', 'card-paid', 'card-social'] as const;
+const cards = block.items.slice(0, 4).map((item, i) => ({
   ...item,
   variant: variants[i] ?? 'card-audit',
   // Incremental sticky offset so each card peeks below the previous one.
@@ -91,7 +92,7 @@ const cards = block.items.slice(0, 3).map((item, i) => ({
     box-shadow: 0 -10px 40px rgba(5, 5, 5, 0.18);
   }
 
-  /* Colour variants (live HTML: card-audit / card-web / card-ads). */
+  /* Colour variants (live HTML: card-audit / card-web / card-paid). */
   .card-audit {
     background-color: #111111;
     color: #ffffff;
@@ -100,9 +101,15 @@ const cards = block.items.slice(0, 3).map((item, i) => ({
     background-color: var(--gpc-green);
     color: #050505;
   }
-  .card-ads {
+  .card-paid {
     background-color: var(--gpc-red);
     color: #ffffff;
+  }
+  .card-social {
+    background-color: #EDEDE6;
+    color: #050505;
+    border: 1px solid rgba(5, 5, 5, 0.12);
+    border-bottom: 0;
   }
 
   .sticky-card-inner {

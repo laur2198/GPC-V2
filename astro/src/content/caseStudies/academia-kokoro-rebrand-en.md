@@ -36,17 +36,25 @@ services:
   - "Giveaway campaign"
   - "14-day enrollment planner"
 testimonial:
-  quote: "Laurentiu did not come to sell us services, but to understand what Kokoro means and where we want to go. He built a digital brand together with us that reflects the true identity of the academy — discipline, Japanese tradition, athletic performance. The extraordinary organic results are the consequence of the right strategy, not of marketing tricks."
-  author: "Sensei Lucian Bogluț"
-  role: "Founder, Kokoro Ju Jitsu Academy Brașov"
+  quote: "Seriousness, professionalism, commitment. I recommend them wholeheartedly."
+  author: "Lucian Florin Bogluț"
+  role: "Founder, Kokoro Ju Jitsu Academy · Google review, translated from Romanian"
 images:
   hero: "/case-studies/kokoro/adi-portrait.png"
+  siteDesktop: "/case-studies/kokoro/site-desktop.webp"
+  siteMobile: "/case-studies/kokoro/site-mobile.webp"
   adi: "/case-studies/kokoro/adi-portrait-wide.png"
   sensei: "/case-studies/kokoro/sensei-lucian.png"
   sempaiTeam: "/case-studies/kokoro/sempai-adrian.png"
   logo: "/case-studies/kokoro/logo.png"
 imageAlt: "Adi Bogluț, ju jitsu world champion, brand ambassador for Kokoro Academy"
 imageMeta:
+  siteDesktop:
+    alt: "The kokoro.ro homepage on desktop"
+    caption: "Custom kokoro.ro website"
+  siteMobile:
+    alt: "The kokoro.ro homepage on mobile"
+    caption: "Mobile-first"
   adi:
     alt: "Adi Bogluț, ju jitsu world champion, brand ambassador for Kokoro Academy"
     caption: "Adi Bogluț — world champion"

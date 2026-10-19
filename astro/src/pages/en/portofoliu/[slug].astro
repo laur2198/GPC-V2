@@ -132,6 +132,16 @@ const articleSchema = {
         <p class="mt-6 font-mono text-sm uppercase tracking-widest text-gpc-ink/70">
           {d.anonymized ? 'Anonymized client' : d.client}{d.location ? ` · ${d.location}` : ''}{period ? ` · ${period}` : ''}
         </p>
+        {d.website && (
+          <a
+            href={`https://${d.website}`}
+            target="_blank"
+            rel="noopener"
+            class="mt-6 inline-flex items-center gap-2 border border-gpc-green bg-gpc-green px-5 py-3 font-mono text-xs uppercase tracking-[0.2em] text-gpc-ink transition-colors hover:bg-transparent hover:text-gpc-green"
+          >
+            Visit the live site <span aria-hidden="true">↗</span>
+          </a>
+        )}
 
         {heroMetric && (
           <div class="reveal mt-12">
@@ -356,8 +366,8 @@ const articleSchema = {
 
     <CTA
       heading="Want similar results?"
-      subtext="Book a free audit and we will see if our playbook fits your business."
-      buttonText="Book an audit"
+      subtext="Book a free 30-minute discovery call and we will see if our playbook fits your business."
+      buttonText="Book a discovery call"
       buttonLink={localizedPath('en', '/contact')}
     />
   </article>

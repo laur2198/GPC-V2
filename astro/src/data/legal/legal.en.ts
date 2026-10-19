@@ -199,7 +199,7 @@ export const terms: LegalDocData = {
       blocks: [
         { type: 'p', html: 'The contact form does <strong>not</strong> constitute a contract. The contract is concluded after:' },
         { type: 'ol', items: [
-          'Free audit / initial discussion.',
+          'Free 30-minute discovery call / initial discussion.',
           'Written quotation.',
           'Client acceptance (signature + advance payment).',
         ] },

@@ -31,7 +31,7 @@ export const copy: Record<Locale, LocaleCopy> = {
         { q: 'Cu ce bugete lucrați?', a: 'Pornim de la 1.500€/lună budget media. Recomandăm minim 3 luni pentru rezultate stabile.' },
         { q: 'În cât timp văd rezultate?', a: 'Primele insight-uri în 2 săptămâni; optimizări consistente după 30-45 de zile.' },
       ],
-      cta: { title: 'Pregătit să creștem împreună?', description: 'Programează un audit gratuit de 30 de minute.', ctaLabel: 'Contactează-ne' },
+      cta: { title: 'Pregătit să creștem împreună?', description: 'Programează un discovery call gratuit de 30 de minute.', ctaLabel: 'Contactează-ne' },
     },
     despre: {
       meta: { title: 'Despre noi — Green Pheonix', description: 'Cine suntem și de ce facem ce facem.' },
@@ -39,7 +39,7 @@ export const copy: Record<Locale, LocaleCopy> = {
     },
     contact: {
       meta: { title: 'Contact — Green Pheonix', description: 'Discută cu echipa noastră.' },
-      hero: { title: 'Hai să vorbim', subtitle: 'Programează un audit gratuit sau cere o ofertă personalizată.', ctaLabel: 'Trimite mesaj' },
+      hero: { title: 'Hai să vorbim', subtitle: 'Programează un discovery call gratuit de 30 de minute sau cere o ofertă personalizată.', ctaLabel: 'Trimite mesaj' },
     },
     politica: {
       meta: { title: 'Politică de confidențialitate', description: 'Politica de confidențialitate Green Pheonix.' },
@@ -73,7 +73,7 @@ export const copy: Record<Locale, LocaleCopy> = {
         { q: 'What budgets do you work with?', a: 'We start from €1,500/month media budget. We recommend at least 3 months for stable results.' },
         { q: 'How soon will I see results?', a: 'First insights within 2 weeks; consistent optimization after 30-45 days.' },
       ],
-      cta: { title: 'Ready to grow together?', description: 'Book a free 30-minute audit.', ctaLabel: 'Contact us' },
+      cta: { title: 'Ready to grow together?', description: 'Book a free 30-minute discovery call.', ctaLabel: 'Contact us' },
     },
     despre: {
       meta: { title: 'About — Green Pheonix', description: 'Who we are and why we do what we do.' },
@@ -81,7 +81,7 @@ export const copy: Record<Locale, LocaleCopy> = {
     },
     contact: {
       meta: { title: 'Contact — Green Pheonix', description: 'Talk to our team.' },
-      hero: { title: 'Let’s talk', subtitle: 'Book a free audit or request a custom quote.', ctaLabel: 'Send a message' },
+      hero: { title: 'Let’s talk', subtitle: 'Book a free 30-minute discovery call or request a custom quote.', ctaLabel: 'Send a message' },
     },
     politica: {
       meta: { title: 'Privacy policy', description: 'Green Pheonix privacy policy.' },
@@ -115,7 +115,7 @@ export const copy: Record<Locale, LocaleCopy> = {
         { q: 'Con quali budget lavorate?', a: 'Partiamo da 1.500€/mese di budget media. Consigliamo almeno 3 mesi per risultati stabili.' },
         { q: 'In quanto tempo vedrò risultati?', a: 'Primi insight entro 2 settimane; ottimizzazione costante dopo 30-45 giorni.' },
       ],
-      cta: { title: 'Pronto a crescere insieme?', description: 'Prenota un audit gratuito di 30 minuti.', ctaLabel: 'Contattaci' },
+      cta: { title: 'Pronto a crescere insieme?', description: 'Prenota una discovery call gratuita di 30 minuti.', ctaLabel: 'Contattaci' },
     },
     despre: {
       meta: { title: 'Chi siamo — Green Pheonix', description: 'Chi siamo e perché facciamo quello che facciamo.' },
@@ -123,7 +123,7 @@ export const copy: Record<Locale, LocaleCopy> = {
     },
     contact: {
       meta: { title: 'Contatti — Green Pheonix', description: 'Parla con il nostro team.' },
-      hero: { title: 'Parliamone', subtitle: 'Prenota un audit gratuito o richiedi un preventivo personalizzato.', ctaLabel: 'Invia un messaggio' },
+      hero: { title: 'Parliamone', subtitle: 'Prenota una discovery call gratuita di 30 minuti o richiedi un preventivo personalizzato.', ctaLabel: 'Invia un messaggio' },
     },
     politica: {
       meta: { title: 'Informativa sulla privacy', description: 'Informativa sulla privacy di Green Pheonix.' },

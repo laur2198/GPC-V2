@@ -7,7 +7,8 @@
     "blog": "Blog",
     "about": "About",
     "contact": "Contact",
-    "services": "Services"
+    "services": "Services",
+    "prices": "Pricing"
   },
   "hero": {
     "eyebrow": {
@@ -20,7 +21,7 @@
     "h1Line3Prefix": "WEBSITES THAT",
     "h1Line3Accent": "SELL",
     "sub": "We help businesses get more clients through online ads and websites built to convert. No jargon, no luck — just measurable results.",
-    "ctaPrimary": "Book an audit",
+    "ctaPrimary": "Book a discovery call",
     "ctaSecondary": "View services"
   },
   "marquee": [
@@ -83,11 +84,11 @@
     "umbrella": {
       "eyebrow": "// WHAT WE DO",
       "h1": "Services that deliver measurable results.",
-      "subHeadline": "6 services, integrated or standalone. You choose what you need, you pay for what you get. No forced packages, no useless upsells.",
+      "subHeadline": "6 services, integrated or standalone. You choose what you need, you pay for what you get. Transparent entry prices, no useless upsells.",
       "backLabel": "All services",
       "intro": {
         "p1": "We work with serious businesses that want to grow digitally with a clear head. We do not sell \"online presence\" or \"holistic branding\" — we sell concrete services that deliver concrete numbers.",
-        "p2": "Each service below can be contracted on its own or integrated into your overall strategy. Our recommendation: start with a free audit, and we work out together what you really need."
+        "p2": "Each service below can be contracted on its own or integrated into your overall strategy. Our recommendation: start with a free 30-minute discovery call, and we work out together what you really need."
       },
       "cards": [
         {
@@ -141,14 +142,8 @@
       ],
       "philosophy": {
         "eyebrow": "// PHILOSOPHY",
-        "heading": "Why we don't sell predefined packages",
-        "intro": "\"Starter / Growth / Scale\" packages are convenient for agencies, but rarely a good fit for clients. The reality is that:",
-        "bullets": [
-          "A local coffee shop with 300 Instagram followers does not need \"Performance Max + Email Marketing + Influencer outreach\" — it needs a single hyper-targeted Meta campaign plus solid content production",
-          "An e-commerce store with steady traffic and a good AOV does not need \"rebranding + social media strategy + landing page redesign\" — it just needs Meta scaling + Google Shopping optimization",
-          "A B2B SaaS with a long sales cycle does not need \"volume campaigns\" — it needs LinkedIn Ads + retargeting + content marketing"
-        ],
-        "outro": "Standardized packages force clients to buy what they don't need. We choose the opposite: we recommend only what works for your specific context."
+        "heading": "An offer tailored to your needs",
+        "body": "Our entry prices are public, on the <a href=\"/en/preturi/\">Pricing</a> page. We set the final package individually, in your quote: we recommend only what works for your specific context, not services you don't need."
       },
       "cta": {
         "heading": "Not sure where to start?",
@@ -157,7 +152,7 @@
       },
       "meta": {
         "title": "Services — Performance marketing & web | Green Pheonix",
-        "description": "6 services, integrated or standalone: Meta Ads, Google Ads, Social Media, Web Development, Strategy & Audit, Content Production. No forced packages."
+        "description": "6 services, integrated or standalone: Meta Ads, Google Ads, Social Media, Web Development, Strategy & Audit, Content Production. Transparent entry prices, an offer tailored to your needs."
       }
     },
     "metaAds": {
@@ -166,7 +161,7 @@
       "subHeadline": "Facebook + Instagram + Threads. Full tracking setup, creative tested per cohort, weekly optimization on what matters — not on what looks good in a dashboard.",
       "meta": {
         "title": "Meta Ads — Facebook & Instagram Ads | Green Pheonix",
-        "description": "Meta campaigns calibrated for Andromeda: creative-first, server-side tracking, cohort optimization. Free audit of your Meta account."
+        "description": "Meta campaigns calibrated for Andromeda: creative-first, server-side tracking, cohort optimization. Free 30-minute discovery call."
       },
       "forWho": {
         "heading": "Who it works for",
@@ -298,9 +293,9 @@
         ]
       },
       "cta": {
-        "heading": "Want a free audit of your Meta account?",
-        "body": "3-5 days, a concrete document with prioritized findings. Free if we work together afterwards. Yours regardless of your decision.",
-        "button": "Book a Meta audit"
+        "heading": "Want to start with your Meta account?",
+        "body": "Free 30-minute discovery call. If you want the full analysis: a €150 audit, delivered in 48h, a concrete document with prioritized findings. Fully deducted from your first invoice if we work together, and yours regardless of your decision.",
+        "button": "Book a discovery call"
       }
     },
     "googleAds": {
@@ -309,7 +304,7 @@
       "subHeadline": "Search + Performance Max + YouTube. We capture existing demand, we do not build it from scratch. More efficient when your product is actively searched for.",
       "meta": {
         "title": "Google Ads — Search, PMax & YouTube | Green Pheonix",
-        "description": "Intent-based Google Ads campaigns: Search-first, aggressive negative keywords, landing page alignment, enhanced conversion tracking. Free audit."
+        "description": "Intent-based Google Ads campaigns: Search-first, aggressive negative keywords, landing page alignment, enhanced conversion tracking. Free 30-minute discovery call."
       },
       "forWho": {
         "heading": "Who it works for",
@@ -446,9 +441,9 @@
         ]
       },
       "cta": {
-        "heading": "Want a free audit of your Google Ads account?",
-        "body": "We analyze your existing account (or your current setup if you are self-managed). A document with findings, free if we work together.",
-        "button": "Book a Google audit"
+        "heading": "Want to start with your Google Ads account?",
+        "body": "Free 30-minute discovery call. For a full analysis of your existing account (or your current setup if you are self-managed): a €150 audit, delivered in 48h, fully deducted from your first invoice if we work together.",
+        "button": "Book a discovery call"
       }
     },
     "socialMedia": {
@@ -599,9 +594,9 @@
         "linkSlug": "academia-kokoro-rebrand"
       },
       "cta": {
-        "heading": "Want a free audit of your social presence?",
-        "body": "We analyze your accounts, identify gaps and opportunities. An honest recommendation: whether you are a good fit for organic social, or whether it is better to invest in paid ads.",
-        "button": "Book a social audit"
+        "heading": "Want to talk about your social presence?",
+        "body": "Free 30-minute discovery call. We look at your accounts, identify gaps and opportunities, and tell you honestly whether you are a good fit for organic social or whether it is better to invest in paid ads.",
+        "button": "Book a discovery call"
       }
     },
     "webDev": {
@@ -887,10 +882,10 @@
         "eyebrow": "// FORMAT",
         "heading": "How it is contracted",
         "paragraphs": [
-          "<strong>Discovery call (30 min) — free.</strong> We listen first, then assess whether we are a good fit.",
+          "<strong>30-minute discovery call — free.</strong> We listen first, then assess whether we are a good fit.",
           "<strong>Standalone audit</strong> — a one-off project. A complete document, concrete deliverables, with no obligation to continue.",
-          "<strong>Free audit if we work together afterwards.</strong> If you sign a contract for subsequent implementation, the audit is included.",
-          "We do not publish the price because it depends on scope: a simple Meta Ads audit is not the same as a complete 5-axis ecosystem audit; a 60-min discovery is not the same as a 2-day strategic workshop. We discuss it in the discovery call. We tell you honestly what it costs for your specific case."
+          "<strong>Full audit — €150, delivered in 48h.</strong> Fully deducted from your first invoice if we work together.",
+          "Entry prices are on the <a href=\"/en/preturi/\">Pricing</a> page. We set the final price after the discovery call, because it depends on scope: a simple Meta Ads audit is not the same as a complete 5-axis ecosystem audit; a 60-min discovery is not the same as a 2-day strategic workshop. We tell you honestly what it costs for your specific case."
         ]
       },
       "cta": {
@@ -1053,7 +1048,7 @@
   },
   "homeServices": {
     "header": "WHAT WE DO",
-    "subheader": "Three directions, one goal: measurable results",
+    "subheader": "Four directions, one goal: measurable results",
     "items": [
       {
         "number": "01",
@@ -1078,6 +1073,14 @@
         "ctaText": "View ads services",
         "accentTag": "ADS",
         "link": "/servicii/meta-ads"
+      },
+      {
+        "number": "04",
+        "title": "Social Media & Content",
+        "description": "Content strategy, in-house video and photo production, and community management. The organic foundation that ads scale on.",
+        "ctaText": "See social media",
+        "accentTag": "SOCIAL",
+        "link": "/servicii/social-media"
       }
     ]
   },
@@ -1106,7 +1109,7 @@
         "description": "Controlled budget growth and new channels when ready."
       }
     ],
-    "cta": "START WITH A FREE AUDIT"
+    "cta": "START WITH A FREE DISCOVERY CALL"
   },
   "caseStudies": {
     "header": "CASE STUDIES",
@@ -1116,14 +1119,21 @@
   "testimonials": {
     "header": "WHAT CLIENTS SAY",
     "items": [],
-    "viewCase": "See the full case"
+    "viewCase": "See the full case",
+    "google": {
+      "rating": "5.0",
+      "count": 3,
+      "label": "Google reviews",
+      "cta": "See all on Google",
+      "url": "https://share.google/JuSIROGAQGOPtQjOE"
+    }
   },
   "faq": {
     "header": "FREQUENTLY ASKED QUESTIONS",
     "items": [
       {
-        "question": "What is the minimum budget to work with you?",
-        "answer": "We do not publish prices because every situation is different — a coffee shop that wants its first 50 clients a month needs a different investment than a brand that wants to enter a region. Before \"how much does it cost,\" we ask: what do you sell, who do you sell to, what have you tried, what works, where do you want to be. The budget comes out of the answers. If what you want to achieve does not match what you can invest, we tell you directly — we do not take your money for a campaign that cannot deliver results."
+        "question": "How much does it cost to work with you?",
+        "answer": "Our entry prices are on the <a href=\"/en/preturi/\">Pricing</a> page: monthly social media and ads subscriptions, plus websites. We set the exact package individually, in your quote, because it depends on what you sell, who you sell to, what you have tried and where you want to be. If what you want to achieve does not match what you can invest, we tell you directly — we do not take your money for a campaign that cannot deliver results."
       },
       {
         "question": "How long until I get my website?",
@@ -1131,7 +1141,7 @@
       },
       {
         "question": "What is the workflow for working together?",
-        "answer": "In 5 steps: 1. Discovery call (30 min, free). 2. Audit (3-5 days, free if we work together afterwards). 3. Strategic proposal (5-7 days). 4. Implementation (variable duration, weekly milestones). 5. Optimization & reporting (a monthly report with analysis, NOT an auto dashboard). You pay when and if you sign the contract."
+        "answer": "In 5 steps: 1. 30-minute discovery call (free). 2. Full audit (€150, delivered in 48h, fully deducted from your first invoice if we work together). 3. Strategic proposal (5-7 days). 4. Implementation (variable duration, weekly milestones). 5. Optimization & reporting (a monthly report with analysis, NOT an auto dashboard). You pay for implementation only if you sign the contract."
       },
       {
         "question": "Why don't you charge a monthly maintenance fee for websites?",
@@ -1143,7 +1153,7 @@
       },
       {
         "question": "Can I work with you if I already run campaigns on another account?",
-        "answer": "Yes. In fact, that is the ideal situation — we have a real starting point. The process: 1. \"Analyst\" access (read-only) to Meta/Google/TikTok accounts. 2. A 3-5 day audit (free if we work together afterwards). 3. You decide whether to transfer management or whether we work in a complementary way. We do NOT trash-talk previous work. Sometimes it is good, sometimes it is not. We tell you honestly what we see."
+        "answer": "Yes. In fact, that is the ideal situation — we have a real starting point. The process: 1. \"Analyst\" access (read-only) to Meta/Google/TikTok accounts. 2. A full audit (€150, delivered in 48h, fully deducted from your first invoice if we work together). 3. You decide whether to transfer management or whether we work in a complementary way. We do NOT trash-talk previous work. Sometimes it is good, sometimes it is not. We tell you honestly what we see."
       },
       {
         "question": "If results don't show in the first few weeks, is something wrong?",
@@ -1159,8 +1169,141 @@
   },
   "finalCta": {
     "heading": "Ready to grow together?",
-    "subtext": "Book a free 30-minute audit. You leave with a concrete plan, whether we work together or not.",
-    "buttonText": "Book audit"
+    "subtext": "Book a free 30-minute discovery call. You leave with a concrete plan, whether we work together or not.",
+    "buttonText": "Book a discovery call"
+  },
+  "pricing": {
+    "meta": {
+      "title": "Pricing: Social Media, Ads & Websites | Green Pheonix Concept",
+      "description": "Entry prices: social media from €250/month, social media + Meta ads from €500/month, business websites from €500. Prices are final — no VAT."
+    },
+    "breadcrumb": "Pricing",
+    "hero": {
+      "eyebrow": "INVESTMENT",
+      "h1": "Clear pricing. No surprises at the end.",
+      "subtitle": "The prices below are starting points. We set the exact package individually, in your quote, once we understand what you sell and where you want to go. Prices are final: we are not VAT-registered.",
+      "microcopy": [
+        "Final prices, no VAT",
+        "Installments for websites",
+        "A clear quote before we start"
+      ]
+    },
+    "forLabel": "For",
+    "includesLabel": "Typically includes",
+    "volumeNote": "The exact volume (number of posts, pages, platforms) is set individually, in your quote.",
+    "marketing": {
+      "eyebrow": "MARKETING — MONTHLY SUBSCRIPTION",
+      "title": "Social media and ads, managed monthly",
+      "intro": "A consistent presence on Facebook and Instagram, with or without Meta Ads campaigns. You pay monthly, in advance; ad spend goes straight to Meta, separate from the subscription.",
+      "priceModelLabel": "monthly subscription",
+      "cards": [
+        {
+          "num": "01",
+          "name": "Social Media Management",
+          "price": "from €250/month",
+          "minPrice": 250,
+          "priceMeta": "monthly subscription",
+          "for": "businesses that want a consistent, well-kept presence on Facebook and Instagram.",
+          "includes": [
+            "Content strategy",
+            "Copywriting and design",
+            "Posts and reels from your own material",
+            "Scheduling",
+            "Monthly report"
+          ]
+        },
+        {
+          "num": "02",
+          "name": "Social Media + Ads",
+          "price": "from €500/month",
+          "minPrice": 500,
+          "priceMeta": "monthly subscription",
+          "for": "businesses that also want leads or sales, not just presence.",
+          "includes": [
+            "Everything in Social Media Management",
+            "Meta pixel and conversions setup",
+            "Meta Ads campaigns",
+            "Weekly optimization",
+            "Monthly report (social + ads)"
+          ],
+          "note": "Ad spend is paid separately, directly to Meta."
+        },
+        {
+          "num": "03",
+          "name": "Custom",
+          "price": "on request",
+          "priceMeta": "custom quote",
+          "for": "projects that need more: video shoots and production, Google or TikTok Ads, funnels, more platforms."
+        }
+      ]
+    },
+    "web": {
+      "eyebrow": "WEBSITES — ONE-TIME PAYMENT",
+      "title": "Websites that sell, not just look good",
+      "intro": "A website isn't a cost, it's a sales tool. Built on a modern stack (Astro / WordPress / Shopify), optimized for speed, mobile and conversion.",
+      "priceModelLabel": "one-time payment",
+      "cards": [
+        {
+          "num": "01",
+          "name": "Business website",
+          "price": "from €500",
+          "minPrice": 500,
+          "priceMeta": "one-time payment",
+          "for": "businesses that need a professional, fast and clear website.",
+          "includes": [
+            "Essential pages: home, services, about, contact",
+            "Design built on your brand",
+            "Mobile optimization",
+            "Basic SEO",
+            "WhatsApp, call and contact form",
+            "GDPR and consumer-protection (ANPC) pages"
+          ]
+        },
+        {
+          "num": "02",
+          "name": "Complex / custom website",
+          "price": "on request",
+          "priceMeta": "custom quote",
+          "for": "projects with many pages, local SEO across several areas, multiple languages, e-commerce, calculators or configurators, integrations."
+        }
+      ]
+    },
+    "terms": {
+      "title": "How the final price is set",
+      "intro": "The prices above are starting points. We set the exact package individually, in your quote, based on volume, platforms and functionality. No surprises: you get an itemized quote before we start.",
+      "items": [
+        "<strong>Payment:</strong> 50% upfront on signing the contract, 50% on completion. For subscriptions, billed monthly in advance.",
+        "<strong>Installments:</strong> available for web projects (we discuss at the quote stage).",
+        "<strong>Discounts:</strong> up to 10% for annual prepayment, up to 15% on a 12-month contract. That's it — we don't work on big discounts that devalue the work.",
+        "<strong>Full audit:</strong> €150, delivered in 48h (video + written report). Fully deducted from your first invoice if we work together.",
+        "<strong>No VAT:</strong> Prices are final — Green Pheonix Concept is not VAT-registered."
+      ]
+    },
+    "addons": {
+      "title": "Add-on services",
+      "items": [
+        {
+          "name": "Audit of an existing site/account",
+          "price": "€150",
+          "desc": "delivered in 48h. A concrete report on what you're losing now and what needs to change. Fully deducted from your first invoice if we work together."
+        },
+        {
+          "name": "Extra landing page",
+          "price": "from €300",
+          "desc": "delivered in 1-2 days. A new page on your existing site, for a campaign or launch."
+        },
+        {
+          "name": "On-demand changes/development",
+          "price": "on request",
+          "desc": "billed on actual work. We don't charge a fixed maintenance subscription — a well-built site doesn't break on its own. You pay for what you get."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Not sure what fits you?",
+      "body": "Book a free 30-minute discovery call. You leave with a concrete plan and an honest recommendation, whether we work together or not.",
+      "button": "Book a discovery call"
+    }
   },
   "footer": {
     "tagline": "Performance marketing without the fluff.",
@@ -1230,7 +1373,6 @@
     "section3": {
       "title": "How I work",
       "p1": "You work directly with me. There's no intermediary account manager handing you off to a developer. You talk to me — I execute.",
-      "p2": "I work with a small number of clients, not a portfolio of 30. I'd rather have 4-6 serious clients handled with care than 30 handled superficially.",
       "p3": "We communicate on your preferred channel — Slack, WhatsApp, email. I reply within 24 working hours. For real emergencies (a campaign down, a site crashed), I reply faster.",
       "p4": "I work in three languages: Romanian, Italian, English. That opens up opportunities for clients who want to reach the Romanian diaspora in Italy or the UK."
     },
@@ -1310,8 +1452,8 @@
       {
         "num": "02",
         "heading": "We analyze what is there, we do not assume",
-        "duration": "3-5 days",
-        "cost": "Free if we work together afterwards",
+        "duration": "48h",
+        "cost": "€150, fully deducted from your first invoice if we work together",
         "body": "Before any proposal, we look carefully at your entire digital ecosystem. We assume NOTHING. We analyze: Website (performance, UX, SEO, conversion), existing ad accounts (campaigns, audiences, creative, tracking), organic presence (social media, Google My Business, reviews), direct competition (3-5 competitors), tracking (pixels, conversions, attribution).",
         "deliverTitle": "What you get",
         "deliver": [

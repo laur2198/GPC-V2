@@ -47,6 +47,8 @@ const industries = Array.from(new Set(all.map((cs) => cs.data.industry))).sort()
       ) : (
         <div id="cs-grid" class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {all.map((cs) => {
+            const d = cs.data;
+            const heroMetric = d.heroMetric ?? (d.results[0] ? { value: d.results[0].value, label: d.results[0].metric } : undefined);
             const r = cs.data.results;
             const kpis: [{ label: string; value: string }, { label: string; value: string }, { label: string; value: string }] = [
               r[0] ? { label: r[0].metric, value: r[0].value } : { label: 'Durata', value: cs.data.duration },
@@ -57,7 +59,16 @@ const industries = Array.from(new Set(all.map((cs) => cs.data.industry))).sort()
             const summary = cs.data.anonymized ? `${cs.data.industry} · ${meta}` : `${cs.data.client} · ${meta}`;
             return (
               <div data-industry={cs.data.industry}>
-                <CaseStudyCard title={cs.data.title} industry={cs.data.industry} image={cs.data.heroImage} summary={summary} link={localizedPath(locale, `/portofoliu/${cs.slug.replace(/-(en|it)$/, '')}`)} kpis={kpis} />
+                <CaseStudyCard
+                  title={d.title}
+                  industry={d.industry}
+                  image={d.images?.hero ?? d.heroImage}
+                  imageAlt={d.imageAlt}
+                  summary={summary}
+                  link={localizedPath(locale, `/portofoliu/${cs.slug.replace(/-(en|it)$/, '')}`)}
+                  heroMetric={heroMetric}
+                  kpis={kpis}
+                />
               </div>
             );
           })}
@@ -68,8 +79,8 @@ const industries = Array.from(new Set(all.map((cs) => cs.data.industry))).sort()
 
   <CTA
     heading="Vuoi essere il prossimo case study?"
-    subtext="Prenota un audit gratuito e scopriamo se possiamo portare risultati simili nel tuo settore."
-    buttonText="Prenota audit"
+    subtext="Prenota una discovery call gratuita di 30 minuti e scopriamo se possiamo portare risultati simili nel tuo settore."
+    buttonText="Prenota una discovery call"
     buttonLink={localizedPath(locale, '/contact')}
   />
 </BaseLayout>

@@ -19,7 +19,7 @@ secondaryMetrics:
     label: "pagini de servicii dedicate"
     context: "Tractări Sibiu, tractări în țară, utilaje, internațional, asistență"
   - value: "1 tap"
-    label: "de la orice pagină la telefon sau WhatsApp"
+    label: "de la orice pagină la telefon"
     context: "Pentru urgențe, viteza contează mai mult decât formularul"
   - value: "0"
     label: "plugin-uri de actualizat"
@@ -48,7 +48,7 @@ imageMeta:
 
 ## Contextul
 
-BYG este o firmă de tractări și transport auto din Sibiu. Face tractări non-stop în Sibiu și împrejurimi, transport pe platformă în toată țara, transport de utilaje și autoutilitare și aduce în România mașini cumpărate din opt țări ale Uniunii Europene, de la ușa vânzătorului. Lucrează și cu dealeri și flote.
+BYG este o firmă de tractări și transport auto din Sibiu. Face tractări non-stop în Sibiu și împrejurimi, transport pe platformă în toată țara, transport de utilaje și autoutilitare și aduce în România mașini cumpărate din opt țări ale Uniunii Europene, de la ușa vânzătorului, și transportă mașini și în sens invers, din România spre UE. Lucrează și cu dealeri și flote.
 
 BYG a pornit ca activitate separată de firma de transport marfă din același grup, deci avea nevoie de propriul brand online, de la zero: domeniu, site și prezență în căutări.
 
@@ -75,7 +75,7 @@ Am pornit de la cum caută oamenii serviciile acestea în România, atât pentru
 
 ### Conversie pe canalul potrivit
 
-Pentru urgențe: telefon și WhatsApp, la un tap, pe fiecare pagină. Pentru transportul internațional: un formular de ofertă cu țara de preluare, orașele și starea mașinii, astfel încât cererea ajunge completă din primul mesaj.
+Pentru urgențe: telefonul e la un tap pe fiecare pagină, iar WhatsApp apare lângă formular și la finalul paginilor. Pentru transportul internațional: un formular de ofertă cu țara de preluare, orașele și starea mașinii, astfel încât cererea ajunge completă din primul mesaj.
 
 ### Tehnic
 

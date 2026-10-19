@@ -20,7 +20,7 @@ secondaryMetrics:
     label: "dedicated service pages"
     context: "Sibiu towing, nationwide towing, machinery, international, roadside assistance"
   - value: "1 tap"
-    label: "from any page to phone or WhatsApp"
+    label: "from any page to the phone"
     context: "In an emergency, speed matters more than a form"
   - value: "0"
     label: "plugins to update"
@@ -49,7 +49,7 @@ imageMeta:
 
 ## Context
 
-BYG is a towing and vehicle transport company in Sibiu, Romania. It provides 24/7 towing in and around Sibiu, flatbed transport nationwide, transport of machinery and utility vehicles, and brings cars bought in eight EU countries to Romania, straight from the seller's door. It also works with dealers and fleets.
+BYG is a towing and vehicle transport company in Sibiu, Romania. It provides 24/7 towing in and around Sibiu, flatbed transport nationwide, transport of machinery and utility vehicles, and brings cars bought in eight EU countries to Romania, straight from the seller's door, and also moves cars the other way, from Romania to the EU. It also works with dealers and fleets.
 
 BYG started as an activity separate from the group's freight company, so it needed its own online brand from scratch: domain, website and search presence.
 
@@ -76,7 +76,7 @@ We started from how people in Romania search for these services, both for emerge
 
 ### Conversion on the right channel
 
-For emergencies: phone and WhatsApp, one tap away on every page. For international transport: a quote form with pickup country, cities and vehicle condition, so the request arrives complete in the first message.
+For emergencies: the phone is one tap away on every page, and WhatsApp sits next to the quote form and at the end of each page. For international transport: a quote form with pickup country, cities and vehicle condition, so the request arrives complete in the first message.
 
 ### Technical
 

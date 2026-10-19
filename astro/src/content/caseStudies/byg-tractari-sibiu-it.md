@@ -20,7 +20,7 @@ secondaryMetrics:
     label: "pagine di servizio dedicate"
     context: "Soccorso Sibiu, soccorso nazionale, macchinari, internazionale, assistenza"
   - value: "1 tap"
-    label: "da ogni pagina a telefono o WhatsApp"
+    label: "da ogni pagina al telefono"
     context: "In emergenza conta la velocità, non il modulo"
   - value: "0"
     label: "plugin da aggiornare"
@@ -49,7 +49,7 @@ imageMeta:
 
 ## Il contesto
 
-BYG è un'azienda di soccorso stradale e trasporto auto con sede a Sibiu, in Romania. Offre soccorso stradale 24 ore su 24 a Sibiu e dintorni, trasporto su bisarca in tutto il Paese, trasporto di macchinari e veicoli commerciali e porta in Romania le auto acquistate in otto Paesi dell'Unione Europea, direttamente dalla porta del venditore. Lavora anche con concessionari e flotte.
+BYG è un'azienda di soccorso stradale e trasporto auto con sede a Sibiu, in Romania. Offre soccorso stradale 24 ore su 24 a Sibiu e dintorni, trasporto su bisarca in tutto il Paese, trasporto di macchinari e veicoli commerciali e porta in Romania le auto acquistate in otto Paesi dell'Unione Europea, direttamente dalla porta del venditore, e trasporta auto anche nella direzione opposta, dalla Romania verso l'UE. Lavora anche con concessionari e flotte.
 
 BYG è nata come attività separata dall'azienda di trasporto merci dello stesso gruppo, quindi aveva bisogno di un proprio brand online, da zero: dominio, sito e presenza nelle ricerche.
 
@@ -76,7 +76,7 @@ Siamo partiti da come le persone in Romania cercano questi servizi, sia per le e
 
 ### Conversione sul canale giusto
 
-Per le emergenze: telefono e WhatsApp, a un tap, su ogni pagina. Per il trasporto internazionale: un modulo di preventivo con Paese di ritiro, città e condizioni del veicolo, così la richiesta arriva completa già dal primo messaggio.
+Per le emergenze: il telefono è a un tap su ogni pagina, mentre WhatsApp è accanto al modulo di preventivo e alla fine di ogni pagina. Per il trasporto internazionale: un modulo di preventivo con Paese di ritiro, città e condizioni del veicolo, così la richiesta arriva completa già dal primo messaggio.
 
 ### Aspetti tecnici
 

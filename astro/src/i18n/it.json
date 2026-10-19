@@ -7,7 +7,8 @@
     "blog": "Blog",
     "about": "Chi siamo",
     "contact": "Contatti",
-    "services": "Servizi"
+    "services": "Servizi",
+    "prices": "Prezzi"
   },
   "hero": {
     "eyebrow": {
@@ -1176,6 +1177,140 @@
     "heading": "Pronto a crescere insieme?",
     "subtext": "Prenota un audit gratuito di 30 minuti. Esci con un piano concreto, anche se non lavoriamo insieme.",
     "buttonText": "Prenota audit"
+  },
+  "pricing": {
+    "meta": {
+      "title": "Prezzi social media, annunci e siti | Green Pheonix Concept",
+      "description": "Prezzi di partenza: social media da 250 €/mese, social media + Meta Ads da 500 €/mese, sito vetrina da 500 €. Prezzi finali, senza IVA."
+    },
+    "breadcrumb": "Prezzi",
+    "hero": {
+      "eyebrow": "INVESTIMENTO",
+      "h1": "Prezzi chiari. Nessuna sorpresa alla fine.",
+      "subtitle": "I prezzi qui sotto sono di partenza. Il pacchetto esatto lo definiamo individualmente, nell'offerta, dopo aver capito cosa vende e dove vuole arrivare. I prezzi sono finali: non siamo soggetti a IVA.",
+      "microcopy": [
+        "Prezzi finali, senza IVA",
+        "Pagamento a rate per i siti",
+        "Offerta chiara prima di iniziare"
+      ]
+    },
+    "forLabel": "Per",
+    "includesLabel": "Di solito include",
+    "volumeNote": "Il volume esatto (numero di post, pagine, piattaforme) si definisce individualmente, nell'offerta.",
+    "marketing": {
+      "eyebrow": "MARKETING — ABBONAMENTO MENSILE",
+      "title": "Social media e annunci, gestiti ogni mese",
+      "intro": "Una presenza costante su Facebook e Instagram, con o senza campagne Meta Ads. Paga mensilmente, in anticipo; il budget pubblicitario va direttamente a Meta, separato dall'abbonamento.",
+      "priceModelLabel": "abbonamento mensile",
+      "cards": [
+        {
+          "num": "01",
+          "name": "Social Media Management",
+          "price": "da 250 €/mese",
+          "minPrice": 250,
+          "priceMeta": "abbonamento mensile",
+          "for": "attività che vogliono una presenza costante e curata su Facebook e Instagram.",
+          "includes": [
+            "Strategia dei contenuti",
+            "Copywriting e design",
+            "Post e reel dai Suoi materiali",
+            "Programmazione",
+            "Report mensile"
+          ]
+        },
+        {
+          "num": "02",
+          "name": "Social Media + Annunci",
+          "price": "da 500 €/mese",
+          "minPrice": 500,
+          "priceMeta": "abbonamento mensile",
+          "for": "attività che vogliono anche lead o vendite, non solo presenza.",
+          "includes": [
+            "Tutto di Social Media Management",
+            "Setup pixel e conversioni Meta",
+            "Campagne Meta Ads",
+            "Ottimizzazione settimanale",
+            "Report mensile (social + annunci)"
+          ],
+          "note": "Il budget pubblicitario si paga a parte, direttamente a Meta."
+        },
+        {
+          "num": "03",
+          "name": "Personalizzato",
+          "price": "su richiesta",
+          "priceMeta": "offerta personalizzata",
+          "for": "progetti che richiedono di più: riprese e produzione video, Google o TikTok Ads, funnel, più piattaforme."
+        }
+      ]
+    },
+    "web": {
+      "eyebrow": "SITI — PAGAMENTO UNICO",
+      "title": "Siti che vendono, non solo belli da vedere",
+      "intro": "Un sito non è un costo, è uno strumento di vendita. Costruiti su stack moderno (Astro / WordPress / Shopify), ottimizzati per velocità, mobile e conversione.",
+      "priceModelLabel": "pagamento unico",
+      "cards": [
+        {
+          "num": "01",
+          "name": "Sito vetrina",
+          "price": "da 500 €",
+          "minPrice": 500,
+          "priceMeta": "pagamento unico",
+          "for": "attività che hanno bisogno di un sito professionale, veloce e chiaro.",
+          "includes": [
+            "Pagine essenziali: home, servizi, chi siamo, contatti",
+            "Design sul Suo brand",
+            "Ottimizzazione mobile",
+            "SEO di base",
+            "WhatsApp, chiamata e modulo",
+            "Pagine GDPR e ANPC (tutela dei consumatori)"
+          ]
+        },
+        {
+          "num": "02",
+          "name": "Sito complesso / custom",
+          "price": "su richiesta",
+          "priceMeta": "offerta personalizzata",
+          "for": "progetti con molte pagine, SEO locale su più zone, multilingua, e-commerce, calcolatori o configuratori, integrazioni."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Come si stabilisce il prezzo finale",
+      "intro": "I prezzi qui sopra sono di partenza. Il pacchetto esatto lo definiamo individualmente, nell'offerta, in base a volume, piattaforme e funzionalità. Nessuna sorpresa: riceve un preventivo dettagliato prima di iniziare.",
+      "items": [
+        "<strong>Pagamento:</strong> 50% di anticipo alla firma del contratto, 50% alla consegna. Per gli abbonamenti, mensile in anticipo.",
+        "<strong>Rate:</strong> disponibili per i progetti web (ne parliamo in fase di preventivo).",
+        "<strong>Sconti:</strong> fino al 10% per pagamento annuale anticipato, fino al 15% su contratto di 12 mesi. Tutto qui — non lavoriamo su sconti elevati che svalutano il lavoro.",
+        "<strong>Audit completo a pagamento:</strong> 150 €, consegna in 48h (report video + scritto). Interamente scalato dalla prima fattura se lavoriamo insieme dopo.",
+        "<strong>Senza IVA:</strong> I prezzi sono finali — Green Pheonix Concept non è soggetta a IVA."
+      ]
+    },
+    "addons": {
+      "title": "Servizi aggiuntivi",
+      "items": [
+        {
+          "name": "Audit di un sito/account esistente",
+          "price": "150 €",
+          "desc": "consegna in 48h. Un report concreto su cosa sta perdendo ora e cosa va cambiato. Creditabile se lavoriamo insieme dopo."
+        },
+        {
+          "name": "Landing page extra",
+          "price": "da 300 €",
+          "desc": "consegna in 1-2 giorni. Una nuova pagina sul Suo sito esistente, per una campagna o un lancio."
+        },
+        {
+          "name": "Modifiche/sviluppo su richiesta",
+          "price": "su richiesta",
+          "desc": "fatturati sul lavoro effettivo. Non applichiamo un abbonamento fisso di manutenzione — un sito ben costruito non si rompe da solo. Paga ciò che riceve."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Non è sicuro di cosa fa per Lei?",
+      "body": "Prenoti una discovery call gratuita di 30 minuti. Esce con un piano concreto e una raccomandazione onesta, che lavoriamo insieme o no.",
+      "scarcity": "Accettiamo solo 2-3 nuovi progetti al mese.",
+      "button": "Prenoti una discovery call"
+    }
   },
   "footer": {
     "tagline": "Performance marketing senza fronzoli.",

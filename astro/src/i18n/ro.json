@@ -7,7 +7,8 @@
     "blog": "Blog",
     "about": "Despre",
     "contact": "Contact",
-    "services": "Servicii"
+    "services": "Servicii",
+    "prices": "Prețuri"
   },
   "hero": {
     "eyebrow": {
@@ -1176,6 +1177,140 @@
     "heading": "Pregătit să creștem împreună?",
     "subtext": "Programează un audit gratuit de 30 de minute. Iei un plan concret, indiferent dacă lucrăm sau nu împreună.",
     "buttonText": "Programează audit"
+  },
+  "pricing": {
+    "meta": {
+      "title": "Prețuri social media, reclame și site-uri | Green Pheonix Concept",
+      "description": "Prețuri de pornire: social media de la 250 €/lună, social media + reclame Meta de la 500 €/lună, site de prezentare de la 500 €. Prețuri finale, fără TVA."
+    },
+    "breadcrumb": "Prețuri",
+    "hero": {
+      "eyebrow": "INVESTIȚIE",
+      "h1": "Prețuri clare. Fără surprize la final.",
+      "subtitle": "Prețurile de mai jos sunt de pornire, cu „de la”. Pachetul exact îl stabilim individual, în ofertă, după ce înțelegem ce vinzi și unde vrei să ajungi. Prețurile sunt finale: nu suntem plătitori de TVA.",
+      "microcopy": [
+        "Prețuri finale, fără TVA",
+        "Plată în rate pentru site-uri",
+        "Ofertă clară înainte să începem"
+      ]
+    },
+    "forLabel": "Pentru",
+    "includesLabel": "Include, de regulă",
+    "volumeNote": "Volumul exact (număr de postări, pagini, platforme) se stabilește individual, în ofertă.",
+    "marketing": {
+      "eyebrow": "MARKETING — ABONAMENT LUNAR",
+      "title": "Social media și reclame, gestionate lunar",
+      "intro": "Prezență constantă pe Facebook și Instagram, cu sau fără campanii Meta Ads. Plătești lunar, în avans; bugetul de reclame merge direct la Meta, separat de abonament.",
+      "priceModelLabel": "abonament lunar",
+      "cards": [
+        {
+          "num": "01",
+          "name": "Social Media Management",
+          "price": "de la 250 €/lună",
+          "minPrice": 250,
+          "priceMeta": "abonament lunar",
+          "for": "afaceri care vor o prezență constantă și îngrijită pe Facebook și Instagram.",
+          "includes": [
+            "Strategie de conținut",
+            "Copywriting și design",
+            "Postări și reels din materialele tale",
+            "Programare",
+            "Raport lunar"
+          ]
+        },
+        {
+          "num": "02",
+          "name": "Social Media + Reclame",
+          "price": "de la 500 €/lună",
+          "minPrice": 500,
+          "priceMeta": "abonament lunar",
+          "for": "afaceri care vor și lead-uri sau vânzări, nu doar prezență.",
+          "includes": [
+            "Tot din Social Media Management",
+            "Setup pixel și conversii Meta",
+            "Campanii Meta Ads",
+            "Optimizare săptămânală",
+            "Raport lunar (social + reclame)"
+          ],
+          "note": "Bugetul de reclame se plătește separat, direct către Meta."
+        },
+        {
+          "num": "03",
+          "name": "Personalizat",
+          "price": "la cerere",
+          "priceMeta": "ofertă personalizată",
+          "for": "proiecte care au nevoie de mai mult: filmări și producție video, Google sau TikTok Ads, funnel-uri, mai multe platforme."
+        }
+      ]
+    },
+    "web": {
+      "eyebrow": "SITE-URI — PLATĂ UNICĂ",
+      "title": "Site-uri care vând, nu doar arată bine",
+      "intro": "Un site nu e un cost, e un instrument de vânzare. Construite pe stack modern (Astro / WordPress / Shopify), optimizate pentru viteză, mobil și conversie.",
+      "priceModelLabel": "plată unică",
+      "cards": [
+        {
+          "num": "01",
+          "name": "Site de prezentare",
+          "price": "de la 500 €",
+          "minPrice": 500,
+          "priceMeta": "plată unică",
+          "for": "afaceri care au nevoie de un site profesionist, rapid și clar.",
+          "includes": [
+            "Pagini esențiale: acasă, servicii, despre, contact",
+            "Design pe brandul tău",
+            "Optimizare pentru mobil",
+            "SEO de bază",
+            "WhatsApp, apel și formular",
+            "Pagini GDPR și ANPC"
+          ]
+        },
+        {
+          "num": "02",
+          "name": "Site complex / custom",
+          "price": "la cerere",
+          "priceMeta": "ofertă personalizată",
+          "for": "proiecte cu multe pagini, SEO local pe mai multe zone, multilingv, e-commerce, calculatoare sau configuratoare, integrări."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Cum se stabilește prețul final",
+      "intro": "Prețurile de mai sus sunt de pornire. Pachetul exact îl stabilim individual, în ofertă, în funcție de volum, platforme și funcționalități. Fără surprize: primești o ofertă pe linii clare înainte să începem.",
+      "items": [
+        "<strong>Plată:</strong> 50% avans la semnarea contractului, 50% la final. Pentru abonamente, lunar în avans.",
+        "<strong>Rate:</strong> disponibile pentru proiectele web (discutăm la ofertă).",
+        "<strong>Reduceri:</strong> până la 10% la plată anuală anticipată, până la 15% la contract pe 12 luni. Atât — nu lucrăm pe discounturi mari care devalorizează munca.",
+        "<strong>Audit complet plătit:</strong> 150 €, livrare 48h (raport video + scris). Se scade integral din prima factură dacă lucrăm împreună după.",
+        "<strong>Fără TVA:</strong> prețurile sunt finale — Green Pheonix Concept nu este plătitor de TVA."
+      ]
+    },
+    "addons": {
+      "title": "Servicii adiționale",
+      "items": [
+        {
+          "name": "Audit site/cont existent",
+          "price": "150 €",
+          "desc": "livrare 48h. Raport concret cu ce pierzi acum și ce trebuie schimbat. Creditabil dacă lucrăm după."
+        },
+        {
+          "name": "Landing page extra",
+          "price": "de la 300 €",
+          "desc": "livrare 1-2 zile. O pagină nouă pe site-ul existent, pentru o campanie sau lansare."
+        },
+        {
+          "name": "Modificări/dezvoltare la cerere",
+          "price": "la cerere",
+          "desc": "tarifate pe munca efectivă. Nu percepem abonament fix de mentenanță — un site bine construit nu se strică singur. Plătești ce primești."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Nu ești sigur ce ți se potrivește?",
+      "body": "Programează un discovery call gratuit de 30 de minute. Iei un plan concret și o recomandare onestă, indiferent dacă lucrăm sau nu împreună.",
+      "scarcity": "Acceptăm doar 2-3 proiecte noi pe lună.",
+      "button": "Programează discovery call"
+    }
   },
   "footer": {
     "tagline": "Performance marketing fără promisiuni goale.",

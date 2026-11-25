@@ -16,7 +16,7 @@ export const privacy: LegalDocData = {
   title: 'Privacy Policy',
   subtitle:
     'How we collect, use and protect your data, in accordance with Regulation (EU) 2016/679 (GDPR).',
-  lastUpdated: '2026-06-02',
+  lastUpdated: '2026-11-25',
   disclaimer: DISCLAIMER,
   breadcrumb: 'Privacy Policy',
   sections: [
@@ -94,6 +94,7 @@ export const privacy: LegalDocData = {
           ['Marketing cookies (Meta, TikTok)', '90 days'],
           ['Invoicing data', '10 years (tax obligation)'],
           ['Email communications', 'Duration of the relationship + 3 years'],
+          ['Cookie consent log (no IP)', '3 years'],
         ] },
       ],
     },
@@ -307,7 +308,7 @@ export const cookies: LegalDocData = {
     'What cookies we use on greenpheonixconcept.com: necessary, analytics (GA4, Clarity) and marketing (Meta, TikTok), duration, legal basis and how to manage them.',
   title: 'Cookie Policy',
   subtitle: 'What cookies we use, why, and how you can control them.',
-  lastUpdated: '2026-06-02',
+  lastUpdated: '2026-11-25',
   disclaimer: DISCLAIMER,
   breadcrumb: 'Cookie Policy',
   sections: [
@@ -323,7 +324,8 @@ export const cookies: LegalDocData = {
         { type: 'h3', text: 'A. Necessary cookies (always active)' },
         { type: 'ul', items: [
           'Language preference cookie (ro/en/it).',
-          'Consent cookie (gpc_cookie_consent).',
+          'Your cookie choice (gpc_cookie_consent, localStorage).',
+          'Random consent identifier (gpc_consent_id, localStorage) — sent with every choice to our consent log so we can prove what you chose and when (Romanian Law 506/2004, art. 4). The log holds the ID, your choice, date and time, banner and policy version, page, language and country — no IP address. Retention: 3 years.',
           'Security tokens for forms.',
         ] },
         { type: 'p', html: 'Duration: session or up to 12 months. Basis: Art. 6(1)(f) GDPR — legitimate interest (website operation).' },
@@ -346,7 +348,7 @@ export const cookies: LegalDocData = {
       blocks: [
         { type: 'ul', items: [
           'The consent banner on your first visit (granular).',
-          'The "Cookie settings" button in the footer reopens the banner.',
+          'The "Cookie settings" button in the footer reopens the banner. Withdrawing is as easy as giving consent: untick the category and save, and that category’s cookies are deleted automatically.',
           'Browser settings — blocking third-party cookies.',
           'Specific opt-out plugins (links in section 2).',
         ] },

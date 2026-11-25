@@ -8,7 +8,15 @@
  * GDPR cookie banner — sticky bottom, 3 buttons (Accept all /
  * Essentials only / Customize), preference stored in localStorage
  * under "gpc_cookie_consent" with shape:
- *   { version: 1, granted: { analytics: bool, marketing: bool }, ts: number }
+ *   { version: 2, granted: { analytics: bool, marketing: bool }, ts: number }
+ *
+ * Legea nr. 219/2026 (art. 4 din Legea 506/2004):
+ * - "Acceptă tot" și "Doar necesare" au EXACT același stil (refuz la fel de vizibil).
+ * - Fiecare alegere se trimite în jurnalul de consimțământ (/api/consent, Pages Function)
+ *   cu un ID aleator de browser (localStorage "gpc_consent_id"); ora o pune serverul.
+ * - Retragerea unei categorii acordate anterior șterge cookie-urile ei și reîncarcă pagina,
+ *   ca scripturile deja încărcate să nu mai ruleze.
+ * - Orice schimbare de text/butoane → crește CURRENT_VERSION (re-cere consimțământul).
  *
  * On accept-all, adds `consent-given` class to <html> so any future
  * analytics scripts gated on `html.consent-given` can fire.
@@ -34,6 +42,11 @@ interface Strings {
   categories: { essential: string; analytics: string; marketing: string };
 }
 const c = t<Strings>(locale, 'cookies');
+// Versiunea politicii de cookies pentru limba curentă (intră în jurnalul de consimțământ).
+import { cookies as cookiesRo } from '../data/legal/legal.ro';
+import { cookies as cookiesEn } from '../data/legal/legal.en';
+import { cookies as cookiesIt } from '../data/legal/legal.it';
+const policyVersion = { ro: cookiesRo, en: cookiesEn, it: cookiesIt }[locale].lastUpdated;
 // Straight to the canonical URL: a consent link should not bounce through a redirect.
 const policyHref = LEGAL_PATHS.cookies[locale];
 ---
@@ -41,6 +54,7 @@ const policyHref = LEGAL_PATHS.cookies[locale];
 <aside
   id="cookie-consent"
   data-locale={locale}
+  data-policy-version={policyVersion}
   hidden
   aria-label="Cookie consent"
   class="fixed inset-x-0 bottom-0 z-[60] border-t border-gpc-border bg-gpc-white shadow-[0_-8px_24px_rgba(0,0,0,0.08)]"
@@ -84,7 +98,7 @@ const policyHref = LEGAL_PATHS.cookies[locale];
       <button
         type="button"
         data-cookie-action="essential-only"
-        class="border border-gpc-border/40 min-h-[44px] px-4 py-3 font-mono text-xs uppercase tracking-widest text-gpc-ink transition-colors hover:border-gpc-green hover:text-gpc-green"
+        class="min-h-[44px] bg-gpc-green px-5 py-3 font-mono text-xs uppercase tracking-widest text-white transition-colors hover:bg-gpc-green-dark"
       >
         {c.essentialOnly}
       </button>
@@ -109,7 +123,13 @@ const policyHref = LEGAL_PATHS.cookies[locale];
 
 <script>
   const STORAGE_KEY = 'gpc_cookie_consent';
-  const CURRENT_VERSION = 1;
+  const CURRENT_VERSION = 2;
+  const ID_KEY = 'gpc_consent_id';
+  const BANNER_VERSION = '2026-11-25';
+  const CATEGORY_COOKIES: Record<'analytics' | 'marketing', RegExp> = {
+    analytics: /^(_ga(_.*)?|_gid|_clck|_clsk|CLID|ANONCHK|SM|MR|MUID)$/,
+    marketing: /^(_fbp|_fbc|_ttp|_tt_enable_cookie|ttcsid.*)$/,
+  };
   const banner = document.getElementById('cookie-consent');
   if (banner) {
     const customize = banner.querySelector<HTMLDivElement>('#cookie-customize');
@@ -146,12 +166,61 @@ const policyHref = LEGAL_PATHS.cookies[locale];
       );
     }
 
+    function consentId(): string {
+      try {
+        const existing = localStorage.getItem(ID_KEY);
+        if (existing) return existing;
+        const id = crypto.randomUUID();
+        localStorage.setItem(ID_KEY, id);
+        return id;
+      } catch {
+        return crypto.randomUUID();
+      }
+    }
+
+    function logChoice(granted: Granted) {
+      const payload = JSON.stringify({
+        id: consentId(),
+        choice: granted,
+        bannerVersion: BANNER_VERSION,
+        policyVersion: banner?.dataset.policyVersion ?? 'unknown',
+        path: location.pathname,
+        locale: banner?.dataset.locale,
+      });
+      try {
+        if (navigator.sendBeacon?.('/api/consent', new Blob([payload], { type: 'application/json' }))) return;
+      } catch {
+        /* cade pe fetch */
+      }
+      fetch('/api/consent', { method: 'POST', body: payload, headers: { 'Content-Type': 'application/json' }, keepalive: true }).catch(() => {});
+    }
+
+    function clearCookies(re: RegExp) {
+      const parts = location.hostname.split('.');
+      for (const raw of document.cookie.split(';')) {
+        const name = raw.split('=')[0].trim();
+        if (!re.test(name)) continue;
+        const expire = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`;
+        document.cookie = expire;
+        for (let i = 0; i < parts.length - 1; i++) document.cookie = `${expire}; domain=.${parts.slice(i).join('.')}`;
+      }
+    }
+
     function persist(granted: Granted) {
+      const prev = readConsent();
       const value: Consent = { version: CURRENT_VERSION, granted, ts: Date.now() };
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(value));
       } catch {
         /* storage might be disabled — banner just won't persist */
+      }
+      logChoice(granted);
+      const revoked = (['analytics', 'marketing'] as const).filter((k) => prev?.granted[k] && !granted[k]);
+      if (revoked.length) {
+        // Retragere: scripturile deja încărcate nu se pot descărca → ștergem cookie-urile și reîncărcăm.
+        revoked.forEach((k) => clearCookies(CATEGORY_COOKIES[k]));
+        setTimeout(() => location.reload(), 300);
+        return;
       }
       applyConsent(granted);
       hide();
@@ -167,7 +236,13 @@ const policyHref = LEGAL_PATHS.cookies[locale];
     const existing = readConsent();
     if (existing) {
       applyConsent(existing.granted);
+      // Categoriile refuzate nu au voie să lase cookie-uri în urmă (ex. după schimbarea versiunii).
+      (['analytics', 'marketing'] as const).forEach((k) => {
+        if (!existing.granted[k]) clearCookies(CATEGORY_COOKIES[k]);
+      });
     } else {
+      clearCookies(CATEGORY_COOKIES.analytics);
+      clearCookies(CATEGORY_COOKIES.marketing);
       show();
     }
 

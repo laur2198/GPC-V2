@@ -1335,7 +1335,7 @@
     "categories": {
       "essential": "Essenziali (sempre attivi)",
       "analytics": "Analytics (GA4, Clarity)",
-      "marketing": "Marketing (Meta Pixel)"
+      "marketing": "Marketing (Meta Pixel, TikTok Pixel)"
     }
   },
   "about": {

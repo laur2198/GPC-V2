@@ -16,7 +16,7 @@ export const privacy: LegalDocData = {
   title: 'Informativa sulla Privacy',
   subtitle:
     'Come raccogliamo, utilizziamo e proteggiamo i tuoi dati, ai sensi del Regolamento (UE) 2016/679 (GDPR).',
-  lastUpdated: '2026-06-02',
+  lastUpdated: '2026-11-25',
   disclaimer: DISCLAIMER,
   breadcrumb: 'Informativa sulla Privacy',
   sections: [
@@ -94,6 +94,7 @@ export const privacy: LegalDocData = {
           ['Cookie di marketing (Meta, TikTok)', '90 giorni'],
           ['Dati di fatturazione', '10 anni (obbligo fiscale)'],
           ['Comunicazioni email', 'Durata del rapporto + 3 anni'],
+          ['Registro dei consensi cookie (senza IP)', '3 anni'],
         ] },
       ],
     },
@@ -307,7 +308,7 @@ export const cookies: LegalDocData = {
     'Quali cookie utilizziamo su greenpheonixconcept.com: necessari, analitici (GA4, Clarity) e di marketing (Meta, TikTok), durata, base giuridica e come gestirli.',
   title: 'Politica sui Cookie',
   subtitle: 'Quali cookie utilizziamo, perché e come puoi controllarli.',
-  lastUpdated: '2026-06-02',
+  lastUpdated: '2026-11-25',
   disclaimer: DISCLAIMER,
   breadcrumb: 'Politica sui Cookie',
   sections: [
@@ -323,7 +324,8 @@ export const cookies: LegalDocData = {
         { type: 'h3', text: 'A. Cookie necessari (sempre attivi)' },
         { type: 'ul', items: [
           'Cookie di preferenza della lingua (ro/en/it).',
-          'Cookie di consenso (gpc_cookie_consent).',
+          'La tua scelta sui cookie (gpc_cookie_consent, localStorage).',
+          'Identificativo casuale di consenso (gpc_consent_id, localStorage) — inviato con ogni scelta al nostro registro dei consensi, per poter dimostrare cosa hai scelto e quando (Legge rumena 506/2004, art. 4). Il registro contiene l’ID, la scelta, data e ora, versione del banner e della policy, pagina, lingua e paese — nessun indirizzo IP. Conservazione: 3 anni.',
           'Token di sicurezza per i moduli.',
         ] },
         { type: 'p', html: 'Durata: sessione o fino a 12 mesi. Base: Art. 6(1)(f) GDPR — legittimo interesse (funzionamento del sito).' },
@@ -346,7 +348,7 @@ export const cookies: LegalDocData = {
       blocks: [
         { type: 'ul', items: [
           'Il banner di consenso alla prima visita (granulare).',
-          'Il pulsante „Impostazioni cookie” nel footer riapre il banner.',
+          'Il pulsante „Impostazioni cookie” nel footer riapre il banner. Revocare è semplice quanto acconsentire: deseleziona la categoria e salva; i cookie di quella categoria vengono eliminati automaticamente.',
           'Le impostazioni del browser — blocco dei cookie di terze parti.',
           'Plugin di opt-out specifici (link nella sezione 2).',
         ] },

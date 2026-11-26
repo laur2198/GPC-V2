@@ -38,7 +38,7 @@ export const privacy: LegalDocData = {
   title: 'Politica de Confidențialitate',
   subtitle:
     'Cum colectăm, folosim și protejăm datele tale, conform Regulamentului (UE) 2016/679 (GDPR).',
-  lastUpdated: '2026-06-02',
+  lastUpdated: '2026-11-25',
   disclaimer: DISCLAIMER,
   breadcrumb: 'Politica de Confidențialitate',
   sections: [
@@ -116,6 +116,7 @@ export const privacy: LegalDocData = {
           ['Cookies marketing (Meta, TikTok)', '90 zile'],
           ['Date facturare', '10 ani (obligație fiscală)'],
           ['Comunicări email', 'Durata relației + 3 ani'],
+          ['Jurnal de consimțământ cookies (fără IP)', '3 ani'],
         ] },
       ],
     },
@@ -329,7 +330,7 @@ export const cookies: LegalDocData = {
     'Ce cookies folosim pe greenpheonixconcept.com: necesare, analitice (GA4, Clarity) și marketing (Meta, TikTok), durată, temei legal și cum le gestionezi.',
   title: 'Politica de Cookies',
   subtitle: 'Ce cookies folosim, de ce, și cum le poți controla.',
-  lastUpdated: '2026-06-02',
+  lastUpdated: '2026-11-25',
   disclaimer: DISCLAIMER,
   breadcrumb: 'Politica de Cookies',
   sections: [
@@ -345,7 +346,8 @@ export const cookies: LegalDocData = {
         { type: 'h3', text: 'A. Cookies necesare (mereu active)' },
         { type: 'ul', items: [
           'Cookie de preferință limbă (ro/en/it).',
-          'Cookie de consimțământ (gpc_cookie_consent).',
+          'Alegerea ta privind cookies (gpc_cookie_consent, localStorage).',
+          'Identificator aleator de consimțământ (gpc_consent_id, localStorage) — trimis împreună cu fiecare alegere în jurnalul de consimțământ, ca să putem dovedi ce ai ales și când (Legea nr. 506/2004, art. 4). Jurnalul conține ID-ul, alegerea, data și ora, versiunea banner-ului și a politicii, pagina, limba și țara — fără adresă IP. Păstrare: 3 ani.',
           'Token-uri de securitate pentru formulare.',
         ] },
         { type: 'p', html: 'Durată: sesiune sau până la 12 luni. Temei: Art. 6(1)(f) GDPR — interes legitim (funcționarea site-ului).' },
@@ -368,7 +370,7 @@ export const cookies: LegalDocData = {
       blocks: [
         { type: 'ul', items: [
           'Banner-ul de consimțământ la prima vizită (granular).',
-          'Butonul „Setări cookies” din footer redeschide banner-ul.',
+          'Butonul „Setări cookies” din footer redeschide banner-ul. Retragerea e la fel de simplă ca acordul: debifezi categoria și salvezi, iar cookies-urile categoriei respective sunt șterse automat.',
           'Setările browser-ului — blocarea cookies third-party.',
           'Plugin-uri de opt-out specifice (link-uri în secțiunea 2).',
         ] },
